@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node build.js"
+    "build": "node build.js",
+    "deploy-gh": "gulp deploy"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,8 @@
     "url": "https://github.com/respoke/docs/issues"
   },
   "devDependencies": {
+    "gulp": "^3.8.10",
+    "gulp-gh-pages": "^0.4.0",
     "metalsmith": "^1.0.1",
     "metalsmith-markdown": "^0.2.1"
   }
