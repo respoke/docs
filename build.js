@@ -1,7 +1,7 @@
 var Metalsmith = require('metalsmith');
 var markdown = require('metalsmith-markdown');
 
-Metalsmith(__dirname + '/content')
+Metalsmith(__dirname)
 .use(markdown({
     smartypants: true,
     gfm: true,
