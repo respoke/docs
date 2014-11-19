@@ -11,15 +11,14 @@ In [Brokered Authentication: Securing Your Application](/tutorials/brokered-auth
 
 To secure your app even further, you can use roles to limit the types of things authenticated users can do.
 
-<br />
 
-### About Roles and Permissions
+
+## About Roles and Permissions
 
 As your Respoke app grows, you may want your users to have permission to perform only specific actions against Respoke. In this section, you will learn how to **create Roles for your users and assign them to an endpoint** when authentication occurs.
 
-<br />
 
-#### Concepts
+### Concepts
 
 **Permissions** live in Respoke and **granularly govern what user may or may not do**, in Respoke.
 
@@ -28,9 +27,9 @@ As your Respoke app grows, you may want your users to have permission to perform
 
 **Roles provide a way to group permissions**. They are created by you via your [dev console](https://portal.respoke.io/) or REST API.
 
-<br />
 
-#### Regarding Dev Mode
+
+### Regarding Dev Mode
 
 It's only a few lines of code to get started developing with Respoke in development mode. If you have successfully logged an endpoint into Respoke and sent a message, you're probably already using development mode. The [Respoke Quickstart Guide](/) details how to place your Respoke app in development mode, connect, and send messages.
 
@@ -44,9 +43,7 @@ The **development mode role** consists of the following permissions:
 <br />
 **It's undesirable to run your app in development mode all the time.** As your app matures, you'll want to use roles to limit what your app can do depending on what type of user is authenticated as an endpoint. If you like, you can keep it simple and use a single role for many endpoints, but at least force users to authenticate to your server before letting them connect to Respoke.
 
-<br />
-
-#### How To Create Custom Roles
+### How To Create Custom Roles
 
 The real power in Roles comes from how you customize them to fit your needs.
 
@@ -86,7 +83,7 @@ Leaving this section blank will result in attempts to perform any of these actio
 
 <br />
 
-#### How To Construct Permissions on a Group
+### How To Construct Permissions on a Group
 
 Group permissions match a group's name against a permissions rule. You can create a rule with the exact name of the group, with a prefix and a wildcard, or with only a wildcard to match all group names. Respoke will take the most specific rule it can find based on the group's name and use that set of permissions.
 
@@ -105,7 +102,7 @@ Respoke uses the longest match paradigm, so for rules like `buddy*`, `buddylist*
 
 <br />
 
-### Create Roles Programmatically with Respoke's REST API
+## Create Roles Programmatically with Respoke's REST API
 
 Eventually, you may need to create roles programmatically. You can do this with [Respoke's REST API](/reference/rest-api.html) using an App Secret or Admin-Token header.
 
@@ -113,7 +110,7 @@ Here's an example of how you could recreate the development mode role as a prope
 
 <pre><code class="xml">POST http://api.respoke.io/v1/roles
 Content-Type: application/json
-App-Secret OR Admin-Token: 28B061B9-A0D4-4E52-A0ED-EB6EA125F82A</code></pre>
+App-Secret <b>OR</b> Admin-Token: 28B061B9-A0D4-4E52-A0ED-EB6EA125F82A</code></pre>
 
 
     {
@@ -141,7 +138,7 @@ Here's how you could recreate the role listed above in the Create Custom Roles s
 
 <pre><code class="xml">POST http://api.respoke.io/v1/roles
 Content-Type: application/json
-App-Secret OR Admin-Token: 28B061B9-A0D4-4E52-A0ED-EB6EA125F82A</code></pre>
+App-Secret <b>OR</b> Admin-Token: 28B061B9-A0D4-4E52-A0ED-EB6EA125F82A</code></pre>
 
     {
         "appId": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
@@ -197,11 +194,58 @@ Content-Type: application/json
 App-Secret: 28B061B9-A0D4-4E52-A0ED-EB6EA125F82A
 </code></pre>
 
-    {
-        "appId": "34A9DDB9-D4AO-52AA-0ADE-EABEA521F2BA",
-        "endpointId": "bobsmith",
-        "roleId": "96070A0D-32B1-4B8C-9353-FE3E6A5E6C1D",
-        "ttl": 86400
-    }
+<pre>
+{
+   "appId": "34A9DDB9-D4AO-52AA-0ADE-EABEA521F2BA",
+   "endpointId": "bobsmith",
+   "roleId": "96070A0D-32B1-4B8C-9353-FE3E6A5E6C1D",
+   "ttl": 86400
+}
+</pre>
 
 Now all API calls made by the app that is authenticated as "bobsmith" will be tested against this role before being authorized.
+
+### PSTN Permissions (Phone calls)
+
+To be able to make phone calls out to the phone network from Respoke, you need to have enabled the `pstnOut` permission.
+
+By default, `pstnOut` is fully disabled unless you specify a pstnOut rule. It is also only available if your application is **not** in Development Mode.
+
+The `pstnOut` permission is just another key within your role and it's a list of strings. Below is an example of allowing a role to call out to any allowed phone number on the PSTN.
+
+<pre><code class="xml">POST http://api.respoke.io/v1/roles
+Content-Type: application/json
+App-Secret <b>OR</b> Admin-Token: 28B061B9-A0D4-4E52-A0ED-EB6EA125F82A
+</code></pre>
+
+<pre>
+{
+   "appId": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+   "name": "allowed-to-phone-out",
+   "mediaRelay": true,
+   "events": {
+       "subscribe": false,
+       "unsubscribe": false,
+   },
+   "groups": {
+       "list": true,
+       "*": {
+           "subscribe": false,
+           "unsubscribe": false,
+           "create": false,
+           "destroy": false,
+           "publish": false,
+           "getsubscribers": false
+       },
+	},
+	<b>pstnOut: ['*']</b>
+}
+</pre>
+
+As PSTN calling is currently in beta there are some restrictions on what you can do within PSTN calling. One of the restrictions is that you cannot phone outside of the United States, what is referred to as US48.
+
+You can either allow your role to call any allowed number as above, or you can limit calls to certain numbers in the `e164` format. The below lets your role call San Jose and San Francisco's Speaking Clocks only.
+
+```
+pstnOut: ['+1408767267', '+14157672676']
+```

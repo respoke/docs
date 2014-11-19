@@ -5,10 +5,7 @@ template: article.jade
 changefreq: weekly
 ---
 
-# Example Apps Built with Respoke
-
-
-### For the browser
+# Example Apps Built with Respoke.js
 
 A collection of examples using jQuery.
 ([source](https://github.com/respoke/web-examples))
@@ -25,7 +22,3 @@ A barebones [video chat](/tutorials/video-chat-example.html) example with Angula
 A space themed [messaging and group chat solution](http://sc.digiumlabs.com),
 with audio and video calling.
 ([source](https://github.com/respoke/subspace-communicator))
-
-### For the server
-
-Coming soon.

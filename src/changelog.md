@@ -1,11 +1,16 @@
 ---
 title: "Changelog"
-date: 2014-08-27
+date: 2014-11-13
 template: article.jade
 changefreq: monthly
 ---
 
 # Changelog
+
+## 2014-11-13
+
+The first version of a **[Node.js administration client](https://github.com/respoke/node-respoke-admin)**
+has been released. It is open source under the MIT license.
 
 ## 2014-09-02
 
@@ -15,6 +20,6 @@ Babylitics. After your app gets some traffic, you'll see maps and charts on your
 and a codecs breakdown. We are just getting started, so expect to see more
 analytics soon!
 
-![Analytics screenshot](images/screenshot-browser-analytics.png)
+![Analytics screenshot](/images/screenshot-browser-analytics.png)
 
  [dashboard]: https://portal.respoke.io/

@@ -8,14 +8,17 @@
     - section = getSectionFiles('concepts');
     li Respoke Concepts
         ul
-            li: a(href="/") Quickstart
+            li(ng-class="{ active: currentPage === '/' }"): a(href="/") Quickstart
             include sidebar-section
 
-    li: a(href="/changelog.html") Changelog
+    li(ng-class="{ active: currentPage === '/changelog.html' }"): a(href="/changelog.html") Changelog
+    li &nbsp;
     
     - section = getSectionFiles('js-library');
     li Javascript Client
         ul
+            li: a(href="http://respoke.github.io/respoke" target="_blank") Reference&nbsp;
+                i.glyphicon.glyphicon-share
             include sidebar-section
         
     
