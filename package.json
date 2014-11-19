@@ -22,9 +22,12 @@
     "url": "https://github.com/respoke/docs/issues"
   },
   "devDependencies": {
+    "colors": "^1.0.3",
     "gulp": "^3.8.10",
     "gulp-gh-pages": "^0.4.0",
+    "jade": "^1.7.0",
     "metalsmith": "^1.0.1",
     "metalsmith-markdown": "^0.2.1"
-  }
+  },
+  "dependencies": {}
 }
