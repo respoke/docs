@@ -13,7 +13,7 @@ lib-cov
 coverage
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
-build/
+content/build/
 
 # Dependency directory
 node_modules
