@@ -29,3 +29,8 @@ gulp.task('build:assets', function assetsTask() {
         .pipe($.sourcemaps.write())
         .pipe(gulp.dest(cssOutput));
 });
+
+gulp.task('clean', function cleanupTask() {
+  return gulp.src(paths.output, { read: false })
+    .pipe($.rimraf());
+});
