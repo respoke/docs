@@ -22,18 +22,22 @@
     "url": "https://github.com/respoke/docs/issues"
   },
   "devDependencies": {
-    "colors": "^1.0.3",
     "gulp": "^3.8.10",
+    "gulp-clean": "^0.3.1",
+    "gulp-data": "^1.0.2",
+    "gulp-debug": "^1.0.1",
+    "gulp-filter": "^1.0.2",
+    "gulp-front-matter": "^1.0.0",
     "gulp-gh-pages": "^0.4.0",
     "gulp-load-plugins": "^0.7.1",
-    "gulp-rimraf": "^0.1.1",
+    "gulp-marked": "^1.0.0",
     "gulp-sass": "^1.1.0",
     "gulp-sourcemaps": "^1.2.8",
     "gulpsmith": "^0.5.2",
     "jade": "^1.7.0",
     "lodash": "^2.4.1",
     "metalsmith": "^1.0.1",
-    "metalsmith-markdown": "^0.2.1"
+    "through2": "^0.6.3"
   },
   "dependencies": {}
 }
