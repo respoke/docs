@@ -14,7 +14,7 @@ var renderJade = require('./lib/metalsmith/render-jade');
 var argv = require('yargs')
   .default({
     dist: false,
-    host: 'pho3nixf1re.localtest.me',
+    host: 'docs-respoke.localtest.me',
     port: '8000'
   })
   .alias({
@@ -131,3 +131,14 @@ gulp.task('lint', function lintTask() {
         .pipe($.jshint.reporter('jshint-stylish'))
         .pipe($.jscs());
 });
+
+gulp.task('webserver', function webserverTask() {
+    return gulp.src(paths.output)
+        .pipe($.webserver({
+            host: argv.host,
+            port: argv.port,
+            livereload: true
+        }));
+});
+
+gulp.task('serve', ['build', 'webserver']);
