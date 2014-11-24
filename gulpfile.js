@@ -8,6 +8,7 @@ var through = require('through2');
 var lazypipe = require('lazypipe');
 var path = require('path');
 var del = require('del');
+var notifier = require('node-notifier');
 
 var renderJade = require('./lib/metalsmith/render-jade');
 
@@ -143,4 +144,54 @@ gulp.task('webserver', function webserverTask() {
         }));
 });
 
-gulp.task('serve', ['build', 'webserver']);
+gulp.task('serve', ['build', 'watch', 'webserver']);
+
+gulp.task('watch', function watchTask(done) {
+    var options = {
+        emitOnGlob: false
+    };
+    var watcherNotify = function watcherNotify(message) {
+        notifier.notify({
+            title: 'Gulp watcher',
+            message: message
+        });
+    };
+
+    $.watch(
+        [
+            paths.templates + '/**/*',
+            paths.source + '/**/*',
+            '!' + paths.source + '/{scss/**,js/**}'
+        ],
+        options,
+        function siteWatch(files, cb) {
+            watcherNotify('Starting build:site');
+            gulp.start('build:site', function siteBuildCallback() {
+                watcherNotify('Finished build:site');
+                cb();
+            });
+        });
+
+    $.watch(
+        paths.sass + '/**/*',
+        options,
+        function sassWatch(files, cb) {
+            watcherNotify('Starting build:assets:sass');
+            gulp.start('build:assets:sass', function sassBuildCallback() {
+                watcherNotify('Finished build:assets:sass');
+                cb();
+            });
+        });
+
+    $.watch(
+        paths.scripts + '/**/*', options,
+        function scriptsWatch(files, cb) {
+            watcherNotify('Starting build:assets:scripts');
+            gulp.start('build:assets:scripts', function scriptsBuildCallback() {
+                watcherNotify('Finished build:assets:scripts');
+                cb();
+            });
+        });
+
+    done();
+});
