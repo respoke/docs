@@ -7,6 +7,8 @@ var _ = require('lodash');
 var through = require('through2');
 var lazypipe = require('lazypipe');
 var path = require('path');
+var del = require('del');
+
 var renderJade = require('./lib/metalsmith/render-jade');
 
 var argv = require('yargs')
@@ -30,15 +32,16 @@ var paths = {
     sass: __dirname + '/src/scss'
 };
 
-var dist = false;
+function cleanBuildDir(done) {
+    del(paths.output, done);
+}
 
-gulp.task('deploy', ['build'], function deployTask() {
+gulp.task('deploy', ['build'], function deployTask(done) {
     var options = {};
-    return gulp
-        .src('./build/**/*')
-        .pipe($.deploy(options))
+    gulp.src(paths.output + '/**/*')
+        .pipe($.ghPages(options))
         .on('end', function cleanUpDeploy() {
-            gulp.start('clean');
+            cleanBuildDir(done);
         });
 });
 
@@ -83,7 +86,7 @@ gulp.task('build:site', ['build:assets'], function smithTask() {
                 smartypants: true,
                 tables: true
             }))
-            .pipe(gulpsmith().use(renderJade(paths.templates, dist)))
+            .pipe(gulpsmith().use(renderJade(paths.templates, argv.dist)))
         .pipe(filterMarkdown.restore())
         .pipe($.if(argv.dist, distPipe()))
         .pipe(gulp.dest(paths.output));
@@ -114,18 +117,8 @@ gulp.task('build:assets:scripts', function assetsScriptsTask() {
         .pipe(gulp.dest(scriptsOutput));
 });
 
-gulp.task('clean', function cleanupTask() {
-    return gulp.src(paths.output, { read: false })
-        .pipe($.clean());
-});
-
-gulp.task('publish', function publishTask() {
-    argv.dist = true;
-    return gulp.src(paths.output + '/**/*')
-        .pipe($.ghPages())
-        .on('end', function publishTaskFinished() {
-            gulp.start('clean');
-        });
+gulp.task('clean', function cleanupTask(done) {
+    cleanBuildDir(done);
 });
 
 gulp.task('lint', function lintTask() {

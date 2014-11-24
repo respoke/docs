@@ -5,9 +5,9 @@
   "description": "Documentation website and build process for Respoke.io",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "gulp lint",
     "build": "gulp build --dist",
-    "deploy-gh": "gulp deploy"
+    "deploy-gh": "gulp deploy --dist"
   },
   "repository": {
     "type": "git",
@@ -22,8 +22,8 @@
     "url": "https://github.com/respoke/docs/issues"
   },
   "devDependencies": {
+    "del": "^0.1.3",
     "gulp": "^3.8.10",
-    "gulp-clean": "^0.3.1",
     "gulp-data": "^1.0.2",
     "gulp-debug": "^1.0.1",
     "gulp-filter": "^1.0.2",
