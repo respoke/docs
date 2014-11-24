@@ -74,6 +74,6 @@ gulp.task('build:assets', ['clean'], function assetsTask() {
 });
 
 gulp.task('clean', function cleanupTask() {
-  return gulp.src(paths.output, { read: false })
-    .pipe($.clean());
+    return gulp.src(paths.output, { read: false })
+        .pipe($.clean());
 });

@@ -10,19 +10,19 @@
 	"camelcase"     : true,     // Enforce camelCase
     "curly"         : true,     // Require {} for every new block or scope.
     "eqeqeq"        : true,     // Require triple equals i.e. `===`.
-    "es3"           : true,     // Prohibit trailing commas
-    //"es5"           : true,     // Prohibit trailing commas this is now the
+    //"es3"           : true,   // Prohibit trailing commas
+    "es5"           : true,     // Prohibit trailing commas this is now the
                                 // default and setting to true throws error.
     "forin"         : true,     // Tolerate `for in` loops without `hasOwnPrototype`.
     "immed"         : true,     // Require immediate invocations to be wrapped in parens
 	                            // e.g. `( function(){}() );`
     "latedef"       : true,     // Prohibit variable use before definition.
-    "newcap"        : false,     // Require capitalization of all constructor functions
+    "newcap"        : false,    // Require capitalization of all constructor functions
 	                            // e.g. `new F()`.
     "noarg"         : true,     // Prohibit use of `arguments.caller` and `arguments.callee`.
-    "noempty"       : false,     // Prohibit use of empty blocks.
+    "noempty"       : false,    // Prohibit use of empty blocks.
     "nonew"         : true,     // Prohibit use of constructors for side-effects.
-    "plusplus"      : false,     // Prohibit use of `++` & `--`.
+    "plusplus"      : false,    // Prohibit use of `++` & `--`.
     "regexp"        : true,     // Prohibit `.` and `[^...]` in regular expressions.
     "undef"         : true,     // Require all non-global variables be declared before they are used.
     "strict"        : true,     // Require `use strict` pragma in every file.
@@ -80,7 +80,7 @@
     "dojo"          : false,    // Enable globals exposed by Dojo Toolkit.
     "jquery"        : false,    // Enable globals exposed by jQuery JavaScript library.
     "mootools"      : false,    // Enable globals exposed by MooTools JavaScript framework.
-    "node"          : true,    // Enable globals available when code is running inside of the
+    "node"          : true,     // Enable globals available when code is running inside of the
 	                            // NodeJS runtime environment.
     "nonstandard"   : false,    // Define non-standard but widely adopted globals such as escape
 	                            // and unescape.

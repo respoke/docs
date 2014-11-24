@@ -1,3 +1,5 @@
+/* jshint ignore:start */
+/* jscs:disable */
 // TODO: CommonJS
 
 /**
