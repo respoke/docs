@@ -5,6 +5,7 @@
   "description": "Documentation website and build process for Respoke.io",
   "main": "index.js",
   "scripts": {
+    "start": "gulp serve",
     "test": "gulp lint",
     "build": "gulp build --dist",
     "deploy-gh": "gulp deploy --dist"
