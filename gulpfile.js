@@ -5,6 +5,7 @@ var $ = require('gulp-load-plugins')();
 var gulpsmith = require('gulpsmith');
 var _ = require('lodash');
 var through = require('through2');
+var lazypipe = require('lazypipe');
 var path = require('path');
 var renderJade = require('./lib/metalsmith/render-jade');
 
@@ -25,6 +26,7 @@ var paths = {
     templates: __dirname + '/templates/',
     output: __dirname + '/build',
     source: __dirname + '/src',
+    scripts: __dirname + '/src/js',
     sass: __dirname + '/src/scss'
 };
 
@@ -40,10 +42,22 @@ gulp.task('deploy', ['build'], function deployTask() {
         });
 });
 
-gulp.task('build', ['clean', 'build:assets'], function smithieTask() {
-    var filterMarkdown = $.filter('**/*.md');
+gulp.task('build', ['clean'], function buildTask() {
+    gulp.start('build:site');
+});
 
-    return gulp.src([ paths.source + '/**/*', '!' + paths.source + '/{scss,scss/**}'])
+gulp.task('build:site', ['build:assets'], function smithTask() {
+    var filterMarkdown = $.filter('**/*.md');
+    var distPipe = lazypipe()
+        .pipe(function buildDistPipe() {
+            return $.if('*.html', $.minifyHtml());
+        });
+
+    return gulp.src([
+        paths.source + '/**/*',
+        '!' + paths.source + '/{scss,scss/**}',
+        '!' + paths.source + '/{js,js/**}'
+    ])
         .pipe(filterMarkdown)
             .pipe($.frontMatter({
                 property: 'data',
@@ -71,10 +85,13 @@ gulp.task('build', ['clean', 'build:assets'], function smithieTask() {
             }))
             .pipe(gulpsmith().use(renderJade(paths.templates, dist)))
         .pipe(filterMarkdown.restore())
+        .pipe($.if(argv.dist, distPipe()))
         .pipe(gulp.dest(paths.output));
 });
 
-gulp.task('build:assets', ['clean'], function assetsTask() {
+gulp.task('build:assets', ['build:assets:sass', 'build:assets:scripts']);
+
+gulp.task('build:assets:sass', function assetsSassTask() {
     var cssOutput = paths.output + '/css';
 
     return gulp.src(paths.sass + '/**/*')
@@ -82,8 +99,19 @@ gulp.task('build:assets', ['clean'], function assetsTask() {
             .pipe($.sass({
                 errLogToConsole: true
             }))
+            .pipe($.if(argv.dist, $.minifyCss()))
         .pipe($.sourcemaps.write())
         .pipe(gulp.dest(cssOutput));
+});
+
+gulp.task('build:assets:scripts', function assetsScriptsTask() {
+    var scriptsOutput = paths.output + '/js';
+
+    return gulp.src(paths.scripts + '/**/*.js')
+        .pipe($.sourcemaps.init())
+            .pipe($.if(argv.dist, $.uglify()))
+        .pipe($.sourcemaps.write())
+        .pipe(gulp.dest(scriptsOutput));
 });
 
 gulp.task('clean', function cleanupTask() {
