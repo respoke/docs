@@ -36,6 +36,8 @@ function cleanBuildDir(done) {
     del(paths.output, done);
 }
 
+gulp.task('default', ['serve']);
+
 gulp.task('deploy', ['build'], function deployTask(done) {
     var options = {};
     gulp.src(paths.output + '/**/*')
@@ -46,10 +48,10 @@ gulp.task('deploy', ['build'], function deployTask(done) {
 });
 
 gulp.task('build', ['clean'], function buildTask() {
-    gulp.start('build:site');
+    gulp.start(['build:site', 'build:assets']);
 });
 
-gulp.task('build:site', ['build:assets'], function smithTask() {
+gulp.task('build:site', function smithTask() {
     var filterMarkdown = $.filter('**/*.md');
     var distPipe = lazypipe()
         .pipe(function buildDistPipe() {
