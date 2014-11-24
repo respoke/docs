@@ -8,6 +8,19 @@ var through = require('through2');
 var path = require('path');
 var renderJade = require('./lib/metalsmith/render-jade');
 
+var argv = require('yargs')
+  .default({
+    dist: false,
+    host: 'pho3nixf1re.localtest.me',
+    port: '8000'
+  })
+  .alias({
+    d: 'dist',
+    h: 'host',
+    p: 'port'
+  })
+  .argv;
+
 var paths = {
     templates: __dirname + '/templates/',
     output: __dirname + '/build',
@@ -76,6 +89,15 @@ gulp.task('build:assets', ['clean'], function assetsTask() {
 gulp.task('clean', function cleanupTask() {
     return gulp.src(paths.output, { read: false })
         .pipe($.clean());
+});
+
+gulp.task('publish', function publishTask() {
+    argv.dist = true;
+    return gulp.src(paths.output + '/**/*')
+        .pipe($.ghPages())
+        .on('end', function publishTaskFinished() {
+            gulp.start('clean');
+        });
 });
 
 gulp.task('lint', function lintTask() {
