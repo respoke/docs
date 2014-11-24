@@ -11,7 +11,7 @@ var renderJade = require('./lib/metalsmith/render-jade');
 var paths = {
     templates: __dirname + '/templates/',
     output: __dirname + '/build',
-    input: __dirname + '/src',
+    source: __dirname + '/src',
     sass: __dirname + '/src/scss'
 };
 
@@ -30,7 +30,7 @@ gulp.task('deploy', ['build'], function deployTask() {
 gulp.task('build', ['clean', 'build:assets'], function smithieTask() {
     var filterMarkdown = $.filter('**/*.md');
 
-    return gulp.src([ paths.input + '/**/*', '!' + paths.input + '/{scss,scss/**}'])
+    return gulp.src([ paths.source + '/**/*', '!' + paths.source + '/{scss,scss/**}'])
         .pipe(filterMarkdown)
             .pipe($.frontMatter({
                 property: 'data',
@@ -76,4 +76,15 @@ gulp.task('build:assets', ['clean'], function assetsTask() {
 gulp.task('clean', function cleanupTask() {
     return gulp.src(paths.output, { read: false })
         .pipe($.clean());
+});
+
+gulp.task('lint', function lintTask() {
+    return gulp.src([
+        __dirname + 'lib/**/*.js',
+        paths.source + '/**/*.js',
+        __filename
+    ])
+        .pipe($.jshint())
+        .pipe($.jshint.reporter('jshint-stylish'))
+        .pipe($.jscs());
 });
