@@ -20,8 +20,7 @@ npm install -g http-server
 http-server build
 ```
 
-## Links
+## License
 
-[Learn about Personal Access Data Devices](http://en.memory-alpha.org/wiki/PADD)
-
-###### Copyright 2014 D.C.S. Inc
+This source code is licensed under The MIT License found in the
+[LICENSE](LICENSE) file in the root directory of this source tree.
