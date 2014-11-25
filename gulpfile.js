@@ -9,6 +9,7 @@ var lazypipe = require('lazypipe');
 var path = require('path');
 var del = require('del');
 var notifier = require('node-notifier');
+var async = require('async');
 
 var renderJade = require('./lib/metalsmith/render-jade');
 var insertExamples = require('./lib/metalsmith/insert-examples');
@@ -50,18 +51,14 @@ gulp.task('deploy', ['build'], function deployTask(done) {
         });
 });
 
-gulp.task('build', ['clean'], function buildTask() {
-    gulp.start(['build:site', 'build:assets']);
-});
-
-gulp.task('build:site', function smithTask() {
+function buildSite(callback) {
     var filterMarkdown = $.filter('**/*.md');
     var distPipe = lazypipe()
         .pipe(function buildDistPipe() {
             return $.if('*.html', $.minifyHtml());
         });
 
-    return gulp.src([
+    gulp.src([
         paths.source + '/**/*',
         '!' + paths.source + '/{scss,scss/**}',
         '!' + paths.source + '/{js,js/**}'
@@ -97,32 +94,61 @@ gulp.task('build:site', function smithTask() {
             )
         .pipe(filterMarkdown.restore())
         .pipe($.if(argv.dist, distPipe()))
-        .pipe(gulp.dest(paths.output));
-});
+        .pipe(gulp.dest(paths.output))
+        .on('end', function buildSiteCallback() {
+            callback();
+        });
+}
 
-gulp.task('build:assets', ['build:assets:sass', 'build:assets:scripts']);
-
-gulp.task('build:assets:sass', function assetsSassTask() {
+function buildSass(callback) {
     var cssOutput = paths.output + '/css';
 
-    return gulp.src(paths.sass + '/**/*')
+    gulp.src(paths.sass + '/**/*')
         .pipe($.sourcemaps.init())
             .pipe($.sass({
                 errLogToConsole: true
             }))
             .pipe($.if(argv.dist, $.minifyCss()))
         .pipe($.sourcemaps.write())
-        .pipe(gulp.dest(cssOutput));
-});
+        .pipe(gulp.dest(cssOutput))
+        .on('end', function buildSassCallback() {
+            callback();
+        });
+}
 
-gulp.task('build:assets:scripts', function assetsScriptsTask() {
+function buildScripts(callback) {
     var scriptsOutput = paths.output + '/js';
 
-    return gulp.src(paths.scripts + '/**/*.js')
+    gulp.src(paths.scripts + '/**/*.js')
         .pipe($.sourcemaps.init())
             .pipe($.if(argv.dist, $.uglify()))
         .pipe($.sourcemaps.write())
-        .pipe(gulp.dest(scriptsOutput));
+        .pipe(gulp.dest(scriptsOutput))
+        .on('end', function buildScriptsCallback() {
+            callback();
+        });
+}
+
+gulp.task('build', ['clean'], function buildTask(done) {
+    async.parallel([
+        buildSite,
+        buildSass,
+        buildScripts
+    ], done);
+});
+
+gulp.task('build:site', function (done) {
+    buildSite(done);
+});
+
+gulp.task('build:assets', ['build:assets:scripts', 'build:assets:sass']);
+
+gulp.task('build:assets:sass', function (done) {
+    buildSass(done);
+});
+
+gulp.task('build:assets:scripts', function (done) {
+    buildScripts(done);
 });
 
 gulp.task('clean', function cleanupTask(done) {
