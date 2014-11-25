@@ -10,10 +10,10 @@
 	"camelcase"     : true,     // Enforce camelCase
     "curly"         : true,     // Require {} for every new block or scope.
     "eqeqeq"        : true,     // Require triple equals i.e. `===`.
-    //"es3"           : true,   // Prohibit trailing commas
+    //"es3"         : true,     // Prohibit trailing commas
     "es5"           : true,     // Prohibit trailing commas this is now the
                                 // default and setting to true throws error.
-    "forin"         : true,     // Tolerate `for in` loops without `hasOwnPrototype`.
+    "forin"         : false,    // Tolerate `for in` loops without `hasOwnPrototype`.
     "immed"         : true,     // Require immediate invocations to be wrapped in parens
 	                            // e.g. `( function(){}() );`
     "latedef"       : true,     // Prohibit variable use before definition.
