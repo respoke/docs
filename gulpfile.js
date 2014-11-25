@@ -11,6 +11,7 @@ var del = require('del');
 var notifier = require('node-notifier');
 
 var renderJade = require('./lib/metalsmith/render-jade');
+var insertExamples = require('./lib/metalsmith/insert-examples');
 
 var argv = require('yargs')
   .default({
@@ -26,7 +27,8 @@ var argv = require('yargs')
   .argv;
 
 var paths = {
-    templates: __dirname + '/templates/',
+    templates: __dirname + '/templates',
+    examples: __dirname + '/examples',
     output: __dirname + '/build',
     source: __dirname + '/src',
     scripts: __dirname + '/src/js',
@@ -89,7 +91,10 @@ gulp.task('build:site', function smithTask() {
                 smartypants: true,
                 tables: true
             }))
-            .pipe(gulpsmith().use(renderJade(paths.templates, argv.dist)))
+            .pipe(gulpsmith()
+                .use(renderJade(paths, argv.dist))
+                .use(insertExamples(paths, argv.dist))
+            )
         .pipe(filterMarkdown.restore())
         .pipe($.if(argv.dist, distPipe()))
         .pipe(gulp.dest(paths.output));
