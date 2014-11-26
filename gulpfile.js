@@ -106,7 +106,8 @@ function buildSass(callback) {
     gulp.src(paths.sass + '/**/*')
         .pipe($.sourcemaps.init())
             .pipe($.sass({
-                errLogToConsole: true
+                errLogToConsole: true,
+                includePaths: require('node-bourbon').includePaths
             }))
             .pipe($.if(argv.dist, $.minifyCss()))
         .pipe($.sourcemaps.write())
@@ -129,11 +130,20 @@ function buildScripts(callback) {
         });
 }
 
+function copySharedAssets(callback) {
+    gulp.src(__dirname + '/node_modules/respoke-style/assets/**/*')
+    .pipe(gulp.dest(paths.output))
+    .on('end', function copyAssetsCallback() {
+        callback();
+    });
+}
+
 gulp.task('build', ['clean'], function buildTask(done) {
     async.parallel([
         buildSite,
         buildSass,
-        buildScripts
+        buildScripts,
+        copySharedAssets
     ], done);
 });
 
@@ -192,7 +202,10 @@ gulp.task('watch', function watchTask(done) {
         [
             paths.templates + '/**/*',
             paths.source + '/**/*',
-            '!' + paths.source + '/{scss/**,js/**}'
+            '!' + paths.source + '/{scss/**,js/**}',
+            __dirname + '/node_modules/respoke-style/templates/**/*',
+            __dirname + '/node_modules/respoke-style/styles/**/*',
+            __dirname + '/node_modules/respoke-style/assets/**/*'
         ],
         options,
         function siteWatch(files, cb) {
