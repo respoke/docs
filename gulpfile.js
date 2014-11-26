@@ -15,17 +15,17 @@ var renderJade = require('./lib/metalsmith/render-jade');
 var insertExamples = require('./lib/metalsmith/insert-examples');
 
 var argv = require('yargs')
-  .default({
-    dist: false,
-    host: 'docs-respoke.localtest.me',
-    port: '8000'
-  })
-  .alias({
-    d: 'dist',
-    h: 'host',
-    p: 'port'
-  })
-  .argv;
+    .default({
+        dist: false,
+        host: 'docs-respoke.localtest.me',
+        port: '2002'
+    })
+    .alias({
+        d: 'dist',
+        h: 'host',
+        p: 'port'
+    })
+    .argv;
 
 var paths = {
     templates: __dirname + '/templates',
