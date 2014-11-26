@@ -18,14 +18,14 @@
 }
 .bold { font-weight: 600!important; }
 
-.row.param { 
+.row.param {
     font-size: 12px;
     border-bottom: 1px solid #eee;
     margin-bottom: 4px;
     margin-top: 4px;
 }
 .row.param, .rwo.param code{
-    word-wrap: break-word; 
+    word-wrap: break-word;
 }
 
 h2 {
@@ -56,7 +56,7 @@ img[alt="Brokered Auth Workflow"] {
 ul.nav li {
     color: #aaa;
 }
-ul.nav li, 
+ul.nav li,
 ul.nav li a {
     font-size: 14px;
 }
@@ -72,8 +72,8 @@ ul.nav>li>ul{
 
 /* Main content */
 @media screen and (max-width: 990px) {
-    .affix { 
-        position: static; 
+    .affix {
+        position: static;
     }
     #main-sidebar-wrap #main-sidebar {
         position: fixed;
@@ -107,8 +107,8 @@ ul.nav>li>ul{
     #sidebar-toggle-button{ display: none; }
 }
 @media screen and (max-width: 768px) {
-    
-    ul#main-sidebar{ 
+
+    ul#main-sidebar{
         position: fixed;
         display: none;
         right: 0;
@@ -153,64 +153,68 @@ ul.nav-items{
 
 
 /* Overriding www.respoke.io styles */
-.how-it-works{
+.how-it-works {
     min-height: 1000px;
-}
-.how-it-works div.how-it-works-container h1{
-    font-weight: 100;
-    text-align: left;
-}
-.how-it-works div.how-it-works-container h3{
-    color: #6e7c8a;
-    font-weight: 400;
-}
-.how-it-works div.how-it-works-container h5{
-    color: #8F8F8F;
-    font-weight: 600;
-    font-size: 13px;
-}
-.how-it-works div.how-it-works-container h1:first-child{
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 36px;
-}
-.how-it-works .how-it-works-container .ctx h1 a{
-    font-size: 20px;
-    margin-top: 18px;
-    font-weight: 600;
-}
-.how-it-works .how-it-works-container .ctx h1 code{
-    font-size: 16px;
-}
-.how-it-works img{ width: 100%; }
-.how-it-works .how-it-works-container .ctx h2{
-    margin-bottom: 16px;
-}
-.how-it-works div.how-it-works-container {
-    width: 100%;
-    padding-right: 5%;
-    padding-left: 5%;
-    max-width: 100%;
-}
-@media screen and (max-width: 1024px) {
-    .how-it-works div.how-it-works-container {
-        padding-top: 90px;
+
+    div.how-it-works-container {
+        width: 100%;
+        padding-right: 5%;
+        padding-left: 5%;
+        max-width: 100%;
+        @media screen and (max-width: 1024px) {
+            padding-top: 90px;
+        }
+        @media screen and (max-width: 600px) {
+            padding-left: 10px;
+        }
+
+        h1 {
+            font-weight: 100;
+            text-align: left;
+            &:first-child{
+                text-align: center;
+                margin-bottom: 20px;
+                font-size: 36px;
+            }
+            a {
+                font-size: 20px;
+                margin-top: 18px;
+                font-weight: 600;
+            }
+            code {
+                font-size: 16px;
+            }
+        }
+        h3 {
+            color: #6e7c8a;
+            font-weight: 400;
+        }
+        h5 {
+            color: #8F8F8F;
+            font-weight: 600;
+            font-size: 13px;
+        }
+        img {
+            width: 100%;
+        }
+        .ctx {
+            h2 {
+                margin-bottom: 16px;
+            }
+        }
+        pre {
+            margin: 10px 0 20px 0;
+        }
+        p {
+            margin: 10px auto;
+            padding: 0 auto 10px auto;
+        }
     }
-}
-@media screen and (max-width: 600px) {
-    .how-it-works div.how-it-works-container {
-        padding-left: 10px;
-    }
-}
-.how-it-works div.how-it-works-container pre{
-    margin: 10px 0 20px 0;
-}
-.how-it-works div.how-it-works-container p {
-    margin: 10px auto;
-    padding: 0 auto 10px auto;
+
 }
 
-/** 
+
+/**
  * To use Bootstrap CSS and make it look ok with the www.respoke.io styling, we'll need to do some overriding of bootstrap.
  */
 
@@ -237,6 +241,6 @@ ul.nav>li{
 .row{
     margin-left: 5px;
 }
-.footer { 
+.footer {
     z-index: 200;
 }

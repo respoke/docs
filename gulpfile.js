@@ -24,7 +24,8 @@ gulp.task('build:assets', function assetsTask() {
     return gulp.src(paths.scss + '/**/*')
         .pipe($.sourcemaps.init())
             .pipe($.sass({
-                errLogToConsole: true
+                errLogToConsole: true,
+                includePaths: require('node-bourbon').includePaths
             }))
         .pipe($.sourcemaps.write())
         .pipe(gulp.dest(cssOutput));
