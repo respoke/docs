@@ -202,7 +202,10 @@ gulp.task('watch', function watchTask(done) {
         [
             paths.templates + '/**/*',
             paths.source + '/**/*',
-            '!' + paths.source + '/{scss/**,js/**}'
+            '!' + paths.source + '/{scss/**,js/**}',
+            __dirname + '/node_modules/respoke-style/templates/**/*',
+            __dirname + '/node_modules/respoke-style/styles/**/*',
+            __dirname + '/node_modules/respoke-style/assets/**/*'
         ],
         options,
         function siteWatch(files, cb) {
