@@ -130,11 +130,20 @@ function buildScripts(callback) {
         });
 }
 
+function copySharedAssets(callback) {
+    gulp.src(__dirname + '/node_modules/respoke-style/assets/**/*')
+    .pipe(gulp.dest(paths.output))
+    .on('end', function copyAssetsCallback() {
+        callback();
+    });
+}
+
 gulp.task('build', ['clean'], function buildTask(done) {
     async.parallel([
         buildSite,
         buildSass,
-        buildScripts
+        buildScripts,
+        copySharedAssets
     ], done);
 });
 
