@@ -10,7 +10,7 @@ each skey in section
   //- in general, do not display static files
   //- unless of course it is a piece of generated documentation
   if(!isStaticFile && !isQuickstart)
-    li(ng-class="{ active: currentPage === ('/" + skey + "') }")
+    li(class=(path === skey ? 'active' : '' ))
       a(href='/' + skey)= displayTitle.replace('.js.html','')
   else if(isHtmlFile && !isExample && !isQuickstart)
     //- the index page is also the quickstart tutorial. hence the second ugly part of this ng-class
