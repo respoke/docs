@@ -10,6 +10,7 @@ var path = require('path');
 var del = require('del');
 var notifier = require('node-notifier');
 var async = require('async');
+var respokeStyle = require('respoke-style');
 
 var renderJade = require('./lib/metalsmith/render-jade');
 var insertExamples = require('./lib/metalsmith/insert-examples');
@@ -130,7 +131,7 @@ function buildScripts(callback) {
 }
 
 function copySharedAssets(callback) {
-    gulp.src(__dirname + '/node_modules/respoke-style/assets/**/*')
+    gulp.src(path.join(respokeStyle.paths.assets, '**/*'))
     .pipe(gulp.dest(paths.output))
     .on('end', function copyAssetsCallback() {
         callback();
@@ -150,7 +151,11 @@ gulp.task('build:site', function (done) {
     buildSite(done);
 });
 
-gulp.task('build:assets', ['build:assets:scripts', 'build:assets:sass']);
+gulp.task('build:assets', [
+    'build:assets:scripts',
+    'build:assets:sass',
+    'build:assets:respoke-style'
+]);
 
 gulp.task('build:assets:sass', function (done) {
     buildSass(done);
@@ -158,6 +163,10 @@ gulp.task('build:assets:sass', function (done) {
 
 gulp.task('build:assets:scripts', function (done) {
     buildScripts(done);
+});
+
+gulp.task('build:assets:respoke-style', function (done) {
+    copySharedAssets(done);
 });
 
 gulp.task('clean', function cleanupTask(done) {
@@ -202,8 +211,8 @@ gulp.task('watch', function watchTask(done) {
             paths.templates + '/**/*',
             paths.source + '/**/*',
             '!' + paths.source + '/{scss/**,js/**}',
-            __dirname + '/node_modules/respoke-style/templates/**/*',
-            __dirname + '/node_modules/respoke-style/assets/**/*'
+            path.join(respokeStyle.paths.templates, '**/*'),
+            path.join(respokeStyle.paths.assets, '**/*')
         ],
         options,
         function siteWatch(files, cb) {
@@ -217,7 +226,7 @@ gulp.task('watch', function watchTask(done) {
     $.watch(
         [
             paths.sass + '/**/*',
-            __dirname + '/node_modules/respoke-style/styles/**/*'
+            path.join(respokeStyle.paths.styles, '**/*')
         ],
         options,
         function sassWatch(files, cb) {

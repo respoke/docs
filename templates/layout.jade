@@ -11,18 +11,18 @@ html(lang='en')
           = locals.name || 'Respoke Documentation'
       meta(name="keywords" content="")
       meta(name="description" content="")
-      
-      include ../node_modules/respoke-style/templates/head
-      
+
+      != renderSharedTemplate('head')
+
       link(type="text/css" rel='stylesheet', href='/css/site.css')
       script(src="/js/ga.js" async)
   body
-    include ../node_modules/respoke-style/templates/navbar
-    
-    include sidebar             
-    
+    != renderSharedTemplate('head')
+
+    include sidebar
+
     block content
-    
-    include ../node_modules/respoke-style/templates/footer
+
+    != renderSharedTemplate('navbar')
 
     script(src="/js/padd.js")
