@@ -106,8 +106,7 @@ function buildSass(callback) {
     gulp.src(paths.sass + '/**/*')
         .pipe($.sourcemaps.init())
             .pipe($.sass({
-                errLogToConsole: true,
-                includePaths: require('node-bourbon').includePaths
+                errLogToConsole: true
             }))
             .pipe($.if(argv.dist, $.minifyCss()))
         .pipe($.sourcemaps.write())
@@ -204,7 +203,6 @@ gulp.task('watch', function watchTask(done) {
             paths.source + '/**/*',
             '!' + paths.source + '/{scss/**,js/**}',
             __dirname + '/node_modules/respoke-style/templates/**/*',
-            __dirname + '/node_modules/respoke-style/styles/**/*',
             __dirname + '/node_modules/respoke-style/assets/**/*'
         ],
         options,
@@ -217,7 +215,10 @@ gulp.task('watch', function watchTask(done) {
         });
 
     $.watch(
-        paths.sass + '/**/*',
+        [
+            paths.sass + '/**/*',
+            __dirname + '/node_modules/respoke-style/styles/**/*'
+        ],
         options,
         function sassWatch(files, cb) {
             watcherNotify('Starting build:assets:sass');
