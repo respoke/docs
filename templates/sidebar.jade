@@ -2,7 +2,7 @@
 - var getSectionFiles = function (sect) { return Object.keys(files).filter(function (f) { return files[f].data.section === sect;});};
 
 
-#main-sidebar-wrap
+.sidebar
   ul#main-sidebar.nav.affix
 
     - section = getSectionFiles('concepts');
