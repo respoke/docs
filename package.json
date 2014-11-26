@@ -18,7 +18,7 @@
     "respoke"
   ],
   "author": "info@respoke.io",
-  "license": "Copyright 2014 D.C.S Inc",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/respoke/docs/issues"
   },
