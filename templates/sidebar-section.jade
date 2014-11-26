@@ -1,10 +1,10 @@
 each skey in section
   - var article = files[skey];
-  - var isStaticFile = !article.title;
+  - var isStaticFile = !article.data.title;
   - var isExample = skey.indexOf('-example') !== -1;
   - var isHtmlFile = skey.indexOf('.html') !== -1;
-  - var displayTitle = article.title || skey;
-  - var isQuickstart = article.title == "Quickstart";
+  - var displayTitle = article.data.title || skey;
+  - var isQuickstart = article.data.title == "Quickstart";
   - var staticNameArray = isHtmlFile ? skey.replace('.html','').split('.') : null;
   - var staticName = isHtmlFile ? staticNameArray[ staticNameArray.length - 1  ] : null;
   //- in general, do not display static files

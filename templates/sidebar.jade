@@ -1,5 +1,5 @@
 - var section;
-- var getSectionFiles = function (sect) { return Object.keys(files).filter(function (f) { return files[f].section === sect;});};
+- var getSectionFiles = function (sect) { return Object.keys(files).filter(function (f) { return files[f].data.section === sect;});};
 
 
 #main-sidebar-wrap
@@ -13,15 +13,15 @@
 
     li(ng-class="{ active: currentPage === '/changelog.html' }"): a(href="/changelog.html") Changelog
     li &nbsp;
-    
+
     - section = getSectionFiles('js-library');
     li Javascript Client
         ul
             li: a(href="http://respoke.github.io/respoke" target="_blank") Reference&nbsp;
                 i.glyphicon.glyphicon-share
             include sidebar-section
-        
-    
+
+
     li Admin API
         ul: li Coming soon
-    
+
