@@ -18,7 +18,7 @@ var insertExamples = require('./lib/metalsmith/insert-examples');
 var argv = require('yargs')
     .default({
         dist: false,
-        host: 'docs-respoke.localtest.me',
+        host: '127.0.0.1',
         port: '2002'
     })
     .alias({
