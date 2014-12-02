@@ -19,10 +19,11 @@ html(lang='en')
   body
     != renderSharedTemplate('navbar')
     
-    .grid
+    
+    nav
         include sidebar
-        .content
-            block content
+    article.content
+        block content
 
     != renderSharedTemplate('footer')
 
