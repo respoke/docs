@@ -17,12 +17,12 @@ html(lang='en')
       link(type="text/css" rel='stylesheet', href='/css/site.css')
       script(src="/js/ga.js" async)
   body
-    != renderSharedTemplate('head')
+    != renderSharedTemplate('navbar')
 
     include sidebar
 
     block content
 
-    != renderSharedTemplate('navbar')
+    != renderSharedTemplate('footer')
 
     script(src="/js/padd.js")
