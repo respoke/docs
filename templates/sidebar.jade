@@ -6,20 +6,18 @@
   ul#main-sidebar.nav.affix
 
     - section = getSectionFiles('concepts');
-    li Respoke Concepts
-        ul
-            li(class=(path === 'index.html' ? 'active':'')): a(href="/") Quickstart
-            include sidebar-section
+    li.l1 Respoke Concepts
+    li.l2(class=(path === 'index.html' ? 'active':'')): a(href="/") Quickstart
+    include sidebar-section
 
-    li(class=(path === 'changelog.html' ? 'active':'')): a(href="/changelog.html") Changelog
+    li.l1(class=(path === 'changelog.html' ? 'active':'')): a(href="/changelog.html") Changelog
 
     - section = getSectionFiles('js-library');
-    li Javascript Client
-        ul
-            li: a(href="http://respoke.github.io/respoke" target="_blank") Reference&nbsp;
-                | &nbsp;&rarr;
-            include sidebar-section
+    li.l1 Javascript Client
+    li.l2: a(href="http://respoke.github.io/respoke" target="_blank") Reference&nbsp;
+        | &nbsp;&rarr;
+    include sidebar-section
 
 
-    li Admin API
-        ul: li Coming soon
+    li.l1 Admin API
+    li.l2 Coming soon
