@@ -1,4 +1,4 @@
-@import '../../node_modules/respoke-style/styles/base.scss';
+@import 'base';
 
 .grid {
     width: flex-grid(6);
@@ -6,3 +6,4 @@
         width: flex-grid(2, 4);
     }
 }
+
