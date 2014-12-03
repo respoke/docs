@@ -260,9 +260,12 @@ gulp.task('watch', function watchTask(done) {
 gulp.task('example-runner', function (done) {
     var exampleRunner = require('./lib/example-runner')(paths);
 
-    exampleRunner.run(function runnerFinished(error) {
+    exampleRunner.run(function runnerFinished(error, runnersOutput) {
         if (error) {
             console.log(error.toString().red);
+        }
+        if (runnersOutput) {
+            console.log(runnersOutput.join('\n').green);
         }
         done();
     });
