@@ -1,12 +1,13 @@
 'use strict';
 
+require('colors');
+var path = require('path');
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var gulpsmith = require('gulpsmith');
 var _ = require('lodash');
 var through = require('through2');
 var lazypipe = require('lazypipe');
-var path = require('path');
 var del = require('del');
 var notifier = require('node-notifier');
 var async = require('async');
@@ -29,12 +30,13 @@ var argv = require('yargs')
     .argv;
 
 var paths = {
-    templates: __dirname + '/templates',
-    examples: __dirname + '/examples',
-    output: __dirname + '/build',
-    source: __dirname + '/src',
-    scripts: __dirname + '/src/js',
-    sass: __dirname + '/src/scss'
+    templates: path.join(__dirname, '/templates'),
+    examples: path.join(__dirname, '/examples'),
+    output: path.join(__dirname, '/build'),
+    source: path.join(__dirname, '/src'),
+    scripts: path.join(__dirname, '/src/js'),
+    sass: path.join(__dirname, '/src/scss'),
+    root: __dirname
 };
 
 function cleanBuildDir(done) {
@@ -102,9 +104,9 @@ function buildSite(callback) {
 }
 
 function buildSass(callback) {
-    var cssOutput = paths.output + '/css';
+    var cssOutput = path.join(paths.output, 'css');
 
-    gulp.src(paths.sass + '/**/*')
+    gulp.src(path.join(paths.sass, '**/*'))
         .pipe($.sourcemaps.init())
             .pipe($.sass({
                 includePaths: [respokeStyle.paths.styles],
@@ -253,4 +255,18 @@ gulp.task('watch', function watchTask(done) {
         });
 
     done();
+});
+
+gulp.task('example-runner', function (done) {
+    var exampleRunner = require('./lib/example-runner')(paths);
+
+    exampleRunner.run(function runnerFinished(error, runnersOutput) {
+        if (error) {
+            console.log(error.toString().red);
+        }
+        if (runnersOutput) {
+            console.log(runnersOutput.join('\n').green);
+        }
+        done();
+    });
 });
