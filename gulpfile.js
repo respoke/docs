@@ -35,7 +35,7 @@ var paths = {
     output: path.join(__dirname, '/build'),
     source: path.join(__dirname, '/src'),
     scripts: path.join(__dirname, '/src/js'),
-    sass: path.join(__dirname, '/src/scss)'),
+    sass: path.join(__dirname, '/src/scss'),
     root: __dirname
 };
 
@@ -104,9 +104,9 @@ function buildSite(callback) {
 }
 
 function buildSass(callback) {
-    var cssOutput = paths.output + '/css';
+    var cssOutput = path.join(paths.output, 'css');
 
-    gulp.src(paths.sass + '/**/*')
+    gulp.src(path.join(paths.sass, '**/*'))
         .pipe($.sourcemaps.init())
             .pipe($.sass({
                 includePaths: [respokeStyle.paths.styles],
