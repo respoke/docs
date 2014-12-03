@@ -1,17 +1,29 @@
 'use strict';
 
+var path = require('path');
+
+var paths = {
+    templates: path.join(__dirname, '/templates'),
+    examples: path.join(__dirname, '/examples'),
+    output: path.join(__dirname, '/build'),
+    source: path.join(__dirname, '/src'),
+    scripts: path.join(__dirname, '/src/js'),
+    sass: path.join(__dirname, '/src/scss)'),
+    root: __dirname
+};
+
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var gulpsmith = require('gulpsmith');
 var _ = require('lodash');
 var through = require('through2');
 var lazypipe = require('lazypipe');
-var path = require('path');
 var del = require('del');
 var notifier = require('node-notifier');
 var async = require('async');
 var respokeStyle = require('respoke-style');
 
+var exampleRunner = require('./lib/example-runner')(paths);
 var renderJade = require('./lib/metalsmith/render-jade');
 var insertExamples = require('./lib/metalsmith/insert-examples');
 
@@ -27,15 +39,6 @@ var argv = require('yargs')
         p: 'port'
     })
     .argv;
-
-var paths = {
-    templates: __dirname + '/templates',
-    examples: __dirname + '/examples',
-    output: __dirname + '/build',
-    source: __dirname + '/src',
-    scripts: __dirname + '/src/js',
-    sass: __dirname + '/src/scss'
-};
 
 function cleanBuildDir(done) {
     del(paths.output, done);
@@ -253,4 +256,10 @@ gulp.task('watch', function watchTask(done) {
         });
 
     done();
+});
+
+gulp.task('example-runner', function (done) {
+    exampleRunner.run(function runnerFinished() {
+        done();
+    });
 });
