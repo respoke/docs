@@ -1,7 +1,0 @@
-{
-    "username": "<your Respoke username>",
-    "password": "<your Respoke password>",
-    "appSecret": "<your Respoke app secret>",
-    "appId": "<your Respoke app id>",
-    "roleId": "<a roleId from your app>"
-}
