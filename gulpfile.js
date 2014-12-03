@@ -259,7 +259,8 @@ gulp.task('watch', function watchTask(done) {
 });
 
 gulp.task('example-runner', function (done) {
-    exampleRunner.run(function runnerFinished() {
+    exampleRunner.run(function runnerFinished(error, runnersOutput) {
+        console.log(runnersOutput);
         done();
     });
 });
