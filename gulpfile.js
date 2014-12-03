@@ -220,7 +220,11 @@ gulp.task('watch', function watchTask(done) {
             watcherNotify('Starting build:site');
             gulp.start('build:site', function siteBuildCallback() {
                 watcherNotify('Finished build:site');
-                cb();
+                watcherNotify('Starting build:assets:respoke-style');
+                gulp.start('build:assets:respoke-style', function syncSharedAssetsCallback() {
+                    watcherNotify('Finished build:assets:respoke-style');
+                    cb();
+                });
             });
         });
 
