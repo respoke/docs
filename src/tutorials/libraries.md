@@ -8,7 +8,10 @@ template: article.jade
 
 ## Browser JavaScript Library
 
-* [Docs](/js-library/respoke.html)
+`npm install --save respoke`
+
+* [Docs](http://respoke.github.io/respoke)
+* [Source](https://github.com/respoke/respoke)
 
 <br />
 

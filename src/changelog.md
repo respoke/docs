@@ -7,6 +7,12 @@ changefreq: monthly
 
 # Changelog
 
+## 2014-11-22
+
+The Respoke browser JavaScript library for has been release as
+[open source software](https://github.com/respoke/respoke) and
+[published to NPM](https://npmjs.org/package/respoke).
+
 ## 2014-11-13
 
 The first version of a **[Node.js administration client](https://github.com/respoke/node-respoke-admin)**

@@ -227,7 +227,7 @@ An end-user client posts a `tokenId` from `POST [base]/tokens` to authenticate t
 
 ##### Header
 
-`App-Token: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX`
+none
 
 ##### Body
 
