@@ -6,8 +6,6 @@ template: article.jade
 
 # Frequently Asked Questions
 
-## Pricing and Plans
-
 ### What does "concurrent connections" mean?
 Each Respoke plan includes a maximum number of concurrent connections. When your application creates a Respoke client
 and invokes the "connect()" method, the client establishes a WebSocket connection to the Respoke service. We keep track
