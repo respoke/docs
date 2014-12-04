@@ -1,13 +1,13 @@
 : ${baseURL:="https://api.respoke.io"}
 
 : ${appId:?"appId required"}
-: ${roleId:?"roleId required"}
+: ${newRoleId:?"newRoleId required"}
+: ${newRoleName:?"newRoleName required"}
 
-curl -X POST -H "App-Secret: $appSecret" -H 'Content-type: application/json' -d \
-'{
+body='{
     "appId": "'$appId'",
-    "name": "New example role",
-    "id": "'$roleId'",
+    "name": "'$newRoleName'",
+    "id": "'$newRoleId'",
     "mediaRelay": false,
     "events": {
         "subscribe": false, "unsubscribe": false
@@ -23,4 +23,7 @@ curl -X POST -H "App-Secret: $appSecret" -H 'Content-type: application/json' -d 
             "getsubscribers": true
         }
     }
-}' $baseURL/v1/roles
+}'
+
+curl -X POST -H "App-Secret: $appSecret" -H 'Content-type: application/json' \
+    -d "$body" $baseURL/v1/roles
