@@ -22,3 +22,5 @@ A barebones [video chat](/tutorials/video-chat-example.html) example with Angula
 A space themed [messaging and group chat solution](http://sc.digiumlabs.com),
 with audio and video calling.
 ([source](https://github.com/respoke/subspace-communicator))
+
+Apollo, a full featured [open source group chat and audio/video calling solution](https://github.com/respoke/apollo).
