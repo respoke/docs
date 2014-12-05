@@ -13,7 +13,7 @@ node_modules
 .lock-wscript
 
 # Config files
-examples-config.json
+examples-config*.json
 
 # Temporory examples output directory
 .examples
