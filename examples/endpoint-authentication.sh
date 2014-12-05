@@ -13,7 +13,7 @@ body='{
 }'
 
 tokenRequest=$(curl -s -X POST \
-    -H 'App-Secret: '$appSecret -H 'Content-type: application/json' \
+    -H "App-Secret: $appSecret" -H 'Content-type: application/json' \
     -d "$body" $baseURL/v1/tokens)
 
 # Extract the tokenId from the returned JSON
