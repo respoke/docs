@@ -1,3 +1,5 @@
 node_modules/**/*
 build/**/*
 src/js/ga.js
+example-templates/template.js
+examples/**/*
