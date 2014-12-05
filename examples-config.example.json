@@ -1,4 +1,5 @@
 {
+    "baseURL": "https://api.respoke.io",
     "username": "<your Respoke username>",
     "password": "<your Respoke password>",
     "appSecret": "<your Respoke app secret>",
