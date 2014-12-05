@@ -7,6 +7,7 @@ endpointId="<%= config.endpointId %>"
 roleId="<%= config.roleId %>"
 newRoleId="<%= newRole.id %>"
 newRoleName="<%= newRole.name %>"
-endpointId="<%= endpointId %>"
+adminToken="<%= tokens.adminToken %>"
+appToken="<%= tokens.appToken %>"
 
 <%= code %>
