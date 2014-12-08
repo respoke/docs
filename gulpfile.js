@@ -20,7 +20,7 @@ var argv = require('yargs')
     .default({
         dist: false,
         host: '127.0.0.1',
-        port: '2002'
+        port: '2003'
     })
     .alias({
         d: 'dist',
