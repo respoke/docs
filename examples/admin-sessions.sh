@@ -1,4 +1,4 @@
-: ${baseURL:="https://api.respoke.io"}
+: ${baseURL:="https://api.respoke.io/v1"}
 
 : ${username:?"username required"}
 : ${password:?"password required"}
@@ -8,4 +8,4 @@ body='{
     "password": "'$password'"
 }'
 
-curl -X POST -H 'Content-type: application/json' -d "$body" $baseURL/v1/admin-sessions
+curl -X POST -H 'Content-type: application/json' -d "$body" $baseURL/admin-sessions

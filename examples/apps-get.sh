@@ -1,4 +1,4 @@
-: ${baseURL:="https://api.respoke.io"}
+: ${baseURL:="https://api.respoke.io/v1"}
 
 : ${adminToken:?"adminToken required"}
 

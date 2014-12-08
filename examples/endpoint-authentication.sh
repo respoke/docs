@@ -1,4 +1,4 @@
-: ${baseURL:="https://api.respoke.io"}
+: ${baseURL:="https://api.respoke.io/v1"}
 
 : ${appSecret:?"appSecret required"}
 : ${appId:?"appId required"}
@@ -14,7 +14,7 @@ body='{
 
 tokenRequest=$(curl -s -X POST \
     -H "App-Secret: $appSecret" -H 'Content-type: application/json' \
-    -d "$body" $baseURL/v1/tokens)
+    -d "$body" $baseURL/tokens)
 
 # Extract the tokenId from the returned JSON
 tokenId=$(expr "$tokenRequest" : '.*"tokenId": *"\(.*\)"')
@@ -22,7 +22,7 @@ tokenId=$(expr "$tokenRequest" : '.*"tokenId": *"\(.*\)"')
 body='{ "tokenId": "'$tokenId'" }'
 
 curl -X POST -H 'Content-type: application/json' \
-    -d "$body" $baseURL/v1/session-tokens
+    -d "$body" $baseURL/session-tokens
 
 # {
 #     "message": "Authorization successful",

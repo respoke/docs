@@ -1,4 +1,4 @@
-: ${baseURL:="https://api.respoke.io"}
+: ${baseURL:="https://api.respoke.io/v1"}
 
 : ${appId:?"appId required"}
 : ${newRoleId:?"newRoleId required"}
@@ -26,4 +26,4 @@ body='{
 }'
 
 curl -X POST -H "App-Secret: $appSecret" -H 'Content-type: application/json' \
-    -d "$body" $baseURL/v1/roles
+    -d "$body" $baseURL/roles

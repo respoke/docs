@@ -1,4 +1,4 @@
-: ${baseURL:="https://api.respoke.io"}
+: ${baseURL:="https://api.respoke.io/v1"}
 
 : ${adminToken:?"adminToken required"}
 
@@ -8,4 +8,4 @@ body='{
 }'
 
 curl -X POST -H "Admin-Token: $adminToken" -H 'Content-type: application/json' \
-    -d "$body" $baseURL/v1/apps
+    -d "$body" $baseURL/apps
