@@ -7,13 +7,12 @@
 
     - section = getSectionFiles('tutorials');
     li.l1 Respoke Concepts
-    li.l2(class=(path === 'index.html' ? 'active':'')): a(href="/") Quickstart
     include sidebar-section
 
     li.l1(class=(path === 'frequently-asked-questions.html' ? 'active':''))
         a(href="/frequently-asked-questions.html") FAQ
     li.l1(class=(path === 'changelog.html' ? 'active':'')): a(href="/changelog.html") Changelog
-        
+
     - section = getSectionFiles('js-library');
     li.l1 Javascript Client
     li.l2: a(href="http://respoke.github.io/respoke" target="_blank") Reference&nbsp;
