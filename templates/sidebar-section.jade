@@ -1,18 +1,8 @@
 each skey in section
-  - var article = files[skey];
-  - var isStaticFile = !article.data.title;
-  - var isExample = skey.indexOf('-example') !== -1;
-  - var isHtmlFile = skey.indexOf('.html') !== -1;
-  - var displayTitle = article.data.title || skey;
-  - var isQuickstart = article.data.title == "Quickstart";
-  - var staticNameArray = isHtmlFile ? skey.replace('.html','').split('.') : null;
-  - var staticName = isHtmlFile ? staticNameArray[ staticNameArray.length - 1  ] : null;
-  //- in general, do not display static files
-  //- unless of course it is a piece of generated documentation
-  if(!isStaticFile && !isQuickstart)
-    li.l2(class=(path === skey ? 'active' : '' ))
-      a(href='/' + skey)= displayTitle.replace('.js.html','')
-  else if(isHtmlFile && !isExample && !isQuickstart)
-    //- the index page is also the quickstart tutorial. hence the second ugly part of this ng-class
-    li.l2(ng-class="{ active: currentPage === ('/" + skey + "') }")
-      a(href='/' + skey)= staticName
+    - var article = files[skey];
+    - var displayTitle = article.data.title || skey;
+    - var link = '/' + skey;
+    - var currentPage = (path === skey);
+    - var itemClass = currentPage ? 'active' : '' ;
+
+    li.l2(class=itemClass): a(href=link)= displayTitle
