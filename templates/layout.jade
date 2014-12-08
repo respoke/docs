@@ -18,13 +18,10 @@ html(lang='en')
       script(src="/js/ga.js" async)
   body
     != renderSharedTemplate('navbar')
-    
-    
+
     nav
         include sidebar
     .content
         block content
 
     != renderSharedTemplate('footer')
-
-    script(src="/js/padd.js")
