@@ -89,7 +89,6 @@ function buildSite(callback) {
             }))
             .pipe($.marked({
                 gfm: true,
-                smartypants: true,
                 tables: true
             }))
             .pipe(gulpsmith()
