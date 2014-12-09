@@ -109,7 +109,7 @@
 
     "maxerr"        : 100,      // Maximum errors before stopping.
     "predef"        : [         // Extra globals.
-        
+        "$"
     ],
     "indent"        : 4         // Specify indentation spacing
 }

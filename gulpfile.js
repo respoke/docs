@@ -1,3 +1,4 @@
+/*global -$: true] */
 'use strict';
 
 require('colors');
