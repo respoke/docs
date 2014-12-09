@@ -18,11 +18,12 @@ html(lang='en')
       script(src="/js/site.js" async)
       script(src="/js/ga.js" async)
   body
-    != renderSharedTemplate('navbar')
+      != renderSharedTemplate('navbar')
+      != renderSharedTemplate('breadcrumbs')
 
-    nav
-        include sidebar
-    .content
-        block content
+      nav
+          include sidebar
+      .content
+          block content
 
-    != renderSharedTemplate('footer')
+      != renderSharedTemplate('footer')
