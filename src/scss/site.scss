@@ -1,1 +1,54 @@
 @import 'base';
+
+.accordion-tabs-minimal {
+  $tab-border-color: $primaryDark;
+  $tab-border: 1px solid $tab-border-color;
+  $tab-content-background: $background;
+  $tab-active-background: $tab-content-background;
+  $tab-inactive-color: $background;
+  $tab-inactive-hover-color: $light-gray;
+
+  @include clearfix;
+  margin-bottom: $paddingSmall;
+
+  li.tab-header-and-content {
+    @media screen and (max-width: $break-large) {
+      display: inline;
+    }
+  }
+
+  a.tab-link {
+    background-color: $tab-inactive-color;
+    border-top: $tab-border;
+    display: block;
+    font-weight: 400;
+    color: $dark-gray;
+    padding: $paddingMini;
+
+    @media screen and (max-width: $break-large) {
+      display: inline-block;
+      border-top: 0;
+    }
+
+    &.is-active {
+      border-bottom: 0;
+
+      @media screen and (max-width: $break-large) {
+        border: $tab-border;
+        border-bottom-color: $tab-active-background;
+        margin-bottom: -1px;
+      }
+    }
+  }
+
+  .tab-content {
+    display: none;
+    padding: $paddingSmall $paddingMini;
+    width: 100%;
+
+    @media screen and (max-width: $break-large) {
+      border-top: $tab-border;
+      float: left;
+    }
+  }
+}
