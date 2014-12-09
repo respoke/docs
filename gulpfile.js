@@ -62,11 +62,7 @@ function buildSite(callback) {
             return $.if('*.html', $.minifyHtml());
         });
 
-    gulp.src([
-        paths.source + '/**/*',
-        '!' + paths.source + '/{scss,scss/**}',
-        '!' + paths.source + '/{js,js/**}'
-    ])
+    gulp.src(paths.source + '/**/*')
         .pipe(filterMarkdown)
             .pipe($.frontMatter({
                 property: 'data',
@@ -213,7 +209,6 @@ gulp.task('watch', function watchTask(done) {
         [
             paths.templates + '/**/*',
             paths.source + '/**/*',
-            '!' + paths.source + '/{scss/**,js/**}',
             path.join(respokeStyle.paths.templates, '**/*'),
             path.join(respokeStyle.paths.assets, '**/*')
         ],
