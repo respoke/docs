@@ -109,7 +109,7 @@ function buildSass(callback) {
     gulp.src(path.join(paths.sass, '**/*'))
         .pipe($.sourcemaps.init())
             .pipe($.sass({
-                includePaths: respokeStyle.bourbon.with([respokeStyle.paths.styles]),
+                includePaths: respokeStyle.includeStylePaths(),
                 errLogToConsole: true
             }))
             .pipe($.if(argv.dist, $.minifyCss()))
