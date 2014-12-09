@@ -35,8 +35,8 @@ var paths = {
     examples: path.join(__dirname, '/examples'),
     output: path.join(__dirname, '/build'),
     source: path.join(__dirname, '/src'),
-    scripts: path.join(__dirname, '/src/js'),
-    sass: path.join(__dirname, '/src/scss'),
+    scripts: path.join(__dirname, '/js'),
+    sass: path.join(__dirname, '/scss'),
     root: __dirname
 };
 
