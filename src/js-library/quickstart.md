@@ -2,7 +2,8 @@
 title: "Quickstart"
 date: 2014-04-24 10:10
 template: article.jade
-changefreq: monthly
+showInMenu: "true"
+menuOrder: 3
 ---
 # Respoke Quickstart
 

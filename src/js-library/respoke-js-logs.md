@@ -2,7 +2,8 @@
 title: "Respoke.js Logs"
 date: 2014-07-04
 template: article.jade
-changefreq: monthly
+showInMenu: "true"
+menuOrder: 4
 ---
 
 # Log Messages in respoke.js
@@ -10,7 +11,7 @@ changefreq: monthly
 Respoke has debug logs turned on by default. A logging utility is attached at `respoke.log`.
 
 To **disable** Respoke's logging:
-	
+
 	respoke.log.disableAll();
 
 <br />

@@ -2,7 +2,8 @@
 title: "Video Chat"
 date: 2014-03-11
 template: article.jade
-changefreq: monthly
+showInMenu: "true"
+menuOrder: 5
 ---
 
 # Build a Video Chat App
@@ -23,7 +24,7 @@ Include some scripts.
 
 	<!-- Respoke client library -->
 	<script src="https://cdn.respoke.io/respoke.min.js"></script>
-	
+
 	<!-- Angular.js, used in this example -->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.13/angular.min.js"></script>
 
@@ -58,7 +59,7 @@ Add a place to indicate you are connected.
 	</h3>
 
 You'll need an input box for the username, and a button that calls `connect()`.
-	
+
 	<div ng-show="!client.isConnected()">
 		<input placeholder="My Username" ng-model="username" type="text" autofocus />
 		<button ng-click="connect()">Connect</button>
@@ -125,7 +126,7 @@ Throw the call options in an object. `setVideo` is called inside the callbacks.
 
 	var callOptions = {
     	constraints: {audio: true, video: true},
-    	
+
     	// your video
     	onPreviewLocalMedia: function(evt) {
     		setVideo('localVideoSource', evt.element)
@@ -186,7 +187,7 @@ Finally, set an event listener for the call.
 		<head>
 			<!-- Respoke client library -->
 			<script src="https://cdn.respoke.io/respoke.min.js"></script>
-			
+
 			<!-- Angular.js for this example -->
 			<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.13/angular.min.js"></script>
 
@@ -215,7 +216,7 @@ Finally, set an event listener for the call.
 
 					var callOptions = {
 				    	constraints: {audio: true, video: true},
-				    	
+
 				    	onPreviewLocalMedia: function(evt) {
 				    		setVideo('localVideoSource', evt.element)
 				    	},

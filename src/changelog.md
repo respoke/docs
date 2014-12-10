@@ -2,7 +2,8 @@
 title: "Changelog"
 date: 2014-11-13
 template: article.jade
-changefreq: monthly
+showInMenu: "true"
+menuOrder: 2
 ---
 
 # Changelog

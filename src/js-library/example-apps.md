@@ -2,7 +2,8 @@
 title: "Example Apps"
 date: 2014-07-01
 template: article.jade
-changefreq: weekly
+showInMenu: "true"
+menuOrder: 2
 ---
 
 # Example Apps Built with Respoke.js

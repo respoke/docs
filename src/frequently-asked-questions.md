@@ -1,7 +1,10 @@
 ---
 title: "Frequently Asked Questions"
+shortTitle: "FAQ"
 date: 2014-12-03
 template: article.jade
+showInMenu: "true"
+menuOrder: 1
 ---
 
 # Frequently Asked Questions

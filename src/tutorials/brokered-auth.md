@@ -2,6 +2,8 @@
 title: "Authentication"
 date: 2014-03-11
 template: article.jade
+showInMenu: "true"
+menuOrder: 0
 ---
 
 # Brokered Authentication: Securing Your Application

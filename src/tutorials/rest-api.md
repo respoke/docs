@@ -2,7 +2,8 @@
 title: "REST API Routes"
 date: 2014-08-27
 template: article.jade
-changefreq: weekly
+showInMenu: "true"
+menuOrder: 3
 ---
 
 # Respoke REST API

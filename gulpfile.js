@@ -13,6 +13,7 @@ var del = require('del');
 var notifier = require('node-notifier');
 var async = require('async');
 var respokeStyle = require('respoke-style');
+var navigation = require('metalsmith-navigation');
 
 var renderJade = require('./lib/metalsmith/render-jade');
 var insertExamples = require('./lib/metalsmith/insert-examples');
@@ -38,6 +39,22 @@ var paths = {
     scripts: path.join(__dirname, '/js'),
     sass: path.join(__dirname, '/scss'),
     root: __dirname
+};
+
+var navConfig = {
+    sidebar: {
+        sortBy: 'menuOrder',
+        sortByNameFirst: true,
+        breadcrumbProperty: false,
+        filterProperty: 'showInMenu',
+        filterValue: 'true',
+        mergeMatchingFilesAndDirs: true
+    }
+};
+
+// default values shown
+var navSettings = {
+    navListProperty: 'navs'
 };
 
 function cleanBuildDir(done) {
@@ -68,26 +85,22 @@ function buildSite(callback) {
                 property: 'data',
                 remove: true
             }))
-            .pipe($.data(function sidebarSectionsData(file) {
-                if (!file.data || !file.data.title) {
-                    return {};
-                }
-                var relativePath = file.path.replace(file.base, '');
-                var sections = relativePath.split(path.sep);
-                var section = '';
-
-                if (sections.length > 1) {
-                    sections.pop();
-                    section = sections.join('/');
+            .pipe(through.obj(function sidebarDataTransform(file, enc, callback) {
+                if (!file.data) {
+                    callback();
                 }
 
-                return _.merge(file.data, { section: section });
+                // copy nav metadata for metalsmith-navigation plugin
+                file.showInMenu = file.data.showInMenu;
+                file.menuOrder = file.data.menuOrder;
+                callback(null, file);
             }))
             .pipe($.marked({
                 gfm: true,
                 tables: true
             }))
             .pipe(gulpsmith()
+                .use(navigation(navConfig, navSettings))
                 .use(renderJade(paths, argv.dist))
                 .use(insertExamples(paths, argv.dist))
             )

@@ -2,7 +2,8 @@
 title: "Roles & Permissions"
 date: 2014-07-09
 template: article.jade
-changefreq: monthly
+showInMenu: "true"
+menuOrder: 4
 ---
 
 # Roles and Permissions

@@ -2,7 +2,8 @@
 title: "Calling to and from a Phone"
 date: 2014-11-04
 template: article.jade
-changefreq: monthly
+showInMenu: "true"
+menuOrder: 1
 ---
 
 # Calling to and from a Phone

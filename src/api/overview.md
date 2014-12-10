@@ -2,6 +2,8 @@
 title: "Overview"
 date: 2014-12-08
 template: article.jade
+showInMenu: "true"
+menuOrder: 0
 ---
 
 # Overview

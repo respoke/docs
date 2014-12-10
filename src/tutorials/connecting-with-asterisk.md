@@ -2,6 +2,8 @@
 title: "Connecting with Asterisk"
 date: 2014-10-15
 template: article.jade
+showInMenu: "true"
+menuOrder: 2
 ---
 
 # Connecting to Respoke with Asterisk

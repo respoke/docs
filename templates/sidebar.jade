@@ -1,26 +1,23 @@
-- var section;
-- var getSectionFiles = function (sect) { return Object.keys(files).filter(function (f) { return files[f].data.section === sect;});};
+mixin menuItem(node)
+    - var itemClasses = [];
+    - var link = node.file.data.linkUrl ? node.file.data.linkUrl : ['/', node.path].join('');
+    - var title = node.file.data.shortTitle ? node.file.data.shortTitle : node.file.data.title
 
+    - itemClasses.push(node.parent ? 'l2' : 'l1');
+    - if (currentPath === node.path) itemClasses.push('active');
+
+    li(class=itemClasses.join(' '))
+        if link && !node.file.data.noLink
+            a(href=link)= title
+        else
+            = title
+        if node.children.length > 0
+            ul
+                each childNode in node.children
+                    +menuItem(childNode)
 
 .sidebar
-  .sidebar-inner: ul
-
-    - section = getSectionFiles('tutorials');
-    li.l1 Respoke Concepts
-    include sidebar-section
-
-    li.l1(class=(path === 'frequently-asked-questions.html' ? 'active':''))
-        a(href="/frequently-asked-questions.html") FAQ
-    li.l1(class=(path === 'changelog.html' ? 'active':'')): a(href="/changelog.html") Changelog
-
-    - section = getSectionFiles('js-library');
-    li.l1 Javascript Client
-    li.l2: a(href="http://respoke.github.io/respoke" target="_blank") Reference&nbsp;
-        | &nbsp;&rarr;
-    include sidebar-section
-
-    - section = getSectionFiles('api');
-    li.l1 Admin API
-    include sidebar-section
-
-    li.l2 Coming soon
+  .sidebar-inner
+    ul
+        each node in nav
+            +menuItem(node)

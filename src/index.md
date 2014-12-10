@@ -1,8 +1,9 @@
 ---
-title: "Respoke Docs"
+title: "Respoke Documentation"
 date: 2014-12-09 14:40
 template: article.jade
-changefreq: monthly
 ---
+
+# Respoke Documentation
 
 Welcome to the Respoke docs.

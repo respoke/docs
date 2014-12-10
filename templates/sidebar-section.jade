@@ -1,8 +1,0 @@
-each skey in section
-    - var article = files[skey];
-    - var displayTitle = article.data.title || skey;
-    - var link = '/' + skey;
-    - var currentPage = (path === skey);
-    - var itemClass = currentPage ? 'active' : '' ;
-
-    li.l2(class=itemClass): a(href=link)= displayTitle
