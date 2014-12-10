@@ -34,7 +34,7 @@ var argv = require('yargs')
 var paths = {
     templates: path.join(__dirname, '/templates'),
     examples: path.join(__dirname, '/examples'),
-    output: path.join(__dirname, '/build'),
+    output: path.join(__dirname, '/public'),
     source: path.join(__dirname, '/src'),
     scripts: path.join(__dirname, '/js'),
     sass: path.join(__dirname, '/scss'),

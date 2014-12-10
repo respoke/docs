@@ -5,6 +5,7 @@ coverage
 
 # Site build output
 build/
+public/
 
 # Dependency directory
 node_modules
