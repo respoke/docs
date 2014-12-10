@@ -1,4 +1,7 @@
-
 div.example-block(class='example-'+name)
-    each value, key in types
-        pre: code(class=key)= value
+    ul.accordion-tabs-minimal
+        each code, type in types
+          li.tab-header-and-content
+            a.tab-link(href="#")= typeTitles[type]
+            div.tab-content
+                pre: code(class='lang-' + type)= code

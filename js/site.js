@@ -2,7 +2,9 @@
 
 $(document).ready(function () {
     $('.accordion-tabs-minimal').each(function eachTab(index) {
-        $(this).children('li').first().children('a').addClass('is-active').next().addClass('is-open').show();
+        $(this).children('li')
+            .first().children('a').addClass('is-active')
+            .next().addClass('is-open').show();
     });
 
     $('.accordion-tabs-minimal').on('click', 'li > a', function tabClick(event) {
