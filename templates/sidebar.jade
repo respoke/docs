@@ -3,18 +3,17 @@ mixin menuItem(node)
     - var link = node.file.data.linkUrl ? node.file.data.linkUrl : ['/', node.path].join('');
     - var title = node.file.data.shortTitle ? node.file.data.shortTitle : node.file.data.title
 
-    - itemClasses.push(node.parent ? 'l2' : 'l1');
+    - itemClasses.push(['l', node.depth].join(''));
     - if (currentPath === node.path) itemClasses.push('active');
 
     li(class=itemClasses.join(' '))
         if link && !node.file.data.noLink
-            a(href=link)= title
+            a.menuTitle(href=link)= title
         else
-            = title
-        if node.children.length > 0
-            ul
-                each childNode in node.children
-                    +menuItem(childNode)
+            span.menuTitle= title
+    if node.children.length > 0
+        each childNode in node.children
+            +menuItem(childNode)
 
 .sidebar
   .sidebar-inner
