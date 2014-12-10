@@ -29,4 +29,4 @@ analytics soon!
 
 ![Analytics screenshot](/images/screenshot-browser-analytics.png)
 
- [dashboard]: https://portal.respoke.io/
+[dashboard]: https://portal.respoke.io/
