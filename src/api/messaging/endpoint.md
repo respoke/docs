@@ -6,5 +6,6 @@ showInMenu: "true"
 menuOrder: 0
 ---
 
+# Send a message to an endpoint
 
 {example: endpoint-messaging}

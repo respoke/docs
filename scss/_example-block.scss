@@ -1,0 +1,79 @@
+
+.example-block {
+    width: 85%;
+
+    @media screen and (max-width: $break-medium) {
+        width: 100%;
+    }
+}
+
+ul.example-block--accordion-tabs {
+    @include insetShadow();
+    padding: 0px;
+    margin: 0px;
+}
+
+.example-block--accordion-tabs {
+    @include clearfix;
+
+    padding-bottom: $paddingStandard;
+
+    border-radius: $radius;
+    background-color: $panel;
+    text-align: center;
+
+    li.tab-header-and-content {
+        margin: 0px auto;
+        width: 100%;
+        text-align: left;
+
+        @media screen and (max-width: $break-large) {
+            display: inline;
+        }
+    }
+
+    a.tab-link {
+        display: block;
+
+        margin: ($paddingStandard / 4) 0px;
+        padding: ($paddingSmall / 3) $paddingSmall;
+        line-height: 13px;
+        font-size: 13px;
+
+        color: $text;
+
+        @media screen and (max-width: $break-large) {
+            display: inline-block;
+        }
+
+        &.is-active {
+            @include insetShadow();
+            color: $textInverse;
+            background: $primaryAlt1;
+            border-radius: $radius * 2;
+
+            @media screen and (max-width: $break-large) {
+            }
+        }
+    }
+
+    .tab-content {
+        display: none;
+
+        width: 100%;
+        padding: 0px $paddingStandard;
+        box-sizing: border-box;
+
+        border-top: darken($panel, 5) solid 1px;
+
+        @media screen and (max-width: $break-large) {
+            float: left;
+        }
+    }
+}
+
+.example-block--accordion-tabs {
+    pre {
+        @include removeShadow();
+    }
+}
