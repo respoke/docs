@@ -1,7 +1,8 @@
+
 div.example-block(class='example-'+name)
-    ul.accordion-tabs-minimal
-        each code, type in types
-          li.tab-header-and-content
-            a.tab-link(href="#")= typeTitles[type]
-            div.tab-content
-                pre: code(class='lang-' + type)= code
+    ul.example-block--accordion-tabs
+        each example in examples
+            li.tab-header-and-content
+                a.tab-link(href="#")= example.title
+                div.tab-content
+                    pre: code(class='lang-' + example.extension)= example.code
