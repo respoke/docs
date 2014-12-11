@@ -15,9 +15,9 @@ help contribute to.
 
 ## Respoke API Wrapper Libraries
 
-<ul class="accordion-tabs-minimal">
+<ul class="accordion-tabs">
   <li class="tab-header-and-content">
-    <a href="#" class="tab-link is-active">Node.js</a>
+    <a href="#" class="tab-link">Node.js</a>
     <div class="tab-content">
       <p>
         <ul>
