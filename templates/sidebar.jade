@@ -20,5 +20,7 @@ mixin menuItem(node)
 .sidebar
   .sidebar-inner
     ul
+        li.l1: a(href="/"): strong Docs
+        li.header &nbsp;
         each node in nav
             +menuItem(node)
