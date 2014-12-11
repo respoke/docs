@@ -1,16 +1,18 @@
 mixin menuItem(node)
     - var itemClasses = [];
     - var link = node.file.data.linkUrl ? node.file.data.linkUrl : ['/', node.path].join('');
+    - var linked = link && !node.file.data.noLink
     - var title = node.file.data.shortTitle ? node.file.data.shortTitle : node.file.data.title
 
     - itemClasses.push(['l', node.depth].join(''));
     - if (currentPath === node.path) itemClasses.push('active');
+    - if (!linked) itemClasses.push('header');
 
     li(class=itemClasses.join(' '))
-        if link && !node.file.data.noLink
-            a.menuTitle(href=link)= title
+        if linked
+            a(href=link)= title
         else
-            span.menuTitle= title
+            span= title
     if node.children.length > 0
         each childNode in node.children
             +menuItem(childNode)
