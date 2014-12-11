@@ -20,7 +20,7 @@ ul.example-block--accordion-tabs {
 
     border-radius: $radius;
     background-color: $panel;
-    text-align: center;
+    text-align: left;
 
     li.tab-header-and-content {
         margin: 0px auto;
@@ -35,7 +35,7 @@ ul.example-block--accordion-tabs {
     a.tab-link {
         display: block;
 
-        margin: ($paddingStandard / 4) 0px;
+        margin: ($paddingStandard / 4) $paddingStandard;
         padding: ($paddingSmall / 3) $paddingSmall;
         line-height: 13px;
         font-size: 13px;
