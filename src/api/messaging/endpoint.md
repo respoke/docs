@@ -8,4 +8,6 @@ menuOrder: 0
 
 # Send a message to an endpoint
 
+You must be connected via websocket for this to work currently.
+
 {example: endpoint-messaging}
