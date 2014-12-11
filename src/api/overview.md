@@ -13,32 +13,32 @@ with it. Below is a list of wrapper libraries that we provide which will
 simplify working with our API. These are all open source projects that you can
 help contribute to.
 
+For the full API reference please see the [RAML documentation][RAML].
+
+[RAML]: https://raml.respoke.io
+
 ## Respoke API Wrapper Libraries
 
-<ul class="accordion-tabs">
-  <li class="tab-header-and-content">
-    <a href="#" class="tab-link">Node.js</a>
-    <div class="tab-content">
-      <p>
-        <ul>
-          <li>[Documentation](http://respoke.github.io/node-respoke-admin)</li>
-          <li>[Source](https://github.com/respoke/node-respoke-admin)</li>
-        </ul>
-      </p>
-      <h3>Installing</h3>
-      <pre><code class="lang-sh">
-        # from the root of your project install respoke-admin
-        npm install --save respoke-admin
-      </code></pre>
+We currently provide a Node.js library for interacting with our API. More will
+be coming soon!
 
-      <h3>Usage</h3>
-      <pre><code class="lang-js">
-        var Respoke = require('respoke-admin');
+- [Documentation](http://respoke.github.io/node-respoke-admin)</li>
+- [Source](https://github.com/respoke/node-respoke-admin)</li>
 
-        var respoke = new Respoke({
-          'App-Secret': appSecret
-        });
-      </code></pre>
-    </div>
-  </li>
-</ul>
+### Installing
+
+```sh
+# from the root of your project install respoke-admin
+npm install --save respoke-admin
+```
+
+### Usage
+
+```js
+var Respoke = require('respoke-admin');
+
+var respoke = new Respoke({
+  'App-Secret': appSecret
+});
+```
+
