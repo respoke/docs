@@ -1,7 +1,8 @@
 : ${baseURL:="https://api.respoke.io/v1"}
 
 body='{
-    "endpointId": "destination-endpoint-id",
+    "endpointId": "'$endpointId'",
+    "to": "destination-endpoint-id"
     "message": "Hello world!"
 }'
 

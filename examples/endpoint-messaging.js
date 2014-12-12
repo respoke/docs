@@ -9,7 +9,13 @@ respoke.auth.connect({
 
 respoke.on('connect', function () {
     respoke.messages.send({
-        endpointId: 'destination-endpoint-id',
+        endpointId: endpointId,
+        to: 'destination-endpoint-id',
         message: 'Hello world!'
+    }).then(function (response) {
+        console.log(response);
+        respoke.close();
+    }).catch(function (error) {
+        console.log(error);
     });
 });
