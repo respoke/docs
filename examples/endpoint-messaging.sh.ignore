@@ -8,3 +8,7 @@ body='{
 
 curl -X POST -H "App-Token: $appToken" -H 'Content-type: application/json' \
     -d "$body" $baseURL/messages
+
+# {
+#     "message": "success"
+# }

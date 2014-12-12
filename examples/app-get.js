@@ -1,14 +1,15 @@
-var respoke = new Respoke();
+var respoke = new Respoke({
+    'App-Secret': appSecret
+});
 
-respoke.auth.admin({
-    username: username,
-    password: password
-}).then(function () {
-    return respoke.apps.get({
-        appId: appId
-    });
+respoke.apps.get({
+    appId: appId
 }).then(function (app) {
-    console.log('App retrieved: ', app);
+    console.log('App retrieved: ', app.id);
 }).catch(function (error) {
     console.log(error);
 });
+
+/*
+App retrieved: 511b443f-3890-4a89-8740-de42f85765ef
+*/

@@ -23,3 +23,5 @@ respoke.auth.endpoint({
 }).catch(function (error) {
     console.log(error);
 });
+
+// Retrieved session token: FB311719-D2F0-48D4-9A51-69CCE09F1C01

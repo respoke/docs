@@ -9,3 +9,8 @@ body='{
 }'
 
 curl -X POST -H 'Content-type: application/json' -d "$body" $baseURL/admin-sessions
+
+# {
+#     "message":"Authorization successful",
+#     "token":"22153294-EB54-48FD-9007-6791126155BB"
+# }
