@@ -1,11 +1,11 @@
 extends layout
 
 block append vars
-  - bodyclass = 'article-detail'
+    - bodyclass = 'article-detail'
 
 block prepend title
-  | #{ title + " - "}
+    | #{ title + " - "}
 
 block content
-  article.article
-    section.content!= content
+    article.article
+        section.content!= content
