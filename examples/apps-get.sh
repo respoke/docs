@@ -2,13 +2,8 @@
 
 : ${adminToken:?"adminToken required"}
 
-body='{
-    "name": "New App",
-    "description": "New app description."
-}'
-
 curl -X GET -H "Admin-Token: $adminToken" -H 'Content-type: application/json' \
-    -d "$body" $baseURL/apps
+    $baseURL/apps
 
 # [
 #   { id: '02ce2756-5684-4424-9770-657481bf552f',

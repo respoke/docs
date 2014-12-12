@@ -1,15 +1,10 @@
 : ${baseURL:="https://api.respoke.io/v1"}
 
-: ${adminToken:?"adminToken required"}
+: ${appSecret:?"appSecret required"}
 : ${appId:?"appId required"}
 
-body='{
-    "name": "New App",
-    "description": "New app description."
-}'
-
-curl -X GET -H "Admin-Token: $adminToken" -H 'Content-type: application/json' \
-    -d "$body" $baseURL/apps/$appId
+curl -X GET -H "App-Secret: $appSecret" -H 'Content-type: application/json' \
+    $baseURL/apps/$appId
 
 # {
 #     id: '511b443f-3890-4a89-8740-de42f85765ef',
