@@ -135,7 +135,10 @@ function buildScripts(callback) {
     gulp.src(paths.scripts + '/**/*.js')
         .pipe($.sourcemaps.init())
             .pipe($.if(argv.dist, $.uglify()))
-        .pipe($.sourcemaps.write())
+        .pipe($.sourcemaps.write({
+            includeContent: false,
+            sourceRoot: '/js'
+        }))
         .pipe(gulp.dest(scriptsOutput))
         .on('end', function buildScriptsCallback() {
             callback();
