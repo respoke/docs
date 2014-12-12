@@ -13,6 +13,9 @@ with it. Below is a list of wrapper libraries that we provide which will
 simplify working with our API. These are all open source projects that you can
 help contribute to.
 
+**Please note that all REST routes require the header
+`Content-Type: application/json`.**
+
 For the full API reference please see the [RAML documentation][RAML].
 
 [RAML]: https://raml.respoke.io
