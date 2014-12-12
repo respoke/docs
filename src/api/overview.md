@@ -17,10 +17,7 @@ For the full API reference please see the [RAML documentation][RAML].
 
 [RAML]: https://raml.respoke.io
 
-## Respoke API Wrapper Libraries
-
-We currently provide a Node.js library for interacting with our API. More will
-be coming soon!
+## Node.js API Wrapper Library
 
 - [Documentation](http://respoke.github.io/node-respoke-admin)</li>
 - [Source](https://github.com/respoke/node-respoke-admin)</li>
