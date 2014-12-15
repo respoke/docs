@@ -1,5 +1,6 @@
 ---
 title: "Brokered authentication"
+shortTitle: "Authentication"
 date: 2014-03-11
 template: article.jade
 showInMenu: "true"
