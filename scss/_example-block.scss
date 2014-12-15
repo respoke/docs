@@ -23,17 +23,15 @@ ul.example-block--accordion-tabs {
     text-align: left;
 
     li.tab-header-and-content {
+        display: inline;
+
         margin: 0px auto;
         width: 100%;
         text-align: left;
-
-        @media screen and (max-width: $break-large) {
-            display: inline;
-        }
     }
 
     a.tab-link {
-        display: block;
+        display: inline-block;
 
         margin: ($paddingStandard / 4) $paddingStandard;
         padding: ($paddingSmall / 3) $paddingSmall;
@@ -42,33 +40,23 @@ ul.example-block--accordion-tabs {
 
         color: $text;
 
-        @media screen and (max-width: $break-large) {
-            display: inline-block;
-        }
-
         &.is-active {
             @include insetShadow();
             color: $textInverse;
             background: $primaryAlt1;
             border-radius: $radius * 2;
-
-            @media screen and (max-width: $break-large) {
-            }
         }
     }
 
     .tab-content {
         display: none;
+        float: left;
 
         width: 100%;
         padding: 0px $paddingStandard;
         box-sizing: border-box;
 
         border-top: darken($panel, 5) solid 1px;
-
-        @media screen and (max-width: $break-large) {
-            float: left;
-        }
     }
 }
 
