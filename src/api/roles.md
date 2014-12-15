@@ -1,11 +1,11 @@
 ---
-title: Role Management
+title: Role management
 template: article.jade
 showInMenu: "true"
 menuOrder: 8
 ---
 
-# Role Management
+# Role management
 
 These API calls require either [Full Admin] or [Partial Admin] tokens.
 

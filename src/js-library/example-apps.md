@@ -1,12 +1,13 @@
 ---
-title: "Example Apps"
+title: "Example apps built with Respoke.js"
+shortTitle: "Example apps"
 date: 2014-07-01
 template: article.jade
 showInMenu: "true"
 menuOrder: 2
 ---
 
-# Example Apps Built with Respoke.js
+# Example apps built with Respoke.js
 
 A collection of examples using jQuery.
 ([source](https://github.com/respoke/web-examples))

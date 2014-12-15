@@ -1,12 +1,12 @@
 ---
-title: "Roles & Permissions"
+title: "Roles and permissions"
 date: 2014-07-09
 template: article.jade
 showInMenu: "true"
 menuOrder: 4
 ---
 
-# Roles and Permissions
+# Roles and permissions
 
 In [Brokered Authentication: Securing Your Application](/tutorials/brokered-auth.html), you learn how to secure your app by using tokens to create endpoints and authenticate your users to Respoke.
 

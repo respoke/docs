@@ -1,12 +1,13 @@
 ---
-title: "Direct Connections"
+title: "Using direct connections"
+shortTitle: "Direct connections"
 date: 2014-04-24 10:10
 template: article.jade
 showInMenu: "true"
 menuOrder: 1
 ---
-# Using Direct Connections
 
+# Using direct connections
 
 Direct connections provide a way to send messages from one endpoint to another without going through Respoke's cloud infrastructure. This quick guide should help you build a **secure direct-messaging app** in about 10 minutes. This tutorial uses development mode for ease of development, but all apps should be converted to using [brokered authentication](/tutorials/brokered-auth.html) before being published.
 

@@ -1,12 +1,13 @@
 ---
-title: "Video Chat"
+title: "Build a video chat app"
+shortTitle: "Video chat"
 date: 2014-03-11
 template: article.jade
 showInMenu: "true"
 menuOrder: 5
 ---
 
-# Build a Video Chat App
+# Build a video chat app
 
 
 Leveraging the power of Respoke, you can make a 100% client-side video chat app in minutes. This tutorial uses development mode for ease of development, but all apps should be converted to using [brokered authentication](/tutorials/brokered-auth.html) before being published.

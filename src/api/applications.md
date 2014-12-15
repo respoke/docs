@@ -1,11 +1,11 @@
 ---
-title: Application Management
+title: Application management
 template: article.jade
 showInMenu: "true"
 menuOrder: 6
 ---
 
-# Application Management
+# Application management
 
 ## Creating applications
 

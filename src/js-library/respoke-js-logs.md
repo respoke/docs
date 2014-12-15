@@ -1,12 +1,13 @@
 ---
-title: "Respoke.js Logs"
+title: "Log messages in Respoke.js"
+shortTitle: "Respoke.js logs"
 date: 2014-07-04
 template: article.jade
 showInMenu: "true"
 menuOrder: 4
 ---
 
-# Log Messages in respoke.js
+# Log messages in Respoke.js
 
 Respoke has debug logs turned on by default. A logging utility is attached at `respoke.log`.
 

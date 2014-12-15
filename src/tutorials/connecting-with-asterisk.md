@@ -1,5 +1,6 @@
 ---
-title: "Connecting with Asterisk"
+title: "Connecting to Respoke with Asterisk"
+shortTitle: "Connecting with Asterisk"
 date: 2014-10-15
 template: article.jade
 showInMenu: "true"

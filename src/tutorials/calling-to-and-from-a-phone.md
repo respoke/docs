@@ -1,12 +1,12 @@
 ---
-title: "Calling to and from a Phone"
+title: "Calling to and from a phone"
 date: 2014-11-04
 template: article.jade
 showInMenu: "true"
 menuOrder: 1
 ---
 
-# Calling to and from a Phone
+# Calling to and from a phone
 
 You can use Respoke to call and receive calls from phones as well as other Respoke endpoints. In this tutorial, you will learn how to configure your app to accept phone calls and how to place calls to a phone.
 

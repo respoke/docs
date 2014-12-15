@@ -1,5 +1,5 @@
 ---
-title: "Frequently Asked Questions"
+title: "Frequently asked questions"
 shortTitle: "FAQ"
 date: 2014-12-03
 template: article.jade
@@ -7,7 +7,7 @@ showInMenu: "true"
 menuOrder: 1
 ---
 
-# Frequently Asked Questions
+# Frequently asked questions
 
 ### What does "concurrent connections" mean?
 Each Respoke plan includes a maximum number of concurrent connections. When your application creates a Respoke client

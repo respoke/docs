@@ -1,5 +1,5 @@
 ---
-title: "Respoke Documentation"
+title: "Respoke documentation"
 date: 2014-12-09 14:40
 template: article.jade
 ---
