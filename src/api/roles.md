@@ -7,10 +7,10 @@ menuOrder: 8
 
 # Role management
 
-These API calls require either [Full Admin] or [Partial Admin] tokens.
+These API calls require either [Account admin] or [Application admin] tokens.
 
-[Full Admin]: /api/authenticating.html#full-admin
-[Partial Admin]: /api/authenticating.html#partial-admin
+[Account admin]: /api/authenticating.html#account-admin
+[Application admin]: /api/authenticating.html#application-admin
 
 ## Creating a role
 

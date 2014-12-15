@@ -10,19 +10,19 @@ menuOrder: 1
 
 There are **three ways to authenticate** to Respoke. Each provides a different level of permissions.
 
-> *[Full Admin] > [Partial Admin] > [App Token]*
+> *[Account admin] > [Application admin] > [Endpoint authentication]*
 
-[Full Admin]: #full-admin
-[Partial Admin]: #partial-admin
-[App Token]: #app-token
+[Account admin]: #account-admin
+[Application admin]: #application-admin
+[Endpoint authentication]: #endpoint-authentication
 
-## Full Admin
+## Account admin
 
 For account level admin permissions you need to an `Admin-Token`.
 
 {example: admin-sessions}
 
-## Partial Admin
+## Application admin
 
 By using an `App-Secret` you gain application level permissions. `App-Secret`'s are
 found in the [Dev Console](https://portal.respoke.io/#apps). By passing the
@@ -32,11 +32,11 @@ application's details.
 
 {example: app-get}
 
-## App Token
+## Endpoint authentication
 
 To authenticate as a specific endpoint (user) you need to request an `App-Token`
 to pass as a header in other requests. To do this you need to use either the
-Full Admin or Partial Admin method. This is a two step process where you request
+Account admin or Application admin method. This is a two step process where you request
 a tokenId and use that to request the actual `App-Token` for use by the
 endpoint. Note that you will often want to specify a role ID to set permissions
 on what the endpoint is allowed to do.

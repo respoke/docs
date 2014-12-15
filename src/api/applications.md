@@ -9,23 +9,23 @@ menuOrder: 6
 
 ## Creating applications
 
-Requires [Full Admin] authentication.
+Requires [Account admin] authentication.
 
 {example: app-create}
 
 ## Query all applications' details
 
-Requires [Full Admin] authentication.
+Requires [Account admin] authentication.
 
 {example: apps-get}
 
 ## Query application's details
 
-Requires [Partial Admin] authentication.
+Requires [Application admin] authentication.
 
 Or you can retrieve just one app using it's application ID.
 
 {example: app-get}
 
-[Full Admin]: /api/authenticating.html#full-admin
-[Partial Admin]: /api/authenticating.html#partial-admin
+[Account admin]: /api/authenticating.html#account-admin
+[Application admin]: /api/authenticating.html#application-admin
