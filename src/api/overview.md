@@ -16,10 +16,6 @@ help contribute to.
 **Please note that all REST routes require the header
 `Content-Type: application/json`.**
 
-For the full API reference please see the [RAML documentation][RAML].
-
-[RAML]: https://raml.respoke.io
-
 ## Node.js API Wrapper Library
 
 - [Documentation](http://respoke.github.io/node-respoke-admin)</li>
