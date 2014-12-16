@@ -19,7 +19,7 @@ html(lang='en')
     body
 
         != renderSharedTemplate('navbar')
-        != renderSharedTemplate('breadcrumbs', { breadcrumbs: breadcrumbs, home: { title: 'Docs', path: '/' } })
+        != renderSharedTemplate('breadcrumbs', { breadcrumbs: breadcrumbs })
 
         nav
             include sidebar
