@@ -7,13 +7,19 @@ showInMenu: "true"
 menuOrder: 1
 ---
 
-# Using direct connections
+# Using Direct Connections
 
-Direct connections provide a way to send messages from one endpoint to another without going through Respoke's cloud infrastructure. This quick guide should help you build a **secure direct-messaging app** in about 10 minutes. This tutorial uses development mode for ease of development, but all apps should be converted to using [brokered authentication](/tutorials/brokered-auth.html) before being published.
+*Setup a secure peer-to-peer data connection in 4 steps.*
+
+<br />
+
+Direct connections provide a way to send messages and data from one endpoint to another without going through Respoke's cloud infrastructure, or any other server. The data channel is **peer-to-peer**.
+
+This quick guide should help you build a **secure direct-messaging app** in about 10 minutes. This tutorial uses *development mode*, but all apps should use [brokered authentication](/tutorials/brokered-auth.html) in production.
 
 ### Assumptions
 
-1. You have a Respoke account and an app ID.
+- You have a Respoke account and an app ID.
 
 ### Step 1: HTML Scaffold
 

@@ -1,6 +1,6 @@
 ---
 title: "Log messages in Respoke.js"
-shortTitle: "Respoke.js logs"
+shortTitle: "Logs"
 date: 2014-07-04
 template: article.jade
 showInMenu: "true"
@@ -26,4 +26,3 @@ Other available `respoke.log` methods:
 	respoke.log.setLevel('error');
 
 	respoke.log.enableAll();
-

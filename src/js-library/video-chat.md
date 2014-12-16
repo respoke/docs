@@ -4,7 +4,7 @@ shortTitle: "Video chat"
 date: 2014-03-11
 template: article.jade
 showInMenu: "true"
-menuOrder: 5
+menuOrder: 1
 ---
 
 # Build a video chat app
@@ -304,4 +304,3 @@ Finally, set an event listener for the call.
 			</div>
 		</body>
 	</html>
-

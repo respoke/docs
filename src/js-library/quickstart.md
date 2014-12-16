@@ -1,9 +1,10 @@
 ---
-title: "Quickstart"
+title: "Respoke.js Audio Calling Quickstart"
+shortTitle: "Audio chat"
 date: 2014-04-24 10:10
 template: article.jade
 showInMenu: "true"
-menuOrder: 3
+menuOrder: 0
 ---
 # Respoke Quickstart
 
