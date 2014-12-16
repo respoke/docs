@@ -45,7 +45,7 @@ var navConfig = {
     sidebar: {
         sortBy: 'menuOrder',
         sortByNameFirst: true,
-        breadcrumbProperty: false,
+        breadcrumbProperty: 'breadcrumbPath',
         filterProperty: 'showInMenu',
         filterValue: 'true',
         mergeMatchingFilesAndDirs: true
