@@ -8,7 +8,7 @@ template: article.jade
 
 Welcome to the Respoke docs.
 
-#### [Getting Started](/js-library/quickstart.html)
+#### [Getting Started](/js-library/audio-chat.html)
 
 Build a peer-to-peer audio calling app in 10 minutes.
 
@@ -27,7 +27,3 @@ Frequently asked questions about Respoke
 #### [Community](https://community.respoke.io)
 
 View the Respoke forums, ask questions, and connect with other developers.
-
-
-
-
