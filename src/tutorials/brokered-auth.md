@@ -112,7 +112,7 @@ Use the `token` string from the request as the value for the `App-Token` header 
 
 
 
-### 6: Service Access
+### 7: Service Access
 
 This is where you use the Respoke Client API for service access (sending messages, placing audio/video calls, and setting up datachannels for transferring data).
 
@@ -126,6 +126,7 @@ This is where you use the Respoke Client API for service access (sending message
 **REST API Method**
 
 Example: TURN access
+
 One of the things that you can now do with the Client API (now that your client is a logged in endpoint) is to request TURN server credentials.  Below is an example of this.
 
 #### Request
