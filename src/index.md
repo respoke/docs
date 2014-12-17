@@ -22,7 +22,7 @@ Secure access to your application using the brokered authentication feature of R
 
 #### [FAQ](/faq.html)
 
-Frequently asked questions about Respoke
+Frequently asked questions about Respoke.
 
 #### [Community](https://community.respoke.io)
 
