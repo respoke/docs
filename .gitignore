@@ -16,5 +16,6 @@ node_modules
 # Config files
 examples-config*.json
 
-# Temporory examples output directory
+# Temporory output
 .examples
+*.log
