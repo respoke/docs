@@ -12,6 +12,10 @@ Welcome to the Respoke docs.
 
 Build a peer-to-peer audio calling app in 10 minutes.
 
+#### [Respoke.js Reference]('/js-library/respoke.html')
+
+Leverage Respoke in your web apps using our open source JavaScript client library.
+
 #### [REST API](/api/overview.html)
 
 Learn how to make REST and web socket calls to the Respoke API.
