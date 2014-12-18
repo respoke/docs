@@ -1,8 +1,10 @@
 ---
-title: "Overview"
+title: "API Overview"
+shortTitle: "Overview"
 date: 2014-12-08
 template: article.jade
 showInMenu: "true"
+linkUrl: "/api/"
 menuOrder: 0
 ---
 
@@ -37,4 +39,3 @@ var respoke = new Respoke({
   'App-Secret': appSecret
 });
 ```
-
