@@ -4,7 +4,7 @@ shortTitle: "Video chat"
 date: 2014-03-11
 template: article.jade
 showInMenu: "true"
-menuOrder: 1
+menuOrder: 2
 ---
 
 # Build a video chat app

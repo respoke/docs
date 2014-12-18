@@ -4,7 +4,7 @@ shortTitle: "Example apps"
 date: 2014-07-01
 template: article.jade
 showInMenu: "true"
-menuOrder: 2
+menuOrder: 3
 ---
 
 # Example apps built with Respoke.js
