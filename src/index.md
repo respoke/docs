@@ -16,7 +16,7 @@ Build a peer-to-peer audio calling app in 10 minutes.
 
 Leverage Respoke in your web apps using our open source JavaScript client library.
 
-#### [REST API](/api/overview.html)
+#### [REST API](/api/)
 
 Learn how to make REST and web socket calls to the Respoke API.
 
@@ -24,10 +24,10 @@ Learn how to make REST and web socket calls to the Respoke API.
 
 Secure access to your application using the brokered authentication feature of Respoke.
 
-#### [FAQ](/faq.html)
+#### [FAQ](/frequently-asked-questions.html)
 
 Frequently asked questions about Respoke.
 
-#### [Community](https://community.respoke.io)
+#### [Community](http://community.respoke.io)
 
 View the Respoke forums, ask questions, and connect with other developers.
