@@ -1,6 +1,6 @@
 {
   "name": "respoke-docs",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "private": true,
   "description": "Documentation website and build process for Respoke.io",
   "main": "index.js",
