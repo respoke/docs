@@ -369,4 +369,4 @@ So there you have it. IM and voice calling in a few lines of code.
 
 <br />
 
-[Now you're ready for video!](/tutorials/video-chat.html)
+[Now you're ready for video!](/js-library/video-chat.html)

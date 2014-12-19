@@ -21,20 +21,20 @@ As your Respoke app grows, you may want your users to have permission to perform
 
 ### Concepts
 
-**Permissions** live in Respoke and **granularly govern what user may or may not do**, in Respoke.
+**Permissions** live in Respoke and **define what a user may or may not do** in Respoke.
 
 **Permissions** are granted by your application on a **per-token** basis.
 
 
-**Roles provide a way to group permissions**. They are created by you via your [dev console](https://portal.respoke.io/) or REST API.
+**Roles provide a way to group permissions**. They are created by you via the [dev console](https://portal.respoke.io/) or REST API.
 
 
 
 ### Regarding Dev Mode
 
-It's only a few lines of code to get started developing with Respoke in development mode. If you have successfully logged an endpoint into Respoke and sent a message, you're probably already using development mode. The [Respoke Quickstart Guide](/) details how to place your Respoke app in development mode, connect, and send messages.
+It's only a few lines of code to get started developing with Respoke in development mode. The [Audio Chat](/js-library/audio-chat.html) example details how to place your Respoke app in development mode, connect, and send messages. If you have successfully logged an endpoint into Respoke and sent a message, then you're probably already using development mode. 
 
-In development mode Respoke automatically assigns your endpoints a default role. This system role includes a wide set of permissions which make app setup and testing easy.
+In development mode Respoke automatically assigns your endpoints a default role. This "system role" includes a wide set of permissions which make app setup and testing easy.
 
 The **development mode role** consists of the following permissions:
 - ability to list all groups that have been created
@@ -42,45 +42,26 @@ The **development mode role** consists of the following permissions:
 - ability to list the members of all groups
 
 <br />
-**It's undesirable to run your app in development mode all the time.** As your app matures, you'll want to use roles to limit what your app can do depending on what type of user is authenticated as an endpoint. If you like, you can keep it simple and use a single role for many endpoints, but at least force users to authenticate to your server before letting them connect to Respoke.
+**It's undesirable to run your app in development mode all the time.** As your app matures, you'll want to use roles to limit what your app can do depending on what type of user is authenticated as an endpoint. If you like, you can keep it simple and use a single role for many endpoints, but at the very least you will want to require your users to authenticate to your server before letting them connect to Respoke.
 
 ### How To Create Custom Roles
 
 The real power in Roles comes from how you customize them to fit your needs.
 
 1. Select the app you'd like this role to be associated with.
-1. Custom roles require that your app is using [brokered auth](/tutorials/brokered-auth.html), so you may have to put your app out of development mode. Head over to your [dev console](https://portal.respoke.io/) to do that.
+1. Custom roles require that your app is using [brokered auth](/tutorials/brokered-auth.html), so you will have to put your app out of development mode if you haven't already done so. Head over to your [dev console](https://portal.respoke.io/) to do that.
 1. Create a new role. Give it a unique name, like "general web visitors".
 1. Set some permissions.
     - toggle the ability to media relay services (so audio and video calls work in more complex network scenarios)
     - allow subscribing and unsubscribing from app administrative events
-    - allow specific actions to be performed on groups of specific names
+    - allow specific actions to be performed on specific groups
     - allow calling to regular telephone numbers by specifying a list of numbers in the form "+15558675309". Use "*" in the list to allow calling to all numbers.
 
-*Configuring App Administrative Events*
+*Configuring Administrative Events and Group Permissions*
 
-Leaving this section blank will result in attempts to subscribe or unsubscribe to app events being refused.
+Administration events and group permissions can be configured under the apps' settings page in the [dev console](https://portal.respoke.io/). As shown in the image below, turning events and permissions on and off is a simple matter of clicking the appropriate toggle button. You can also configure these options via the Admin API. More information on that is available in the [Role Management](/api/roles.html) section of the Admin API documentation.
 
-    {
-        "subscribe": false,
-        "unsubscribe": false,
-    }
-
-*Configuring Groups Permissions*
-
-Leaving this section blank will result in attempts to perform any of these actions on groups of any name being refused. For more information on how to construct these configurations, read on to the next section.
-
-    {
-        "list": true,
-        "myGroupName": {
-            "subscribe": false,
-            "unsubscribe": false,
-            "create": false,
-            "destroy": false,
-            "publish": false,
-            "getsubscribers": false
-        }
-    }
+<p><img src="/images/screenshot-role-permissions.jpg" alt="Roles and Permissions Settings"></p>
 
 <br />
 
@@ -88,7 +69,7 @@ Leaving this section blank will result in attempts to perform any of these actio
 
 Group permissions match a group's name against a permissions rule. You can create a rule with the exact name of the group, with a prefix and a wildcard, or with only a wildcard to match all group names. Respoke will take the most specific rule it can find based on the group's name and use that set of permissions.
 
-*Example*
+*Example:*
 
 Assume you have the following group rules:
 - `*`
@@ -96,16 +77,16 @@ Assume you have the following group rules:
 - `buddylistroom*`
 - `buddylistcontrol`
 
-<br />
+
 Your app sends a request for an endpoint using these rules to join the group `buddylistroom5`. Respoke will match that group name against the `buddylistroom*` rule and use the permissions attached to that rule to authorize the endpoint to join the group. If the app sends a request for an endpoint using these rules to join the group `testgroup`, Respoke will match on the wildcard rule `*` and use those permissions to determine if the endpoint is allowed to join.
 
 Respoke uses the longest match paradigm, so for rules like `buddy*`, `buddylist*`, and `buddylistroom*`, a request to join `buddylistroom1` will only match the `buddylistroom*` rule.
 
-<br />
+
 
 ## Create Roles Programmatically with Respoke's REST API
 
-Eventually, you may need to create roles programmatically. You can do this with [Respoke's REST API](/reference/rest-api.html) using an App Secret or Admin-Token header.
+Eventually, you may need to create roles programmatically. You can do this with [Respoke's REST API](/api) using an App Secret or Admin-Token header.
 
 Here's an example of how you could recreate the development mode role as a proper role.
 

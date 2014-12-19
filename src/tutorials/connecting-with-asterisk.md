@@ -53,7 +53,7 @@ Now generate the certificate.  You'll be asked to enter in your passphrase again
 
 ### 4. Configure the Respoke module for Asterisk
 
-Create a "respoke.conf" file under /etc/asterisk (or wherever your Asterisk configuration files are installed) and add the following settings. These settings allows anonymous access into Asterisk from the configured Respoke app. Incoming offers, for instance, are passed into the dialplan (default context) where they are accepted or rejected based upon configured extensions.
+Create a "respoke.conf" file under /etc/asterisk (or wherever your Asterisk configuration files are installed) and add the following settings. These settings allow anonymous access into Asterisk from the configured Respoke app. Incoming offers, for instance, are passed into the dialplan (default context) where they are accepted or rejected based upon configured extensions.
 
     [transport]
     type=transport
