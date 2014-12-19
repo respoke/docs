@@ -11,7 +11,7 @@ trim_trailing_whitespace = true
 max_line_length = 100
 
 # Set default charset
-[*.{js,scss,jade,json,sh}]
+[*.{js,scss,css,jade,json,sh}]
 charset = utf-8
 indent_style = space
 indent_size = 4

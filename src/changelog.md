@@ -8,6 +8,12 @@ menuOrder: 2
 
 # Changelog
 
+## 2014-12-18
+
+A new documentation site has been published. The docs are open source and
+[available on Github](https://github.com/respoke/docs).
+We welcome documentation improvements from the community.
+
 ## 2014-11-22
 
 The Respoke browser JavaScript library for has been release as

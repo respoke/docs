@@ -4,9 +4,9 @@ shortTitle: "Audio chat"
 date: 2014-04-24 10:10
 template: article.jade
 showInMenu: "true"
-menuOrder: 0
+menuOrder: 1
 ---
-# Respoke Quickstart
+# Audio calling in a web browser with Respoke
 
 
 Welcome to Respoke. This quick guide should help you build a **messaging and audio calling app** in about 10 minutes. This tutorial uses development mode for ease of development, but all apps should be converted to using [brokered authentication](/tutorials/brokered-auth.html) before being published.

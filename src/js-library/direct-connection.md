@@ -4,7 +4,7 @@ shortTitle: "Direct connections"
 date: 2014-04-24 10:10
 template: article.jade
 showInMenu: "true"
-menuOrder: 1
+menuOrder: 2
 ---
 
 # Using Direct Connections
