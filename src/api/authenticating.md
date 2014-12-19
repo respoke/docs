@@ -20,6 +20,14 @@ There are **three ways to authenticate** to Respoke. Each provides a different l
 
 For account level admin permissions you need to an `Admin-Token`.
 
+### WARNING
+
+* **Never** store your username and password in your application or source control.
+* Only use this method of authentication when **Application admin** does not provide enough
+credentials.
+
+<br />
+
 {example: admin-sessions}
 
 ## Application admin
