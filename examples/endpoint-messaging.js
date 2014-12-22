@@ -17,6 +17,7 @@ respoke.on('connect', function () {
         respoke.close();
     }).catch(function (error) {
         console.log(error);
+        respoke.close();
     });
 });
 
