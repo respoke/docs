@@ -8,31 +8,35 @@ linkUrl: "/api/"
 menuOrder: 0
 ---
 
-# Overview
+# API Overview
 
-Respoke is powered by a RESTful API. There are several ways you can interact
-with it. Below is a list of wrapper libraries that we provide which will
-simplify working with our API. These are all open source projects that you can
-help contribute to.
+Respoke is powered by a RESTful API which can be accessed via normal HTTP requests or web sockets.
+Some routes are restricted to one of these formats only.
 
-**Please note that all REST routes require the header
-`Content-Type: application/json`.**
+Below is a list of wrapper libraries that we provide which will simplify working with our API.
+Respoke wrappers are all open source projects. We encourage community contributions and
+accept pull requests from community members.
+
+###### Note when making requests to the API
+
+All routes **require the header** `Content-Type: application/json`.
 
 ## Node.js API Wrapper Library
 
-- [Documentation](http://respoke.github.io/node-respoke-admin)</li>
-- [Source](https://github.com/respoke/node-respoke-admin)</li>
+[Documentation](http://respoke.github.io/node-respoke-admin)</li>
 
-### Installing
+[Source](https://github.com/respoke/node-respoke-admin)</li>
 
-```sh
+### Installation
+
+```bash
 # from the root of your project install respoke-admin
 npm install --save respoke-admin
 ```
 
 ### Usage
 
-```js
+```javascript
 var Respoke = require('respoke-admin');
 
 var respoke = new Respoke({
