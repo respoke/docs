@@ -9,7 +9,7 @@ menuOrder: 3
 
 # Example apps built with Respoke.js
 
-A collection of examples using jQuery.
+A collection of [examples using jQuery](http://respoke.github.io/web-examples/).
 ([source](https://github.com/respoke/web-examples))
 
 A simple [audio chat and messaging](http://jsbin.com/jipeg) app using jQuery.
