@@ -11,6 +11,11 @@ menuOrder: 3
 
 A collection of [examples using jQuery](http://respoke.github.io/web-examples/).
 ([source](https://github.com/respoke/web-examples))
+* [Endpoint Presence](http://respoke.github.io/web-examples/modules/endpoint-presence/index.html)
+* [Endpoint Messaging](http://respoke.github.io/web-examples/modules/endpoint-messaging/index.html)
+* [Creating a Buddy List](http://respoke.github.io/web-examples/modules/creating-a-buddy-list/index.html)
+* [Group Messaging](http://respoke.github.io/web-examples/modules/group-messaging/index.html)
+* [Video Calling](http://respoke.github.io/web-examples/modules/video-call/index.html)
 
 A simple [audio chat and messaging](http://jsbin.com/jipeg) app using jQuery.
 ([source](http://jsbin.com/jipeg/edit))
