@@ -1,33 +1,32 @@
 ---
-title: "Respoke documentation"
+title: "Getting started with Respoke"
 date: 2014-12-09 14:40
 template: article.jade
 ---
 
-# Respoke Documentation
+# Getting started with Respoke
 
-Welcome to the Respoke docs.
 
-### [Getting Started](/js-library/audio-chat.html)
+## Audio calling quickstart guide
 
-Build a peer-to-peer audio calling app in 10 minutes.
+[Build a peer-to-peer audio calling HTML5 app in 10 minutes](/js-library/audio-chat.html).
 
-### [Respoke.js Reference](/js-library/respoke.html)
+## Respoke.js
 
-Leverage Respoke in your web apps using our open source JavaScript client library.
+[Leverage Respoke in your web apps using our open source JavaScript client library](/js-library/).
 
-### [REST API](/api/)
+## REST API
 
-Learn how to make REST and web socket calls to the Respoke API.
+[Learn how to make REST and web socket calls to the Respoke API from your server side app](/api/).
 
-### [Authenticate with Respoke](/tutorials/brokered-auth.html)
+## Authenticate with Respoke
 
-Secure access to your application using the brokered authentication feature of Respoke.
+[Secure access to your application using the *brokered authentication* feature of Respoke](/tutorials/brokered-auth.html).
 
-### [FAQ](/frequently-asked-questions.html)
+## FAQ and general concepts
 
-Frequently asked questions about Respoke.
+[Frequently asked questions about Respoke including **presence, endpionts, and pricing**](/frequently-asked-questions.html).
 
-### [Community](http://community.respoke.io)
+## Community
 
-View the Respoke forums, ask questions, and connect with other developers.
+[View the Respoke forums, ask questions, and connect with other developers](http://community.respoke.io).

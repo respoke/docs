@@ -5,7 +5,7 @@ mixin menuItem(node)
     - var title = node.file.data.shortTitle ? node.file.data.shortTitle : node.file.data.title
 
     - itemClasses.push(['l', node.depth].join(''));
-    - if (currentPath === node.path) itemClasses.push('active');
+    - if (currentPath === node.path || (currentPath === 'index.html' && node.path === 'quickstart.html')) itemClasses.push('active');
     - if (!linked) itemClasses.push('header');
 
     li(class=itemClasses.join(' '))
@@ -20,7 +20,7 @@ mixin menuItem(node)
 .sidebar
   .sidebar-inner
     ul
-        li.l1: a(href="/"): strong Docs
+        li.l1.header: strong Docs
         li.header &nbsp;
         each node in nav
             +menuItem(node)

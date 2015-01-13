@@ -10,7 +10,11 @@ menuOrder: 0
 
 # Respoke.js
 
-## Usage
+## Source code
+
+[Respoke.js is open source on GitHub](https://github.com/respoke/respoke).
+
+## Setup
 
 ### Option 1: add the CDN script to your HTML
 
@@ -51,3 +55,10 @@ npm run build
 ```
 
 The file will be at `./respoke.min.js`.
+
+## How to use Respoke.js
+
+* [Text chat and audio calling](/js-library/audio-chat.html)
+* [Video calling](/js-library/video-chat-html)
+
+**[Even more examples](/js-library/example-apps.html)**
