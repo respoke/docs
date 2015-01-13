@@ -1,10 +1,10 @@
 ---
 title: "Example apps built with Respoke.js"
-shortTitle: "Example apps"
-date: 2014-07-01
+shortTitle: "Examples"
+date: 2015-01-12
 template: article.jade
 showInMenu: "true"
-menuOrder: 3
+menuOrder: 1
 ---
 
 # Example apps built with Respoke.js
