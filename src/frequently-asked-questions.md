@@ -4,7 +4,7 @@ shortTitle: "FAQ"
 date: 2014-12-03
 template: article.jade
 showInMenu: "true"
-menuOrder: 1
+menuOrder: 4
 ---
 
 # Frequently asked questions

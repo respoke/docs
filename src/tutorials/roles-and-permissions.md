@@ -3,7 +3,7 @@ title: "Roles and permissions"
 date: 2014-07-09
 template: article.jade
 showInMenu: "true"
-menuOrder: 4
+menuOrder: 1
 ---
 
 # Roles and permissions
@@ -32,7 +32,7 @@ As your Respoke app grows, you may want your users to have permission to perform
 
 ### Regarding Dev Mode
 
-It's only a few lines of code to get started developing with Respoke in development mode. The [Audio Chat](/js-library/audio-chat.html) example details how to place your Respoke app in development mode, connect, and send messages. If you have successfully logged an endpoint into Respoke and sent a message, then you're probably already using development mode. 
+It's only a few lines of code to get started developing with Respoke in development mode. The [Audio Chat](/js-library/audio-chat.html) example details how to place your Respoke app in development mode, connect, and send messages. If you have successfully logged an endpoint into Respoke and sent a message, then you're probably already using development mode.
 
 In development mode Respoke automatically assigns your endpoints a default role. This "system role" includes a wide set of permissions which make app setup and testing easy.
 

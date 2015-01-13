@@ -1,6 +1,6 @@
 ---
 title: "Admin API"
 showInMenu: "true"
-menuOrder: 4
+menuOrder: 3
 noLink: true
 ---

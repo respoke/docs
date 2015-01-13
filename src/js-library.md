@@ -1,6 +1,6 @@
 ---
-title: "JavaScript Client"
+title: "Respoke.js JavaScript Client"
 showInMenu: "true"
 noLink: true
-menuOrder: 3
+menuOrder: 2
 ---

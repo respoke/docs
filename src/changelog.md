@@ -3,7 +3,7 @@ title: "Changelog"
 date: 2014-11-13
 template: article.jade
 showInMenu: "true"
-menuOrder: 2
+menuOrder: 5
 ---
 
 # Changelog

@@ -10,6 +10,8 @@ menuOrder: 0
 
 # Respoke.js
 
+Respoke.js is a client side JavaScript client for using Respoke in HTML5 web applications.
+
 ## Source code
 
 [Respoke.js is open source on GitHub](https://github.com/respoke/respoke).

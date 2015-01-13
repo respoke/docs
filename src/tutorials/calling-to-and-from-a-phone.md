@@ -3,7 +3,7 @@ title: "Calling to and from a phone"
 date: 2014-11-04
 template: article.jade
 showInMenu: "true"
-menuOrder: 1
+menuOrder: 3
 ---
 
 # Calling to and from a phone
