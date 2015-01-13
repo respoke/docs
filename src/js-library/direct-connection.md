@@ -1,13 +1,13 @@
 ---
-title: "Using direct connections"
-shortTitle: "Direct connections"
+title: "Setup a direct connection data channel between two web peers"
+shortTitle: "Data channels"
 date: 2014-04-24 10:10
 template: article.jade
 showInMenu: "true"
 menuOrder: 2
 ---
 
-# Using Direct Connections
+# Using Data Channel Direct Connections
 
 *Setup a secure peer-to-peer data connection in 4 steps.*
 
