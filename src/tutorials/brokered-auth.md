@@ -10,7 +10,7 @@ menuOrder: 0
 # Authentication
 
 ## In this article
-* understand how you can control your access to Respoke in your application
+* understand how you can control access to Respoke in your application
 * learn about *development mode*
 * get an overview of the back-and-forth authentication process of obtaining a token
 
