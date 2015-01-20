@@ -4,7 +4,7 @@ date: 2014-12-09 14:40
 template: article.jade
 ---
 
-# Getting started with Respoke
+# Getting Started With Respoke
 
 
 ## Audio calling quickstart guide
