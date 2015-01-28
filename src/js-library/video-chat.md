@@ -284,7 +284,7 @@ Finally, set an event listener for the call.
 			<div ng-controller="RespokeController">
 
 				<h3 ng-show="client.isConnected()">
-					Connected as \{\{username\}\} {{}}
+					Connected as {{username}}
 				</h3>
 
 				<div ng-show="!client.isConnected()">
