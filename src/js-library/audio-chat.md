@@ -253,6 +253,10 @@ So there you have it. IM and voice calling in a few lines of code.
 
 	<!DOCTYPE html>
 	<html>
+    <!-- Note that Chrome blocks the getUserMedia API when you open an html 
+         file from the filesystem (file:// prefix). Therefore, it is necessary 
+         to run this example page from a web server in order for it to behave 
+         correctly -->
 	<head>
 	  <script type='text/javascript' src='https://cdn.respoke.io/respoke.min.js'></script>
 	  <script type='text/javascript' src='http://code.jquery.com/jquery-2.1.0.min.js'></script>
