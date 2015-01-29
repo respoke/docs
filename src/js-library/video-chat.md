@@ -185,6 +185,10 @@ Finally, set an event listener for the call.
 
 	<!doctype html>
 	<html ng-app>
+    <!-- Note that Chrome blocks the getUserMedia API when you open an html 
+         file from the filesystem (file:// prefix). Therefore, it is necessary 
+         to run this example page from a web server in order for it to behave 
+         correctly -->
 		<head>
 			<!-- Respoke client library -->
 			<script src="https://cdn.respoke.io/respoke.min.js"></script>
