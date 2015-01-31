@@ -11,15 +11,14 @@ menuOrder: 3
 
 In this guide you’ll learn how to add screen sharing capabilities to your application. This feature allows you to share a video stream of your screen with another user. It is very easy to setup; however, due to the security restrictions that are currently imposed by Google, there are a few steps that you will need to take to get everything up and running. But not to worry, we’ll walk you through everything below.
 
-*Note: At this time, screen sharing only work in the Chrome browser, and requires a Chrome extension in order to access the screen sharing features (more on how to configure this below). Support for additional browsers will be added in the future.*
+*Note: At this time, screen sharing only works in the Chrome browser, and requires a Chrome extension in order to access the screen sharing features (more on how to configure this below). Support for additional browsers will be added in the future.*
 
 
 ###Assumptions
-* You have reviewed the [Getting Started With Respoke Guide](https://docs.respoke.io/) 
+* You have reviewed the [Getting Started With Respoke Guide](https://docs.respoke.io/) and are familiar with creating an instance of the `respoke` and `Client` objects.
 * Have a Respoke account
 * Have an app ID
 * Have a basic understanding of Javascript and JQuery
-* Are familiar with including the Respoke Javascript library in your application
 
 
 
@@ -49,7 +48,7 @@ The process is slightly different depending on whether you're working in your lo
 
 1. Download or fork the Respoke Chrome extension at: [https://github.com/respoke/respoke-chrome-extension/fork](https://github.com/respoke/respoke-chrome-extension/fork).
 
-2. Follow the instruction in the README file included with the extension source code to make the manifest.json file, change the name of your app, and list the domain()s) where your app will run.
+2. Follow the instructions in the README file included with the extension source code to make the manifest.json file, change the name of your app, and list the domain()s) where your app will run.
 
 Once you have a copy of the Respoke Chrome Extension with the updates outlined above, follow the instructions for either local testing or hosted application below.
 
@@ -66,7 +65,7 @@ If you would like to test out the screen sharing functionality in your local dev
 
 That's it for setting up the extension for local testing! Head down the last section *Adding Screen Sharing to Your Application* to get to the fun part: the code!
 
-###Hosted Application
+###Hosted Applications
 Once you are ready to host your application on a domain,  you will need to upload the extension to the Chrome Webstore and either prompt your users to install the plugin directly from the Webstore or use *inline installation*, which allows for installation direclty from your site. 
 
 Detailed instructions on publishing your extension to the Chrome Webstore and using inline installation can be found at [https://developer.chrome.com/webstore/publish](https://developer.chrome.com/webstore/publish) and
@@ -102,20 +101,57 @@ More info. on inline installation can be found at: [https://developer.chrome.com
 ##Adding Screen Sharing to Your Application
 Once you have SSL working and have your Chrome Extension in place, it's time for the fun stuff: the code!
 
-Adding screen sharing to your application is actually quite easy. The first step is creating a configuration object which specifies the capabilities that you will allow for your stream. Since Audio is not yet supported for screen sharing, we recommend the following settings:
+Adding screen sharing to your application is actually quite easy. You need a reference to the Endpoint you want to share your screen with
 
 ```
-var capabilities = {audio: false, video: true};
+var recipientEndpoint = client.getEndpoint({ id: recipientId });
 ```
 
 
 
+a `<video>` object to attach the stream to
+
+```
+<video id="videoElement"></video>
+```
 
 
+and a listener for the call event.
+
+```
+client.listen('call', function(evt) {
+    activeCall = evt.call;
+
+    // We only want to answer if we didn't initiate the call
+    if(activeCall.caller !== true) {
+        var videoElement   = document.getElementById('videoElement');
+
+        activeCall.answer({
+            videoLocalElement: videoElement,
+            videoRemoteElement: videoElement
+        });
+
+        // The hangup event indicates the call is over
+        activeCall.listen('hangup', function () {
+            activeCall.hangup();
+        });
+    }
+});
+
+```
+
+Then we call the `startScreenShare()` method to initiate the share
+
+```
+var videoElement   = document.getElementById('videoElement');
+
+activeCall = recipientEndpoint.startScreenShare({
+    videoLocalElement: videoElement,
+    videoRemoteElement: videoElement
+});
+```
+
+If you get stuck, or have additional questions, head over to the [Respoke Community Forums](http://community.respoke.io/) for help.
 
 
-
-
-
-
-If you've already made a video call using respoke, then all you need to learn is the 
+ 
