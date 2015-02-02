@@ -11,7 +11,7 @@ menuOrder: 3
 
 In this guide you’ll learn how to add screen sharing capabilities to your application. This feature allows you to share a video stream of your screen with another user. It is very easy to setup; however, due to the security restrictions that are currently imposed by Google, there are a few steps that you will need to take to get everything up and running. But not to worry, we’ll walk you through everything below.
 
-*Note: At this time, screen sharing only works in the Chrome browser, and requires a Chrome extension in order to access the screen sharing features (more on how to configure this below). Support for additional browsers will be added in the future.*
+*Note: At this time you must be using the Chrome browser and install an additional Chrome extension in order to use the screen sharing features (more on how to configure this below). The recipient of the Screen Share however, can use any WebRTC enabled browser. Support for additional browsers will be added in the future.*
 
 
 ###Assumptions
@@ -42,7 +42,7 @@ Congratulations! You now have your local files being served over HTTPS and are r
 
 
 ##Creating the Chrome Screen Sharing Extension
-In order to use the screen sharing functionality in the Chrome browser, you are currently required to first install a Chrome Extension. We've created the extension already, but since Chrome extensions function on a domain basis, you will need to create (fork) a copy of the extension and set it up for the domain your application is going to be hosted on.
+In order to use the screen sharing functionality in the Chrome browser, you are currently required to first install a Chrome Extension. We've already created the extension for you, but since Chrome extensions function on a domain basis, you will need to create (fork) a copy of the extension and set it up for the domain your application is going to be hosted on.
 
 The process is slightly different depending on whether you're working in your local (testing) environment, or hosting your application on a domain, but the first few steps are the same:
 
@@ -50,7 +50,7 @@ The process is slightly different depending on whether you're working in your lo
 
 2. Follow the instructions in the README file included with the extension source code to make the manifest.json file, change the name of your app, and list the domain()s) where your app will run.
 
-Once you have a copy of the Respoke Chrome Extension with the updates outlined above, follow the instructions for either local testing or hosted application below.
+Once you have a copy of the Respoke Chrome Extension with the updates outlined above, follow the instructions for either local testing or hosted applications below.
 
 
 ###Local Testing
