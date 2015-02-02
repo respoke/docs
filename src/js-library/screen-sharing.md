@@ -46,7 +46,7 @@ In order to use the screen sharing functionality in the Chrome browser, you are 
 
 The process is slightly different depending on whether you're working in your local (testing) environment, or hosting your application on a domain, but the first few steps are the same:
 
-1. Download or fork the Respoke Chrome extension at: [https://github.com/respoke/respoke-chrome-extension/fork](https://github.com/respoke/respoke-chrome-extension/fork).
+1. Download or fork the Respoke Chrome extension at: [https://github.com/respoke/respoke-chrome-extension](https://github.com/respoke/respoke-chrome-extension). 
 
 2. Follow the instructions in the README file included with the extension source code to make the manifest.json file, change the name of your app, and list the domain()s) where your app will run.
 
