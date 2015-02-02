@@ -15,7 +15,7 @@ In this guide you’ll learn how to add screen sharing capabilities to your appl
 
 
 ###Assumptions
-* You have reviewed the [Getting Started With Respoke Guide](https://docs.respoke.io/) and are familiar with creating an instance of the `respoke` and `Client` objects.
+* You have reviewed the [Getting Started With Respoke Guide](https://docs.respoke.io/) and are familiar with creating an instance of the Respoke `Client` object.
 * Have a Respoke account
 * Have an app ID
 * Have a basic understanding of Javascript and JQuery
@@ -109,10 +109,11 @@ var recipientEndpoint = client.getEndpoint({ id: recipientId });
 
 
 
-a `<video>` object to attach the stream to
+a couple of `<video>` objects to attach the streams to
 
 ```
-<video id="videoElement"></video>
+<video id="localVideoElement"></video>
+<video id="remoteVideoElement"></video>
 ```
 
 
@@ -124,16 +125,17 @@ client.listen('call', function(evt) {
 
     // We only want to answer if we didn't initiate the call
     if(activeCall.caller !== true) {
-        var videoElement   = document.getElementById('videoElement');
+        var localVideoElement   = document.getElementById('localVideoElement');
+        var remoteVideoElement   = document.getElementById('remoteVideoElement');
 
         activeCall.answer({
-            videoLocalElement: videoElement,
-            videoRemoteElement: videoElement
+            videoLocalElement: localVideoElement,
+            videoRemoteElement: remoteVideoElement
         });
 
         // The hangup event indicates the call is over
         activeCall.listen('hangup', function () {
-            activeCall.hangup();
+            // Cleanup the UI
         });
     }
 });
@@ -143,11 +145,12 @@ client.listen('call', function(evt) {
 Then we call the `startScreenShare()` method to initiate the share
 
 ```
-var videoElement   = document.getElementById('videoElement');
+var localVideoElement   = document.getElementById('localVideoElement');
+var remoteVideoElement   = document.getElementById('remoteVideoElement');
 
 activeCall = recipientEndpoint.startScreenShare({
-    videoLocalElement: videoElement,
-    videoRemoteElement: videoElement
+    videoLocalElement: localVideoElement,
+    videoRemoteElement: remoteVideoElement
 });
 ```
 
