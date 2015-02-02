@@ -11,15 +11,14 @@ menuOrder: 3
 
 In this guide you’ll learn how to add screen sharing capabilities to your application. This feature allows you to share a video stream of your screen with another user. It is very easy to setup; however, due to the security restrictions that are currently imposed by Google, there are a few steps that you will need to take to get everything up and running. But not to worry, we’ll walk you through everything below.
 
-*Note: At this time, screen sharing only work in the Chrome browser, and requires a Chrome extension in order to access the screen sharing features (more on how to configure this below). Support for additional browsers will be added in the future.*
+*Note: At this time you must be using the Chrome browser and install an additional Chrome extension in order to use the screen sharing features (more on how to configure this below). The recipient of the Screen Share however, can use any WebRTC enabled browser. Support for additional browsers will be added in the future.*
 
 
 ###Assumptions
-* You have reviewed the [Getting Started With Respoke Guide](https://docs.respoke.io/) 
+* You have reviewed the [Getting Started With Respoke Guide](https://docs.respoke.io/) and are familiar with creating an instance of the Respoke `Client` object.
 * Have a Respoke account
 * Have an app ID
 * Have a basic understanding of Javascript and JQuery
-* Are familiar with including the Respoke Javascript library in your application
 
 
 
@@ -43,15 +42,15 @@ Congratulations! You now have your local files being served over HTTPS and are r
 
 
 ##Creating the Chrome Screen Sharing Extension
-In order to use the screen sharing functionality in the Chrome browser, you are currently required to first install a Chrome Extension. We've created the extension already, but since Chrome extensions function on a domain basis, you will need to create (fork) a copy of the extension and set it up for the domain your application is going to be hosted on.
+In order to use the screen sharing functionality in the Chrome browser, you are currently required to first install a Chrome Extension. We've already created the extension for you, but since Chrome extensions function on a domain basis, you will need to create (fork) a copy of the extension and set it up for the domain your application is going to be hosted on.
 
 The process is slightly different depending on whether you're working in your local (testing) environment, or hosting your application on a domain, but the first few steps are the same:
 
-1. Download or fork the Respoke Chrome extension at: [https://github.com/respoke/respoke-chrome-extension/fork](https://github.com/respoke/respoke-chrome-extension/fork).
+1. Download or fork the Respoke Chrome extension at: [https://github.com/respoke/respoke-chrome-extension](https://github.com/respoke/respoke-chrome-extension). 
 
-2. Follow the instruction in the README file included with the extension source code to make the manifest.json file, change the name of your app, and list the domain()s) where your app will run.
+2. Follow the instructions in the README file included with the extension source code to make the manifest.json file, change the name of your app, and list the domain()s) where your app will run.
 
-Once you have a copy of the Respoke Chrome Extension with the updates outlined above, follow the instructions for either local testing or hosted application below.
+Once you have a copy of the Respoke Chrome Extension with the updates outlined above, follow the instructions for either local testing or hosted applications below.
 
 
 ###Local Testing
@@ -66,7 +65,7 @@ If you would like to test out the screen sharing functionality in your local dev
 
 That's it for setting up the extension for local testing! Head down the last section *Adding Screen Sharing to Your Application* to get to the fun part: the code!
 
-###Hosted Application
+###Hosted Applications
 Once you are ready to host your application on a domain,  you will need to upload the extension to the Chrome Webstore and either prompt your users to install the plugin directly from the Webstore or use *inline installation*, which allows for installation direclty from your site. 
 
 Detailed instructions on publishing your extension to the Chrome Webstore and using inline installation can be found at [https://developer.chrome.com/webstore/publish](https://developer.chrome.com/webstore/publish) and
@@ -102,20 +101,60 @@ More info. on inline installation can be found at: [https://developer.chrome.com
 ##Adding Screen Sharing to Your Application
 Once you have SSL working and have your Chrome Extension in place, it's time for the fun stuff: the code!
 
-Adding screen sharing to your application is actually quite easy. The first step is creating a configuration object which specifies the capabilities that you will allow for your stream. Since Audio is not yet supported for screen sharing, we recommend the following settings:
+Adding screen sharing to your application is actually quite easy. You need a reference to the Endpoint you want to share your screen with
 
 ```
-var capabilities = {audio: false, video: true};
+var recipientEndpoint = client.getEndpoint({ id: recipientId });
 ```
 
 
 
+a couple of `<video>` objects to attach the streams to
+
+```
+<video id="localVideoElement"></video>
+<video id="remoteVideoElement"></video>
+```
 
 
+and a listener for the call event.
+
+```
+client.listen('call', function(evt) {
+    activeCall = evt.call;
+
+    // We only want to answer if we didn't initiate the call
+    if(activeCall.caller !== true) {
+        var localVideoElement   = document.getElementById('localVideoElement');
+        var remoteVideoElement   = document.getElementById('remoteVideoElement');
+
+        activeCall.answer({
+            videoLocalElement: localVideoElement,
+            videoRemoteElement: remoteVideoElement
+        });
+
+        // The hangup event indicates the call is over
+        activeCall.listen('hangup', function () {
+            // Cleanup the UI
+        });
+    }
+});
+
+```
+
+Then we call the `startScreenShare()` method to initiate the share
+
+```
+var localVideoElement   = document.getElementById('localVideoElement');
+var remoteVideoElement   = document.getElementById('remoteVideoElement');
+
+activeCall = recipientEndpoint.startScreenShare({
+    videoLocalElement: localVideoElement,
+    videoRemoteElement: remoteVideoElement
+});
+```
+
+If you get stuck, or have additional questions, head over to the [Respoke Community Forums](http://community.respoke.io/) for help.
 
 
-
-
-
-
-If you've already made a video call using respoke, then all you need to learn is the 
+ 
