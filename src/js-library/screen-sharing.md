@@ -22,10 +22,10 @@ In this guide you’ll learn how to add screen sharing capabilities to your appl
 
 
 
-##Setting up SSL
-The current security restrictions for screen sharing require that your files be served over HTTPS. If you are using a service such as [Heroku](http://herokuapp.com/) which takes care of setting up SSL for you, or you have created your own server environment using SSL, then you can skip this section.
+##Setting up HTTPS
+The current security restrictions for screen sharing require that your files be served over HTTPS. If you are using a service such as [Heroku](http://herokuapp.com/) which takes care of serving your files over HTTPS, or you have created your own server environment which uses HTTPS, then you can skip this section.
 
-If you are just looking to test out the functionality of screen sharing on your local machine, and don't already have SSL setup, then you may want to consider using [ngrok](https://ngrok.com/).
+If you are just looking to test out the functionality of screen sharing on your local machine, and don't already have HTTPS setup, then you may want to consider using [ngrok](https://ngrok.com/).
 
 ###Testing locally with HTTPS using ngrok
 [ngrok](https://ngrok.com/) provides a simple means of exposing your local web server to the internet over HTTPS. To accomplish this, you will need to download the ngrok binary for your operating system at [https://ngrok.com/download](https://ngrok.com/download). Once you've download the ngrok binary, you will need to run it from the command line by navigating to the directory where you've stored the binary, then running the command 
@@ -81,7 +81,7 @@ Detailed instructions on publishing your extension to the Chrome Webstore and us
 
 After your extension is available on the Chrome Webstore you need to add a bit of code to check if your users have the extension installed, and if not, to help them install it.
 
-The following snippet will first check to see 	the users browser supports Screen Sharing, then check if they have already installed the the Chrome Extension that you created.
+The following snippet will first check to see   the users browser supports Screen Sharing, then check if they have already installed the the Chrome Extension that you created.
 
 ```
  if (respoke.needsChromeExtension && !respoke.hasChromeExtension) 
@@ -99,7 +99,7 @@ More info. on inline installation can be found at: [https://developer.chrome.com
 
 
 ##Adding Screen Sharing to Your Application
-Once you have SSL working and have your Chrome Extension in place, it's time for the fun stuff: the code!
+Once you have HTTPS working and have your Chrome Extension in place, it's time for the fun stuff: the code!
 
 Adding screen sharing to your application is actually quite easy. You need a reference to the Endpoint you want to share your screen with
 
