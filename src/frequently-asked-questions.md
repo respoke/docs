@@ -22,7 +22,7 @@ to handle scenarios where the same person, device or other logical entity has **
 
 Imagine a user logged in from several devices or a security system with several internet-connected sensors. In either situation the endpoint represents the primary concern - the user or the home - while the individual connections represent
 
-Respoke also synchronizes outgoing messages between all active connections on and endpoint. When an
+Respoke also synchronizes outgoing messages between all active connections on an endpoint. When an
 endpoint sends a message, copies of that message are sent to all of the other connections.
 
 There may be some use cases where you need to send a message to a specific connection on an
@@ -31,7 +31,7 @@ endpoint. No worries - the API supports that too.
 
 ## What is *presence*?
 
-**Endpoints have presence**. Presence is piece of JSON that follows around an endpoint.
+**Endpoints have presence**. Presence is a piece of JSON that follows around an endpoint.
 
 As an endpoint, you can can subscribe to presence updates from other endpoints.
 
@@ -48,8 +48,8 @@ Because the connection is direct, the latency (the time between the sending and 
 the message) is incredibly low.
 
 ## What does *concurrent connections* mean?
-Each Respoke plan includes a maximum number of concurrent connections. When you application
-create a Respoke client instance and invoke the "connect()" method, the client establishes a
+Each Respoke plan includes a maximum number of concurrent connections. When your application
+creates a Respoke client instance and invokes the "connect()" method, the client establishes a
 web socket connection to the Respoke service. We keep track of the number of web sockets
 connected using your Respoke account.
 
