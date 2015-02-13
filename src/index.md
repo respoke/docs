@@ -25,7 +25,7 @@ template: article.jade
 
 ## FAQ and general concepts
 
-[Frequently asked questions about Respoke including **presence, endpionts, and pricing**](/frequently-asked-questions.html).
+[Frequently asked questions about Respoke including **presence, endpoints, and pricing**](/frequently-asked-questions.html).
 
 ## Community
 
