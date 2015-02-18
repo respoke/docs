@@ -6,8 +6,8 @@ html(lang='en')
             title
                 block title
                     = locals.name || 'Respoke Documentation'
-            meta(name="keywords" content="")
-            meta(name="description" content="")
+            meta(name="keywords" content=locals.meta.keywords)
+            meta(name="description" content=locals.meta.description)
 
             link(type="text/css" rel='stylesheet' href='/css/site.css')
 
