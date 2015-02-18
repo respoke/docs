@@ -1,6 +1,6 @@
 ---
 title: "Setup a direct connection data channel between two web peers"
-shortTitle: "Data channels"
+shortTitle: "Data channel tutorial"
 date: 2014-04-24 10:10
 template: article.jade
 showInMenu: "true"

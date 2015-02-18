@@ -1,6 +1,6 @@
 ---
 title: "Build a video chat app"
-shortTitle: "Video chat"
+shortTitle: "Video calling tutorial"
 date: 2014-03-11
 template: article.jade
 showInMenu: "true"
@@ -185,9 +185,9 @@ Finally, set an event listener for the call.
 
 	<!doctype html>
 	<html ng-app>
-    <!-- Note that Chrome blocks the getUserMedia API when you open an html 
-         file from the filesystem (file:// prefix). Therefore, it is necessary 
-         to run this example page from a web server in order for it to behave 
+    <!-- Note that Chrome blocks the getUserMedia API when you open an html
+         file from the filesystem (file:// prefix). Therefore, it is necessary
+         to run this example page from a web server in order for it to behave
          correctly -->
 		<head>
 			<!-- Respoke client library -->

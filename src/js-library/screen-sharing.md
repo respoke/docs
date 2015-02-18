@@ -1,6 +1,6 @@
 ---
 title: "Screen Sharing"
-shortTitle: "Screen sharing"
+shortTitle: "Screen sharing tutorial"
 date: 2015-01-28
 template: article.jade
 showInMenu: "true"

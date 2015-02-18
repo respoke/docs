@@ -1,6 +1,6 @@
 ---
 title: "Respoke.js Audio Calling Quickstart"
-shortTitle: "Audio chat"
+shortTitle: "Audio calling guide"
 date: 2014-04-24 10:10
 template: article.jade
 showInMenu: "true"
@@ -253,9 +253,9 @@ So there you have it. IM and voice calling in a few lines of code.
 
 	<!DOCTYPE html>
 	<html>
-    <!-- Note that Chrome blocks the getUserMedia API when you open an html 
-         file from the filesystem (file:// prefix). Therefore, it is necessary 
-         to run this example page from a web server in order for it to behave 
+    <!-- Note that Chrome blocks the getUserMedia API when you open an html
+         file from the filesystem (file:// prefix). Therefore, it is necessary
+         to run this example page from a web server in order for it to behave
          correctly -->
 	<head>
 	  <script type='text/javascript' src='https://cdn.respoke.io/respoke.min.js'></script>
