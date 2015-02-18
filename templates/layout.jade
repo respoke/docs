@@ -8,6 +8,7 @@ html(lang='en')
                     = locals.name || 'Respoke Documentation'
             meta(name="keywords" content=locals.meta.keywords)
             meta(name="description" content=locals.meta.description)
+            link(rel="canonical" href="https://docs.respoke.io/#{locals.currentPath}")
 
             link(type="text/css" rel='stylesheet' href='/css/site.css')
 
