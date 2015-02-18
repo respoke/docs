@@ -48,7 +48,7 @@ the token (actually, the `tokenId`) to request the authentication access token y
 
 ## How authentication works in Respoke
 
-[![authentication](respoke-brokered-auth-flow.png)](respoke-brokered-auth-flow.png)
+[![respoke authentication example display chart workflow](respoke-brokered-auth-flow.png)](respoke-brokered-auth-flow.png)
 
 ## Step-by-step guide to brokered authentication in Respoke
 

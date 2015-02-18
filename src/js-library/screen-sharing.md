@@ -28,7 +28,7 @@ The current security restrictions for screen sharing require that your files be 
 If you are just looking to test out the functionality of screen sharing on your local machine, and don't already have HTTPS setup, then you may want to consider using [ngrok](https://ngrok.com/).
 
 ###Testing locally with HTTPS using ngrok
-[ngrok](https://ngrok.com/) provides a simple means of exposing your local web server to the internet over HTTPS. To accomplish this, you will need to download the ngrok binary for your operating system at [https://ngrok.com/download](https://ngrok.com/download). Once you've download the ngrok binary, you will need to run it from the command line by navigating to the directory where you've stored the binary, then running the command 
+[ngrok](https://ngrok.com/) provides a simple means of exposing your local web server to the internet over HTTPS. To accomplish this, you will need to download the ngrok binary for your operating system at [https://ngrok.com/download](https://ngrok.com/download). Once you've download the ngrok binary, you will need to run it from the command line by navigating to the directory where you've stored the binary, then running the command
 
 ```
 ./ngrok port_number
@@ -46,7 +46,7 @@ In order to use the screen sharing functionality in the Chrome browser, you are 
 
 The process is slightly different depending on whether you're working in your local (testing) environment, or hosting your application on a domain, but the first few steps are the same:
 
-1. Download or fork the Respoke Chrome extension at: [https://github.com/respoke/respoke-chrome-extension](https://github.com/respoke/respoke-chrome-extension). 
+1. Download or fork the Respoke Chrome extension at: [https://github.com/respoke/respoke-chrome-extension](https://github.com/respoke/respoke-chrome-extension).
 
 2. Follow the instructions in the README file included with the extension source code to make the manifest.json file, change the name of your app, and list the domain(s) where your app will run.
 
@@ -61,12 +61,12 @@ If you would like to test out the screen sharing functionality in your local dev
 2. Check the box labeled *Developer Mode*.
 3. Click the *Load unpacked extension...* button, navigate to the directory where you have stored your extension files, and click the select button.
 
-![ngrok running in the terminal](img/chrome-extension-local.jpg)
+![respoke ngrok example with chrome extension installing locally](img/chrome-extension-local.jpg)
 
 That's it for setting up the extension for local testing! Head down the last section *Adding Screen Sharing to Your Application* to get to the fun part: the code!
 
 ###Hosted Applications
-Once you are ready to host your application on a domain,  you will need to upload the extension to the Chrome Webstore and either prompt your users to install the plugin directly from the Webstore or use *inline installation*, which allows for installation direclty from your site. 
+Once you are ready to host your application on a domain,  you will need to upload the extension to the Chrome Webstore and either prompt your users to install the plugin directly from the Webstore or use *inline installation*, which allows for installation direclty from your site.
 
 Detailed instructions on publishing your extension to the Chrome Webstore and using inline installation can be found at [https://developer.chrome.com/webstore/publish](https://developer.chrome.com/webstore/publish) and
 [https://developer.chrome.com/webstore/inline_installation](https://developer.chrome.com/webstore/inline_installation), but I will cover the basics below:
@@ -77,23 +77,22 @@ Detailed instructions on publishing your extension to the Chrome Webstore and us
 4. Click the *Upload* button.
 5. After the upload completes you will be taken to a page where you can configure the options for your extension. Under the section labeled *Websites* you will want to be sure to select your domain from the dropdown list (the default value is set to "none"). If the domain where you will be hosting your application is not listed, then you will need to first add the domain by clicking on the *Add a new site* link.
 
-![ngrok running in the terminal](img/chrome-extension-website.jpg)
+![ngrok screencap of respoke chrome extension for screensharing on a website](img/chrome-extension-website.jpg)
 
 After your extension is available on the Chrome Webstore you need to add a bit of code to check if your users have the extension installed, and if not, to help them install it.
 
 The following snippet will first check to see   the users browser supports Screen Sharing, then check if they have already installed the the Chrome Extension that you created.
 
 ```
- if (respoke.needsChromeExtension && !respoke.hasChromeExtension) 
- {
+ if (respoke.needsChromeExtension && !respoke.hasChromeExtension) {
      chrome.webstore.install(myExtensionURL, onSuccess, onFailure);
  }
 ```
-This is what is know as "inline installation," or allowing your users to install the extension directly from your site. One piece of the inline installation that can be a bit tricky is getting the extension URL (called *myExtensionURL* in the example above). The base url is always going to be *https://chrome.google.com/webstore/detail/* followed by the ID of your extension. To get the ID, go to [https://chrome.google.com/webstore/developer/dashboard](https://chrome.google.com/webstore/developer/dashboard) and click on the name of your extension. This will open the extensions' page, and the ID value for that item will be shown in the browser address bar; it is a string of 32 Latin characters at the end of the URL in the address bar. 
+This is what is know as "inline installation," or allowing your users to install the extension directly from your site. One piece of the inline installation that can be a bit tricky is getting the extension URL (called *myExtensionURL* in the example above). The base url is always going to be *https://chrome.google.com/webstore/detail/* followed by the ID of your extension. To get the ID, go to [https://chrome.google.com/webstore/developer/dashboard](https://chrome.google.com/webstore/developer/dashboard) and click on the name of your extension. This will open the extensions' page, and the ID value for that item will be shown in the browser address bar; it is a string of 32 Latin characters at the end of the URL in the address bar.
 
-![ngrok running in the terminal](img/chrome-extension-id.jpg)
+![screensharing with a chrome extension and showing the ID of the extension for inline installation](img/chrome-extension-id.jpg)
 
-Just copy the ID from the end of the URL and paste it after *https://chrome.google.com/webstore/detail/* and you have your extensionURL. 
+Just copy the ID from the end of the URL and paste it after *https://chrome.google.com/webstore/detail/* and you have your extensionURL.
 
 More info. on inline installation can be found at: [https://developer.chrome.com/webstore/inline_installation](https://developer.chrome.com/webstore/inline_installation).
 
@@ -155,6 +154,3 @@ activeCall = recipientEndpoint.startScreenShare({
 ```
 
 If you get stuck, or have additional questions, head over to the [Respoke Community Forums](http://community.respoke.io/) for help.
-
-
- 

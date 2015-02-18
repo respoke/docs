@@ -33,6 +33,6 @@ Babylitics. After your app gets some traffic, you'll see maps and charts on your
 and a codecs breakdown. We are just getting started, so expect to see more
 analytics soon!
 
-![Analytics screenshot](/images/screenshot-browser-analytics.png)
+![Respoke app analytics - developer console screenshot](/images/screenshot-browser-analytics.png)
 
 [dashboard]: https://portal.respoke.io/

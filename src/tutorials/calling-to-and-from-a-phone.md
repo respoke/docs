@@ -22,7 +22,7 @@ You can use Respoke to call and receive calls from phones as well as other Respo
 
 In order to place calls to a phone number, your endpoint must be using a role which has PSTN (phone) calling enabled. This is done by specifying a phone number or group of phone numbers that the endpoint is allowed to call. Alternatively, you can specify "*" to allow calling to any phone number.
 
-[![enable phone calling](enable-phone-calling.png)](enable-phone-calling.png)
+[![screenshot of how to enable phone calling in the respoke developer console](enable-phone-calling.png)](enable-phone-calling.png)
 
 ### Step 2: Calling a Phone Number
 
@@ -38,7 +38,7 @@ To receive calls, you'll need a phone number, or DID, from Respoke. While phone 
 
 You can manage a phone number in your [dev console](https://portal.respoke.io/) in the "Phone Numbers" section once it has been assigned to you. Just associate the phone number with an app and an endpoint, and you're done!
 
-[![configure a phone number](configure-phone-number.png)](configure-phone-number.png)
+[![how to configure a phone number for phone calling mesh with a webrtc audio call](configure-phone-number.png)](configure-phone-number.png)
 
 Now if that endpoint is logged in via Respoke, calls to that phone number will be routed to that endpoint.
 
