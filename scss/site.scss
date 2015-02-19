@@ -1,3 +1,24 @@
 @import 'base';
+@import 'components/sidebar';
+@import 'highlight-js-theme-light';
 
 @import 'example-block';
+
+.container {
+    @include outer-container;
+
+    margin-bottom: $spacing-large;
+}
+
+.content {
+    @include span-columns(13);
+    margin-top: $navbar-height + $spacing-medium;
+
+    :first-child {
+        margin-top: 0;
+    }
+
+    pre {
+        margin: $spacing-medium 0;
+    }
+}

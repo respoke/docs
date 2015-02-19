@@ -14,17 +14,18 @@ html(lang='en')
 
             != renderSharedTemplate('head')
 
-            script(src="/js/jquery.tabs.js")
-            script(src="/js/site.js" async)
+            script(src="/js/jquery.tabs.js" defer)
+            script(src="/js/site.js" defer)
             script(src="/js/ga.js" async)
     body
 
-        != renderSharedTemplate('navbar')
-        != renderSharedTemplate('breadcrumbs', { breadcrumbs: breadcrumbs })
+        != renderSharedTemplate('navbar', { navTheme: 'dark' })
+        //- TODO: fixup breadcrumbs
+        //- != renderSharedTemplate('breadcrumbs', { breadcrumbs: breadcrumbs })
 
-        nav
+        .container
             include sidebar
-        .content
-            block content
+            .content.navbar--push-it
+                block content
 
         != renderSharedTemplate('footer')

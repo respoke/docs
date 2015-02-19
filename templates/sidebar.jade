@@ -4,9 +4,9 @@ mixin menuItem(node)
     - var linked = link && !node.file.data.noLink
     - var title = node.file.data.shortTitle ? node.file.data.shortTitle : node.file.data.title
 
-    - itemClasses.push(['l', node.depth].join(''));
-    - if (currentPath === node.path || (currentPath === 'index.html' && node.path === 'quickstart.html')) itemClasses.push('active');
-    - if (!linked) itemClasses.push('header');
+    - itemClasses.push(['sidebar--level-', node.depth].join(''));
+    - if (currentPath === node.path) itemClasses.push('sidebar--current-item');
+    - if (!linked) itemClasses.push('sidebar--header');
 
     li(class=itemClasses.join(' '))
         if linked
@@ -17,10 +17,8 @@ mixin menuItem(node)
         each childNode in node.children
             +menuItem(childNode)
 
-.sidebar
-  .sidebar-inner
-    ul
-        li.l1.header: strong Docs
-        li.header &nbsp;
+nav.sidebar
+    ul.sidebar--menu-list
+        li.sidebar--level-1: a(href="/") Docs
         each node in nav
             +menuItem(node)
