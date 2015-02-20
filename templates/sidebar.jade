@@ -7,16 +7,18 @@ mixin menuItem(node)
 
     - itemClasses.push(['sidebar--level-', node.depth].join(''));
     - if (currentPath === node.path || onLandingPage) itemClasses.push('sidebar--current-item');
-    - if (!linked) itemClasses.push('sidebar--header');
+    - if (node.children.length > 0) itemClasses.push('sidebar--header');
 
     li(class=itemClasses.join(' '))
         if linked
             a(href=link)= title
         else
             span= title
-    if node.children.length > 0
-        each childNode in node.children
-            +menuItem(childNode)
+
+        if node.children.length > 0
+            ul.sidebar--nested-list
+                each childNode in node.children
+                    +menuItem(childNode)
 
 nav.sidebar
     ul.sidebar--menu-list
