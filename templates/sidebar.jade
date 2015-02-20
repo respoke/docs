@@ -3,9 +3,10 @@ mixin menuItem(node)
     - var link = node.file.data.linkUrl ? node.file.data.linkUrl : ['/', node.path].join('');
     - var linked = link && !node.file.data.noLink
     - var title = node.file.data.shortTitle ? node.file.data.shortTitle : node.file.data.title
+    - var onLandingPage = (currentPath === 'index.html' && node.path === 'quickstart.html');
 
     - itemClasses.push(['sidebar--level-', node.depth].join(''));
-    - if (currentPath === node.path) itemClasses.push('sidebar--current-item');
+    - if (currentPath === node.path || onLandingPage) itemClasses.push('sidebar--current-item');
     - if (!linked) itemClasses.push('sidebar--header');
 
     li(class=itemClasses.join(' '))
