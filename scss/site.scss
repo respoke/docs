@@ -6,8 +6,9 @@
 
 .container {
     @include outer-container;
+    padding-bottom: $spacing-large;
 
-    margin-bottom: $spacing-large;
+    @include sidebar-background;
 }
 
 .content {
