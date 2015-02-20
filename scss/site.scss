@@ -15,6 +15,14 @@
     @include span-columns(13);
     margin-top: $navbar-height + $spacing-medium;
 
+    @include media($tablet) {
+        @include span-columns(5);
+    }
+    @include media($mobile) {
+        @include span-columns(3);
+        @include shift(0.5);
+    }
+
     :first-child {
         margin-top: 0;
     }
