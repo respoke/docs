@@ -12,7 +12,7 @@
 }
 
 .content {
-    @include span-columns(13);
+    @include span-columns(12);
     margin-top: $navbar-height + $spacing-medium;
 
     @include media($tablet) {

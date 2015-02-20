@@ -1,3 +1,6 @@
+include ../node_modules/respoke-style/templates/mixins
+include sidebar
+
 doctype html
 block vars
 html(lang='en')
@@ -19,12 +22,14 @@ html(lang='en')
             script(src="/js/ga.js" async)
     body
 
-        != renderSharedTemplate('navbar', { navTheme: 'dark' })
-        //- TODO: fixup breadcrumbs
+        +navbar('dark')
+            +menu(nav)
+        //- TODO: fixup or remove breadcrumbs
         //- != renderSharedTemplate('breadcrumbs', { breadcrumbs: breadcrumbs })
 
         .container.navbar--push-it
-            include sidebar
+            nav.sidebar
+                +menu(nav)
             .content
                 block content
 
