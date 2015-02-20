@@ -23,9 +23,9 @@ html(lang='en')
         //- TODO: fixup breadcrumbs
         //- != renderSharedTemplate('breadcrumbs', { breadcrumbs: breadcrumbs })
 
-        .container
+        .container.navbar--push-it
             include sidebar
-            .content.navbar--push-it
+            .content
                 block content
 
         != renderSharedTemplate('footer')
