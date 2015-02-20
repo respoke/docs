@@ -18,23 +18,27 @@ The logging utility is attached at `respoke.log`.
 
 To **disable** Respoke's logging, put the following code in your client-side app:
 
-	respoke.log.disableAll();
-
-<br />
+```javascript
+respoke.log.disableAll();
+```
 
 ## Change log level
 
 You can set the log level to any of the following log levels:
 
-	respoke.log.setLevel('error');
-	respoke.log.setLevel('warn');
-	respoke.log.setLevel('info');
-	respoke.log.setLevel('debug');
-	respoke.log.setLevel('trace');
+```javascript
+respoke.log.setLevel('error');
+respoke.log.setLevel('warn');
+respoke.log.setLevel('info');
+respoke.log.setLevel('debug');
+respoke.log.setLevel('trace');
+```
 
 or enable everything:
 
-	respoke.log.enableAll();
+```javascript
+respoke.log.enableAll();
+```
 
 ## Debug logs
 
