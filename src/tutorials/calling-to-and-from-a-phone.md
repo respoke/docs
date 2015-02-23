@@ -28,9 +28,11 @@ In order to place calls to a phone number, your endpoint must be using a role wh
 
 Now all you have to do is place a call. After your endpoint has logged into your app and authenticated to Respoke, use the following code to place a call to a phone number.
 
-    client.startPhoneCall({
-        number: "+15558675309"
-    });
+```javascript
+client.startPhoneCall({
+    number: "+15558675309"
+});
+```
 
 ### Step 3: Receiving Calls at a Phone Number
 
@@ -42,12 +44,14 @@ You can manage a phone number in your [dev console](https://portal.respoke.io/) 
 
 Now if that endpoint is logged in via Respoke, calls to that phone number will be routed to that endpoint.
 
-    client.listen('call', function (evt) {
-        if (evt.call.fromType === 'did') {
-            // We got a call from a phone number!
-        }
+```javascript
+client.listen('call', function (evt) {
+    if (evt.call.fromType === 'did') {
+        // We got a call from a phone number!
+    }
 
-        if (!evt.call.caller) {
-            evt.call.answer();
-        }
-    });
+    if (!evt.call.caller) {
+        evt.call.answer();
+    }
+});
+```

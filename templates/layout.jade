@@ -1,3 +1,6 @@
+include ../node_modules/respoke-style/templates/mixins
+include sidebar
+
 doctype html
 block vars
 html(lang='en')
@@ -14,17 +17,20 @@ html(lang='en')
 
             != renderSharedTemplate('head')
 
-            script(src="/js/jquery.tabs.js")
-            script(src="/js/site.js" async)
+            script(src="/js/jquery.tabs.js" defer)
+            script(src="/js/site.js" defer)
             script(src="/js/ga.js" async)
     body
 
-        != renderSharedTemplate('navbar')
-        != renderSharedTemplate('breadcrumbs', { breadcrumbs: breadcrumbs })
+        +navbar('dark')
+            +menu(nav)
+        //- TODO: fixup or remove breadcrumbs
+        //- != renderSharedTemplate('breadcrumbs', { breadcrumbs: breadcrumbs })
 
-        nav
-            include sidebar
-        .content
-            block content
+        .container.navbar--push-it
+            nav.sidebar
+                +menu(nav)
+            .content
+                block content
 
         != renderSharedTemplate('footer')

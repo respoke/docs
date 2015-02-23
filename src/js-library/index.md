@@ -20,7 +20,7 @@ Respoke.js is a client side JavaScript client for using Respoke in HTML5 web app
 
 ### Option 1: add the CDN script to your HTML
 
-```javascript
+```html
 <script src="https://cdn.respoke.io/respoke.min.js"></script>
 ```
 
@@ -29,7 +29,7 @@ Respoke.js is a client side JavaScript client for using Respoke in HTML5 web app
 Go to the [Respoke CDN file listing](https://cdn.respoke.io/list.html) and choose one of the
 versions.
 
-```javascript
+```html
 <script src="https://cdn.respoke.io/respoke-vMAJOR.MINOR.PATCH.min.js"></script>
 ```
 

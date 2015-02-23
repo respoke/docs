@@ -1,26 +1,27 @@
+
+mixin menu(nodes)
+    ul.menu
+        li: a(href="/") Docs
+        each node in nodes
+            +menuItem(node)
+
 mixin menuItem(node)
     - var itemClasses = [];
     - var link = node.file.data.linkUrl ? node.file.data.linkUrl : ['/', node.path].join('');
     - var linked = link && !node.file.data.noLink
     - var title = node.file.data.shortTitle ? node.file.data.shortTitle : node.file.data.title
+    - var onLandingPage = (currentPath === 'index.html' && node.path === 'quickstart.html');
 
-    - itemClasses.push(['l', node.depth].join(''));
-    - if (currentPath === node.path || (currentPath === 'index.html' && node.path === 'quickstart.html')) itemClasses.push('active');
-    - if (!linked) itemClasses.push('header');
+    - if (currentPath === node.path || onLandingPage) itemClasses.push('menu--current-item');
+    - if (node.children.length > 0) itemClasses.push('menu--header');
 
     li(class=itemClasses.join(' '))
         if linked
             a(href=link)= title
         else
             span= title
-    if node.children.length > 0
-        each childNode in node.children
-            +menuItem(childNode)
 
-.sidebar
-  .sidebar-inner
-    ul
-        li.l1.header: strong Docs
-        li.header &nbsp;
-        each node in nav
-            +menuItem(node)
+        if node.children.length > 0
+            ul.menu--nested
+                each childNode in node.children
+                    +menuItem(childNode)

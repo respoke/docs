@@ -1,3 +1,37 @@
 @import 'base';
+@import 'components/sidebar';
+@import 'highlight-js-theme-light';
 
 @import 'example-block';
+
+.container {
+    @include outer-container;
+    padding-bottom: $spacing-large;
+
+    @include sidebar-background;
+}
+
+.content {
+    @include span-columns(12);
+    margin-top: $navbar-height + $spacing-medium;
+
+    @include media($tablet) {
+        @include span-columns(5);
+    }
+    @include media($mobile) {
+        @include span-columns(3);
+        @include shift(0.5);
+    }
+
+    :first-child {
+        margin-top: 0;
+    }
+
+    pre {
+        margin: $spacing-medium 0;
+    }
+
+    img {
+        max-width: 100%;
+    }
+}

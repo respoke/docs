@@ -2,13 +2,13 @@
 .example-block {
     width: 85%;
 
-    @media screen and (max-width: $break-medium) {
+    @include media($tablet) {
         width: 100%;
     }
 }
 
 ul.example-block--accordion-tabs {
-    @include insetShadow();
+    @include inset-shadow();
     padding: 0px;
     margin: 0px;
 }
@@ -16,10 +16,10 @@ ul.example-block--accordion-tabs {
 .example-block--accordion-tabs {
     @include clearfix;
 
-    padding-bottom: $paddingStandard;
+    padding-bottom: $spacing-standard;
 
     border-radius: $radius;
-    background-color: $panel;
+    background-color: $light-grey;
     text-align: left;
 
     li.tab-header-and-content {
@@ -33,17 +33,17 @@ ul.example-block--accordion-tabs {
     a.tab-link {
         display: inline-block;
 
-        margin: ($paddingStandard / 4) $paddingStandard;
-        padding: ($paddingSmall / 3) $paddingSmall;
+        margin: ($spacing-standard / 4) $spacing-standard;
+        padding: ($spacing-small / 3) $spacing-small;
         line-height: 13px;
         font-size: 13px;
 
-        color: $text;
+        color: $dark-grey;
 
         &.is-active {
-            @include insetShadow();
-            color: $textInverse;
-            background: $primaryAlt1;
+            @include inset-shadow();
+            color: $white;
+            background: $dark-grey;
             border-radius: $radius * 2;
         }
     }
@@ -53,15 +53,15 @@ ul.example-block--accordion-tabs {
         float: left;
 
         width: 100%;
-        padding: 0px $paddingStandard;
+        padding: 0px $spacing-standard;
         box-sizing: border-box;
 
-        border-top: darken($panel, 5) solid 1px;
-    }
-}
+        border-top: darken($light-grey, 5) solid 1px;
 
-.example-block--accordion-tabs {
-    pre {
-        @include removeShadow();
+        pre {
+            @include remove-shadow();
+            margin: 0;
+            background: transparent;
+        }
     }
 }
