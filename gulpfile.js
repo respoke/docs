@@ -116,13 +116,13 @@ function buildSass(callback) {
     var cssOutput = path.join(paths.output, 'css');
 
     gulp.src(path.join(paths.sass, '**/*'))
-        .pipe($.sourcemaps.init())
+        .pipe($.if(!argv.dist, $.sourcemaps.init()))
             .pipe($.sass({
                 includePaths: respokeStyle.includeStylePaths(),
                 errLogToConsole: true
             }))
             .pipe($.if(argv.dist, $.minifyCss()))
-        .pipe($.sourcemaps.write())
+        .pipe($.if(!argv.dist, $.sourcemaps.write()))
         .pipe(gulp.dest(cssOutput))
         .on('end', function buildSassCallback() {
             callback();
@@ -133,12 +133,7 @@ function buildScripts(callback) {
     var scriptsOutput = paths.output + '/js';
 
     gulp.src(paths.scripts + '/**/*.js')
-        .pipe($.sourcemaps.init())
-            .pipe($.if(argv.dist, $.uglify()))
-        .pipe($.sourcemaps.write({
-            includeContent: false,
-            sourceRoot: '/js'
-        }))
+        .pipe($.if(argv.dist, $.uglify()))
         .pipe(gulp.dest(scriptsOutput))
         .on('end', function buildScriptsCallback() {
             callback();
@@ -146,11 +141,20 @@ function buildScripts(callback) {
 }
 
 function copySharedAssets(callback) {
+    var filterJS = $.filter('**/*.js');
+    var filterCSS = $.filter('**/*.css');
+
     gulp.src(path.join(respokeStyle.paths.assets, '**/*'))
-    .pipe(gulp.dest(paths.output))
-    .on('end', function copyAssetsCallback() {
-        callback();
-    });
+        .pipe(filterJS)
+            .pipe($.if(argv.dist, $.uglify()))
+        .pipe(filterJS.restore())
+        .pipe(filterCSS)
+            .pipe($.if(argv.dist, $.minifyCss()))
+        .pipe(filterCSS.restore())
+        .pipe(gulp.dest(paths.output))
+        .on('end', function copyAssetsCallback() {
+            callback();
+        });
 }
 
 gulp.task('build', ['clean'], function buildTask(done) {
