@@ -1,6 +1,6 @@
 ---
 title: "Guides"
 showInMenu: "true"
-menuOrder: 0
+menuOrder: 2
 noLink: true
 ---
