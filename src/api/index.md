@@ -21,7 +21,7 @@ accept pull requests from community members.
 
 All routes **require the header** `Content-Type: application/json`.
 
-## Node.js API Wrapper Library
+## Official Node.js API Wrapper Library
 
 [Documentation](http://respoke.github.io/node-respoke-admin)</li>
 
@@ -43,3 +43,12 @@ var respoke = new Respoke({
   'App-Secret': appSecret
 });
 ```
+
+## Community Libraries
+
+These libraries are not officially supported by Respoke, but may be helpful.
+
+Please contact us if you have a library that you would like displayed here.
+
+* [Ruby](https://github.com/pho3nixf1re/ruby-respoke)
+* [.NET C#](https://github.com/ruffrey/dotnet-respoke-admin)
