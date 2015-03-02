@@ -6,16 +6,17 @@ $data['endpointId'] = $endpointId;
 $data['roleId'] = $roleId;
 $data['ttl'] = 86400;
 $json = json_encode($data);
-$ch = curl_init($baseURL);
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-curl_setopt($ch, CURLOPT_POSTFIELDS, $json);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-    'App-Secret: ' . $appSecret,
-    'Content-Type: application/json',
-    'Content-Length: ' . strlen($json))                                                                       
+
+$options = array(
+    'http' => array(
+        'header'  => "Content-type: application/json\r\n" .
+            "App-Secret: " . $appSecret . "\r\n",
+        'method'  => 'POST',
+        'content' => $json,
+    ),
 );
-$result = curl_exec($ch);
+$context  = stream_context_create($options);
+$result = file_get_contents($baseURL, false, $context);
 
 echo($result);
 
