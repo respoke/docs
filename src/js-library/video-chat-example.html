@@ -35,11 +35,6 @@
 				$scope.friendId = "";
 
 				var callOptions = {
-			    	constraints: {audio: true, video: true},
-
-			    	onPreviewLocalMedia: function(evt) {
-			    		setVideo('localVideoSource', evt.element)
-			    	},
 			    	onLocalMedia: function(evt) {
 			    		setVideo('localVideoSource', evt.element)
 			    	},
