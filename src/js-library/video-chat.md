@@ -145,12 +145,6 @@ Throw the call options in an object. `setVideo` is called inside the callbacks.
 
 ```javascript
 var callOptions = {
-    constraints: {audio: true, video: true},
-
-    // your video
-    onPreviewLocalMedia: function(evt) {
-        setVideo('localVideoSource', evt.element)
-    },
     // your video
     onLocalMedia: function(evt) {
         setVideo('localVideoSource', evt.element)
@@ -201,7 +195,7 @@ $scope.client.listen('call', function(evt) {
 
 [See it in action &raquo;](video-chat-example.html)
 
-[Fiddle with it &raquo;](http://jsfiddle.net/ruffrey/Kfp47/1/)
+[Fiddle with it &raquo;](http://jsfiddle.net/ruffrey/Kfp47/10/)
 
 ```html
 <!doctype html>
@@ -241,11 +235,6 @@ $scope.client.listen('call', function(evt) {
                 $scope.friendId = "";
 
                 var callOptions = {
-                    constraints: {audio: true, video: true},
-
-                    onPreviewLocalMedia: function(evt) {
-                        setVideo('localVideoSource', evt.element)
-                    },
                     onLocalMedia: function(evt) {
                         setVideo('localVideoSource', evt.element)
                     },

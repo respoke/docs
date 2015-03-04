@@ -24,7 +24,7 @@ A barebones [video chat](http://jsbin.com/huqij) example with jQuery.
 ([source](http://jsbin.com/huqij/edit))
 
 A barebones [video chat](/tutorials/video-chat-example.html) example with Angular.
-([source](http://jsfiddle.net/ruffrey/Kfp47/))
+([source](http://jsfiddle.net/ruffrey/Kfp47/10))
 
 A space themed [messaging and group chat solution](http://sc.digiumlabs.com),
 with audio and video calling.
