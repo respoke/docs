@@ -50,3 +50,5 @@ endpoint. Note that you will often want to specify a role ID to set permissions
 on what the endpoint is allowed to do.
 
 {example: endpoint-authentication}
+
+*There are [community libraries](/api) which support endpoint authentication in other languages.*
