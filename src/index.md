@@ -1,7 +1,11 @@
 ---
 title: "Getting started with Respoke"
+shortTitle: "Getting Started"
 date: 2014-12-09 14:40
 template: article.jade
+meta:
+    keywords: "respoke, tutorial, docs, getting started"
+    description: "Get started with Respoke. Quickstart guides, reference documentation, and FAQs for developers. REST | Javascript"
 ---
 
 # Getting Started With Respoke
