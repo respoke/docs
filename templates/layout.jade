@@ -15,11 +15,10 @@ html(lang='en')
 
             link(type="text/css" rel='stylesheet' href='/css/site.css')
 
-            != renderSharedTemplate('head')
+            +head
 
             script(src="/js/jquery.tabs.js" defer)
             script(src="/js/site.js" defer)
-            script(src="/js/ga.js" async)
             script(src="/js/km.js" async)
     body
 
@@ -34,4 +33,4 @@ html(lang='en')
             .content
                 block content
 
-        != renderSharedTemplate('footer')
+        +footer({ analyticsDomains: ['docs.respoke.io'] })
