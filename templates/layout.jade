@@ -15,7 +15,7 @@ html(lang='en')
 
             link(type="text/css" rel='stylesheet' href='/css/site.css')
 
-            +head
+            +head({ analyticsDomains: ['docs.respoke.io'] })
 
             script(src="/js/jquery.tabs.js" defer)
             script(src="/js/site.js" defer)
@@ -33,4 +33,4 @@ html(lang='en')
             .content
                 block content
 
-        +footer({ analyticsDomains: ['docs.respoke.io'] })
+        +footer
