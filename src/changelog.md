@@ -8,6 +8,16 @@ menuOrder: 5
 
 # Changelog
 
+## 2014-02-12
+
+Stability improvements for URL parsing in node-respoke-admin library.
+
+## 2014-02-04
+
+Screensharing API added to the Respoke.js library. See the
+[announcement post](http://blog.respoke.io/post/110068512708/introducing-respoke-screen-sharing)
+for more details.
+
 ## 2014-12-18
 
 A new documentation site has been published. The docs are open source and
