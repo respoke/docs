@@ -35,11 +35,12 @@ versions.
 
 ### Option 3: include the NPM package
 
-Using a tool like Browserify or Webpack, you can `require` Respoke.js from [npm][https://www.npmjs.org].
+Using a tool like Browserify or Webpack, you can `require` Respoke.js from
+[npm][https://www.npmjs.com/package/respoke].
 
 In a terminal at the root of your app:
 ```bash
-npm install respoke
+npm install --save respoke
 ```
 
 In your application JavaScript:
