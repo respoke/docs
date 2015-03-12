@@ -50,9 +50,10 @@ var respoke = require('respoke');
 
 ### Option 4: install with Bower
 
-We provide a pre-built version of Respoke.js on GitHub that can be installed
-using [Bower](http://bower.io). The sourcemap files are included as separate
-files for use in debugging with developer tools.
+If you need to use the [Bower](http://bower.io) package manager we provide a
+pre-built version of Respoke.js on GitHub. Otherwise, we recommend using the
+`npm` option above. The sourcemap files are included as separate files for use
+in debugging with developer tools in Chrome, Firefox, or other browsers.
 
 ```bash
 bower install --save respoke
