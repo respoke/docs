@@ -6,8 +6,8 @@ template: article.jade
 showInMenu: "true"
 menuOrder: 0
 meta:
-    keywords: "respoke, auth, authenticating"
-    description: "Secure your users' access to Respoke audio, video, text and data channels."
+    keywords: "respoke, auth, authenticating, authentication, security, token"
+    description: "Understand how to secure your users' access to Respoke audio, video, text and data channels."
 ---
 
 # Authentication

@@ -4,6 +4,9 @@ date: 2014-07-09
 template: article.jade
 showInMenu: "true"
 menuOrder: 1
+meta:
+    keywords: "respoke, roles, permissions"
+    description: "Understand how to enable or restrict access for your users' to Respoke using roles, permissions, and groups."
 ---
 
 # Roles and permissions
@@ -224,7 +227,7 @@ App-Secret <b>OR</b> Admin-Token: 28B061B9-A0D4-4E52-A0ED-EB6EA125F82A
 }
 </pre>
 
-As PSTN calling is currently in beta there are some restrictions on what you can do within PSTN calling. One of the restrictions is that you cannot phone outside of the United States, what is referred to as US48.
+There are some restrictions on what you can do within PSTN calling. One of the restrictions is that you cannot phone outside of the United States, what is referred to as US48.
 
 You can either allow your role to call any allowed number as above, or you can limit calls to certain numbers in the `e164` format. The below lets your role call San Jose and San Francisco's Speaking Clocks only.
 

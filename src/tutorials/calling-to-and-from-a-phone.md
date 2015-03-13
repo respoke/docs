@@ -4,6 +4,10 @@ date: 2014-11-04
 template: article.jade
 showInMenu: "true"
 menuOrder: 3
+meta:
+    keywords: "respoke, phone, calling, PSTN"
+    description: "Guide on how to call to a traditional phone number from your web browser using Respoke."
+
 ---
 
 # Calling to and from a phone
@@ -14,7 +18,7 @@ You can use Respoke to call and receive calls from phones as well as other Respo
 
 1. You have a Respoke account and an app ID.
 2. You have configured your account and web server for [Brokered Authentication: Securing Your Application](/tutorials/brokered-auth.html).
-3. You have [signed up for beta access to PSTN calling](http://community.respoke.io/t/sign-up-now-for-our-pstn-beta/65).
+3. You have [signed up for plan that includes a phone number](https://www.respoke.io/pricing/).
 4. You have [created a role](/tutorials/roles-and-permissions.html).
 
 
