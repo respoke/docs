@@ -5,25 +5,28 @@ date: 2014-10-15
 template: article.jade
 showInMenu: "true"
 menuOrder: 3
+meta:
+    keywords: "respoke, asterisk, chan_respoke, webrtc"
+    description: "Guide on how to connect to Respoke to Asterisk for WebRTC and web app calling features."
 ---
 
 # Connecting to Respoke with Asterisk
 
 ## Summary
 
-In the course of your app development, you may find it convenient to place calls from or into your [Asterisk](http://asterisk.org/) phone system. Asterisk's [Respoke module](https://github.com/respoke/chan_respoke) makes this possible. This tutorial only covers calls from a web app into Asterisk.
+In the course of your app development, you may find it convenient to place calls from or into your [Asterisk](http://asterisk.org/) phone system. Asterisk's [Respoke module](https://github.com/respoke/chan_respoke) makes it possible to use the WebRTC features of Respoke together with Asterisk. This tutorial covers making calls from a web app into Asterisk.
 
 ### Assumptions
 
 1. You have a Respoke app with an app secret.
-1. You have an Asterisk server on which you have administrative access.
+1. You have an Asterisk server (version 13+) on which you have administrative access.
 1. You are comfortable compiling and configuring Asterisk.
 
 ## Setup
 
-### 1: Install Asterisk from the 13 branch in SVN
+### 1: Install Asterisk 13
 
-Install Asterisk from the [13 branch in SVN](http://svn.asterisk.org/svn/asterisk/branches/13/). How to install Asterisk is outside the scope of this document, but if Asterisk is not already installed and you are unsure how to proceed see the [Asterisk wiki](https://wiki.asterisk.org/wiki/display/AST/Installing+Asterisk) for more information. Also [install pjproject](https://wiki.asterisk.org/wiki/display/AST/Building+and+Installing+pjproject).
+Install [Asterisk 13](http://www.asterisk.org/downloads). How to install Asterisk is outside the scope of this document, but if Asterisk is not already installed and you are unsure how to proceed see the [Asterisk wiki](https://wiki.asterisk.org/wiki/display/AST/Installing+Asterisk) for more information. Also [install pjproject](https://wiki.asterisk.org/wiki/display/AST/Building+and+Installing+pjproject). You will need `pjproject` in order to build `res_rtp_asterisk`, which is necessary for chan_respoke.
 
 ### 2: Install the Respoke Asterisk module
 
