@@ -38,6 +38,18 @@ client.startPhoneCall({
 });
 ```
 
+To use caller id, use the phone number associated with your app and endpoint id:
+
+```javascript
+client.startPhoneCall({
+    number: "+15558675309"
+    callerId: "+15555555555"
+});
+```
+
+In this example, whoever you call from your app will see (555) 555-5555 as the caller id.
+
+
 ### Step 3: Receiving Calls at a Phone Number
 
 To receive calls, you'll need a phone number, or DID, from Respoke. While phone calling is in beta, you can request a phone number by emailing [info@respoke.io](mailto:info@respoke.io).
