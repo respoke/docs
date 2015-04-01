@@ -79,6 +79,6 @@ The file will be at `./respoke.min.js`.
 ## How to use Respoke.js
 
 * [Text chat and audio calling](/js-library/audio-chat.html)
-* [Video calling](/js-library/video-chat-html)
+* [Video calling](/js-library/video-chat.html)
 
 **[Even more examples](/js-library/example-apps.html)**
