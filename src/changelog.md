@@ -8,6 +8,29 @@ menuOrder: 5
 
 # Changelog
 
+## 2015-04-02
+
+All calls from a phone number to a Respoke endpoint now have callerId available. The callerId values can be accessed
+via `call.callerId.number` for the phone number, and `call.callerId.name` for the descriptive name. If either value is
+unavailable, it will be `null`.
+
+Outgoing callerId has also been improved. When a role has only a single callerId configured, all outgoing phone calls
+using that role will display that callerId by default. You can withhold your callerId by explicitly providing an empty
+callerId param when calling `client.startPhoneCall()`.
+
+For more information about callerId and phone calls using Respoke, visit the
+"[Making Phone Calls](/tutorials/calling-to-and-from-a-phone.html)" article at the Respoke docs site.
+
+## 2014-02-12
+
+Stability improvements for URL parsing in node-respoke-admin library.
+
+## 2014-02-04
+
+Screensharing API added to the Respoke.js library. See the
+[announcement post](http://blog.respoke.io/post/110068512708/introducing-respoke-screen-sharing)
+for more details.
+
 ## 2014-12-18
 
 A new documentation site has been published. The docs are open source and
