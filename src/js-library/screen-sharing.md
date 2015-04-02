@@ -5,6 +5,9 @@ date: 2015-01-28
 template: article.jade
 showInMenu: "true"
 menuOrder: 3
+meta:
+    keywords: "respoke, Screen Sharing"
+    description: "In this guide you’ll learn how to add screen sharing capabilities to your application."
 ---
 
 #Adding Screen Sharing to Your App

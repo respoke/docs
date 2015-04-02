@@ -6,6 +6,9 @@ template: article.jade
 showInMenu: "true"
 linkUrl: "/js-library/"
 menuOrder: 0
+meta:
+    keywords: "respoke, respoke.js"
+    description: "Respoke.js is a client side JavaScript client for using Respoke in HTML5 web applications."
 ---
 
 # Respoke.js

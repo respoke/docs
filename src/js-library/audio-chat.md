@@ -5,6 +5,9 @@ date: 2014-04-24 10:10
 template: article.jade
 showInMenu: "true"
 menuOrder: 1
+meta:
+    keywords: "respoke, audio, calling, quickstart, webrtc"
+    description: "This quick guide should help you build a messaging and audio calling app in about 10 minutes."
 ---
 # Audio calling in a web browser with Respoke
 

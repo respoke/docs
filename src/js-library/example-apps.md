@@ -5,6 +5,9 @@ date: 2015-01-12
 template: article.jade
 showInMenu: "true"
 menuOrder: 1
+meta:
+    keywords: "respoke, apps, examples"
+    description: "This collection of apps and code snippets show working examples of how to use Respoke."
 ---
 
 # Example apps built with Respoke.js
