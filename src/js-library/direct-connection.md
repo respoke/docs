@@ -5,6 +5,9 @@ date: 2014-04-24 10:10
 template: article.jade
 showInMenu: "true"
 menuOrder: 2
+meta:
+    keywords: "respoke, direct connection, webrtc, data channel"
+    description: "Direct connections provide a way to send messages and data from one endpoint to another without going through Respoke's cloud infrastructure, or any other server."
 ---
 
 # Using Data Channel Direct Connections

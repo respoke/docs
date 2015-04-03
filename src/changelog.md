@@ -4,6 +4,9 @@ date: 2014-11-13
 template: article.jade
 showInMenu: "true"
 menuOrder: 5
+meta:
+    keywords: "respoke, changelog"
+    description: "Recent changes to Respoke."
 ---
 
 # Changelog

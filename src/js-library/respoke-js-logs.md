@@ -5,6 +5,9 @@ date: 2015-2-17
 template: article.jade
 showInMenu: "true"
 menuOrder: 4
+meta:
+    keywords: "respoke, logging"
+    description: "How to log messages in Respoke.js."
 ---
 
 # Log messages in Respoke.js

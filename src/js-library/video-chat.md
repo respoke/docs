@@ -5,6 +5,9 @@ date: 2014-03-11
 template: article.jade
 showInMenu: "true"
 menuOrder: 2
+meta:
+    keywords: "respoke, video chat"
+    description: "In this guide you’ll learn how to add video chat to your application."
 ---
 
 # Build a video chat app
