@@ -26,7 +26,7 @@ You can use Respoke to call and receive calls from phones as well as other Respo
 
 In order to place calls to a phone number, your endpoint must be using a role which has PSTN (phone) calling enabled. This is done by specifying a phone number or group of phone numbers that the endpoint is allowed to call. Alternatively, you can specify "*" to allow calling to any phone number.
 
-[![screenshot of how to enable phone calling in the respoke developer console](enable-phone-calling.png)](enable-phone-calling.png)
+![screenshot of how to enable phone calling in the respoke developer console](allow-pstn-out-numbers.png)
 
 ### Step 2: Calling a Phone Number
 
@@ -38,7 +38,7 @@ client.startPhoneCall({
 });
 ```
 
-To use caller id, use the phone number associated with your app and endpoint id:
+To use caller id, use the phone number associated with your app and endpoint id. By default, Respoke will use the phone number associated with your account if no callerId is set:
 
 ```javascript
 client.startPhoneCall({
@@ -47,8 +47,14 @@ client.startPhoneCall({
 });
 ```
 
-In this example, whoever you call from your app will see (555) 555-5555 as the caller id.
+In this example, whoever you call from your app will see (555) 555-5555 as the caller id. You can choose to have your callerId shown as "<Unknown>". Either pass an empty string or null:
 
+```javascript
+client.startPhoneCall({
+    number: "+15558675309"
+    callerId: ""
+});
+```
 
 ### Step 3: Receiving Calls at a Phone Number
 
@@ -56,18 +62,32 @@ To receive calls, you'll need a phone number, or DID, from Respoke. While phone 
 
 You can manage a phone number in your [dev console](https://portal.respoke.io/) in the "Phone Numbers" section once it has been assigned to you. Just associate the phone number with an app and an endpoint, and you're done!
 
-[![how to configure a phone number for phone calling mesh with a webrtc audio call](configure-phone-number.png)](configure-phone-number.png)
+![how to configure a phone number for phone calling mesh with a webrtc audio call](phone-numbers.png)
+
+Then assign the phone number to an App Role:
+
+![assign the phone number to an App Role](pstn-caller-id.png)
+
 
 Now if that endpoint is logged in via Respoke, calls to that phone number will be routed to that endpoint.
 
 ```javascript
 client.listen('call', function (evt) {
-    if (evt.call.fromType === 'did') {
-        // We got a call from a phone number!
+  var call = evt.call;
+  
+  if (!call.caller) {
+    if (call.toType === 'did') {
+      var number = call.callerId.number;//+16145555555
+      var name = call.callerId.name; //Austin, TX
+      
+      call.answer();
     }
-
-    if (!evt.call.caller) {
-        evt.call.answer();
-    }
+  }
 });
 ```
+
+Once the call event is triggered, you'll have access to a call event. Amongst other things, the call event is composed of a callerId object. This callerId object has several properties. Two properties you'll be interested in are the `number` property and the `name` property. 
+
+The number property contains the phone number of the incoming caller. The name property contains the desciption of the phone number - e.g. Austin, TX. If either value is unavailable, it will be `null`.
+
+Both outbound and inbound numbers follow the [E.164](http://en.wikipedia.org/wiki/E.164#DNS_mapping_of_E.164_numbers), international public telecommunication numbering plan, phone number format.
