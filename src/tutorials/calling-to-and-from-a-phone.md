@@ -62,7 +62,7 @@ To receive calls, you'll need a phone number, or DID, from Respoke. While phone 
 
 You can manage a phone number in your [dev console](https://portal.respoke.io/) in the "Phone Numbers" section once it has been assigned to you. Just associate the phone number with an app and an endpoint, and you're done!
 
-![how to configure a phone number for phone calling mesh with a webrtc audio call](phone-numbers.png)
+![how to configure a phone number](phone-numbers.png)
 
 Then assign the phone number to an App Role:
 
