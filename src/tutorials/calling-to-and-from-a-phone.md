@@ -77,8 +77,8 @@ client.listen('call', function (evt) {
   
   if (!call.caller) {
     if (call.toType === 'did') {
-      var number = call.callerId.number;//+16145555555
-      var name = call.callerId.name; //Austin, TX
+      var number = call.callerId.number;
+      var name = call.callerId.name;
       
       call.answer();
     }
