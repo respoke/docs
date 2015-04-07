@@ -88,6 +88,6 @@ client.listen('call', function (evt) {
 
 Once the call event is triggered, you'll have access to a call event. Amongst other things, the call event is composed of a callerId object. This callerId object has several properties. Two properties you'll be interested in are the `number` property and the `name` property. 
 
-The number property contains the phone number of the incoming caller. The name property contains the desciption of the phone number - e.g. Austin, TX. If either value is unavailable, it will be `null`.
+The number property contains the phone number of the incoming caller. The name property contains the name of the phone number. The name property is set by either the caller's carrier or the caller. If either value is unavailable, it will be `null`.
 
 Both outbound and inbound numbers follow the [E.164](http://en.wikipedia.org/wiki/E.164#DNS_mapping_of_E.164_numbers), international public telecommunication numbering plan, phone number format.
