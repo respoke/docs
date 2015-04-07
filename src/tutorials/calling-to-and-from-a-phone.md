@@ -74,11 +74,12 @@ Now if that endpoint is logged in via Respoke, calls to that phone number will b
 ```javascript
 client.listen('call', function (evt) {
   var call = evt.call;
+  var number, name;
   
   if (!call.caller) {
     if (call.toType === 'did') {
-      var number = call.callerId.number;
-      var name = call.callerId.name;
+      number = call.callerId.number;
+      name = call.callerId.name;
       
       call.answer();
     }
