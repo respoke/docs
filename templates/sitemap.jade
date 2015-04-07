@@ -7,10 +7,9 @@ urlset(xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
     for article in articles
         url
           - var permalink = locals.url + (article ? article.url : "")
-          item
-            //- title= article.title
-            //- passing locals.url resolves all relative urls to absolute
-            loc= permalink
-            date= article ? article.rfc822date : new Date().rfc822date
-            changefreq= article ? article.changefreq || "monthly" : "monthly"
-            description= article ? article.priority || 0.8 : 0.8
+        //- title= article.title
+        //- passing locals.url resolves all relative urls to absolute
+        loc= permalink
+        date= article ? article.rfc822date : new Date().rfc822date
+        changefreq= article ? article.changefreq || "monthly" : "monthly"
+        description= article ? article.priority || 0.8 : 0.8
