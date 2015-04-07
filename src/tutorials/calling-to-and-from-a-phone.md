@@ -42,7 +42,7 @@ To use caller id, use the phone number associated with your app and endpoint id.
 
 ```javascript
 client.startPhoneCall({
-    number: "+15558675309"
+    number: "+15558675309",
     callerId: "+15555555555"
 });
 ```
@@ -51,7 +51,7 @@ In this example, whoever you call from your app will see (555) 555-5555 as the c
 
 ```javascript
 client.startPhoneCall({
-    number: "+15558675309"
+    number: "+15558675309",
     callerId: ""
 });
 ```
