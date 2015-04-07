@@ -38,7 +38,7 @@ client.startPhoneCall({
 });
 ```
 
-To use caller id, use the phone number associated with your app and endpoint id. By default, Respoke will use the phone number associated with your account if no callerId is set:
+To use caller id, use the phone number associated with your app and endpoint id. By default, Respoke will use the callerId associated with your role if only one is present:
 
 ```javascript
 client.startPhoneCall({
