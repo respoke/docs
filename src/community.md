@@ -1,10 +1,10 @@
 ---
-title: "Changelog"
-date: 2014-11-13
+title: "Community Events"
+date: 2015-04-06
 template: article.jade
 showInMenu: "true"
-linkUrl: "/changelog/"
-menuOrder: 4
+linkUrl: "/community/"
+menuOrder: 1
 meta:
     keywords: "respoke, changelog"
     description: "Recent changes to Respoke."

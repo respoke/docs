@@ -19,3 +19,6 @@ examples-config*.json
 # Temporory output
 .examples
 *.log
+
+# Environment Output
+.DS_Store

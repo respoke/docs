@@ -9,9 +9,20 @@
     padding-bottom: $spacing-large;
 
     @include sidebar-background;
+	
+	nav {
+		font-size: 15px;
+	}
 }
 
 .content {
+	// Normalize content font
+    font-family: 'Open Sans', 'Helvetica Nue', 'Helvetica', 'Arial', sans-serif;
+    letter-spacing: 0.3px;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.65;
+	
     @include span-columns(12);
     margin-top: $navbar-height + $spacing-medium;
 
@@ -25,6 +36,7 @@
 
     :first-child {
         margin-top: 0;
+		margin: 0;
     }
 
     pre {
@@ -34,4 +46,23 @@
     img {
         max-width: 100%;
     }
+	
+	article {
+		p {
+			//font-size: 18px;
+			//line-height: 1.6;
+		}
+	
+		h1, h2{
+			font-size: 32px;
+			font-weight: 300;
+			line-height: 1.4;
+			letter-spacing: -0.15px;
+			display: block;
+		}
+		
+		h2  {
+			font-size: 28px;
+		}
+	}
 }
