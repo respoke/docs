@@ -19,3 +19,4 @@ examples-config*.json
 # Temporory output
 .examples
 *.log
+.DS_Store
