@@ -1,15 +1,20 @@
+- function pad(i) { return i < 10 ? '0' + i : '' + i; }
+mixin menuItem(node)
+    - var link = 'https://docs.respoke.io/' + node.path;
+    - var date = node.file.data.date ? new Date(node.file.data.date) : new Date();
+    
+    
+    url
+        loc= link
+        date= '' + date.getFullYear() + '-' + pad(date.getMonth() + 1) + '-' + pad(date.getDate())
+        changefreq= node.file.data.changefreq || "monthly"
+        description= node.file.data.priority || 0.8
+    
+    if node.children.length > 0
+        each childNode in node.children
+            +menuItem(childNode)
+    
 doctype xml
 urlset(xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
-    - var tutorials = page.parent.tutorials;
-    - var reference = page.parent.reference;
-    - var jslibrary = page.parent['js-library'];
-    - var articles = _.extend(tutorials, reference, jslibrary);
-    for article in articles
-        url
-          - var permalink = locals.url + (article ? article.url : "")
-        //- title= article.title
-        //- passing locals.url resolves all relative urls to absolute
-        loc= permalink
-        date= article ? article.rfc822date : new Date().rfc822date
-        changefreq= article ? article.changefreq || "monthly" : "monthly"
-        description= article ? article.priority || 0.8 : 0.8
+    for node in nav
+        +menuItem(node)
