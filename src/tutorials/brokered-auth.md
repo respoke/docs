@@ -93,6 +93,9 @@ App-Secret: 28B061B9-A0D4-4E52-A0ED-EB6EA125F82A
 
 Your API responds to the user request in step 1. The only thing you need to return is the `tokenId`.
 
+**Important note:** the `tokenId` will only live for a a few seconds, for security. The `ttl` is applied
+to the session `token` after your user requests it with the `tokenId`.
+
 ### 5. Client API - `client.connect()`
 
 **JS Client Library Method**
