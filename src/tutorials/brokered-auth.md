@@ -65,52 +65,30 @@ Your user makes a request to your server, asking for a Respoke token.
 
 When your server receives the request for a token, it makes a token request to Respoke, adding the **App Secret Key** as a header, a time-to-live (ttl) in seconds to ensure tokens can't be used very much later, and a named identifer also known as an "endpoint id". This can be a random string but is often a username for simplicity. The `endpointId` is how the user will be known by Respoke, when they connect with the provided token response. You'll also provide the id of a role representing a set of permissions that Respoke will use to allow or protect certain actions attempted by this endpoint. Roles can be created in your [Dev Console](https://portal.respoke.io/), and there is more information about working with roles in the [roles tutorial](/tutorials/roles-and-permissions.html).
 
+Here are a few examples of how to get this done programatically:
+    
+{example: endpoint-authentication}
 
-<pre><code class="xml">POST https://api.respoke.io/v1/tokens
-Content-Type: application/json
-App-Secret: 28B061B9-A0D4-4E52-A0ED-EB6EA125F82A
-</code></pre>
-
-    {
-        "appId": "34A9DDB9-D4AO-52AA-0ADE-EABEA521F2BA",
-        "endpointId": "bobsmith",
-        "roleId": "96070A0D-32B1-4B8C-9353-FE3E6A5E6C1D",
-        "ttl": 86400
-    }
-
-### 3. Admin API - Token Response
-
-    {
-        "tokenId": "7C5F4410-35A1-41AC-B8DE-295AF375B7D9",
-        "appId": "28B061B9-A0D4-4E52-A0ED-EB6EA125F82A",
-        "endpointId": "bobsmith",
-        "roleId": "96070A0D-32B1-4B8C-9353-FE3E6A5E6C1D",
-        "createTime": 1395254788,
-        "expiryTime": 1395341188
-    }
-
-### 4. Client's Token Response
+### 3. Client's Token Response
 
 Your API responds to the user request in step 1. The only thing you need to return is the `tokenId`.
 
 **Important note:** For security, the `tokenId` will only live for a few seconds. The `ttl` is applied
 to the session `token` after your user requests it with the `tokenId`.
 
-### 5. Client API - `client.connect()`
+### 4. Client API - `client.connect()`
 
 **JS Client Library Method**
 
-The client application now uses the [Respoke JS library](/js-library/respoke.html) to connect to Respoke using the token.
+Using the [Respoke JS library](/js-library/respoke.html) on the client to connect to Respoke using the token would look like.
 
     client = respoke.createClient();
 
     client.connect({
-        reconnect: false, // disable automatic reconnection when not in development mode
         token: tokenId
-        // callbacks go here
-    }); // or chain promises here
+    });
 
-### 6. A note about automatic reconnection
+### 5. A note about automatic reconnection
 
 A new token is required on every connection. Because of this, when using brokered auth you'll need to listen to the `disconnect` event and fetch a new token. Then use this new token to reconnect.
 
@@ -122,65 +100,3 @@ A new token is required on every connection. Because of this, when using brokere
             });
         });
     });
-
-<br />
-
-**REST API Method**
-
-When using REST directly, you'll need an application session token which you can get from the following API request. This token can be used to access the API directly by passing it with the request in an `App-Token` header. This happens automatically when using Respoke.js, the JavaScript client library.
-
-#### Request
-
-<pre><code class="xml">POST https://api.respoke.io/v1/session-tokens
-</code></pre>
-
-    {
-        "appId": "D76D3B0A-35A1-41AC-A42D-FCE662BD1D96",
-        "tokenId": "D5E3723F-5753-4FEC-AE1C-FCD805C157C6"
-    }
-
-
-#### Response
-
-    {
-        "message": "Authorization successful",
-        "token": "F9B2F271-0D25-43CE-A910-DBBF4A54FE6F"
-    }
-
-Use the `token` string from the request as the value for the `App-Token` header for subsequent [REST API](/reference/rest-api.html) requests.
-
-
-
-### 7. Service Access
-
-This is where you use the Respoke Client API for service access (sending messages, placing audio/video calls, and setting up datachannels for transferring data).
-
-**JS Client Library Method**
-
-    endpoint.call();
-
-
-<br />
-
-**REST API Method**
-
-Example: TURN access
-
-One of the things that you can now do with the Client API (now that your client is a logged in endpoint) is to request TURN server credentials.  Below is an example of this.
-
-#### Request
-<pre><code class="xml">POST https://api.respoke.io/v1/turn
-App-Token:F9B2F271-0D25-43CE-A910-DBBF4A54FE6F</code></pre>
-
-    { } // no body needed
-
-#### Response
-
-    {
-        "username": "3B35E769-A0E8-4B63-9881-35544EE0A158DC2654BD-170A-4D42-93A2-4E0EB4C560EB.1395342047",
-        "password": "Gk4TtCYgGGcmheBXWFnnlm0kMVU=",
-        "ttl": 86400,
-        "uris": [
-            "turn:exampleturnurl.respoke.io:3478?transport=udp"
-        ]
-    }
