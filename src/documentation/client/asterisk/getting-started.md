@@ -1,6 +1,6 @@
 ---
-title: "Connecting to Respoke with Asterisk"
-shortTitle: "Connecting with Asterisk"
+title: "Getting Started - Developing with Asterisk and Respoke"
+shortTitle: "Getting Started"
 date: 2014-10-15
 template: article.jade
 showInMenu: "true"
@@ -10,7 +10,7 @@ meta:
     description: "Guide on how to connect to Respoke to Asterisk for WebRTC and web app calling features."
 ---
 
-# Connecting to Respoke with Asterisk
+# Getting Started - Developing with Asterisk and Respoke
 
 ## Summary
 

@@ -2,7 +2,7 @@
 title: Group Discovery
 template: article.jade
 showInMenu: "true"
-menuOrder: 20
+menuOrder: 30
 ---
 
 # Group Discovery

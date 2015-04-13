@@ -2,7 +2,7 @@
 title: Presence
 template: article.jade
 showInMenu: "true"
-menuOrder: 30
+menuOrder: 40
 ---
 
 # Presence

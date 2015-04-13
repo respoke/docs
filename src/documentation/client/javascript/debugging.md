@@ -2,7 +2,7 @@
 title: Debugging
 template: article.jade
 showInMenu: "true"
-menuOrder: 120
+menuOrder: 130
 ---
 
 # Debugging

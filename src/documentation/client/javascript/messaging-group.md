@@ -2,7 +2,7 @@
 title: Messaging (Group)
 template: article.jade
 showInMenu: "true"
-menuOrder: 40
+menuOrder: 50
 ---
 
 # Messaging (Group)

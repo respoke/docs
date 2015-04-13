@@ -2,7 +2,7 @@
 title: Direct Connection
 template: article.jade
 showInMenu: "true"
-menuOrder: 60
+menuOrder: 70
 ---
 
 # Direct Connection

@@ -2,7 +2,7 @@
 title: Authentication
 template: article.jade
 showInMenu: "true"
-menuOrder: 10
+menuOrder: 20
 ---
 
 # Authentication
