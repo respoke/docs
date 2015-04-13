@@ -99,6 +99,13 @@ function buildSite(callback) {
                 gfm: true,
                 tables: true
             }))
+            .pipe(through.obj(function checkAndApplyAlternateExt(file, enc, callback) {
+                if (file.data.extname) {
+                    var currentExt = path.extname(file.path);
+                    file.path = file.path.replace(currentExt, file.data.extname);
+                }
+                callback(null, file);
+            }))
             .pipe(gulpsmith()
                 .use(navigation(navConfig, navSettings))
                 .use(renderJade(paths, argv.dist))
