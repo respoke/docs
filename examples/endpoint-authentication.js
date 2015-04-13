@@ -1,43 +1,13 @@
 var respoke = new Respoke({
-    baseURL: baseURL,
-    'App-Secret': appSecret
-});
-
-var billy = new Respoke({
-    baseURL: baseURL,
-    appId: appId
+    appId: '34A9DDB9-D4AO-52AA-0ADE-EABEA521F2BA',
+    'App-Secret': '28B061B9-A0D4-4E52-A0ED-EB6EA125F82A'
 });
 
 respoke.auth.endpoint({
-    endpointId: endpointId,
-    appId: appId,
-    roleId: roleId
-}).then(function (authData) {
-    // The tokenId used to request our newly generated token. Note that this
-    // token is only valid for 20 seconds and should be used immediately.
-    
-    // At this point, you could return this { tokenId: 'XXXX-XXXX-XXXX-XXXXXXX' }
-    // to your Respoke.js user so they can establish a web socket connection to Respoke
-    // using `respoke.createClient({ token: authData.tokenId });``
-    //
-    //      res.end(JSON.stringify(authData));
-    //
-    // However for this example, we will instead use the Node library to establish a
-    // web socket to Respoke:
-    
-    return billy.auth.sessionToken({
-        tokenId: authData.tokenId
+    endpointId: 'bobsmith', // E.g. Pass this username when the user signs into your app
+    roleId: '96070A0D-32B1-4B8C-9353-FE3E6A5E6C1D'
+}, function (err, response) {
+    res.json({
+        tokenId: response.tokenId // FB311719-D2F0-48D4-9A51-69CCE09F1C01
     });
-}).then(function (sessionData) {
-    console.log('Retrieved session token: ', sessionData.token);
-    billy.auth.connect({
-        'App-Token': sessionData.token
-    });
-    billy.on('connect', function () {
-        console.log('I am ready to do Respoke things as a normal endpoint.');
-    });
-}).catch(function (error) {
-    console.log(error);
 });
-
-// Retrieved session token: FB311719-D2F0-48D4-9A51-69CCE09F1C01
