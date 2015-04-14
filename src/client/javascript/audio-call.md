@@ -1,5 +1,5 @@
 ---
-title: Audio Call
+title: Audio Calling
 template: article.jade
 showInMenu: "true"
 menuOrder: 80

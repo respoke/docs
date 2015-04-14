@@ -1,5 +1,5 @@
 ---
-title: Video Call
+title: Video Calling
 template: article.jade
 showInMenu: "true"
 menuOrder: 90
