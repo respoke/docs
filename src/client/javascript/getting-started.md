@@ -4,7 +4,7 @@ shortTitle: "Getting Started"
 date: 2014-10-15
 template: article.jade
 showInMenu: "true"
-menuOrder: 10
+menuOrder: 0
 meta:
     keywords: "respoke, JavaScript, webrtc"
     description: "Guide on how to get started developing with JavaScript and Respoke."
