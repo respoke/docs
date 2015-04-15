@@ -1,6 +1,5 @@
 ---
 title: "createClient"
-shortTitle: "createClient"
 date: 2015-04-14
 template: article.jade
 showInMenu: "true"

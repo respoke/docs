@@ -1,3 +1,13 @@
+---
+title: "respoke"
+date: 2015-04-14
+template: article.jade
+showInMenu: "false"
+menuOrder: 0
+meta:
+    keywords: "respoke"
+---
+
 #respoke
 Defined in: [respoke.js](https://github.com/respoke/respoke/blob/master/respoke/respoke.js)
 

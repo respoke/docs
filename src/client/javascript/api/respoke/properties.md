@@ -1,7 +1,7 @@
 ---
-title: Events
+title: Properties
 showInMenu: "true"
 noLink: true
-menuOrder: 2
+menuOrder: 1
 ---
 
