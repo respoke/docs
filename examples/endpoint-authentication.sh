@@ -8,7 +8,8 @@
 body='{
     "appId": "'$appId'",
     "endpointId": "'$endpointId'",
-    "roleId": "'$roleId'"
+    "roleId": "'$roleId'",
+    "ttl": 3600
 }'
 
 # {
