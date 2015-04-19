@@ -58,7 +58,12 @@ $sessionTokenResponse = json_decode(file_get_contents($baseURL . "/session-token
 echo(var_dump($sessionTokenResponse));
 
 // {
-//   "message": "Authorization successful",
+//    "message": "Authorization successful",
 //    "token": "B89F8F35-709F-4022-8766-37E6DEFFD39E"
 // }
+
+// Extract the token from the sessionTokenResponse
+// Connect your Respoke client using this token
+$token = $sessionTokenResponse["token"];
+echo("{ token: $token }");
 ?>
