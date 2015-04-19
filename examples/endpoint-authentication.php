@@ -1,31 +1,64 @@
 <?php
 
-$data = array();
-$baseURL = 'https://api.respoke.io/v1/tokens';
-$appSecret = '28B061B9-A0D4-4E52-A0ED-EB6EA125F82A';
+// Save to authentication.php, then run with:
+// php authentication.php
 
-$data['endpointId'] = 'bobsmith'; // E.g. Pass this username when the user signs into your app
-$data['appId'] = '34A9DDB9-D4AO-52AA-0ADE-EABEA521F2BA';
-$data['roleId'] = '96070A0D-32B1-4B8C-9353-FE3E6A5E6C1D';
-$data['ttl'] = 3600;
-$json = json_encode($data);
+$baseURL = "https://api.respoke.io/v1";
 
-$options = array(
-    'http' => array(
-        'header'  => "Content-type: application/json\r\n" .
+$endpointId ="spock@enterprise.com";
+$appId = "c10a2075-3f3d-466f-82f9-d2285e64c5d4";
+$appSecret = "eb327e57-e766-49de-b801-ef612a70509e";
+$roleId ="371F82D1-E4CE-4BB0-B2BB-79EA3497FC4F";
+
+$json = array();
+
+$json["appId"] = $appId;
+$json["endpointId"] = $endpointId;
+$json["roleId"] = $roleId;
+$json["ttl"] = 3600;
+
+$body = json_encode($json);
+
+// Make a call to /tokens to get a tokenId
+$tokenRequest = array(
+    "http" => array(
+        "header"  => "Content-type: application/json\r\n" .
             "App-Secret: " . $appSecret . "\r\n",
-        'method'  => 'POST',
-        'content' => $json,
+        "method"  => "POST",
+        "content" => $body,
     ),
 );
 
-$context  = stream_context_create($options);
-$result = file_get_contents($baseURL, false, $context);
+$content  = stream_context_create($tokenRequest);
+$tokenResponse = json_decode(file_get_contents(($baseURL . "/tokens"), false, $content), true);
+echo(var_dump($tokenResponse));
 
-echo($result);
+// Extract the tokenId from the tokenResponse
+$tokenId = $tokenResponse["tokenId"];
 
-// { 
-//    tokenId: '2976A526-BDD1-4478-A167-6A6F35B5AE82'
+$json = array();
+
+$json["tokenId"] = $tokenId;
+
+$body = json_encode($json);
+
+// Make a call to /session-tokens, passing the tokenId from /tokens
+// to get the temporary session token
+$sessionTokenRequest = array(
+    "http" => array(
+        "header"  => "Content-type: application/json\r\n" .
+            "App-Secret: " . $appSecret . "\r\n",
+        "method"  => "POST",
+        "content" => $body,
+    ),
+);
+
+$content  = stream_context_create($sessionTokenRequest);
+$sessionTokenResponse = json_decode(file_get_contents($baseURL . "/session-tokens", false, $content), true);
+echo(var_dump($sessionTokenResponse));
+
+// {
+//   "message": "Authorization successful",
+//    "token": "B89F8F35-709F-4022-8766-37E6DEFFD39E"
 // }
-
 ?>

@@ -1,9 +1,12 @@
+# Save to authentication.sh, then run with:
+# sh authentication.sh
+
 : ${baseURL:="https://api.respoke.io/v1"}
 
-: ${appSecret:?"appSecret required"}
-: ${appId:?"appId required"}
-: ${endpointId:?"endpointId required"}
-: ${roleId:?"roleId required"}
+: ${endpointId:="spock@enterprise.com"}
+: ${appId:="c10a2075-3f3d-466f-82f9-d2285e64c5d4"}
+: ${appSecret:="eb327e57-e766-49de-b801-ef612a70509e"}
+: ${roleId:="371F82D1-E4CE-4BB0-B2BB-79EA3497FC4F"}
 
 body='{
     "appId": "'$appId'",
@@ -12,28 +15,23 @@ body='{
     "ttl": 3600
 }'
 
-# {
-#    "appId": "34A9DDB9-D4AO-52AA-0ADE-EABEA521F2BA",
-#    "endpointId": "bobsmith",
-#    "roleId": "96070A0D-32B1-4B8C-9353-FE3E6A5E6C1D",
-# }
-
-tokenRequest=$(curl -s -X POST \
+# Make a call to /tokens to get a tokenId
+tokenResponse=$(curl -s -X POST \
     -H "App-Secret: $appSecret" -H 'Content-type: application/json' \
     -d "$body" $baseURL/tokens)
 
-# POST https://api.respoke.io/v1/tokens
-# App-Secret: 28B061B9-A0D4-4E52-A0ED-EB6EA125F82A
-# Content-Type: application/json
 
-# Extract the tokenId from the returned JSON
-tokenId=$(expr "$tokenRequest" : '.*"tokenId": *"\(.*\)"')
+# Extract the tokenId from the tokenResponse
+tokenId=$(expr "$tokenResponse" : '.*"tokenId": *"\(.*\)"')
 
 body='{ "tokenId": "'$tokenId'" }'
 
+# Make a call to /session-tokens, passing the tokenId from /tokens
+# to get the temporary session token
 curl -X POST -H 'Content-type: application/json' \
     -d "$body" $baseURL/session-tokens
 
 # {
-#     "tokenId": "FB311719-D2F0-48D4-9A51-69CCE09F1C01"
+#    "message": "Authorization successful",
+#    "token": "B89F8F35-709F-4022-8766-37E6DEFFD39E"
 # }
