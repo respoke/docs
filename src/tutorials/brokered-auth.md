@@ -71,7 +71,7 @@ Here are a few examples of how to get this done programatically:
 
 ### 3. Client's Token Response
 
-Your API responds to the user request in step 1. The only thing you need to return is the `tokenId`.
+Your API responds to the user request in step 1. The only thing you need to return is the `token`.
 
 **Important note:** For security, the `tokenId` will only live for a few seconds. The `ttl` is applied
 to the session `token` after your user requests it with the `tokenId`.
@@ -85,7 +85,7 @@ Using the [Respoke JS library](/js-library/respoke.html) on the client to connec
     client = respoke.createClient();
 
     client.connect({
-        token: tokenId
+        token: token
     });
 
 ### 5. A note about automatic reconnection
