@@ -25,7 +25,7 @@ $tokenRequest = array(
         "header"  => "Content-type: application/json\r\n" .
             "App-Secret: " . $appSecret . "\r\n",
         "method"  => "POST",
-        "content" => $body,
+        "content" => $body
     ),
 );
 
@@ -49,7 +49,7 @@ $sessionTokenRequest = array(
         "header"  => "Content-type: application/json\r\n" .
             "App-Secret: " . $appSecret . "\r\n",
         "method"  => "POST",
-        "content" => $body,
+        "content" => $body
     ),
 );
 
