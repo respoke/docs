@@ -32,7 +32,7 @@ Alternatively, if you prefer to install Respoke as a local application dependenc
 Finally, to validate everything is working, you'll want to connect to Respoke:
 
     // App ID from the Respoke Dashboard for your App
-    var appId = "YOUR-APP-ID";
+    var appId = "c10a2075-3f3d-466f-82f9-d2285e64c5d4";
     
     // The unique username identifying the user
     var endpointId = "spock@enterprise.com";

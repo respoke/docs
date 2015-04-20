@@ -1,13 +1,13 @@
 ---
-title: "Brokered Authentication Guide"
+title: "Authentication Guide - Respoke JavaScript Library"
 shortTitle: "Authentication"
-date: 2014-03-11
+date: 2015-04-20
 template: article.jade
 showInMenu: "true"
 menuOrder: 20
 meta:
     keywords: "respoke, auth, authenticating, authentication, security, token"
-    description: "Understand how to secure your users' access to Respoke audio, video, text and data channels."
+    description: "Learn how to secure your users' access to Respoke audio, video, text and data channels."
 ---
 
 ###JavaScript Library
