@@ -1,43 +1,17 @@
-var respoke = new Respoke({
-    baseURL: baseURL,
-    'App-Secret': appSecret
-});
+// npm install respoke-admin
 
-var billy = new Respoke({
-    baseURL: baseURL,
-    appId: appId
+var Respoke = require("respoke-admin");
+
+var respoke = new Respoke({
+    appId: "c10a2075-3f3d-466f-82f9-d2285e64c5d4",
+    "App-Secret": "eb327e57-e766-49de-b801-ef612a70509e"
 });
 
 respoke.auth.endpoint({
-    endpointId: endpointId,
-    appId: appId,
-    roleId: roleId
-}).then(function (authData) {
-    // The tokenId used to request our newly generated token. Note that this
-    // token is only valid for 20 seconds and should be used immediately.
-    
-    // At this point, you could return this { tokenId: 'XXXX-XXXX-XXXX-XXXXXXX' }
-    // to your Respoke.js user so they can establish a web socket connection to Respoke
-    // using `respoke.createClient({ token: authData.tokenId });``
-    //
-    //      res.end(JSON.stringify(authData));
-    //
-    // However for this example, we will instead use the Node library to establish a
-    // web socket to Respoke:
-    
-    return billy.auth.sessionToken({
-        tokenId: authData.tokenId
+    endpointId: "spock@enterprise.com",
+    roleId: "371F82D1-E4CE-4BB0-B2BB-79EA3497FC4F"
+}, function (err, response) {
+    res.json({
+        token: response.tokenId
     });
-}).then(function (sessionData) {
-    console.log('Retrieved session token: ', sessionData.token);
-    billy.auth.connect({
-        'App-Token': sessionData.token
-    });
-    billy.on('connect', function () {
-        console.log('I am ready to do Respoke things as a normal endpoint.');
-    });
-}).catch(function (error) {
-    console.log(error);
 });
-
-// Retrieved session token: FB311719-D2F0-48D4-9A51-69CCE09F1C01

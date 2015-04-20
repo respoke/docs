@@ -10,6 +10,7 @@ meta:
     description: "Guide on how to get started developing with JavaScript and Respoke."
 ---
 
+###JavaScript Library
 #JavaScript Client Examples
 
 This page includes a comprehensive list of open source applications or code examples that we maintain. These resources are geared to help you learn Respoke or speed up development time by reusing code snippets.

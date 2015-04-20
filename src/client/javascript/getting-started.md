@@ -10,6 +10,7 @@ meta:
     description: "Guide on how to get started developing with JavaScript and Respoke."
 ---
 
+###JavaScript Library
 # Getting Started
 
 ## Create an account
