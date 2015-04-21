@@ -7,7 +7,7 @@ showInMenu: "true"
 menuOrder: 40
 meta:
     keywords: "respoke, endpoint, presence"
-    description: "Learn how to do listen for endpoint presence using Respoke"
+    description: "Learn how to listen for endpoint presence using Respoke"
 ---
 
 ###JavaScript Library
@@ -15,7 +15,7 @@ meta:
 
 ## Overview
 
-In realtime applications it is often useful to detect when clients connect and disconnect. For example, we may want to mark a user as away when their client become inactive or mark the user as do not disturb when the user is busy.
+In realtime applications it is often useful to detect when clients connect and disconnect. For example, we may want to mark a user as away when their client becomes inactive or mark the user as do not disturb when the user is busy.
 
 Respoke provides a simple interface for setting a user's presence. First, [join a group](/client/javascript/guide/group-discovery.html) and then we're ready to start writing some code.
 
