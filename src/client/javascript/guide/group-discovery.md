@@ -30,17 +30,17 @@ First connect to Respoke and listen for the `connect` event. Then you can join a
             
             onSuccess: function(group) {
                 group.listen("join", function(e) {
-                    var endpointId = e.connection.getEndpoint().id;
+                    var endpoint = e.connection.getEndpoint();
                 });
                 
                 group.listen("leave", function(e) {
-                    var endpointId = e.connection.getEndpoint().id;
+                    var endpoint = e.connection.getEndpoint();
                 });
                 
                 group.getMembers({
                     onSuccess: function(connections) {
                         connections.forEach(function(connection){
-                            var endpointId = connection.getEndpoint().id;
+                            var endpoint = connection.getEndpoint();
                         });
                     }
                 });
