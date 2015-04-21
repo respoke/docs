@@ -21,19 +21,22 @@ Sending messages to a group of people is easy using Respoke. First, [join a grou
 
 Next, save the group instance you joined.
 
+    var _this = this;
+    
     client.listen("connect", function() {
         client.join({
             id: "united-federation-of-planets",
             
             onSuccess: function(group) {
-                window.group = group;
+                _this.group = group;
+                . . .
             }
         });
     });
 
-Finally, send a message to the group.
+Then, send a message to the group.
 
-    var group = window.group;
+    var group = _this.group;
     
     // The message can be simple text
     group.sendMessage("Live Long and Prosper");
@@ -48,4 +51,10 @@ Finally, send a message to the group.
             placeOfBirth: "Shi'Kahr, Vulcan",
             education: "Starfleet Academy, 2249-53"
         } 
+    });
+    
+Finally, listen for incoming messages.
+
+    client.listen("message", function(e) {
+         var message = e.message.message;
     });

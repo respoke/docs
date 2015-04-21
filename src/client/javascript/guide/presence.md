@@ -46,7 +46,11 @@ Listen for presence on each endpoint in the group.
         });
     });
     
-Additionally, get the `endpointId` of the endpoint. This will enable you to update the presence UI for anyone in the group.
+Additionally, you will want to listen for your own presence changes.
+
+    client.listen("presence", function(e) {
+        var presence = e.target.presence;
+    });
 
 ## Managing Presence
 
@@ -62,5 +66,5 @@ The same user can set his presence using the client `setPresence` method.
         presence: "available"
     });
     
-Presence options include: available, away and dnd.
+Presence options include: available, away and dnd. Calling `setPresence` on your client will trigger the presence listener for your endpoint for everyone else in the group.
 
