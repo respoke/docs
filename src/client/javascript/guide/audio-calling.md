@@ -1,23 +1,23 @@
 ---
-title: "Video Calling - Respoke JavaScript Library"
-shortTitle: "Video Calling"
+title: "Audio Calling - Respoke JavaScript Library"
+shortTitle: "Audio Calling"
 date: 2015-04-20
 template: article.jade
 showInMenu: "true"
-menuOrder: 90
+menuOrder: 80
 meta:
-    keywords: "respoke, video calling, webrtc"
-    description: "Learn how to start a video call directly peer-to-peer"
+    keywords: "respoke, audio calling, webrtc"
+    description: "Learn how to start an audio call directly peer-to-peer"
 ---
 
 ###JavaScript Library
-# Video Calling
+# Audio Calling
 
 ## Overview
 
-Video calling is easy using Respoke. First connect to Respoke either in [development mode](/client/javascript/getting-started.html) or [authenticated](/client/javascript/guide/authentication.html). Then we're ready to start writing some code.
+Audio calling is easy using Respoke. First connect to Respoke either in [development mode](/client/javascript/getting-started.html) or [authenticated](/client/javascript/guide/authentication.html). Then we're ready to start writing some code.
 
-## Starting Video Calls
+## Starting Audio Calls
 
 Next, create DOM elements to hang the WebRTC call.
 
@@ -26,20 +26,20 @@ Next, create DOM elements to hang the WebRTC call.
    <video id="remoteVideo"></video>
    ```
 
-Then, get the endpoint you want to start a video call with.
+Then, get the endpoint you want to start an audio call with.
 
     var endpoint = client.getEndpoint({
         id: "kirk@enterprise.com"
     });
 
-Finally, start the video call with the endpoint.
+Finally, start the audio call with the endpoint.
 
-    var call = endpoint.startVideoCall({
+    var call = endpoint.startAudioCall({
         videoLocalElement: document.getElementById("localVideo"),
         videoRemoteElement: document.getElementById("remoteVideo")
     });
 
-## Answering Incoming Calls
+## Answering Incoming Audio Calls
 
 First, listen for incoming calls.
 
@@ -60,20 +60,16 @@ Finally, answer the incoming call.
         }
     });
     
-The video call is now setup for both the local client and the remote peer.
+The audio call is now setup for both the local client and the remote peer.
 
 
-## Video Controls
+## Audio Controls
 
-You can hide or show video during a video call.
-
-    call.toggleVideo();
-    
-Additionally, you can mute or unmute a video call's audio.
+You can mute or unmute an audio call.
 
     call.toggleAudio();
     
-Finally, you can hangup a call.
+Additionally, you can hangup a call.
 
     call.hangup(); 
     
