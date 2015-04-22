@@ -15,9 +15,9 @@ meta:
 
 ## Overview
 
-Audio calling with is easy using Respoke. First connect to Respoke either in [development mode](/client/javascript/getting-started.html) or [authenticated](/client/javascript/guide/authentication.html). Then we're ready to start writing some code.
+Audio calling is easy using Respoke. First connect to Respoke either in [development mode](/client/javascript/getting-started.html) or [authenticated](/client/javascript/guide/authentication.html). Then we're ready to start writing some code.
 
-## Starting Calls
+## Starting Audio Calls
 
 Next, create DOM elements to hang the WebRTC call.
 
@@ -72,3 +72,9 @@ You can mute or unmute an audio call.
 Additionally, you can hangup a call.
 
     call.hangup(); 
+    
+Hanging up a call will trigger a hangup event.
+
+    call.listen("hangup", function(e) {
+        call = null;
+    });
