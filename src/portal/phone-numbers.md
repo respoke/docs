@@ -1,17 +1,17 @@
 ---
-title: "Apps - Respoke Dashboard"
-shortTitle: "Apps"
+title: "Phone Numbers - Respoke Dashboard"
+shortTitle: "Phone Numbers"
 date: 2015-04-20
 template: article.jade
 showInMenu: "true"
-menuOrder: 20
+menuOrder: 30
 meta:
     keywords: "respoke, dashboard, apps, account, phone numbers"
     description: "Learn how to use the dashboard section of the Respoke Dashboard."
 ---
 
 ###Respoke Dashboard
-# Apps
+# Phone Numbers
 
 ## Overview
 
