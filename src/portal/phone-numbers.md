@@ -15,8 +15,20 @@ meta:
 
 ## Overview
 
-Your users need an access token to connect to Respoke. The access token provides both authentication of who they are and authorization of what they are allowed to do.
+In order to [place calls](/client/javascript/guide/phone-calling.html) to a phone number, your endpointId must [authenticate](/client/javascript/guide/authentication.html) using a role which has PSTN (phone) calling enabled.
 
-## Creating App Roles
+## Enabling Phone Calling Features
 
+First, specify a phone number or group of phone numbers that the endpoint is allowed to call. Alternatively, you can specify "*" to allow calling to any phone number.
 
+![allowed pstn out phone numbers](../images/allow-pstn-out-numbers.png)
+
+Next, choose a phone number from the "Phone Numbers" section.
+
+![phone numbers](../images/phone-numbers.png)
+
+Finally, assign the phone number to an App Role.
+
+![phone number caller id](../images/pstn-caller-id.png)
+
+That's it. You're all set to call phone numbers and display callerId for outgoing phone calls.

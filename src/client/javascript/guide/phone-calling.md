@@ -15,7 +15,7 @@ meta:
 
 ## Overview
 
-Phone Calling is easy using Respoke. First, you must [authenticate](/client/javascript/guide/authentication.html) before connecting to Respoke. Then we're ready to start writing some code.
+Phone Calling is easy using Respoke. First, you must [authenticate](/client/javascript/guide/authentication.html) before connecting to Respoke. Then [configure your App Role to use phone calling features](/portal/phone-numbers.html). Then we're ready to start writing some code.
 
 ## Starting Phone Calls
 
