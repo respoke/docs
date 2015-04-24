@@ -7,7 +7,7 @@ showInMenu: "true"
 menuOrder: 110
 meta:
     keywords: "respoke, pstn, phone calling, webrtc"
-    description: "Learn how to call mobile phones and landlines using Respke PSTN"
+    description: "Learn how to call mobile phones and landlines using Respoke PSTN"
 ---
 
 ###JavaScript Library
