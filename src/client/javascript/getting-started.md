@@ -45,7 +45,7 @@ Finally, to validate everything is working, you'll want to connect to Respoke:
     
     // "connect" event fired after successful connection to Respoke
     client.listen("connect", function(e) {
-        console.log("client.listen#connect:", e);
+        console.log("Connected to Respoke!", e);
     });
     
     // Execute some signin event, then connect to Respoke with
