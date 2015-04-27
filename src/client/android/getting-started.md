@@ -88,57 +88,42 @@ Connecting is performed by instantiating a RespokeClient instance. This class is
 
 Your application can also be notified of major client-level events by registering as a ClientRespoke.Listener. We will use the onConnect() listener to know when the application has finished connecting to the Respoke service.
 
-```
-package com.digium.respokedemo;
-. . .
-import com.digium.respokesdk.Respoke;
-import com.digium.respokesdk.RespokeCall;
-import com.digium.respokesdk.RespokeClient;
-import com.digium.respokesdk.RespokeDirectConnection;
-import com.digium.respokesdk.RespokeEndpoint;
-import com.digium.respokesdk.RespokeGroup;
-import java.util.ArrayList;
-import java.util.Date;
+    import com.digium.respokesdk.Respoke;
+    import com.digium.respokesdk.RespokeCall;
+    import com.digium.respokesdk.RespokeClient;
+    import com.digium.respokesdk.RespokeDirectConnection;
+    import com.digium.respokesdk.RespokeEndpoint;
+    import com.digium.respokesdk.RespokeGroup;
 
-public class MainActivity extends ActionBarActivity implements RespokeClient.Listener {
-    public static RespokeClient client;
-    private static final String TAG = "MainActivity";
-    
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        
-        if (null == client) {
+    public class Main implements RespokeClient.Listener {
+        public RespokeClient client;
+
+        public Main() {
             // Create an instance of the Respoke client
             client = Respoke.sharedInstance().createClient(this);
-            client.setListener(this);
-            
+            client.setListener(this);        
+
             // App ID from the Respoke Dashboard for your App
-            String appID = "c10a2075-3f3d-466f-82f9-d2285e64c5d4";
-            
+            String appId = "c10a2075-3f3d-466f-82f9-d2285e64c5d4";  
+
             // The unique username identifying the user
-            String myEndpointID = "spock@enterprise.com";
-            
+            String endpointId = "spock@enterprise.com";
+
             // Execute some signin event, then connect to Respoke with
-            client.connect(myEndpointID, appID, true, null, this.getApplicationContext(), new RespokeClient.ConnectCompletionListener() {
+            client.connect(endpointId, appId, true, null, this.getApplicationContext(), new RespokeClient.ConnectCompletionListener() {
                 @Override
                 public void onError(String errorMessage) {
-                    Log.d(TAG, errorMessage);
+                    Log.d("MainActivity", errorMessage);
                 }
-            });
+            });   
+        }
+
+        // RespokeClientListener methods
+        // "connect" event fired after successful connection to Respoke
+        public void onConnect(RespokeClient client) {
+            Log.d("MainActivity", "Connected to Respoke!");
         }
     }
-    
-    . . .
-    
-    // RespokeClientListener methods
-    // "connect" event fired after successful connection to Respoke
-    public void onConnect(RespokeClient sender) {
-        Log.d(TAG, "Connected to Respoke!");
-    }
-}
-```
 
 Run your application, you should see it successfully connect to Respoke by looking at the LogCat output of your device/emulator:
 
