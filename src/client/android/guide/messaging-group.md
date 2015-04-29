@@ -27,7 +27,7 @@ Next, send a message to the group.
     import com.digium.respokesdk.RespokeEndpoint;
     import com.digium.respokesdk.RespokeGroup;
 
-    public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener {
+    public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener,  RespokeDirectConnection.Listener, RespokeCall.Listener {
         public RespokeClient client;
         public RespokeGroup group;
 
@@ -52,7 +52,7 @@ Next, send a message to the group.
     
 Finally, listen for incoming messages from RespokeGroup.Listener.
 
-    public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener {
+    public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener,  RespokeDirectConnection.Listener, RespokeCall.Listener {
         public RespokeClient client;
         public RespokeGroup group;
 

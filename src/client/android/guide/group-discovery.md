@@ -35,7 +35,7 @@ First connect to Respoke and listen for the `connect` event. Then you can join a
     import java.util.HashMap;
     import java.util.Map;
 
-    public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener {
+    public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener,  RespokeDirectConnection.Listener, RespokeCall.Listener {
         public RespokeClient client;
         public RespokeGroup group;
 

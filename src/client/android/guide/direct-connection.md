@@ -17,68 +17,125 @@ meta:
 
 Sending peer-to-peer messages to individual users is easy using Respoke. Send any amount of data without incurring any costs beyond the initial peer-to-peer negotiation.
 
-First connect to Respoke either in [development mode](/client/javascript/getting-started.html) or [authenticated](/client/javascript/guide/authentication.html). Then we're ready to start writing some code.
+First connect to Respoke either in [development mode](/client/android/getting-started.html) or authenticated. Then we're ready to start writing some code.
 
 ## Establish a Direct Connection
 
 Next, get the endpoint you want to send a message to.
 
-    var endpoint = client.getEndpoint({
-        id: "kirk@enterprise.com"
-    });
+    import com.digium.respokesdk.Respoke;
+    import com.digium.respokesdk.RespokeClient;
+    import com.digium.respokesdk.RespokeConnection;
+    import com.digium.respokesdk.RespokeEndpoint;
+    import com.digium.respokesdk.RespokeGroup;
+
+    public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener {
+        public RespokeClient client;
+        public RespokeGroup group;
+
+        . . .
+        
+        public Main() {
+            . . .
+            
+            RespokeEndpoint remoteEndpoint = client.getEndpoint("kirk@enterprise", false);
+        }
+    }
 
 Then, start a direct connection with that endpoint.
 
-    endpoint.startDirectConnection();
-   
-Finally, start listening for direct connection events.
+    public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener,  RespokeDirectConnection.Listener, RespokeCall.Listener {
+        public RespokeClient client;
+        public RespokeGroup group;
 
-    client.listen("direct-connection", function(e) {
-        var directConnection = e.directConnection;
+        . . .
         
-        directConnection.accept();
-        
-        directConnection.listen("open", function(e) {
-            var remoteEndpointId = e.target.remoteEndpoint.id;
-        });
-        
-        directConnection.listen("close", function(e) {
-            var remoteEndpointId = e.target.remoteEndpoint.id;
-        });
-        
-        directConnection.listen("message", function(e) {
-            var message = e.message.message;
-        });
-    });
+        public Main() {
+            . . .
+            
+            RespokeEndpoint remoteEndpoint = client.getEndpoint("kirk@enterprise", false);
+            
+            remoteEndpoint.startDirectConnection();
+            
+            directConnection = remoteEndpoint.directConnection();
+            directConnection.setListener(this);
+            call = directConnection.getCall();
+        }
+    }
+   
+Finally, start listening for direct connection events on RespokeDirectConnection.Listener.
     
+    public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener,  RespokeDirectConnection.Listener, RespokeCall.Listener {
+        public RespokeClient client;
+        public RespokeGroup group;
+        public RespokeDirectConnection directConnection;
+        public RespokeCall call;
+
+        . . .
+        
+        public Main() {
+            . . .
+            
+            RespokeEndpoint remoteEndpoint = client.getEndpoint("kirk@enterprise", false);
+            
+            remoteEndpoint.startDirectConnection();
+            
+            directConnection = remoteEndpoint.directConnection();
+            directConnection.setListener(this);
+            call = directConnection.getCall();
+        }
+        
+        . . .
+        
+        // RespokeDirectConnection.Listener methods
+        public void onStart(RespokeDirectConnection directConnection) {
+
+        }
+
+
+        public void onOpen(RespokeDirectConnection directConnection) {
+
+        }
+
+
+        public void onClose(RespokeDirectConnection directConnection) {
+
+        }
+
+
+        public void onMessage(String message, RespokeDirectConnection directConnection) {
+  
+        }
+    }
+    
+
 Once the remote peer accepts the direct connection, you're both ready to start sending messages and recieving messages.
 
 ## Sending a Direct Connection Message
 
-First, save the direct connection instance for use later.
+First, send a direct connection message.
 
-    var _this = this;
+    public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener,  RespokeDirectConnection.Listener, RespokeCall.Listener {
+        public RespokeClient client;
+        public RespokeGroup group;
+        public RespokeDirectConnection directConnection;
+        public RespokeCall call;
 
-    client.listen("direct-connection", function(e) {
-        _this.directConnection = e.directConnection;
         . . .
-    });
-    
-Then, send a direct connection message.
+        
+        public Main() {
+            . . .
+            
+            directConnection.sendMessage("Live Long and Prosper", new Respoke.TaskCompletionListener() {
+                @Override
+                public void onSuccess() {
+                    Log.d("MainActivity", "direct message sent");
+                }
 
-    var directConnection = _this.directConnection;
-    
-    // The message can be simple text
-    directConnection.sendMessage("Live Long and Prosper");
-    
-    // Or the message can be a complex object literal
-    directConnection.sendMessage({ 
-        message: {
-            name: "Spock",
-            rank: "Captain, retired",
-            serialNumber: "S179-276SP",
-            birthYear: "2230",
-            placeOfBirth: "Shi'Kahr, Vulcan",
-            education: "Starfleet Academy, 2249-53"
-        } 
-    });
+                @Override
+                public void onError(String errorMessage) {
+                    Log.d("MainActivity", "Error sending direct message! " + errorMessage);
+                }
+            });
+        }
+    }
