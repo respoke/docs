@@ -136,10 +136,10 @@ Be sure to add the appropriate sip uri for each contact (sales and support). Now
 [general]
 
 [default]
-exten => sales,1,Dial(PJSIP/sales)
-    same => n,Hangup
-
-exten => support,1,Dial(PJSIP/support)
+exten => sales,1,Answer()
+    same => n,Set(remoteEndpointId=${CHANNEL(remote)})
+    same => n,NoOp(${remoteEndpointId})
+    same => n,Echo()
     same => n,Hangup
 ```
 

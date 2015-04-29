@@ -19,37 +19,42 @@ Sending messages to a group of people is easy using Respoke. First, [join a grou
 
 ## Send Group Message
 
-Next, save the group instance you joined.
+Next, send a message to the group.
 
-    var _this = this;
-    
-    client.listen("connect", function() {
-        client.join({
-            id: "united-federation-of-planets",
-            
-            onSuccess: function(group) {
-                _this.group = group;
-                . . .
+    import com.digium.respokesdk.Respoke;
+    import com.digium.respokesdk.RespokeClient;
+    import com.digium.respokesdk.RespokeConnection;
+    import com.digium.respokesdk.RespokeEndpoint;
+    import com.digium.respokesdk.RespokeGroup;
+
+    public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener {
+        public RespokeClient client;
+        public RespokeGroup group;
+
+        . . .
+
+        group.sendMessage(message, new Respoke.TaskCompletionListener() {
+            @Override
+            public void onSuccess() {
+                Log.d("MainActivity", "message sent");
+            }
+
+            @Override
+            public void onError(String errorMessage) {
+                Log.d("MainActivity", "Error sending message!");
             }
         });
-    });
-
-Then, send a message to the group.
-
-    group.sendMessage(message, new Respoke.TaskCompletionListener() {
-        @Override
-        public void onSuccess() {
-            Log.d(TAG, "message sent"); 
-        }
-
-        @Override
-        public void onError(String errorMessage) {
-            Log.d(TAG, "Error sending message!");
-        }
-    });
+    }
     
-Finally, listen for incoming messages.
+Finally, listen for incoming messages from RespokeGroup.Listener.
 
-    client.listen("message", function(e) {
-         var message = e.message.message;
-    });
+    public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener {
+        public RespokeClient client;
+        public RespokeGroup group;
+
+        . . .
+
+        public void onMessage(String message, Date timestamp, RespokeEndpoint endpoint) {
+            String endpointId = endpoint.getEndpointID();
+        }
+    }

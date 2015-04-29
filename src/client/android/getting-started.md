@@ -95,7 +95,7 @@ Your application can also be notified of major client-level events by registerin
     import com.digium.respokesdk.RespokeEndpoint;
     import com.digium.respokesdk.RespokeGroup;
 
-    public class Main implements RespokeClient.Listener {
+    public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener {
         public RespokeClient client;
 
         public Main() {

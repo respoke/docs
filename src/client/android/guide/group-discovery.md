@@ -37,6 +37,7 @@ First connect to Respoke and listen for the `connect` event. Then you can join a
 
     public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener {
         public RespokeClient client;
+        public RespokeGroup group;
 
         . . .
 
@@ -54,7 +55,7 @@ First connect to Respoke and listen for the `connect` event. Then you can join a
                 public void onSuccess(final ArrayList<RespokeGroup> groups) {
                     Log.d("MainActivity", "Group joined, fetching member list");
                     
-                    RespokeGroup group = groups.get(0);
+                    group = groups.get(0);
                     group.setListener(Main.this);
                     
                     group.getMembers(new RespokeGroup.GetGroupMembersCompletionListener() {
