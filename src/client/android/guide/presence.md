@@ -37,8 +37,6 @@ Listen for presence on each endpoint in the group.
     public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener {
         public RespokeClient client;
 
-        . . .
-
         // RespokeClientListener methods
         // "connect" event fired after successful connection to Respoke
         public void onConnect(RespokeClient client) {
@@ -75,12 +73,10 @@ Listen for presence on each endpoint in the group.
         }
     }
     
-Additionally, you will want to listen for presence changes from RespokeEndpoiint.Listener.
+Additionally, you will want to listen for presence changes by implementing the onPresence method on the RespokeEndpoiint.Listener interface.
 
     public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener {
         public RespokeClient client;
-
-        . . .
 
         public void onPresence(Object presence, RespokeEndpoint endpoint) {
             Log.d("endpoingId: ", endpoint.getEndpointID());
@@ -101,11 +97,7 @@ The same user can set his presence using the client `setPresence` method.
     public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener {
         public RespokeClient client;
 
-        . . .
-        
         public Main() {
-            . . .
-            
             client.setPresence("available", new Respoke.TaskCompletionListener() {
                 @Override
                 public void onSuccess() {

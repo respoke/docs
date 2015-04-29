@@ -33,11 +33,7 @@ Next, get the endpoint you want to send a message to.
         public RespokeClient client;
         public RespokeGroup group;
 
-        . . .
-        
         public Main() {
-            . . .
-            
             RespokeEndpoint remoteEndpoint = client.getEndpoint("kirk@enterprise", false);
         }
     }
@@ -48,11 +44,7 @@ Then, start a direct connection with that endpoint.
         public RespokeClient client;
         public RespokeGroup group;
 
-        . . .
-        
         public Main() {
-            . . .
-            
             RespokeEndpoint remoteEndpoint = client.getEndpoint("kirk@enterprise", false);
             
             remoteEndpoint.startDirectConnection();
@@ -71,11 +63,7 @@ Finally, start listening for direct connection events on RespokeDirectConnection
         public RespokeDirectConnection directConnection;
         public RespokeCall call;
 
-        . . .
-        
         public Main() {
-            . . .
-            
             RespokeEndpoint remoteEndpoint = client.getEndpoint("kirk@enterprise", false);
             
             remoteEndpoint.startDirectConnection();
@@ -84,8 +72,6 @@ Finally, start listening for direct connection events on RespokeDirectConnection
             directConnection.setListener(this);
             call = directConnection.getCall();
         }
-        
-        . . .
         
         // RespokeDirectConnection.Listener methods
         public void onStart(RespokeDirectConnection directConnection) {
@@ -121,11 +107,7 @@ First, send a direct connection message.
         public RespokeDirectConnection directConnection;
         public RespokeCall call;
 
-        . . .
-        
         public Main() {
-            . . .
-            
             directConnection.sendMessage("Live Long and Prosper", new Respoke.TaskCompletionListener() {
                 @Override
                 public void onSuccess() {

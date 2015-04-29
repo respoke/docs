@@ -22,7 +22,7 @@ Once connectivity is established, we're ready to start writing some code.
 
 ## Discovering Groups
 
-First connect to Respoke and listen for the `connect` event. Then you can join a group.
+First [connect to Respoke]((/client/android/getting-started.html)) and listen for the `connect` event. Then you can join a group.
 
     import com.digium.respokesdk.Respoke;
     import com.digium.respokesdk.RespokeClient;
@@ -38,8 +38,6 @@ First connect to Respoke and listen for the `connect` event. Then you can join a
     public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener,  RespokeDirectConnection.Listener, RespokeCall.Listener {
         public RespokeClient client;
         public RespokeGroup group;
-
-        . . .
 
         // RespokeClientListener methods
         // "connect" event fired after successful connection to Respoke

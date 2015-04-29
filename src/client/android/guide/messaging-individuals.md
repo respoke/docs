@@ -31,11 +31,7 @@ Next, get the endpoint you want to send a message to.
         public RespokeClient client;
         public RespokeGroup group;
 
-        . . .
-        
         public Main() {
-            . . .
-            
             RespokeEndpoint remoteEndpoint = client.getEndpoint("kirk@enterprise", false);
         }
     }
@@ -45,11 +41,7 @@ Then, send a message to the individual.
     public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener,  RespokeDirectConnection.Listener, RespokeCall.Listener {
         public RespokeClient client;
 
-        . . .
-        
         public Main() {
-            . . .
-            
             RespokeEndpoint remoteEndpoint = client.getEndpoint("kirk@enterprise", false);
             
             remoteEndpoint.sendMessage("Live Long and Prosper", new Respoke.TaskCompletionListener() {
@@ -66,13 +58,11 @@ Then, send a message to the individual.
         }
     }
 
-Finally, listen for incoming messages.
+Finally, listen for incoming messages by implementing the onMessage method of the RespokeGroup.Listener interface.
 
     public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener {
         public RespokeClient client;
 
-        . . .
-        
         public void onMessage(String message, Date timestamp, RespokeEndpoint endpoint) {
             String endpointId = endpoint.getEndpointID();
         }
