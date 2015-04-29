@@ -15,35 +15,65 @@ meta:
 
 ## Overview
 
-Sending 1:1 messages to individual users is easy using Respoke. First connect to Respoke either in [development mode](/client/javascript/getting-started.html) or [authenticated](/client/javascript/guide/authentication.html). Then we're ready to start writing some code.
+Sending 1:1 messages to individual users is easy using Respoke. First connect to Respoke either in [development mode](/client/android/getting-started.html) or authenticated. Then we're ready to start writing some code.
 
 ## Send Indiviual Message
 
 Next, get the endpoint you want to send a message to.
 
-    var endpoint = client.getEndpoint({
-        id: "kirk@enterprise.com"
-    });
+    import com.digium.respokesdk.Respoke;
+    import com.digium.respokesdk.RespokeClient;
+    import com.digium.respokesdk.RespokeConnection;
+    import com.digium.respokesdk.RespokeEndpoint;
+    import com.digium.respokesdk.RespokeGroup;
+
+    public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener {
+        public RespokeClient client;
+        public RespokeGroup group;
+
+        . . .
+        
+        public Main() {
+            . . .
+            
+            RespokeEndpoint remoteEndpoint = client.getEndpoint("kirk@enterprise", false);
+        }
+    }
 
 Then, send a message to the individual.
 
-    // The message can be simple text
-    endpoint.sendMessage("Live Long and Prosper");
-    
-    // Or the message can be a complex object literal
-    endpoint.sendMessage({ 
-        message: {
-            name: "Spock",
-            rank: "Captain, retired",
-            serialNumber: "S179-276SP",
-            birthYear: "2230",
-            placeOfBirth: "Shi'Kahr, Vulcan",
-            education: "Starfleet Academy, 2249-53"
-        } 
-    });
+    public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener {
+        public RespokeClient client;
+
+        . . .
+        
+        public Main() {
+            . . .
+            
+            RespokeEndpoint remoteEndpoint = client.getEndpoint("kirk@enterprise", false);
+            
+            remoteEndpoint.sendMessage("Live Long and Prosper", new Respoke.TaskCompletionListener() {
+                @Override
+                public void onSuccess() {
+                    Log.d("MainActivity", "message sent");
+                }
+
+                @Override
+                public void onError(String errorMessage) {
+                    Log.d("MainActivity", "Error sending message!");
+                }
+            }); 
+        }
+    }
 
 Finally, listen for incoming messages.
 
-    client.listen("message", function(e) {
-         var message = e.message.message;
-    });
+    public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener {
+        public RespokeClient client;
+
+        . . .
+        
+        public void onMessage(String message, Date timestamp, RespokeEndpoint endpoint) {
+            String endpointId = endpoint.getEndpointID();
+        }
+    }

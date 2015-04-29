@@ -75,7 +75,7 @@ Listen for presence on each endpoint in the group.
         }
     }
     
-Additionally, you will want to presence changes from RespokeEndpoiint.Listener.
+Additionally, you will want to listen for presence changes from RespokeEndpoiint.Listener.
 
     public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener {
         public RespokeClient client;
@@ -102,16 +102,20 @@ The same user can set his presence using the client `setPresence` method.
         public RespokeClient client;
 
         . . .
+        
+        public Main() {
+            . . .
+            
+            client.setPresence("available", new Respoke.TaskCompletionListener() {
+                @Override
+                public void onSuccess() {
+                }
 
-        client.setPresence("available", new Respoke.TaskCompletionListener() {
-            @Override
-            public void onSuccess() {
-            }
-
-            @Override
-            public void onError(String errorMessage) {
-            }
-        });
+                @Override
+                public void onError(String errorMessage) {
+                }
+            });
+        }
     }
     
 Presence options include: available, away and dnd. Calling `setPresence` on your client will trigger the presence listener for your endpoint for everyone else in the group.

@@ -32,18 +32,22 @@ Next, send a message to the group.
         public RespokeGroup group;
 
         . . .
+        
+        public Main() {
+            . . .
+            
+            group.sendMessage(message, new Respoke.TaskCompletionListener() {
+                @Override
+                public void onSuccess() {
+                    Log.d("MainActivity", "message sent");
+                }
 
-        group.sendMessage(message, new Respoke.TaskCompletionListener() {
-            @Override
-            public void onSuccess() {
-                Log.d("MainActivity", "message sent");
-            }
-
-            @Override
-            public void onError(String errorMessage) {
-                Log.d("MainActivity", "Error sending message!");
-            }
-        });
+                @Override
+                public void onError(String errorMessage) {
+                    Log.d("MainActivity", "Error sending message!");
+                }
+            }); 
+        }
     }
     
 Finally, listen for incoming messages from RespokeGroup.Listener.
