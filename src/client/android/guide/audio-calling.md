@@ -28,10 +28,7 @@ Next, get the endpoint you want to start a audio call with.
     import com.digium.respokesdk.RespokeEndpoint;
     import com.digium.respokesdk.RespokeGroup;
     import com.digium.respokesdk.RespokeDirectConnection;
-    
-    import android.opengl.GLSurfaceView;
-    import android.os.Bundle;
-    import android.view.View;
+
 
     public class Main implements RespokeClient.Listener, RespokeCall.Listener, RespokeEndpoint.Listener, RespokeGroup.Listener {
         public RespokeClient client;
@@ -48,7 +45,7 @@ Finally, start the audio call with the endpoint.
         public RespokeClient client;
         public RespokeEndpoint remoteEndpoint;
         public RespokeCall call;
-        public boolean audioOnly;
+        public Boolean audioOnly;
 
         public Main() {
             remoteEndpoint = client.getEndpoint("kirk@enterprise", false);
