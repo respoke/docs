@@ -19,7 +19,7 @@ First [signup for a free Respoke account](https://portal.respoke.io/#/signup). W
 
 ## Setup Android Studio
 
-### Create a Skeleton Android Project.
+### Create an Android Project
 
 First, open Android Studio and create a new blank project based on API level 15 (v4.0.3 Ice Cream Sandwich). Create a blank activity and name it “MainActivity” as shown in the screenshots below.
 
