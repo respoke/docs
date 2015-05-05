@@ -49,15 +49,26 @@ Finally, to validate everything is working, you'll want to connect to Respoke:
     #import "RespokeEndpoint.h"
     #import "RespokeGroup.h"
     
-    RespokeClient *client;
+    @interface AppViewController : NSObject <RespokeClientDelegate, RespokeEndpointDelegate, RespokeGroupDelegate, RespokeDirectConnectionDelegate, RespokeCallDelegate>
+        @property RespokeClient *client;
+    @end
     
-    int main(int argc, const char * argv[])
-    {
-        @autoreleasepool {
+    @implementation AppViewController
+        @synthesize client;
         
-            // Create an instance of the Respoke client
-            client = [[Respoke sharedInstance] createClient];
-            
+        - (instancetype)init
+        {
+            if (self = [super init])
+            {
+                // Create an instance of the Respoke client
+                client = [[Respoke sharedInstance] createClient];
+            }
+
+            return self;
+        }
+        
+        - (void)connect
+        {
             // App ID from the Respoke Dashboard for your App
             NSString *appId = @"c10a2075-3f3d-466f-82f9-d2285e64c5d4";
     
@@ -71,15 +82,13 @@ Finally, to validate everything is working, you'll want to connect to Respoke:
                 [self showError:errorMessage];
             }];
         }
-    
-        return 0;
-    }
-    
-    // "connect" event fired after successful connection to Respoke
-    - (void) onConnect: (RespokeClient*) client
-    {
-        NSLog(@"Connected to Respoke!");
-    }
+        
+        // "connect" event fired after successful connection to Respoke
+        - (void)onConnect:(RespokeClient*) client
+        {
+            NSLog(@"Connected to Respoke!");
+        }
+    @end
 
 That's it! Now we're ready to start using all Respoke has to offer.
 

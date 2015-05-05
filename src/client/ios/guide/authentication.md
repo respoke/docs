@@ -48,7 +48,7 @@ Respoke and your App are now set up for authentication. It's time to write some 
 ## Authenticating With Respoke
 
 First, request a `token` from your server.
-
+    
     #import "Respoke.h"
     #import "RespokeCall.h"
     #import "RespokeClient.h"
@@ -56,47 +56,51 @@ First, request a `token` from your server.
     #import "RespokeDirectConnection.h"
     #import "RespokeEndpoint.h"
     #import "RespokeGroup.h"
-
-    RespokeClient *client;
     
-    int main(int argc, const char * argv[])
-    {
-        @autoreleasepool {
+    @interface AppViewController : NSObject <RespokeClientDelegate, RespokeEndpointDelegate, RespokeGroupDelegate, RespokeDirectConnectionDelegate, RespokeCallDelegate>
+        @property RespokeClient *client;
+    @end
+    
+    @implementation AppViewController
+        @synthesize client;
         
-            // Create an instance of the Respoke client
-            client = [[Respoke sharedInstance] createClient];
-            
-            // Create HTTP POST request to authentication server
-            [self connect];
+        - (instancetype)init
+        {
+            if (self = [super init])
+            {
+                // Create an instance of the Respoke client
+                client = [[Respoke sharedInstance] createClient];
+            }
+
+            return self;
         }
-    
-        return 0;
-    }
-
-    - (void) connect
-    {
-        NSURL *url = [NSURL URLWithString:@"your/server/api/tokens"];
-    
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL: url];
-        request.HTTPMethod = @"POST";
-        request.HTTPBody = [@"endpointId=spock@enterprise.com" dataUsingEncoding: NSASCIIStringEncoding];
-    
-        [NSURLConnection sendAsynchronousRequest:request
-                         queue:[NSOperationQueue mainQueue]
-                         completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-                             
-            NSString *token = [response token];
         
-            [client connectWithTokenID:token initialPresence:nil errorHandler:^(NSString *errorMessage) {
-                [self showError:errorMessage];
-            }];
-        }];
-    }
+        - (void)connect
+        {
+            NSURL *url = [NSURL URLWithString:@"your/server/api/tokens"];
     
-    - (void) onConnect: (RespokeClient*) client
-    {
-        NSLog(@"Connected to Respoke!");
-    }
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL: url];
+            request.HTTPMethod = @"POST";
+            request.HTTPBody = [@"endpointId=spock@enterprise.com" dataUsingEncoding: NSASCIIStringEncoding];
+    
+            [NSURLConnection sendAsynchronousRequest:request
+                             queue:[NSOperationQueue mainQueue]
+                             completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                             
+                NSString *token = [response token];
+        
+                [client connectWithTokenID:token initialPresence:nil errorHandler:^(NSString *errorMessage) {
+                    [self showError:errorMessage];
+                }];
+            }];
+        }
+        
+        // "connect" event fired after successful connection to Respoke
+        - (void)onConnect:(RespokeClient*) client
+        {
+            NSLog(@"Connected to Respoke!");
+        }
+    @end
     
 Then your server will request this `token` from Respoke.
 

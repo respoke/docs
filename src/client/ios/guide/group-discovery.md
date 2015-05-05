@@ -23,7 +23,7 @@ Once connectivity is established, we're ready to start writing some code.
 ## Discovering Groups
 
 First [connect to Respoke]((/client/ios/getting-started.html)) and listen for the `connect` event. Then you can join a group.
-
+    
     #import "Respoke.h"
     #import "RespokeCall.h"
     #import "RespokeClient.h"
@@ -32,37 +32,43 @@ First [connect to Respoke]((/client/ios/getting-started.html)) and listen for th
     #import "RespokeEndpoint.h"
     #import "RespokeGroup.h"
     
-    RespokeClient *client;
+    @interface AppViewController : NSObject <RespokeClientDelegate, RespokeEndpointDelegate, RespokeGroupDelegate, RespokeDirectConnectionDelegate, RespokeCallDelegate>
+        @property RespokeClient *client;
+    @end
     
-    // "connect" event fired after successful connection to Respoke
-    - (void) onConnect: (RespokeClient*) client
-    {
-        NSLog(@"Connected to Respoke!");
+    @implementation AppViewController
+        @synthesize client;
         
-        NSString *groupId = @"united-federation-of-planets";
+        // "connect" event fired after successful connection to Respoke
+        - (void) onConnect: (RespokeClient*) client
+        {
+            NSLog(@"Connected to Respoke!");
         
-        [client joinGroups:@[groupId] 
-                successHandler:^(NSArray *groups) {
+            NSString *groupId = @"united-federation-of-planets";
+        
+            [client joinGroups:@[groupId] 
+                    successHandler:^(NSArray *groups) {
             
-            RespokeGroup *group = groups[0];
+                RespokeGroup *group = groups[0];
             
-            group.delegate = self;
+                group.delegate = self;
 
-            [group getMembersWithSuccessHandler:^(NSArray *connections) {
-                NSLog(@"Group joined, fetching member list");
+                [group getMembersWithSuccessHandler:^(NSArray *connections) {
+                    NSLog(@"Group joined, fetching member list");
 
-                for (RespokeConnection *connection in connections)
-                {
-                    RespokeEndpoint *endpoint = [connection getEndpoint];
-                }
+                    for (RespokeConnection *connection in connections)
+                    {
+                        RespokeEndpoint *endpoint = [connection getEndpoint];
+                    }
+                } errorHandler:^(NSString *errorMessage) {
+                    errorHandler(errorMessage);
+                }];
             } errorHandler:^(NSString *errorMessage) {
                 errorHandler(errorMessage);
             }];
-        } errorHandler:^(NSString *errorMessage) {
-            errorHandler(errorMessage);
-        }];
         
-    }
+        }
+    @end
     
 Once successful, Respoke will return the `group` you joined. 
 
@@ -76,14 +82,14 @@ Additionally, you can leave a group as well.
 
 You can listen for when people `join` this group. 
 
-    - (void) onJoin:(RespokeConnection*)connection sender:(RespokeGroup*) group
+    - (void)onJoin:(RespokeConnection*)connection sender:(RespokeGroup*) group
     {
         RespokeEndpoint *endpoint = [connection getEndpoint];
     }
 
 Additionally, you can listen for when people leave this group.
 
-    - (void) onLeave:(RespokeConnection*)connection sender:(RespokeGroup*) group
+    - (void)onLeave:(RespokeConnection*)connection sender:(RespokeGroup*) group
     {
         RespokeEndpoint *endpoint = [connection getEndpoint];
     }
