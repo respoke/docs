@@ -17,83 +17,88 @@ meta:
 
 Sending peer-to-peer messages to individual users is easy using Respoke. Send any amount of data without incurring any costs beyond the initial peer-to-peer negotiation.
 
-First connect to Respoke either in [development mode](/client/android/getting-started.html) or authenticated. Then we're ready to start writing some code.
+First connect to Respoke either in [development mode](/client/ios/getting-started.html) or authenticated. Then we're ready to start writing some code.
 
 ## Establish a Direct Connection
 
 Next, get the endpoint you want to send a message to.
 
-    import com.digium.respokesdk.Respoke;
-    import com.digium.respokesdk.RespokeClient;
-    import com.digium.respokesdk.RespokeConnection;
-    import com.digium.respokesdk.RespokeEndpoint;
-    import com.digium.respokesdk.RespokeGroup;
-
-    public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener {
-        public RespokeClient client;
-        public RespokeGroup group;
-
-        public Main() {
-            RespokeEndpoint remoteEndpoint = client.getEndpoint("kirk@enterprise", false);
+    #import "Respoke.h"
+    #import "RespokeCall.h"
+    #import "RespokeClient.h"
+    #import "RespokeConnection.h"
+    #import "RespokeDirectConnection.h"
+    #import "RespokeEndpoint.h"
+    #import "RespokeGroup.h"
+    
+    @interface AppViewController : NSObject <RespokeClientDelegate, RespokeEndpointDelegate, RespokeGroupDelegate, RespokeDirectConnectionDelegate, RespokeCallDelegate>
+        @property RespokeClient *client;
+        @property RespokeDirectConnection *directConnection;
+        @property RespokeCall *call;
+    @end
+    
+    @implementation AppViewController
+        @synthesize client, directConnection, call;
+        
+        - (void) startDirectConnection
+        {   
+            NSstring *endpointId = @"kirk@enterprise";
+            RespokeEndpoint *endpoint = [client getEndpointWithID:endpointId skipCreate:NO];
         }
-    }
+    @end
 
 Then, start a direct connection with that endpoint.
 
-    public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener,  RespokeDirectConnection.Listener, RespokeCall.Listener {
-        public RespokeClient client;
-        public RespokeGroup group;
-
-        public Main() {
-            RespokeEndpoint remoteEndpoint = client.getEndpoint("kirk@enterprise", false);
+    @implementation AppViewController
+        @synthesize client, directConnection, call;
+        
+        - (void) startDirectConnection
+        {   
+            NSstring *endpointId = @"kirk@enterprise";
+            RespokeEndpoint *remoteEndpoint = [client getEndpointWithID:endpointId skipCreate:NO];
             
-            remoteEndpoint.startDirectConnection();
-            
-            directConnection = remoteEndpoint.directConnection();
-            directConnection.setListener(this);
-            call = directConnection.getCall();
+            directConnection = [remoteEndpoint startDirectConnection];
+            directConnection.delegate = self;
+            call = [directConnection getCall];
         }
-    }
+    @end
    
-Finally, start listening for direct connection events on RespokeDirectConnection.Listener.
+Finally, start listening for direct connection events on RespokeDirectConnectionDelegate.
     
-    public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener,  RespokeDirectConnection.Listener, RespokeCall.Listener {
-        public RespokeClient client;
-        public RespokeGroup group;
-        public RespokeDirectConnection directConnection;
-        public RespokeCall call;
-
-        public Main() {
-            RespokeEndpoint remoteEndpoint = client.getEndpoint("kirk@enterprise", false);
+    @implementation AppViewController
+        @synthesize client, directConnection, call;
+        
+        - (void) startDirectConnection
+        {   
+            NSstring *endpointId = @"kirk@enterprise";
+            RespokeEndpoint *remoteEndpoint = [client getEndpointWithID:endpointId skipCreate:NO];
             
-            remoteEndpoint.startDirectConnection();
-            
-            directConnection = remoteEndpoint.directConnection();
-            directConnection.setListener(this);
-            call = directConnection.getCall();
+            directConnection = [remoteEndpoint startDirectConnection];
+            directConnection.delegate = self;
+            call = [directConnection getCall];
         }
         
-        // RespokeDirectConnection.Listener methods
-        public void onStart(RespokeDirectConnection directConnection) {
-
+        // RespokeDirectConnectionDelegate Listeners
+        - (void)onStart:(RespokeDirectConnection*)directConnection
+        {
+          
         }
 
-
-        public void onOpen(RespokeDirectConnection directConnection) {
-
+        - (void)onOpen:(RespokeDirectConnection*)directConnection
+        {
+          
         }
 
-
-        public void onClose(RespokeDirectConnection directConnection) {
-
+        - (void)onClose:(RespokeDirectConnection*)directConnection
+        {
+          
         }
 
+        - (void)onMessage:(id)message sender:(RespokeDirectConnection*)directConnection
+        {
 
-        public void onMessage(String message, RespokeDirectConnection directConnection) {
-  
         }
-    }
-    
+    @end
 
 Once the remote peer accepts the direct connection, you're both ready to start sending messages and recieving messages.
 
@@ -101,23 +106,62 @@ Once the remote peer accepts the direct connection, you're both ready to start s
 
 First, send a direct connection message.
 
-    public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener,  RespokeDirectConnection.Listener, RespokeCall.Listener {
-        public RespokeClient client;
-        public RespokeGroup group;
-        public RespokeDirectConnection directConnection;
-        public RespokeCall call;
-
-        public Main() {
-            directConnection.sendMessage("Live Long and Prosper", new Respoke.TaskCompletionListener() {
-                @Override
-                public void onSuccess() {
-                    Log.d("MainActivity", "direct message sent");
-                }
-
-                @Override
-                public void onError(String errorMessage) {
-                    Log.d("MainActivity", "Error sending direct message! " + errorMessage);
-                }
-            });
+    @implementation AppViewController
+        @synthesize client, directConnection, call;
+        
+        - (void) startDirectConnection
+        {   
+            NSstring *endpointId = @"kirk@enterprise";
+            RespokeEndpoint *remoteEndpoint = [client getEndpointWithID:endpointId skipCreate:NO];
+            
+            directConnection = [remoteEndpoint startDirectConnection];
+            directConnection.delegate = self;
+            call = [directConnection getCall];
         }
-    }
+        
+        - (void) sendMessage
+        {   
+            NSString *message = @"Live Long and Prosper";
+       
+            [directConnection sendMessage:message successHandler:^(void) {
+                NSLog(@"Message sent");
+            } errorHandler:^(NSString *error) {
+                NSLog(@"Error sending: %@", error);
+            }];
+        }
+    @end
+    
+Finally, listen for incoming direct connection messages.
+
+    @implementation AppViewController
+        @synthesize client, directConnection, call;
+        
+        - (void) startDirectConnection
+        {   
+            NSstring *endpointId = @"kirk@enterprise";
+            RespokeEndpoint *remoteEndpoint = [client getEndpointWithID:endpointId skipCreate:NO];
+            
+            directConnection = [remoteEndpoint startDirectConnection];
+            directConnection.delegate = self;
+            call = [directConnection getCall];
+        }
+        
+        - (void) sendMessage
+        {   
+            NSString *message = @"Live Long and Prosper";
+       
+            [directConnection sendMessage:message successHandler:^(void) {
+                NSLog(@"Message sent");
+            } errorHandler:^(NSString *error) {
+                NSLog(@"Error sending: %@", error);
+            }];
+        }
+
+        - (void)onMessage:(id)message sender:(RespokeDirectConnection*)directConnection
+        {
+            if ([message isKindOfClass:[NSString class]])
+            {
+                NSString *message = (NSString*)message;
+            }
+        }
+    @end
