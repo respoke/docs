@@ -15,7 +15,7 @@ meta:
 
 ## Overview
 
-Sending messages to a group of people is easy using Respoke. First, [join a group](/client/javascript/guide/group-discovery.html) and then we're ready to start writing some code.
+Sending messages to a group of people is easy using Respoke. First, [join a group](/client/android/guide/group-discovery.html) and then we're ready to start writing some code.
 
 ## Send Group Message
 

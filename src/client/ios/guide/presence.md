@@ -33,10 +33,11 @@ Listen for presence on each endpoint in the group.
     
     @interface AppViewController : NSObject <RespokeClientDelegate, RespokeEndpointDelegate, RespokeGroupDelegate, RespokeDirectConnectionDelegate, RespokeCallDelegate>
         @property RespokeClient *client;
+        @property RespokeGroup *group;
     @end
     
     @implementation AppViewController
-        @synthesize client;
+        @synthesize client, group;
         
         // "connect" event fired after successful connection to Respoke
         - (void) onConnect: (RespokeClient*) client
@@ -48,7 +49,7 @@ Listen for presence on each endpoint in the group.
             [client joinGroups:@[groupId] 
                     successHandler:^(NSArray *groups) {
             
-                RespokeGroup *group = groups[0];
+                group = groups[0];
             
                 group.delegate = self;
 

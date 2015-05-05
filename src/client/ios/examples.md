@@ -21,5 +21,5 @@ These example apps demonstrate some core concepts and common uses of Respoke.
 
 Name 			| Description 
 ------------ 	| -------------
-[Apollo iOS](https://github.com/respoke/apollo-ios) | A open source, full featured remote team collaboration app using Respoke's authentication, group messaging, 1:1 messaging, audio calling, video calling, screen sharing, group discovery, presence and pstn (making outgoing phone calls).
+[Respoke iOS App](https://github.com/respoke/respoke-ios) | A open source, full featured remote team collaboration app using Respoke's authentication, group messaging, 1:1 messaging, audio calling, video calling, group discovery and presence.
 

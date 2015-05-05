@@ -34,10 +34,11 @@ First [connect to Respoke]((/client/ios/getting-started.html)) and listen for th
     
     @interface AppViewController : NSObject <RespokeClientDelegate, RespokeEndpointDelegate, RespokeGroupDelegate, RespokeDirectConnectionDelegate, RespokeCallDelegate>
         @property RespokeClient *client;
+        @property RespokeGroup *group;
     @end
     
     @implementation AppViewController
-        @synthesize client;
+        @synthesize client, group;
         
         // "connect" event fired after successful connection to Respoke
         - (void) onConnect: (RespokeClient*) client
@@ -49,7 +50,7 @@ First [connect to Respoke]((/client/ios/getting-started.html)) and listen for th
             [client joinGroups:@[groupId] 
                     successHandler:^(NSArray *groups) {
             
-                RespokeGroup *group = groups[0];
+                group = groups[0];
             
                 group.delegate = self;
 
