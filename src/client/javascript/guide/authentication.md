@@ -49,13 +49,11 @@ Respoke and your App are now set up for authentication. It's time to write some 
 
 First, request a `token` from your server.
 
+    // Create an instance of the Respoke client
     var client = respoke.createClient();
-    
-    client.listen("connect", function(e) {
-        console.log("Connected to Respoke!", e);
-    });
 
-    (function requestToken() {
+    // Create HTTP POST request to authentication server
+    (function connect() {
       $.ajax({
           method: "POST",
           url: "your/server/api/tokens",
@@ -72,6 +70,11 @@ First, request a `token` from your server.
       })
     })();
     
+    // "connect" event fired after successful connection to Respoke
+    client.listen("connect", function(e) {
+        console.log("Connected to Respoke!", e);
+    });
+    
 
 Then your server will request this `token` from Respoke.
 
@@ -82,6 +85,7 @@ Use this `token` to connect your client to Respoke.
 Additionally, you'll need to listen to the `disconnect` event. Then request a new `token` from your server and use this new `token` to re-connect your client to Respoke.
 
     client.listen("disconnect", function (evt) {
-        requestToken();
+        // Reconnect to Respoke
+        connect();
     });
 

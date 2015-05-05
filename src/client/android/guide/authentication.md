@@ -64,7 +64,11 @@ First, request a `token` from your server.
             client = Respoke.sharedInstance().createClient(this);
             client.setListener(this);        
 
-            // Make AJAX request to server
+            // Create HTTP POST request to authentication server
+            connect();
+        }
+        
+        public void connect() {
             JSONObject json = new JSONObject();
             json.put("endpointId", "spock@enterprise.com");
             
@@ -82,7 +86,7 @@ First, request a `token` from your server.
                 public void onError(String errorMessage) {
                     Log.d("MainActivity", errorMessage);
                 }
-            });   
+            });
         }
 
         // RespokeClientListener methods
@@ -103,5 +107,6 @@ Additionally, you'll need to listen to the `disconnect` event. Then request a ne
 
     public void onDisconnect(RespokeClient client) {
         // Reconnect to Respoke
+        connect();
     }
 

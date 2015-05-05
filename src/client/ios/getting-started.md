@@ -49,21 +49,31 @@ Finally, to validate everything is working, you'll want to connect to Respoke:
     #import "RespokeEndpoint.h"
     #import "RespokeGroup.h"
     
-    // Create an instance of the Respoke client
-    RespokeClient client = [[Respoke sharedInstance] createClient];
+    RespokeClient client;
     
-    // App ID from the Respoke Dashboard for your App
-    NSString *appId = @"c10a2075-3f3d-466f-82f9-d2285e64c5d4";
+    int main(int argc, const char * argv[])
+    {
+        @autoreleasepool {
+        
+            // Create an instance of the Respoke client
+            client = [[Respoke sharedInstance] createClient];
+            
+            // App ID from the Respoke Dashboard for your App
+            NSString *appId = @"c10a2075-3f3d-466f-82f9-d2285e64c5d4";
     
-    // The unique username identifying the user
-    NSString *endpointId = @"spock@enterprise.com";
+            // The unique username identifying the user
+            NSString *endpointId = @"spock@enterprise.com";
     
-    // Execute some signin event, then connect to Respoke with
-    [sharedRespokeClient connectWithEndpointID:sendpointId appID:appId 
-                         reconnect:YES initialPresence:nil 
-                         errorHandler:^(NSString *errorMessage) {
-        [self showError:errorMessage];
-    }];
+            // Execute some signin event, then connect to Respoke with
+            [client connectWithEndpointID:sendpointId appID:appId 
+                                 reconnect:YES initialPresence:nil 
+                                 errorHandler:^(NSString *errorMessage) {
+                [self showError:errorMessage];
+            }];
+        }
+    
+        return 0;
+    }
     
     // "connect" event fired after successful connection to Respoke
     - (void) onConnect: (RespokeClient*) client
