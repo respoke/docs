@@ -69,4 +69,30 @@ First [connect to Respoke]((/client/android/getting-started.html)) and listen fo
         }
     }
     
-Once successful, Respoke will return the `group` you joined. You can listen for when people `join` or `leave` this group. Additionally, you can get a list of group members.
+Once successful, Respoke will return the `group` you joined. 
+
+Additionally, you can leave a group as well.
+
+    group.leave(new Respoke.TaskCompletionListener() {
+        @Override
+        public void onSuccess() {
+            // Do something
+        }
+
+        @Override
+        public void onError(String errorMessage) {
+            completionListener.onError(errorMessage);
+        }
+    });
+
+You can listen for when people `join` this group. 
+
+    public void onJoin(RespokeConnection connection, RespokeGroup group) {
+        RespokeEndpoint endpoint = connection.getEndpoint();
+    }
+
+Additionally, you can listen for when people leave this group.
+
+    public void onLeave(RespokeConnection connection, RespokeGroup group) {
+        RespokeEndpoint endpoint = connection.getEndpoint();
+    }
