@@ -50,6 +50,10 @@ Respoke and your App are now set up for authentication. It's time to write some 
 First, request a `token` from your server.
 
     var client = respoke.createClient();
+    
+    client.listen("connect", function(e) {
+        console.log("Connected to Respoke!", e);
+    });
 
     (function requestToken() {
       $.ajax({

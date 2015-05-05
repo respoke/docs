@@ -93,7 +93,7 @@ First, request a `token` from your server.
     }
     
 
-Then your server will request this `token` from Respoke.
+Then your server will request this `token` from Respoke. 
 
 {example: endpoint-authentication}
 

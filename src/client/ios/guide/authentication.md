@@ -64,6 +64,11 @@ First, request a `token` from your server.
         [client connectWithTokenID tokenID:token initialPresence:nil errorHandler:nil];
     }];
     
+    - (void)onConnect:(RespokeClient*)client
+    {
+        // Request new token
+    }
+    
 
 Then your server will request this `token` from Respoke.
 
