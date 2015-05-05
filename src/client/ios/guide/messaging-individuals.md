@@ -15,55 +15,57 @@ meta:
 
 ## Overview
 
-Sending 1:1 messages to individual users is easy using Respoke. First connect to Respoke either in [development mode](/client/android/getting-started.html) or authenticated. Then we're ready to start writing some code.
+Sending 1:1 messages to individual users is easy using Respoke. First connect to Respoke either in [development mode](/client/ios/getting-started.html) or authenticated. Then we're ready to start writing some code.
 
 ## Send Indiviual Message
 
 Next, get the endpoint you want to send a message to.
 
-    import com.digium.respokesdk.Respoke;
-    import com.digium.respokesdk.RespokeClient;
-    import com.digium.respokesdk.RespokeConnection;
-    import com.digium.respokesdk.RespokeEndpoint;
-    import com.digium.respokesdk.RespokeGroup;
-
-    public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener,  RespokeDirectConnection.Listener, RespokeCall.Listener {
-        public RespokeClient client;
-        public RespokeGroup group;
-
-        public Main() {
-            RespokeEndpoint remoteEndpoint = client.getEndpoint("kirk@enterprise", false);
+    #import "Respoke.h"
+    #import "RespokeCall.h"
+    #import "RespokeClient.h"
+    #import "RespokeConnection.h"
+    #import "RespokeDirectConnection.h"
+    #import "RespokeEndpoint.h"
+    #import "RespokeGroup.h"
+    
+    @interface AppViewController : NSObject <RespokeClientDelegate, RespokeEndpointDelegate, RespokeGroupDelegate, RespokeDirectConnectionDelegate, RespokeCallDelegate>
+        @property RespokeClient *client;
+    @end
+    
+    @implementation AppViewController
+        @synthesize client;
+        
+        - (void) sendMessage
+        {   
+            NSstring *endpointId = @"kirk@enterprise";
+            RespokeEndpoint *endpoint = [client getEndpointWithID:endpointId skipCreate:NO];
         }
-    }
+    @end
 
 Then, send a message to the individual.
 
-    public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener,  RespokeDirectConnection.Listener, RespokeCall.Listener {
-        public RespokeClient client;
-
-        public Main() {
-            RespokeEndpoint remoteEndpoint = client.getEndpoint("kirk@enterprise", false);
-            
-            remoteEndpoint.sendMessage("Live Long and Prosper", new Respoke.TaskCompletionListener() {
-                @Override
-                public void onSuccess() {
-                    Log.d("MainActivity", "message sent");
-                }
-
-                @Override
-                public void onError(String errorMessage) {
-                    Log.d("MainActivity", "Error sending message!");
-                }
-            }); 
+    @implementation AppViewController
+        @synthesize client;
+       
+        - (void) sendMessage
+        {   
+            NSstring *endpointId = @"kirk@enterprise";
+            RespokeEndpoint *endpoint = [client getEndpointWithID:endpointId skipCreate:NO];
+           
+            NSString *message = @"Live Long and Prosper";
+       
+            [endpoint sendMessage:message successHandler:^(void) {
+                NSLog(@"Message sent");
+            } errorHandler:^(NSString *error) {
+                NSLog(@"Error sending: %@", error);
+            }];
         }
-    }
+    @end
 
 Finally, listen for incoming messages by implementing the onMessage method of the RespokeGroup.Listener interface.
 
-    public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener {
-        public RespokeClient client;
-
-        public void onMessage(String message, Date timestamp, RespokeEndpoint endpoint) {
-            String endpointId = endpoint.getEndpointID();
-        }
+    - (void)onMessage:(NSString*)message sender:(RespokeEndpoint*)endpoint timestamp:(NSDate *)timestamp
+    {
+        NSString *endpointId = [endpoint getEndpointID];
     }
