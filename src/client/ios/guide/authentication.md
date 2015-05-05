@@ -57,7 +57,7 @@ First, request a `token` from your server.
     #import "RespokeEndpoint.h"
     #import "RespokeGroup.h"
 
-    RespokeClient client;
+    RespokeClient *client;
     
     int main(int argc, const char * argv[])
     {
@@ -67,7 +67,7 @@ First, request a `token` from your server.
             client = [[Respoke sharedInstance] createClient];
             
             // Create HTTP POST request to authentication server
-            [connect];
+            [self connect];
         }
     
         return 0;
@@ -109,6 +109,6 @@ Additionally, you'll need to listen to the `disconnect` event. Then request a ne
     - (void)onDisconnect:(RespokeClient*)client
     {
         // Request new token
-        [connect];
+        [self connect];
     }
 

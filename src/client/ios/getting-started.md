@@ -49,7 +49,7 @@ Finally, to validate everything is working, you'll want to connect to Respoke:
     #import "RespokeEndpoint.h"
     #import "RespokeGroup.h"
     
-    RespokeClient client;
+    RespokeClient *client;
     
     int main(int argc, const char * argv[])
     {
