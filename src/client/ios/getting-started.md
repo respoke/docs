@@ -29,21 +29,17 @@ Open Xcode and create a new workspace. Now create a new project, select a single
 
 To use the Respoke iOS SDK, you have two options.
 
-First, clone the source from GitHub.
+First, clone the source from GitHub and manually add the sdk to your project.
     
     git clone https://github.com/respoke/respoke-ios-sdk
     
-Finally, install from CocoaPods
+Alternatively, install the respoke-ios-sdk pod via CocoaPods.
  
     pod install respoke-ios-sdk
 
 ## Connect to Respoke
 
-Open your application's MainActivity.java class and add the code below to connect to the Respoke service. 
-
-Connecting is performed by instantiating a RespokeClient instance. This class is one of the primary ways you will interface with Respoke and allows you to connect, disconnect, join groups, and more. 
-
-Your application can also be notified of major client-level events by registering as a ClientRespoke.Listener. We will use the onConnect() listener to know when the application has finished connecting to the Respoke service.
+Finally, to validate everything is working, you'll want to connect to Respoke:
 
     #import "Respoke.h"
     #import "RespokeCall.h"
@@ -52,39 +48,29 @@ Your application can also be notified of major client-level events by registerin
     #import "RespokeDirectConnection.h"
     #import "RespokeEndpoint.h"
     #import "RespokeGroup.h"
-
-    public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener {
-        public RespokeClient client;
-
-        public Main() {
-            // Create an instance of the Respoke client
-            client = Respoke.sharedInstance().createClient(this);
-            client.setListener(this);        
-
-            // App ID from the Respoke Dashboard for your App
-            String appId = "c10a2075-3f3d-466f-82f9-d2285e64c5d4";  
-
-            // The unique username identifying the user
-            String endpointId = "spock@enterprise.com";
-
-            // Execute some signin event, then connect to Respoke with
-            client.connect(endpointId, appId, true, null, this.getApplicationContext(), new RespokeClient.ConnectCompletionListener() {
-                @Override
-                public void onError(String errorMessage) {
-                    Log.d("MainActivity", errorMessage);
-                }
-            });   
-        }
-
-        // RespokeClientListener methods
-        // "connect" event fired after successful connection to Respoke
-        public void onConnect(RespokeClient client) {
-            Log.d("MainActivity", "Connected to Respoke!");
-        }
+    
+    // Create an instance of the Respoke client
+    RespokeClient client = [[Respoke sharedInstance] createClient];
+    
+    // App ID from the Respoke Dashboard for your App
+    NSString *appId = @"c10a2075-3f3d-466f-82f9-d2285e64c5d4";
+    
+    // The unique username identifying the user
+    NSString *endpointId = @"spock@enterprise.com";
+    
+    // Execute some signin event, then connect to Respoke with
+    [sharedRespokeClient connectWithEndpointID:sendpointId appID:appId 
+                         reconnect:YES initialPresence:nil 
+                         errorHandler:^(NSString *errorMessage) {
+        [self showError:errorMessage];
+    }];
+    
+    // "connect" event fired after successful connection to Respoke
+    - (void) onConnect: (RespokeClient*) client
+    {
+        NSLog(@"Connected to Respoke!");
     }
 
-Run your application, you should see it successfully connect to Respoke by looking at the LogCat output of your device/emulator:
-
-    02-23 19:14:59.560  10584-10584/com.digium.respokedemo D/MainActivity﹕ Connected to Respoke!
+That's it! Now we're ready to start using all Respoke has to offer.
 
 

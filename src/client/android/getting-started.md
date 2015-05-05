@@ -125,8 +125,6 @@ Your application can also be notified of major client-level events by registerin
         }
     }
 
-Run your application, you should see it successfully connect to Respoke by looking at the LogCat output of your device/emulator:
-
-    02-23 19:14:59.560  10584-10584/com.digium.respokedemo D/MainActivity﹕ Connected to Respoke!
+That's it! Now we're ready to start using all Respoke has to offer.
 
 
