@@ -63,7 +63,7 @@ First, listen for incoming calls by implementing the onCall method of the Respok
     public class Main implements RespokeClient.Listener, RespokeCall.Listener, RespokeEndpoint.Listener, RespokeGroup.Listener {
         public void onCall(RespokeClient client, RespokeCall call) {
             // Show some UI to answer or hangup the call
-            // For illustration, let's just answer the call
+            // For illustration, let us just answer the call
             call.answer(this, this);
         }
     }

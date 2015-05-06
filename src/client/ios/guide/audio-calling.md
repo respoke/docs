@@ -15,66 +15,66 @@ meta:
 
 ## Overview
 
-Audio calling is easy using Respoke. First connect to Respoke either in [development mode](/client/android/getting-started.html) or authenticated. Then we're ready to start writing some code.
+Audio calling is easy using Respoke. First connect to Respoke either in [development mode](/client/ios/getting-started.html) or authenticated. Then we're ready to start writing some code.
 
 ## Starting Audio Calls
 
 Next, get the endpoint you want to start a audio call with.
-
-    import com.digium.respokesdk.Respoke;
-    import com.digium.respokesdk.RespokeClient;
-    import com.digium.respokesdk.RespokeConnection;
-    import com.digium.respokesdk.RespokeCall;
-    import com.digium.respokesdk.RespokeEndpoint;
-    import com.digium.respokesdk.RespokeGroup;
-    import com.digium.respokesdk.RespokeDirectConnection;
-
-
-    public class Main implements RespokeClient.Listener, RespokeCall.Listener, RespokeEndpoint.Listener, RespokeGroup.Listener {
-        public RespokeClient client;
-        public RespokeEndpoint remoteEndpoint;
+    
+    #import "Respoke.h"
+    #import "RespokeCall.h"
+    #import "RespokeClient.h"
+    #import "RespokeConnection.h"
+    #import "RespokeDirectConnection.h"
+    #import "RespokeEndpoint.h"
+    #import "RespokeGroup.h"
+    
+    @interface AppViewController : NSObject <RespokeClientDelegate, RespokeEndpointDelegate, RespokeGroupDelegate, RespokeDirectConnectionDelegate, RespokeCallDelegate>
+        @property RespokeClient *client;
+        @property RespokeCall *call;
+    @end
+    
+    @implementation AppViewController
+        @synthesize client, call;
         
-        public Main() {            
-            remoteEndpoint = client.getEndpoint("kirk@enterprise", false);
+        - (void) startAudioCall
+        {   
+            NSstring *endpointId = @"kirk@enterprise";
+            RespokeEndpoint *endpoint = [client getEndpointWithID:endpointId skipCreate:NO];
         }
-    }
+    @end
 
 Finally, start the audio call with the endpoint.
 
-    public class Main implements RespokeClient.Listener, RespokeCall.Listener, RespokeEndpoint.Listener, RespokeGroup.Listener {
-        public RespokeClient client;
-        public RespokeEndpoint remoteEndpoint;
-        public RespokeCall call;
-        public Boolean audioOnly;
-
-        public Main() {
-            remoteEndpoint = client.getEndpoint("kirk@enterprise", false);
+    @implementation AppViewController
+        @synthesize client, call;
+        
+        - (void) startAudioCall
+        {   
+            NSstring *endpointId = @"kirk@enterprise";
+            RespokeEndpoint *endpoint = [client getEndpointWithID:endpointId skipCreate:NO];
             
-            audioOnly = true;
-            
-            call = remoteEndpoint.startCall(this, this, null, audioOnly);
+            call = [endpoint startAudioCallWithDelegate:self];
         }
-    }
+    @end
 
 ## Answering Incoming Audio Calls
 
-First, listen for incoming calls by implementing the onCall method of the RespokeCall.Listener interface.
+First, listen for incoming calls by implementing the onCall method of the RespokeCallDelegate.
 
-    public class Main implements RespokeClient.Listener, RespokeCall.Listener, RespokeEndpoint.Listener, RespokeGroup.Listener {
-        public void onCall(RespokeClient client, RespokeCall call) {
-            // Show some UI to answer or hangup the call
-            // For illustration, let's just answer the call
-            call.answer(this, this);
-        }
+    - (void)onCall:(RespokeCall*)call sender:(RespokeClient*)client
+    {
+        // Show some UI to answer or hangup the call
+        // For illustration, let us just answer the call
+        [call answer];
     }
 
-Finally, listen for when both the local endpoint and remote endpoint are successfully connected by implementing the onConnected method of the RespokeCall.Listener interface.
+Finally, listen for when both the local endpoint and remote endpoint are successfully connected by implementing the onConnected method of the RespokeCallDelegate.
 
-    public class Main implements RespokeClient.Listener, RespokeCall.Listener, RespokeEndpoint.Listener, RespokeGroup.Listener {
-        public void onConnected(RespokeCall call) {
-            // Call is successful, maybe show call controls 
-            // (e.g. hangup, mute audio, etc.)
-        }
+    - (void)onConnected:(RespokeCall*)call
+    {
+        // Call is successful, maybe show call controls 
+        // (e.g. hangup, mute audio, mute video, etc.)
     }
     
 The audio call is now setup for both the local client and the remote peer.
@@ -83,31 +83,21 @@ The audio call is now setup for both the local client and the remote peer.
 
 You can mute or unmute a audio call's audio.
 
-    public class Main implements RespokeClient.Listener, RespokeCall.Listener, RespokeEndpoint.Listener, RespokeGroup.Listener {
-        public RespokeCall call;
-        
-        public Main() {
-            call.muteAudio(true);
-        }
+    - (void)muteAudio
+    {   
+        [call muteAudio:YES];
     }
     
 Finally, you can hangup a call.
 
-    public class Main implements RespokeClient.Listener, RespokeCall.Listener, RespokeEndpoint.Listener, RespokeGroup.Listener {
-        public RespokeCall call;
-        
-        public Main() {
-            call.hangup(true);
-            call = null;
-        }
+    - (void)hangup
+    {   
+        [call hangup:YES];
     }
     
 Hanging up a call will trigger a hangup event.
 
-    public class Main implements RespokeClient.Listener, RespokeCall.Listener, RespokeEndpoint.Listener, RespokeGroup.Listener {
-        public RespokeCall call;
-        
-        public void onHangup(RespokeCall call) {
-            call = null;
-        }
+    - (void)onHangup:(RespokeCall*)call
+    {
+      
     }
