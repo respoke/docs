@@ -24,14 +24,12 @@ Respoke provides a simple interface for setting a user's presence. First, [join 
 Listen for presence on each endpoint in the group.
     
     #import "Respoke.h"
-    #import "RespokeCall.h"
     #import "RespokeClient.h"
     #import "RespokeConnection.h"
-    #import "RespokeDirectConnection.h"
     #import "RespokeEndpoint.h"
     #import "RespokeGroup.h"
     
-    @interface AppViewController : NSObject <RespokeClientDelegate, RespokeEndpointDelegate, RespokeGroupDelegate, RespokeDirectConnectionDelegate, RespokeCallDelegate>
+    @interface AppViewController : NSObject <RespokeClientDelegate, RespokeEndpointDelegate, RespokeGroupDelegate>
         @property RespokeClient *client;
         @property RespokeGroup *group;
     @end
@@ -40,7 +38,7 @@ Listen for presence on each endpoint in the group.
         @synthesize client, group;
         
         // "connect" event fired after successful connection to Respoke
-        - (void) onConnect: (RespokeClient*) client
+        - (void)onConnect: (RespokeClient*) client
         {
             NSLog(@"Connected to Respoke!");
         

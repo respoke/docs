@@ -24,12 +24,9 @@ Next, get the endpoint you want to start a video call with.
     #import "Respoke.h"
     #import "RespokeCall.h"
     #import "RespokeClient.h"
-    #import "RespokeConnection.h"
-    #import "RespokeDirectConnection.h"
     #import "RespokeEndpoint.h"
-    #import "RespokeGroup.h"
     
-    @interface AppViewController : NSObject <RespokeClientDelegate, RespokeEndpointDelegate, RespokeGroupDelegate, RespokeDirectConnectionDelegate, RespokeCallDelegate>
+    @interface AppViewController : NSObject <RespokeClientDelegate, RespokeEndpointDelegate, RespokeCallDelegate>
         @property RespokeClient *client;
         @property RespokeCall *call;
         @property (weak) IBOutlet UIView *remoteView;
@@ -39,7 +36,7 @@ Next, get the endpoint you want to start a video call with.
     @implementation AppViewController
         @synthesize client, call, remoteView, localView;
         
-        - (void) startVideoCall
+        - (void)startVideoCall
         {   
             NSstring *endpointId = @"kirk@enterprise";
             RespokeEndpoint *endpoint = [client getEndpointWithID:endpointId skipCreate:NO];
@@ -51,7 +48,7 @@ Finally, start the video call with the endpoint.
     @implementation AppViewController
         @synthesize client, call;
         
-        - (void) startVideoCall
+        - (void)startVideoCall
         {   
             NSstring *endpointId = @"kirk@enterprise";
             RespokeEndpoint *endpoint = [client getEndpointWithID:endpointId skipCreate:NO];

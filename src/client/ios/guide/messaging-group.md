@@ -22,14 +22,12 @@ Sending messages to a group of people is easy using Respoke. First, [join a grou
 Next, send a message to the group.
     
     #import "Respoke.h"
-    #import "RespokeCall.h"
     #import "RespokeClient.h"
     #import "RespokeConnection.h"
-    #import "RespokeDirectConnection.h"
     #import "RespokeEndpoint.h"
     #import "RespokeGroup.h"
     
-    @interface AppViewController : NSObject <RespokeClientDelegate, RespokeEndpointDelegate, RespokeGroupDelegate, RespokeDirectConnectionDelegate, RespokeCallDelegate>
+    @interface AppViewController : NSObject <RespokeClientDelegate, RespokeEndpointDelegate, RespokeGroupDelegate>
         @property RespokeClient *client;
         @property RespokeGroup *group;
     @end
@@ -37,7 +35,7 @@ Next, send a message to the group.
     @implementation AppViewController
         @synthesize client, group;
         
-        - (void) sendMessage
+        - (void)sendMessage
         {
             NSString *message = @"Live Long and Prosper";
         

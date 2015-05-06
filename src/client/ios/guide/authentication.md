@@ -50,14 +50,9 @@ Respoke and your App are now set up for authentication. It's time to write some 
 First, request a `token` from your server.
     
     #import "Respoke.h"
-    #import "RespokeCall.h"
     #import "RespokeClient.h"
-    #import "RespokeConnection.h"
-    #import "RespokeDirectConnection.h"
-    #import "RespokeEndpoint.h"
-    #import "RespokeGroup.h"
     
-    @interface AppViewController : NSObject <RespokeClientDelegate, RespokeEndpointDelegate, RespokeGroupDelegate, RespokeDirectConnectionDelegate, RespokeCallDelegate>
+    @interface AppViewController : NSObject <RespokeClientDelegate>
         @property RespokeClient *client;
     @end
     

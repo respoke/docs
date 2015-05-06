@@ -25,14 +25,12 @@ Once connectivity is established, we're ready to start writing some code.
 First [connect to Respoke]((/client/ios/getting-started.html)) and listen for the `connect` event. Then you can join a group.
     
     #import "Respoke.h"
-    #import "RespokeCall.h"
     #import "RespokeClient.h"
     #import "RespokeConnection.h"
-    #import "RespokeDirectConnection.h"
     #import "RespokeEndpoint.h"
     #import "RespokeGroup.h"
     
-    @interface AppViewController : NSObject <RespokeClientDelegate, RespokeEndpointDelegate, RespokeGroupDelegate, RespokeDirectConnectionDelegate, RespokeCallDelegate>
+    @interface AppViewController : NSObject <RespokeClientDelegate, RespokeEndpointDelegate, RespokeGroupDelegate>
         @property RespokeClient *client;
         @property RespokeGroup *group;
     @end
@@ -41,7 +39,7 @@ First [connect to Respoke]((/client/ios/getting-started.html)) and listen for th
         @synthesize client, group;
         
         // "connect" event fired after successful connection to Respoke
-        - (void) onConnect: (RespokeClient*) client
+        - (void)onConnect: (RespokeClient*) client
         {
             NSLog(@"Connected to Respoke!");
         

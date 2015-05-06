@@ -24,12 +24,9 @@ Next, get the endpoint you want to start a audio call with.
     #import "Respoke.h"
     #import "RespokeCall.h"
     #import "RespokeClient.h"
-    #import "RespokeConnection.h"
-    #import "RespokeDirectConnection.h"
     #import "RespokeEndpoint.h"
-    #import "RespokeGroup.h"
     
-    @interface AppViewController : NSObject <RespokeClientDelegate, RespokeEndpointDelegate, RespokeGroupDelegate, RespokeDirectConnectionDelegate, RespokeCallDelegate>
+    @interface AppViewController : NSObject <RespokeClientDelegate, RespokeEndpointDelegate, RespokeCallDelegate>
         @property RespokeClient *client;
         @property RespokeCall *call;
     @end
@@ -37,7 +34,7 @@ Next, get the endpoint you want to start a audio call with.
     @implementation AppViewController
         @synthesize client, call;
         
-        - (void) startAudioCall
+        - (void)startAudioCall
         {   
             NSstring *endpointId = @"kirk@enterprise";
             RespokeEndpoint *endpoint = [client getEndpointWithID:endpointId skipCreate:NO];
@@ -49,7 +46,7 @@ Finally, start the audio call with the endpoint.
     @implementation AppViewController
         @synthesize client, call;
         
-        - (void) startAudioCall
+        - (void)startAudioCall
         {   
             NSstring *endpointId = @"kirk@enterprise";
             RespokeEndpoint *endpoint = [client getEndpointWithID:endpointId skipCreate:NO];

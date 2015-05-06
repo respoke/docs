@@ -42,14 +42,9 @@ Alternatively, install the respoke-ios-sdk pod via CocoaPods.
 Finally, to validate everything is working, you'll want to connect to Respoke:
 
     #import "Respoke.h"
-    #import "RespokeCall.h"
     #import "RespokeClient.h"
-    #import "RespokeConnection.h"
-    #import "RespokeDirectConnection.h"
-    #import "RespokeEndpoint.h"
-    #import "RespokeGroup.h"
     
-    @interface AppViewController : NSObject <RespokeClientDelegate, RespokeEndpointDelegate, RespokeGroupDelegate, RespokeDirectConnectionDelegate, RespokeCallDelegate>
+    @interface AppViewController : NSObject <RespokeClientDelegate>
         @property RespokeClient *client;
     @end
     

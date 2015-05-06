@@ -22,21 +22,17 @@ Sending 1:1 messages to individual users is easy using Respoke. First connect to
 Next, get the endpoint you want to send a message to.
 
     #import "Respoke.h"
-    #import "RespokeCall.h"
     #import "RespokeClient.h"
-    #import "RespokeConnection.h"
-    #import "RespokeDirectConnection.h"
     #import "RespokeEndpoint.h"
-    #import "RespokeGroup.h"
     
-    @interface AppViewController : NSObject <RespokeClientDelegate, RespokeEndpointDelegate, RespokeGroupDelegate, RespokeDirectConnectionDelegate, RespokeCallDelegate>
+    @interface AppViewController : NSObject <RespokeClientDelegate, RespokeEndpointDelegate>
         @property RespokeClient *client;
     @end
     
     @implementation AppViewController
         @synthesize client;
         
-        - (void) sendMessage
+        - (void)sendMessage
         {   
             NSstring *endpointId = @"kirk@enterprise";
             RespokeEndpoint *endpoint = [client getEndpointWithID:endpointId skipCreate:NO];
@@ -48,7 +44,7 @@ Then, send a message to the individual.
     @implementation AppViewController
         @synthesize client;
        
-        - (void) sendMessage
+        - (void)sendMessage
         {   
             NSstring *endpointId = @"kirk@enterprise";
             RespokeEndpoint *endpoint = [client getEndpointWithID:endpointId skipCreate:NO];

@@ -26,12 +26,10 @@ Next, get the endpoint you want to send a message to.
     #import "Respoke.h"
     #import "RespokeCall.h"
     #import "RespokeClient.h"
-    #import "RespokeConnection.h"
     #import "RespokeDirectConnection.h"
     #import "RespokeEndpoint.h"
-    #import "RespokeGroup.h"
     
-    @interface AppViewController : NSObject <RespokeClientDelegate, RespokeEndpointDelegate, RespokeGroupDelegate, RespokeDirectConnectionDelegate, RespokeCallDelegate>
+    @interface AppViewController : NSObject <RespokeClientDelegate, RespokeEndpointDelegate, RespokeDirectConnectionDelegate, RespokeCallDelegate>
         @property RespokeClient *client;
         @property RespokeDirectConnection *directConnection;
         @property RespokeCall *call;
@@ -40,7 +38,7 @@ Next, get the endpoint you want to send a message to.
     @implementation AppViewController
         @synthesize client, directConnection, call;
         
-        - (void) startDirectConnection
+        - (void)startDirectConnection
         {   
             NSstring *endpointId = @"kirk@enterprise";
             RespokeEndpoint *endpoint = [client getEndpointWithID:endpointId skipCreate:NO];
@@ -52,7 +50,7 @@ Then, start a direct connection with that endpoint.
     @implementation AppViewController
         @synthesize client, directConnection, call;
         
-        - (void) startDirectConnection
+        - (void)startDirectConnection
         {   
             NSstring *endpointId = @"kirk@enterprise";
             RespokeEndpoint *endpoint = [client getEndpointWithID:endpointId skipCreate:NO];
@@ -68,7 +66,7 @@ Finally, start listening for direct connection events on RespokeDirectConnection
     @implementation AppViewController
         @synthesize client, directConnection, call;
         
-        - (void) startDirectConnection
+        - (void)startDirectConnection
         {   
             NSstring *endpointId = @"kirk@enterprise";
             RespokeEndpoint *endpoint = [client getEndpointWithID:endpointId skipCreate:NO];
@@ -109,7 +107,7 @@ First, send a direct connection message.
     @implementation AppViewController
         @synthesize client, directConnection, call;
         
-        - (void) startDirectConnection
+        - (void)startDirectConnection
         {   
             NSstring *endpointId = @"kirk@enterprise";
             RespokeEndpoint *endpoint = [client getEndpointWithID:endpointId skipCreate:NO];
@@ -119,7 +117,7 @@ First, send a direct connection message.
             call = [directConnection getCall];
         }
         
-        - (void) sendMessage
+        - (void)sendMessage
         {   
             NSString *message = @"Live Long and Prosper";
        
@@ -136,7 +134,7 @@ Finally, listen for incoming direct connection messages.
     @implementation AppViewController
         @synthesize client, directConnection, call;
         
-        - (void) startDirectConnection
+        - (void)startDirectConnection
         {   
             NSstring *endpointId = @"kirk@enterprise";
             RespokeEndpoint *endpoint = [client getEndpointWithID:endpointId skipCreate:NO];
@@ -146,7 +144,7 @@ Finally, listen for incoming direct connection messages.
             call = [directConnection getCall];
         }
         
-        - (void) sendMessage
+        - (void)sendMessage
         {   
             NSString *message = @"Live Long and Prosper";
        
