@@ -55,9 +55,9 @@ Then, start a direct connection with that endpoint.
         - (void) startDirectConnection
         {   
             NSstring *endpointId = @"kirk@enterprise";
-            RespokeEndpoint *remoteEndpoint = [client getEndpointWithID:endpointId skipCreate:NO];
+            RespokeEndpoint *endpoint = [client getEndpointWithID:endpointId skipCreate:NO];
             
-            directConnection = [remoteEndpoint startDirectConnection];
+            directConnection = [endpoint startDirectConnection];
             directConnection.delegate = self;
             call = [directConnection getCall];
         }
@@ -71,9 +71,9 @@ Finally, start listening for direct connection events on RespokeDirectConnection
         - (void) startDirectConnection
         {   
             NSstring *endpointId = @"kirk@enterprise";
-            RespokeEndpoint *remoteEndpoint = [client getEndpointWithID:endpointId skipCreate:NO];
+            RespokeEndpoint *endpoint = [client getEndpointWithID:endpointId skipCreate:NO];
             
-            directConnection = [remoteEndpoint startDirectConnection];
+            directConnection = [endpoint startDirectConnection];
             directConnection.delegate = self;
             call = [directConnection getCall];
         }
@@ -112,9 +112,9 @@ First, send a direct connection message.
         - (void) startDirectConnection
         {   
             NSstring *endpointId = @"kirk@enterprise";
-            RespokeEndpoint *remoteEndpoint = [client getEndpointWithID:endpointId skipCreate:NO];
+            RespokeEndpoint *endpoint = [client getEndpointWithID:endpointId skipCreate:NO];
             
-            directConnection = [remoteEndpoint startDirectConnection];
+            directConnection = [endpoint startDirectConnection];
             directConnection.delegate = self;
             call = [directConnection getCall];
         }
@@ -139,9 +139,9 @@ Finally, listen for incoming direct connection messages.
         - (void) startDirectConnection
         {   
             NSstring *endpointId = @"kirk@enterprise";
-            RespokeEndpoint *remoteEndpoint = [client getEndpointWithID:endpointId skipCreate:NO];
+            RespokeEndpoint *endpoint = [client getEndpointWithID:endpointId skipCreate:NO];
             
-            directConnection = [remoteEndpoint startDirectConnection];
+            directConnection = [endpoint startDirectConnection];
             directConnection.delegate = self;
             call = [directConnection getCall];
         }
