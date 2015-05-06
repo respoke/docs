@@ -14,7 +14,7 @@ meta:
 
 ## Overview
 
-Use Respoke to add live voice, video, text and data features to your website or mobile app. The Respoke Developer Docs are organized along product lines. Here, you'll find detailed guides and API references.
+Use Respoke to add live voice, video, text and data features to your website or mobile app. The Respoke Developer Docs are organized along product lines. Here, you'll find detailed guides and API references. Still have questions? Join our [Respoke Community](http://community.respoke.io/) forum.
 
 You'll find documentation for the following:
 
