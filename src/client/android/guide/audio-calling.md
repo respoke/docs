@@ -25,14 +25,11 @@ Next, get the endpoint you want to start a audio call with.
 
     import com.digium.respokesdk.Respoke;
     import com.digium.respokesdk.RespokeClient;
-    import com.digium.respokesdk.RespokeConnection;
     import com.digium.respokesdk.RespokeCall;
     import com.digium.respokesdk.RespokeEndpoint;
-    import com.digium.respokesdk.RespokeGroup;
-    import com.digium.respokesdk.RespokeDirectConnection;
 
 
-    public class Main implements RespokeClient.Listener, RespokeCall.Listener, RespokeEndpoint.Listener, RespokeGroup.Listener {
+    public class Main implements RespokeClient.Listener, RespokeCall.Listener, RespokeEndpoint.Listener {
         public RespokeClient client;
         public RespokeEndpoint endpoint;
         
@@ -43,7 +40,7 @@ Next, get the endpoint you want to start a audio call with.
 
 Finally, start the audio call with the endpoint.
 
-    public class Main implements RespokeClient.Listener, RespokeCall.Listener, RespokeEndpoint.Listener, RespokeGroup.Listener {
+    public class Main implements RespokeClient.Listener, RespokeCall.Listener, RespokeEndpoint.Listener {
         public RespokeClient client;
         public RespokeCall call;
         public Boolean audioOnly;

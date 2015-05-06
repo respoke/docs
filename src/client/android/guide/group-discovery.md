@@ -37,7 +37,7 @@ First [connect to Respoke]((/client/android/getting-started.html)) and listen fo
     import java.util.HashMap;
     import java.util.Map;
 
-    public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener,  RespokeDirectConnection.Listener, RespokeCall.Listener {
+    public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener {
         private RespokeClient client;
         private RespokeGroup group;
 

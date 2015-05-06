@@ -27,13 +27,11 @@ Next, get the endpoint you want to send a message to.
 
     import com.digium.respokesdk.Respoke;
     import com.digium.respokesdk.RespokeClient;
-    import com.digium.respokesdk.RespokeConnection;
     import com.digium.respokesdk.RespokeEndpoint;
-    import com.digium.respokesdk.RespokeGroup;
+    import com.digium.respokesdk.RespokeCall;
 
-    public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener {
+    public class Main implements RespokeClient.Listener, RespokeEndpoint.Listener,  RespokeDirectConnection.Listener, RespokeCall.Listener {
         public RespokeClient client;
-        public RespokeGroup group;
 
         public void startDirectConnection() {
             RespokeEndpoint endpoint = client.getEndpoint("kirk@enterprise", false);
@@ -42,9 +40,8 @@ Next, get the endpoint you want to send a message to.
 
 Then, start a direct connection with that endpoint.
 
-    public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener,  RespokeDirectConnection.Listener, RespokeCall.Listener {
+    public class Main implements RespokeClient.Listener, RespokeEndpoint.Listener,  RespokeDirectConnection.Listener, RespokeCall.Listener {
         public RespokeClient client;
-        public RespokeGroup group;
 
         public void startDirectConnection() {
             RespokeEndpoint endpoint = client.getEndpoint("kirk@enterprise", false);
@@ -59,9 +56,8 @@ Then, start a direct connection with that endpoint.
    
 Finally, start listening for direct connection events on RespokeDirectConnection.Listener.
     
-    public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener,  RespokeDirectConnection.Listener, RespokeCall.Listener {
+    public class Main implements RespokeClient.Listener, RespokeEndpoint.Listener,  RespokeDirectConnection.Listener, RespokeCall.Listener {
         public RespokeClient client;
-        public RespokeGroup group;
         public RespokeDirectConnection directConnection;
         public RespokeCall call;
 
@@ -100,9 +96,8 @@ Once the remote peer accepts the direct connection, you're both ready to start s
 
 First, send a direct connection message.
 
-    public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener,  RespokeDirectConnection.Listener, RespokeCall.Listener {
+    public class Main implements RespokeClient.Listener, RespokeEndpoint.Listener,  RespokeDirectConnection.Listener, RespokeCall.Listener {
         public RespokeClient client;
-        public RespokeGroup group;
         public RespokeDirectConnection directConnection;
         public RespokeCall call;
         
@@ -133,9 +128,8 @@ First, send a direct connection message.
     
 Finally, listen for incoming direct connection messages.
 
-    public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener,  RespokeDirectConnection.Listener, RespokeCall.Listener {
+    public class Main implements RespokeClient.Listener, RespokeEndpoint.Listener,  RespokeDirectConnection.Listener, RespokeCall.Listener {
         public RespokeClient client;
-        public RespokeGroup group;
         public RespokeDirectConnection directConnection;
         public RespokeCall call;
         

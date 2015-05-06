@@ -91,13 +91,9 @@ Your application can also be notified of major client-level events by registerin
     package com.digium.respoke;
     
     import com.digium.respokesdk.Respoke;
-    import com.digium.respokesdk.RespokeCall;
     import com.digium.respokesdk.RespokeClient;
-    import com.digium.respokesdk.RespokeDirectConnection;
-    import com.digium.respokesdk.RespokeEndpoint;
-    import com.digium.respokesdk.RespokeGroup;
 
-    public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener {
+    public class Main implements RespokeClient.Listener {
         public RespokeClient client;
 
         public Main() {
@@ -120,7 +116,7 @@ Your application can also be notified of major client-level events by registerin
             });   
         }
 
-        // RespokeClientListener methods
+        // RespokeClient Listeners
         // "connect" event fired after successful connection to Respoke
         public void onConnect(RespokeClient client) {
             Log.d("MainActivity", "Connected to Respoke!");

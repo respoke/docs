@@ -27,9 +27,8 @@ Next, get the endpoint you want to send a message to.
     import com.digium.respokesdk.RespokeClient;
     import com.digium.respokesdk.RespokeConnection;
     import com.digium.respokesdk.RespokeEndpoint;
-    import com.digium.respokesdk.RespokeGroup;
 
-    public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener,  RespokeDirectConnection.Listener, RespokeCall.Listener {
+    public class Main implements RespokeClient.Listener, RespokeEndpoint.Listener {
         public RespokeClient client;
         public RespokeGroup group;
 
@@ -40,7 +39,7 @@ Next, get the endpoint you want to send a message to.
 
 Then, send a message to the individual.
 
-    public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener,  RespokeDirectConnection.Listener, RespokeCall.Listener {
+    public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener {
         public RespokeClient client;
 
         public void sendMessage() {

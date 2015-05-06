@@ -1,5 +1,5 @@
 ---
-title: "Authentication Guide - Respoke Android SDK"
+title: "Authentication Guide - Respoke JavaScript Library"
 shortTitle: "Authentication"
 date: 2015-04-20
 template: article.jade
@@ -10,7 +10,7 @@ meta:
     description: "Learn how to secure your users' access to Respoke audio, video, text and data channels."
 ---
 
-###Android SDK
+###JavaScript Library
 # Authentication
 
 ## Overview
@@ -49,53 +49,34 @@ Respoke and your App are now set up for authentication. It's time to write some 
 
 First, request a `token` from your server.
 
-    package com.digium.respoke;
+    // Create an instance of the Respoke client
+    var client = respoke.createClient();
 
-    import com.digium.respokesdk.Respoke;
-    import com.digium.respokesdk.RespokeClient;
-
-    public class Main implements RespokeClient.Listener {
-        private RespokeClient client;
-
-        public Main() {
-            // Create an instance of the Respoke client
-            client = Respoke.sharedInstance().createClient(this);
-            client.setListener(this);        
-
-            // Create HTTP POST request to authentication server
-            connect();
-        }
+    // Create HTTP POST request to authentication server
+    (function connect() {
+      $.ajax({
+          method: "POST",
+          url: "your/server/api/tokens",
+          data: {
+              endpointId: "spock@enterprise.com"
+          },
+          success: function(response) {
+              var token = response.token;
         
-        public void connect() {
-            JSONObject json = new JSONObject();
-            json.put("endpointId", "spock@enterprise.com");
-            
-            HttpPost request = new HttpPost("http://yoururl");
-            StringEntity params = new StringEntity(json.toString());
-            request.addHeader("content-type", "application/json");
-            request.setEntity(params);
-            HttpResponse response = httpClient.execute(request);
-            
-            String token = response.token;
-
-            // Execute some signin event, then connect to Respoke with
-            client.connect(token, null, this.getApplicationContext(), new RespokeClient.ConnectCompletionListener() {
-                @Override
-                public void onError(String errorMessage) {
-                    Log.d("Main", errorMessage);
-                }
-            });
-        }
-
-        // RespokeClientListener methods
-        // "connect" event fired after successful connection to Respoke
-        public void onConnect(RespokeClient client) {
-            Log.d("Main", "Connected to Respoke!");
-        }
-    }
+              client.connect({
+                  token: token          
+              });
+          }
+      })
+    })();
+    
+    // "connect" event fired after successful connection to Respoke
+    client.listen("connect", function(e) {
+        console.log("Connected to Respoke!", e);
+    });
     
 
-Then your server will request this `token` from Respoke. 
+Then your server will request this `token` from Respoke.
 
 {example: endpoint-authentication}
 
@@ -103,8 +84,8 @@ Use this `token` to connect your client to Respoke.
 
 Additionally, you'll need to listen to the `disconnect` event. Then request a new `token` from your server and use this new `token` to re-connect your client to Respoke.
 
-    public void onDisconnect(RespokeClient client) {
+    client.listen("disconnect", function (evt) {
         // Reconnect to Respoke
         connect();
-    }
+    });
 
