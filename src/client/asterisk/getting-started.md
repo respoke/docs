@@ -4,7 +4,7 @@ shortTitle: "Getting Started"
 date: 2014-10-15
 template: article.jade
 showInMenu: "true"
-menuOrder: 10
+menuOrder: 0
 meta:
     keywords: "respoke, asterisk, chan_respoke, webrtc"
     description: "Guide on how to connect to Respoke to Asterisk for WebRTC and web app calling features."
@@ -22,7 +22,7 @@ In the course of your app development, you may find it convenient to place calls
 1. You have an Asterisk server (version 13+) on which you have administrative access.
 1. You are comfortable compiling and configuring Asterisk.
 
-## Setup
+## Setup Asterisk and The Respoke Channel
 
 ### 1: Install Asterisk 13
 

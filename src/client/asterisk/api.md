@@ -1,7 +1,17 @@
 ---
-title: API Reference
+title: API Reference - Respoke Asterisk Channel Library
+shortTitle: "API Reference"
+date: 2014-10-15
+template: article.jade
 showInMenu: "true"
 noLink: false
 menuOrder: 2
-linkUrl: "https://docs.respoke.io/js-library/respoke.html"
+meta:
+    keywords: "respoke, asterisk, webrtc"
+    description: "Respoke Asterisk Channel API Reference"
 ---
+
+###Asterisk Channel
+#Asterisk Channel API Reference
+
+##Coming Soon

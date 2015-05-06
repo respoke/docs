@@ -21,7 +21,7 @@ First [signup for a free Respoke account](https://portal.respoke.io/#/signup). W
 
 ### Create an Android Project
 
-First, open Android Studio and create a new blank project based on API level 15 (v4.0.3 Ice Cream Sandwich). Create a blank activity and name it “MainActivity” as shown in the screenshots below.
+First, open Android Studio and create a new blank project based on API level 15 (v4.0.3 Ice Cream Sandwich). Create a blank activity and name it “main” as shown in the screenshots below.
 
 ![configure new project](../../images/android-sdk/configure-new-project.png)
 
@@ -82,7 +82,7 @@ Open your application’s /app/build.gradle file and add the Respoke SDK as a de
 
 ## Connect to Respoke
 
-Open your application's MainActivity.java class and add the code below to connect to the Respoke service. 
+Open your application's main class and add the code below to connect to the Respoke service. 
 
 Connecting is performed by instantiating a RespokeClient instance. This class is one of the primary ways you will interface with Respoke and allows you to connect, disconnect, join groups, and more. 
 
@@ -111,7 +111,7 @@ Your application can also be notified of major client-level events by registerin
             client.connect(endpointId, appId, true, null, this.getApplicationContext(), new RespokeClient.ConnectCompletionListener() {
                 @Override
                 public void onError(String errorMessage) {
-                    Log.d("MainActivity", errorMessage);
+                    Log.d("main", errorMessage);
                 }
             });   
         }
@@ -119,7 +119,7 @@ Your application can also be notified of major client-level events by registerin
         // RespokeClient Listeners
         // "connect" event fired after successful connection to Respoke
         public void onConnect(RespokeClient client) {
-            Log.d("MainActivity", "Connected to Respoke!");
+            Log.d("main", "Connected to Respoke!");
         }
     }
 

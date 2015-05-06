@@ -25,36 +25,12 @@ Next, get the local endpoint configured on asterisk and start an audio call.
         endpointId: "sales"
     });
 
-That's it.
-
-## Answering Incoming Phone Calls
-
-First, listen for incoming calls.
-
-    client.listen("call", function(e) {
-        var call = e.call;
-    });
-    
-Finally, answer the incoming call.
-
-    client.listen("call", function(e) {
-        var call = e.call;
-       
-        if(call.caller !== true) {
-            call.answer();
-        }
-    });
-    
-The asterisk call is now setup.
+That's it. The asterisk call is now setup.
 
 
 ## Phone Call Controls
 
-You can answer incoming phone calls.
-
-    call.answer();
-    
-Finally, you can hangup a call.
+You, you can hangup a call.
 
     call.hangup(); 
     

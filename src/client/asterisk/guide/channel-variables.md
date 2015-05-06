@@ -1,17 +1,17 @@
 ---
-title: "Authentication Guide - Respoke JavaScript Library"
-shortTitle: "Authentication"
+title: "Asterisk Channel Variables Guide - Asterisk Channel Library"
+shortTitle: "Channel Variables"
 date: 2015-04-20
 template: article.jade
 showInMenu: "true"
 menuOrder: 20
 meta:
-    keywords: "respoke, auth, authenticating, authentication, security, token"
-    description: "Learn how to secure your users' access to Respoke audio, video, text and data channels."
+    keywords: "respoke, asterisk, chan_respoke"
+    description: "Learn how to use respoke asterisk channel variables."
 ---
 
-###JavaScript Library
-# Authentication
+###Asterisk Channel Library
+# Asterisk Channel Variables 
 
 ## Overview
 

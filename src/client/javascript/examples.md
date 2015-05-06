@@ -1,5 +1,5 @@
 ---
-title: "Examples - JavaScript Client"
+title: "Examples - Respoke JavaScript Library"
 shortTitle: "Examples"
 date: 2014-10-15
 template: article.jade

@@ -1,17 +1,17 @@
 ---
-title: "Group Discovery - Respoke JavaScript Library"
-shortTitle: "Group Discovery"
+title: "Asterisk Manager Interface (AMI) Events - Asterisk Channel Library"
+shortTitle: "AMI Events"
 date: 2015-04-20
 template: article.jade
 showInMenu: "true"
 menuOrder: 30
 meta:
     keywords: "respoke, group, discovery"
-    description: "Learn how to do group discovery using Respoke"
+    description: "Learn how to use Respoke AMI Events"
 ---
 
-###JavaScript Library
-# Group Discovery
+###Asterisk Channel Library
+# Asterisk Manager Interface (AMI) Events
 
 ## Overview
 
