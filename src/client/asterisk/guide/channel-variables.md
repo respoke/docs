@@ -15,77 +15,32 @@ meta:
 
 ## Overview
 
-Your users need an access token to connect to Respoke. The access token provides both authentication of who they are and authorization of what they are allowed to do. 
+You can access Respoke session variables in your dialplan. First, validate you have asterisk and [chan_respoke compiled and running](/client/asterisk/getting-started.html).
 
-Development mode makes getting started easy, but is inherently insecure. In production, you need a server to verify users and request a token on their behalf and connect to Respoke using this token. This gives you fine-grained control over users and permissions.
+## Asterisk Channel Variables
 
-When you request a token, you need to provide:
+You can use the following Respoke session information inside the asterisk channel:
 
-- `endpointId`: Usually your user's username
-- `appId`: The App ID for your App
-- `appSecret`: The App Secret for your App
-- `roleId`: A set of permissions you create in the Respoke Dashboard for your App
-- `ttl`: The number of seconds the token is valid
+- respoke_session_local
+- respoke_session_local_type
+- respoke_session_local_connection
+- respoke_session_remote
+- respoke_session_remote_type
+- respoke_session_remote_connection
+- respoke_session_remote_appid
+- respoke_session_id
 
-The first step in this process is disabling Development Mode for your App.
+## The Dialplan
 
-## Creating App Roles
+Here is a dialplan showing how to pass the "respoke_session_remote" inside an asterisk channel variable:
 
-Next, you need to create a Role to specify what Respoke operations the `endpointId` can do.
-
-1. Go to your App in the [Respoke Dashboard](https://portal.respoke.io/#/apps/).
-
-2. Selet your App.
-
-3. Validate development mode is disabled.
-
-4. Create new role, give the role a name and choose it's permissions.
-
-5. Take note of your appId, appSecret and new roleId.
-
-Respoke and your App are now set up for authentication. It's time to write some code.
-
-## Authenticating With Respoke
-
-First, request a `token` from your server.
-
-    // Create an instance of the Respoke client
-    var client = respoke.createClient();
-
-    // Create HTTP POST request to authentication server
-    (function connect() {
-      $.ajax({
-          method: "POST",
-          url: "your/server/api/tokens",
-          data: {
-              endpointId: "spock@enterprise.com"
-          },
-          success: function(response) {
-              var token = response.token;
-        
-              client.connect({
-                  token: token          
-              });
-          }
-      })
-    })();
+    exten => your_respoke_endpoint,1,Answer()
+    same => n,NoOp(RESPOKE METADATA: ${respoke_session_remote})
+    same => n,Ringing
+    same => n,Wait(8)
+    same => n,Playback(welcome)
+    same => n,SayAlpha(${respoke_session_remote})
+    same => n,Dial(SIP/300)
+    same => n,Hangup()
     
-    // "connect" event fired after successful connection to Respoke
-    client.listen("connect", function(e) {
-        console.log("Connected to Respoke!", e);
-    });
-    
-
-Then your server will request this `token` from Respoke.
-
-{example: endpoint-authentication}
-
-Use this `token` to connect your client to Respoke.
-
-Additionally, you'll need to listen to the `disconnect` event. Then request a new `token` from your server and use this new `token` to re-connect your client to Respoke.
-
-    client.listen("disconnect", function (evt) {
-        // Reconnect to Respoke
-        connect();
-    });
-
+Here, the "respoke_session_remote" information is played back to the caller using the Asterisk application SayAlpha. The "respoke_session_remote" is the endpointId of the remote caller. This value can be a username, orderId or anything that could uniquely identify the caller.
