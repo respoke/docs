@@ -1,5 +1,5 @@
 ---
-title: "Examples - iOS Client"
+title: "Examples - Respoke iOS SDK"
 shortTitle: "Examples"
 date: 2014-10-15
 template: article.jade
