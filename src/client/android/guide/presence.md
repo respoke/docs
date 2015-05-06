@@ -23,6 +23,8 @@ Respoke provides a simple interface for setting a user's presence. First, [join 
 
 Listen for presence on each endpoint in the group.
 
+    package com.digium.respoke;
+
     import com.digium.respokesdk.Respoke;
     import com.digium.respokesdk.RespokeClient;
     import com.digium.respokesdk.RespokeConnection;
@@ -35,12 +37,12 @@ Listen for presence on each endpoint in the group.
     import java.util.Map;
 
     public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener {
-        public RespokeClient client;
+        private RespokeClient client;
 
         // RespokeClientListener methods
         // "connect" event fired after successful connection to Respoke
         public void onConnect(RespokeClient client) {
-            Log.d("MainActivity", "Connected to Respoke!");
+            Log.d("Main", "Connected to Respoke!");
             
             String groupId = "united-federation-of-planets";
             ArrayList<String> groups = new ArrayList<String>();
@@ -49,7 +51,7 @@ Listen for presence on each endpoint in the group.
             client.joinGroups(groups, new RespokeClient.JoinGroupCompletionListener() {
                 @Override
                 public void onSuccess(final ArrayList<RespokeGroup> groups) {
-                    Log.d("MainActivity", "Group joined, fetching member list");
+                    Log.d("Main", "Group joined, fetching member list");
                     
                     RespokeGroup group = groups.get(0);
                     group.setListener(Main.this);
@@ -75,13 +77,9 @@ Listen for presence on each endpoint in the group.
     
 Additionally, you will want to listen for presence changes by implementing the onPresence method on the RespokeEndpoiint.Listener interface.
 
-    public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener {
-        public RespokeClient client;
-
-        public void onPresence(Object presence, RespokeEndpoint endpoint) {
-            Log.d("endpoingId: ", endpoint.getEndpointID());
-            Log.d("presence: ", presence);
-        }
+    public void onPresence(Object presence, RespokeEndpoint endpoint) {
+        Log.d("endpoingId: ", endpoint.getEndpointID());
+        Log.d("presence: ", presence);
     }
 
 ## Managing Presence
@@ -93,22 +91,16 @@ A user can get his current presence.
     String presence = client.getPresence();
     
 The same user can set his presence using the client `setPresence` method.
-
-    public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener {
-        public RespokeClient client;
-
-        public Main() {
-            client.setPresence("available", new Respoke.TaskCompletionListener() {
-                @Override
-                public void onSuccess() {
-                }
-
-                @Override
-                public void onError(String errorMessage) {
-                }
-            });
+    
+    client.setPresence("available", new Respoke.TaskCompletionListener() {
+        @Override
+        public void onSuccess() {
         }
-    }
+
+        @Override
+        public void onError(String errorMessage) {
+        }
+    });
     
 Presence options include: available, away and dnd. Calling `setPresence` on your client will trigger the presence listener for your endpoint for everyone else in the group.
 

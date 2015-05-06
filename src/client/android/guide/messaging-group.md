@@ -21,6 +21,8 @@ Sending messages to a group of people is easy using Respoke. First, [join a grou
 
 Next, send a message to the group.
 
+    package com.digium.respoke;
+
     import com.digium.respokesdk.Respoke;
     import com.digium.respokesdk.RespokeClient;
     import com.digium.respokesdk.RespokeConnection;
@@ -31,16 +33,16 @@ Next, send a message to the group.
         public RespokeClient client;
         public RespokeGroup group;
 
-        public Main() {
+        public void sendMessage() {
             group.sendMessage(message, new Respoke.TaskCompletionListener() {
                 @Override
                 public void onSuccess() {
-                    Log.d("MainActivity", "message sent");
+                    Log.d("Main", "message sent");
                 }
 
                 @Override
                 public void onError(String errorMessage) {
-                    Log.d("MainActivity", "Error sending message!");
+                    Log.d("Main", "Error sending message!");
                 }
             }); 
         }
@@ -48,11 +50,6 @@ Next, send a message to the group.
     
 Finally, listen for incoming messages by implementing the onMessage method of the RespokeGroup.Listener interface.
 
-    public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener,  RespokeDirectConnection.Listener, RespokeCall.Listener {
-        public RespokeClient client;
-        public RespokeGroup group;
-
-        public void onMessage(String message, Date timestamp, RespokeEndpoint endpoint) {
-            String endpointId = endpoint.getEndpointID();
-        }
+    public void onMessage(String message, Date timestamp, RespokeEndpoint endpoint) {
+        String endpointId = endpoint.getEndpointID();
     }

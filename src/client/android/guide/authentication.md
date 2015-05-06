@@ -49,6 +49,8 @@ Respoke and your App are now set up for authentication. It's time to write some 
 
 First, request a `token` from your server.
 
+    package com.digium.respoke;
+
     import com.digium.respokesdk.Respoke;
     import com.digium.respokesdk.RespokeCall;
     import com.digium.respokesdk.RespokeClient;
@@ -57,7 +59,7 @@ First, request a `token` from your server.
     import com.digium.respokesdk.RespokeGroup;
 
     public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener {
-        public RespokeClient client;
+        private RespokeClient client;
 
         public Main() {
             // Create an instance of the Respoke client
@@ -84,7 +86,7 @@ First, request a `token` from your server.
             client.connect(token, null, this.getApplicationContext(), new RespokeClient.ConnectCompletionListener() {
                 @Override
                 public void onError(String errorMessage) {
-                    Log.d("MainActivity", errorMessage);
+                    Log.d("Main", errorMessage);
                 }
             });
         }
@@ -92,7 +94,7 @@ First, request a `token` from your server.
         // RespokeClientListener methods
         // "connect" event fired after successful connection to Respoke
         public void onConnect(RespokeClient client) {
-            Log.d("MainActivity", "Connected to Respoke!");
+            Log.d("Main", "Connected to Respoke!");
         }
     }
     

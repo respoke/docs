@@ -23,6 +23,8 @@ First connect to Respoke either in [development mode](/client/android/getting-st
 
 Next, get the endpoint you want to send a message to.
 
+    package com.digium.respoke;
+
     import com.digium.respokesdk.Respoke;
     import com.digium.respokesdk.RespokeClient;
     import com.digium.respokesdk.RespokeConnection;
@@ -33,8 +35,8 @@ Next, get the endpoint you want to send a message to.
         public RespokeClient client;
         public RespokeGroup group;
 
-        public Main() {
-            RespokeEndpoint remoteEndpoint = client.getEndpoint("kirk@enterprise", false);
+        public void startDirectConnection() {
+            RespokeEndpoint endpoint = client.getEndpoint("kirk@enterprise", false);
         }
     }
 
@@ -44,12 +46,12 @@ Then, start a direct connection with that endpoint.
         public RespokeClient client;
         public RespokeGroup group;
 
-        public Main() {
-            RespokeEndpoint remoteEndpoint = client.getEndpoint("kirk@enterprise", false);
+        public void startDirectConnection() {
+            RespokeEndpoint endpoint = client.getEndpoint("kirk@enterprise", false);
             
-            remoteEndpoint.startDirectConnection();
+            endpoint.startDirectConnection();
             
-            directConnection = remoteEndpoint.directConnection();
+            directConnection = endpoint.directConnection();
             directConnection.setListener(this);
             call = directConnection.getCall();
         }
@@ -63,31 +65,28 @@ Finally, start listening for direct connection events on RespokeDirectConnection
         public RespokeDirectConnection directConnection;
         public RespokeCall call;
 
-        public Main() {
-            RespokeEndpoint remoteEndpoint = client.getEndpoint("kirk@enterprise", false);
+        public void startDirectConnection() {
+            RespokeEndpoint endpoint = client.getEndpoint("kirk@enterprise", false);
             
-            remoteEndpoint.startDirectConnection();
+            endpoint.startDirectConnection();
             
-            directConnection = remoteEndpoint.directConnection();
+            directConnection = endpoint.directConnection();
             directConnection.setListener(this);
             call = directConnection.getCall();
         }
         
-        // RespokeDirectConnection.Listener methods
+        // RespokeDirectConnection Listeners
         public void onStart(RespokeDirectConnection directConnection) {
 
         }
-
 
         public void onOpen(RespokeDirectConnection directConnection) {
 
         }
 
-
         public void onClose(RespokeDirectConnection directConnection) {
 
         }
-
 
         public void onMessage(String message, RespokeDirectConnection directConnection) {
   
@@ -106,18 +105,65 @@ First, send a direct connection message.
         public RespokeGroup group;
         public RespokeDirectConnection directConnection;
         public RespokeCall call;
+        
+        public void startDirectConnection() {
+            RespokeEndpoint endpoint = client.getEndpoint("kirk@enterprise", false);
+            
+            endpoint.startDirectConnection();
+            
+            directConnection = endpoint.directConnection();
+            directConnection.setListener(this);
+            call = directConnection.getCall();
+        }
 
-        public Main() {
+        public sendMessage() {
             directConnection.sendMessage("Live Long and Prosper", new Respoke.TaskCompletionListener() {
                 @Override
                 public void onSuccess() {
-                    Log.d("MainActivity", "direct message sent");
+                    Log.d("Main", "direct message sent");
                 }
 
                 @Override
                 public void onError(String errorMessage) {
-                    Log.d("MainActivity", "Error sending direct message! " + errorMessage);
+                    Log.d("Main", "Error sending direct message! " + errorMessage);
                 }
             });
+        }
+    }
+    
+Finally, listen for incoming direct connection messages.
+
+    public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener,  RespokeDirectConnection.Listener, RespokeCall.Listener {
+        public RespokeClient client;
+        public RespokeGroup group;
+        public RespokeDirectConnection directConnection;
+        public RespokeCall call;
+        
+        public void startDirectConnection() {
+            RespokeEndpoint endpoint = client.getEndpoint("kirk@enterprise", false);
+            
+            endpoint.startDirectConnection();
+            
+            directConnection = endpoint.directConnection();
+            directConnection.setListener(this);
+            call = directConnection.getCall();
+        }
+
+        public sendMessage() {
+            directConnection.sendMessage("Live Long and Prosper", new Respoke.TaskCompletionListener() {
+                @Override
+                public void onSuccess() {
+                    Log.d("Main", "direct message sent");
+                }
+
+                @Override
+                public void onError(String errorMessage) {
+                    Log.d("Main", "Error sending direct message! " + errorMessage);
+                }
+            });
+        }
+        
+        public void onMessage(String message, RespokeDirectConnection directConnection) {
+            
         }
     }

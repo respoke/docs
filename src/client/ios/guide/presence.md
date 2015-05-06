@@ -80,7 +80,7 @@ Additionally, you will want to listen for presence changes by implementing the o
     - (void)onPresence:(NSObject*)presence sender:(RespokeEndpoint*)endpoint
     {
         NSLog(@"endpoingId: %i", [endpoint getEndpointID]);
-        NSLog(@"presence: %i", presence);
+        NSLog(@"presence: %i", (NSString *)presence);
     }
 
 ## Managing Presence

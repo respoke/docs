@@ -24,6 +24,8 @@ Once connectivity is established, we're ready to start writing some code.
 
 First [connect to Respoke]((/client/android/getting-started.html)) and listen for the `connect` event. Then you can join a group.
 
+    package com.digium.respoke;
+
     import com.digium.respokesdk.Respoke;
     import com.digium.respokesdk.RespokeClient;
     import com.digium.respokesdk.RespokeConnection;
@@ -36,13 +38,13 @@ First [connect to Respoke]((/client/android/getting-started.html)) and listen fo
     import java.util.Map;
 
     public class Main implements RespokeClient.Listener, RespokeGroup.Listener, RespokeEndpoint.Listener,  RespokeDirectConnection.Listener, RespokeCall.Listener {
-        public RespokeClient client;
-        public RespokeGroup group;
+        private RespokeClient client;
+        private RespokeGroup group;
 
         // RespokeClientListener methods
         // "connect" event fired after successful connection to Respoke
         public void onConnect(RespokeClient client) {
-            Log.d("MainActivity", "Connected to Respoke!");
+            Log.d("Main", "Connected to Respoke!");
             
             String groupId = "united-federation-of-planets";
             ArrayList<String> groups = new ArrayList<String>();
@@ -51,7 +53,7 @@ First [connect to Respoke]((/client/android/getting-started.html)) and listen fo
             client.joinGroups(groups, new RespokeClient.JoinGroupCompletionListener() {
                 @Override
                 public void onSuccess(final ArrayList<RespokeGroup> groups) {
-                    Log.d("MainActivity", "Group joined, fetching member list");
+                    Log.d("Main", "Group joined, fetching member list");
                     
                     group = groups.get(0);
                     group.setListener(Main.this);

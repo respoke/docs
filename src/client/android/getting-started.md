@@ -88,6 +88,8 @@ Connecting is performed by instantiating a RespokeClient instance. This class is
 
 Your application can also be notified of major client-level events by registering as a ClientRespoke.Listener. We will use the onConnect() listener to know when the application has finished connecting to the Respoke service.
 
+    package com.digium.respoke;
+    
     import com.digium.respokesdk.Respoke;
     import com.digium.respokesdk.RespokeCall;
     import com.digium.respokesdk.RespokeClient;

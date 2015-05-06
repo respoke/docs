@@ -21,6 +21,8 @@ Audio calling is easy using Respoke. First connect to Respoke either in [develop
 
 Next, get the endpoint you want to start a audio call with.
 
+    package com.digium.respoke;
+
     import com.digium.respokesdk.Respoke;
     import com.digium.respokesdk.RespokeClient;
     import com.digium.respokesdk.RespokeConnection;
@@ -32,10 +34,10 @@ Next, get the endpoint you want to start a audio call with.
 
     public class Main implements RespokeClient.Listener, RespokeCall.Listener, RespokeEndpoint.Listener, RespokeGroup.Listener {
         public RespokeClient client;
-        public RespokeEndpoint remoteEndpoint;
+        public RespokeEndpoint endpoint;
         
-        public Main() {            
-            remoteEndpoint = client.getEndpoint("kirk@enterprise", false);
+        public startAudioCall() {            
+            endpoint = client.getEndpoint("kirk@enterprise", false);
         }
     }
 
@@ -43,38 +45,34 @@ Finally, start the audio call with the endpoint.
 
     public class Main implements RespokeClient.Listener, RespokeCall.Listener, RespokeEndpoint.Listener, RespokeGroup.Listener {
         public RespokeClient client;
-        public RespokeEndpoint remoteEndpoint;
         public RespokeCall call;
         public Boolean audioOnly;
 
-        public Main() {
-            remoteEndpoint = client.getEndpoint("kirk@enterprise", false);
+        public startAudioCall() {
+            String endpointId = "kirk@enterprise";
+            RespokeEndpoint endpoint = client.getEndpoint(endpointId, false);
             
             audioOnly = true;
             
-            call = remoteEndpoint.startCall(this, this, null, audioOnly);
+            call = endpoint.startCall(this, this, null, audioOnly);
         }
     }
 
 ## Answering Incoming Audio Calls
 
-First, listen for incoming calls by implementing the onCall method of the RespokeCall.Listener interface.
+First, listen for incoming calls by implementing the onCall method of the RespokeCall Listeners.
 
-    public class Main implements RespokeClient.Listener, RespokeCall.Listener, RespokeEndpoint.Listener, RespokeGroup.Listener {
-        public void onCall(RespokeClient client, RespokeCall call) {
-            // Show some UI to answer or hangup the call
-            // For illustration, let us just answer the call
-            call.answer(this, this);
-        }
+    public void onCall(RespokeClient client, RespokeCall call) {
+        // Show some UI to answer or hangup the call
+        // For illustration, let us just answer the call
+        call.answer(this, this);
     }
 
 Finally, listen for when both the local endpoint and remote endpoint are successfully connected by implementing the onConnected method of the RespokeCall.Listener interface.
 
-    public class Main implements RespokeClient.Listener, RespokeCall.Listener, RespokeEndpoint.Listener, RespokeGroup.Listener {
-        public void onConnected(RespokeCall call) {
-            // Call is successful, maybe show call controls 
-            // (e.g. hangup, mute audio, etc.)
-        }
+    public void onConnected(RespokeCall call) {
+        // Call is successful, maybe show call controls 
+        // (e.g. hangup, mute audio, etc.)
     }
     
 The audio call is now setup for both the local client and the remote peer.
@@ -83,31 +81,19 @@ The audio call is now setup for both the local client and the remote peer.
 
 You can mute or unmute a audio call's audio.
 
-    public class Main implements RespokeClient.Listener, RespokeCall.Listener, RespokeEndpoint.Listener, RespokeGroup.Listener {
-        public RespokeCall call;
-        
-        public Main() {
-            call.muteAudio(true);
-        }
+    public void muteAudio() {
+        call.muteAudio(true);
     }
     
 Finally, you can hangup a call.
 
-    public class Main implements RespokeClient.Listener, RespokeCall.Listener, RespokeEndpoint.Listener, RespokeGroup.Listener {
-        public RespokeCall call;
-        
-        public Main() {
-            call.hangup(true);
-            call = null;
-        }
+    public void hangup() {
+        call.hangup(true);
+        call = null;
     }
     
 Hanging up a call will trigger a hangup event.
 
-    public class Main implements RespokeClient.Listener, RespokeCall.Listener, RespokeEndpoint.Listener, RespokeGroup.Listener {
-        public RespokeCall call;
-        
-        public void onHangup(RespokeCall call) {
-            call = null;
-        }
+    public void onHangup(RespokeCall call) {
+        call = null;
     }
