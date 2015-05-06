@@ -15,37 +15,22 @@ meta:
 
 ## Overview
 
-The group forms the foundation for conversations beyond 1:1 peers. To create a group you must be connected to Respoke either in [development mode](/client/javascript/getting-started.html) or [authenticated](/client/javascript/guide/authentication.html).
+You can access Respoke session event in the Asterisk Manager Interface. First, validate you have asterisk and [chan_respoke compiled and running](/client/asterisk/getting-started.html).
 
-Once connectivity is established, we're ready to start writing some code.
+## Asterisk Manager Interface (AMI)
 
+The event is called `respoke_session`.
 
-## Discovering Groups
+    Event: respoke_session
+    Privilege: system,all
+    channel: RESPOKE/anonymous-00000006
+    id: 98B0F7D7-6AEC-4037-8250-8C5DFA7A2C11
+    local: your_respoke_endpoint
+    local_type: web
+    local_connection:
+    remote: ORDER12345
+    remote_type: web
+    remote_connection: 01749CDF-4BB0-41DB-8D52-30D25954D41A
+    remote_appid:
 
-First connect to Respoke and listen for the `connect` event. Then you can join a group.
-
-    client.listen("connect", function() {
-        client.join({
-            id: "united-federation-of-planets",
-            
-            onSuccess: function(group) {
-                group.listen("join", function(e) {
-                    var endpoint = e.connection.getEndpoint();
-                });
-                
-                group.listen("leave", function(e) {
-                    var endpoint = e.connection.getEndpoint();
-                });
-                
-                group.getMembers({
-                    onSuccess: function(connections) {
-                        connections.forEach(function(connection){
-                            var endpoint = connection.getEndpoint();
-                        });
-                    }
-                });
-            }
-        });
-    });  
-    
-Once successful, Respoke will return the `group` you joined. You can listen for when people `join` or `leave` this group. Additionally, you can get a list of group members.
+Here, the AMI "respoke_session" Event includes the respoke session information, in particular the `remote` field. This `remote` field is the endpointId of the remote caller. This value can be a username, orderId or anything that could uniquely identify the caller.
