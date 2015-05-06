@@ -8,3 +8,5 @@ menuOrder: 0
 ---
 
 # Community Events
+
+## Coming Soon

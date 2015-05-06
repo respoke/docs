@@ -6,3 +6,5 @@ menuOrder: 40
 ---
 
 # GET groups/:id
+
+## Coming Soon
