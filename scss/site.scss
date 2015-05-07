@@ -9,9 +9,22 @@
     padding-bottom: $spacing-large;
 
     @include sidebar-background;
+	
+	nav {
+		font-size: 15px;
+	}
 }
 
 .content {
+	$breakpoint-alpha: 480px;
+	
+	// Normalize content font
+    font-family: 'Open Sans', 'Helvetica Nue', 'Helvetica', 'Arial', sans-serif;
+    letter-spacing: 0.3px;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.65;
+	
     @include span-columns(12);
     margin-top: $navbar-height + $spacing-medium;
 
@@ -25,6 +38,7 @@
 
     :first-child {
         margin-top: 0;
+		margin: 0;
     }
 
     pre {
@@ -34,4 +48,79 @@
     img {
         max-width: 100%;
     }
+	
+	article {
+		p {
+			//font-size: 18px;
+			//line-height: 1.6;
+		}
+	
+		h1, h2{
+			font-size: 32px;
+			font-weight: 300;
+			line-height: 1.4;
+			letter-spacing: -0.15px;
+			display: block;
+		}
+		
+		h2  {
+			font-size: 28px;
+		}
+	}
+	
+	table {
+		margin: 1em 0;
+		min-width: 300px; // adjust to your needs
+
+		tr {
+			border-top: 1px solid #ddd;
+			border-bottom: 1px solid #ddd;
+		}
+
+		th {
+			display: none; // for accessibility, use a visually hidden method here instead! Thanks, reddit!   
+		}
+
+		td {
+			display: block; 
+
+			&:first-child {
+				padding-top: .5em;
+			}
+			&:last-child {
+				padding-bottom: .5em;
+			}
+
+			&:before {
+				content: ""; // who knew you could do this? The internet, that's who.
+				font-weight: bold;
+
+				// optional stuff to make it look nicer
+				//width: 6.5em; // magic number :( adjust according to your own content
+				display: inline-block;
+				// end options
+
+				@media (min-width: $breakpoint-alpha) {
+					display: none;
+				}
+			}
+		}
+
+		th, td {
+			text-align: left;
+
+			@media (min-width: $breakpoint-alpha) {
+				display: table-cell;
+				padding: .25em .5em;
+
+				&:first-child {
+					padding-left: 0;
+				}
+
+				&:last-child {
+					padding-right: 0;
+				}
+			}
+		}
+	}
 }

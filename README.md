@@ -41,3 +41,7 @@ npm start
 This source code is licensed under The MIT License found in the
 [LICENSE](LICENSE) file in the root directory of this source tree.
 
+
+## Content Reorganization Branch of Docs
+![Reorg Docs](http://i.imgur.com/1qnFUGO.png)
+

@@ -8,29 +8,33 @@ meta:
     description: "Get started with Respoke. Quickstart guides, reference documentation, and FAQs for developers. REST | Javascript"
 ---
 
-# Getting Started With Respoke
 
+###Respoke
+# Developer Docs
 
-## Audio calling quickstart guide
+## Overview
 
-[Build a peer-to-peer audio calling HTML5 app in 10 minutes](/js-library/audio-chat.html).
+Use Respoke to add live voice, video, text and data features to your website or mobile app. The Respoke Developer Docs are organized along product lines. Here, you'll find detailed guides and API references. Still have questions? Join our [Respoke Community](http://community.respoke.io/) forum.
 
-## Respoke.js
+You'll find documentation for the following:
 
-[Leverage Respoke in your web apps using our open source JavaScript client library](/js-library/).
+## Client Libraries
+
+Guides and API References on how to use Respoke's JavaScript Library, iOS SDK, Android SDK and Asterisk Channel Driver.
+
+## Server Libraries
+
+Guides on how to use Respoke's Node.js, Ruby, .NET and PHP server libraries.
 
 ## REST API
 
-[Learn how to make REST and web socket calls to the Respoke API from your server side app](/api/).
+Guides on how to use Respoke's REST API.
 
-## Authenticate with Respoke
+## Dev Portal
 
-[Secure access to your application using the *brokered authentication* feature of Respoke](/tutorials/brokered-auth.html).
+Guides on how to use Respoke's Developer Portal.
 
-## FAQ and general concepts
 
-[Frequently asked questions about Respoke including **presence, endpoints, and pricing**](/frequently-asked-questions.html).
+## Community Events
 
-## Community
-
-[View the Respoke forums, ask questions, and connect with other developers](http://community.respoke.io).
+Come see where the Respoke Community Team will be in your neighborhood next.
