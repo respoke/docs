@@ -1,5 +1,5 @@
 ---
-title: "Asterisk Manager Interface (AMI) Events - Asterisk Channel Library"
+title: "Asterisk Manager Interface (AMI) Events - Asterisk Channel Driver"
 shortTitle: "AMI Events"
 date: 2015-04-20
 template: article.jade
@@ -10,7 +10,7 @@ meta:
     description: "Learn how to use Respoke AMI Events"
 ---
 
-###Asterisk Channel Library
+###Asterisk Channel Driver
 # Asterisk Manager Interface (AMI) Events
 
 ## Overview

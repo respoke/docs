@@ -1,5 +1,5 @@
 ---
-title: "Asterisk Channel Variables Guide - Asterisk Channel Library"
+title: "Asterisk Channel Variables Guide - Asterisk Channel Driver"
 shortTitle: "Channel Variables"
 date: 2015-04-20
 template: article.jade
@@ -10,7 +10,7 @@ meta:
     description: "Learn how to use respoke asterisk channel variables."
 ---
 
-###Asterisk Channel Library
+###Asterisk Channel Driver
 # Asterisk Channel Variables 
 
 ## Overview

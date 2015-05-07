@@ -1,5 +1,5 @@
 ---
-title: "Examples - Asterisk Channel Library"
+title: "Examples - Asterisk Channel Driver"
 shortTitle: "Examples"
 date: 2014-10-15
 template: article.jade
@@ -10,7 +10,7 @@ meta:
     description: "Example libraries for using Respoke with Asterisk."
 ---
 
-###Asterisk Channel Library
+###Asterisk Channel Driver
 #Asterisk Channel Examples
 
 This page includes a comprehensive list of open source applications or code examples that we maintain. These resources are geared to help you learn Respoke or speed up development time by reusing code snippets.
