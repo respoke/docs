@@ -99,7 +99,7 @@ First, listen for incoming calls by implementing the onCall method of the Respok
 
     public void onCall(RespokeClient client, RespokeCall call) {
         // Show some UI to answer or hangup the call
-        // For illustration, let's just answer the call
+        // For illustration, let us just answer the call
         call.answer(this, this);
     }
 
