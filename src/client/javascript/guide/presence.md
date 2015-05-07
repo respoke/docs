@@ -28,8 +28,6 @@ Listen for presence on each endpoint in the group.
             id: "united-federation-of-planets",
             
             onSuccess: function(group) {
-                . . .
-                
                 group.getMembers({
                     onSuccess: function(connections) {
                         connections.forEach(function(connection) {

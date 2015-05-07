@@ -29,7 +29,6 @@ Next, save the group instance you joined.
             
             onSuccess: function(group) {
                 _this.group = group;
-                . . .
             }
         });
     });

@@ -61,7 +61,6 @@ First, save the direct connection instance for use later.
 
     client.listen("direct-connection", function(e) {
         _this.directConnection = e.directConnection;
-        . . .
     });
     
 Then, send a direct connection message.
