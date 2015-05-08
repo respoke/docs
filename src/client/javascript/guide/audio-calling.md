@@ -52,6 +52,8 @@ Finally, answer the incoming call.
     client.listen("call", function(e) {
         var call = e.call;
        
+        // Show some UI to answer or hangup the call
+        // For illustration, let us just answer the call
         if(call.caller !== true) {
             call.answer({
                 videoLocalElement: document.getElementById("localVideo"),

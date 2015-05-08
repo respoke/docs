@@ -21,26 +21,26 @@ You can access Respoke session variables in your dialplan. First, validate you h
 
 You can use the following Respoke session information inside the asterisk channel:
 
-- respoke_session_local
-- respoke_session_local_type
-- respoke_session_local_connection
-- respoke_session_remote
-- respoke_session_remote_type
-- respoke_session_remote_connection
-- respoke_session_remote_appid
-- respoke_session_id
+- RESPOKE
+- RESPOKE(local)
+- RESPOKE(local_type)
+- RESPOKE(local_connection)
+- RESPOKE(remote)
+- RESPOKE(remote_type)
+- RESPOKE(remote_connection)
+- RESPOKE(remote_appid)
 
 ## The Dialplan
 
 Here is a dialplan showing how to pass the "respoke_session_remote" inside an asterisk channel variable:
 
     exten => your_respoke_endpoint,1,Answer()
-    same => n,NoOp(RESPOKE METADATA: ${respoke_session_remote})
+    same => n,NoOp(RESPOKE METADATA: ${RESPOKE(remote)})
     same => n,Ringing
     same => n,Wait(8)
     same => n,Playback(welcome)
-    same => n,SayAlpha(${respoke_session_remote})
+    same => n,SayAlpha(${RESPOKE(remote)})
     same => n,Dial(SIP/300)
     same => n,Hangup()
     
-Here, the "respoke_session_remote" information is played back to the caller using the Asterisk application SayAlpha. The "respoke_session_remote" is the endpointId of the remote caller. This value can be a username, orderId or anything that could uniquely identify the caller.
+Here, the `RESPOKE(remote)` information is played back to the caller using the Asterisk application SayAlpha. The `RESPOKE(remote)` is the endpointId of the remote caller. This value can be a username, orderId or anything that could uniquely identify the caller.

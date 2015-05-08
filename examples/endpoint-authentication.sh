@@ -20,24 +20,8 @@ tokenResponse=$(curl -s -X POST \
     -H "App-Secret: $appSecret" -H 'Content-type: application/json' \
     -d "$body" $baseURL/tokens)
 
-
 # Extract the tokenId from the tokenResponse
+# Connect your Respoke client using this token
 tokenId=$(expr "$tokenResponse" : '.*"tokenId": *"\(.*\)"')
 
-body='{ "tokenId": "'$tokenId'" }'
-
-# Make a call to /session-tokens, passing the tokenId from /tokens
-# to get the temporary session token
-sessionTokenResponse=$(curl -X POST -H 'Content-type: application/json' \
-    -d "$body" $baseURL/session-tokens)
-
-# {
-#    "message": "Authorization successful",
-#    "token": "B89F8F35-709F-4022-8766-37E6DEFFD39E"
-# }
-
-# Extract the token from the sessionTokenResponse
-# Connect your Respoke client using this token
-token=$(expr "$sessionTokenResponse" : '.*"token": *"\(.*\)"')
-
-printf "{ token: %s }" "$token"
+printf "{ token: %s }" "$tokenId"
