@@ -10,7 +10,30 @@ meta:
     description: "Guide on how to get started developing with Node.js and Respoke."
 ---
 
-# Getting Started - Developing with Node.js and Respoke
+# Getting Started
 
-## Coming Soon
+## Overview
 
+The Respoke Node.js library provides a convenient way for Node developers to interface with Respoke for non-browser-to-browser communication tasks. Good examples of non-browser-to-browser communication tasks include authentication and listening for webhooks.
+
+## Install Respoke Node.js
+
+Install Respoke as a local application dependency using npm:
+
+    npm install respoke-admin
+    
+## Create Respoke
+
+Finally, create an instance of Respoke:
+
+    // Require Respoke
+    var Respoke = require('respoke-admin');
+    
+    // Create an instance of the Respoke
+    var respoke = new Respoke({
+        appId: "c10a2075-3f3d-466f-82f9-d2285e64c5d4",
+        "App-Secret": "710b2078-3f3d-465f-84f9-d2285e64c5d4"
+    });
+
+That's it! Now we're ready to start using all this Respoke server library has to offer.
+    
