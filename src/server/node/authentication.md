@@ -21,7 +21,7 @@ Your users need an access token to connect to Respoke. The access token provides
 
 Request a connection `token` from Respoke.
 
-var Respoke = require("respoke-admin");
+    var Respoke = require("respoke-admin");
 
     var respoke = new Respoke({
         appId: "c10a2075-3f3d-466f-82f9-d2285e64c5d4",
