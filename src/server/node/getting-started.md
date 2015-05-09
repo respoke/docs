@@ -15,7 +15,7 @@ meta:
 
 ## Overview
 
-The Respoke Node.js library provides a convenient way for Node developers to interface with Respoke for non-browser-to-browser communication tasks. Good examples of non-browser-to-browser communication tasks include authentication and listening for webhooks.
+The Respoke Node.js library provides a convenient way for Node developers to interface with Respoke for non-browser-to-browser communication tasks. Good examples of non-browser-to-browser communication tasks include authentication.
 
 ## Install Respoke Node.js
 

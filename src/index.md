@@ -33,8 +33,3 @@ Guides on how to use Respoke's REST API.
 ## Dev Portal
 
 Guides on how to use Respoke's Developer Portal.
-
-
-## Community Events
-
-Come see where the Respoke Community Team will be in your neighborhood next.
