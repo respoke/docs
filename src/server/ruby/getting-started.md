@@ -17,6 +17,8 @@ meta:
 
 The Respoke Ruby library provides a convenient way for Node developers to interface with Respoke for non-browser-to-browser communication tasks. Good examples of non-browser-to-browser communication tasks include authentication.
 
+First validate you have Ruby 2.1.* or greater installed.
+
 ## Install Respoke Ruby
 
 Install Respoke as a local application dependency using npm:

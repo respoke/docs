@@ -10,7 +10,7 @@ meta:
     description: "Guide on how to get started developing with .NET and Respoke."
 ---
 
-# Getting Started - Developing with .NET and Respoke
+###.NET Library
+# Getting Started
 
 ## Coming Soon
-

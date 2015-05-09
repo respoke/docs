@@ -10,7 +10,7 @@ meta:
     description: "Guide on how to get started developing with PHP and Respoke."
 ---
 
-# Getting Started - Developing with PHP and Respoke
+###PHP Library
+# Getting Started
 
 ## Coming Soon
-
