@@ -33,7 +33,15 @@ First, open Android Studio and create a new blank project based on API level 15 
 
 ### Add the Respoke Android SDK
 
-Open a terminal and change into the root directory of your new Android project.
+To use the Respoke Android SDK, you have two options.
+
+First, clone the source from GitHub and manually add the sdk to your project.
+    
+    git clone https://github.com/respoke/respoke-android-sdk
+    
+Alternatively, install the respoke-android-sdk via the maven central repository.
+
+Then, open a terminal and change into the root directory of your new Android project.
 
     cd /projects/RespokeDemo/
     
