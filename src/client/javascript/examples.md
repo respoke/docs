@@ -22,7 +22,6 @@ These example apps demonstrate some core concepts and common uses of Respoke.
 Name 			| Description 
 ------------ 	| -------------
 [The Interview Room](https://github.com/respoke/the-interview-backbone) | An open source, cross-browser real-time application built on Respoke. It demo every feature available in Respoke, including authentication, messaging (group), messaging (1:1), audio calling, video calling, screen sharing, group discovery, presence, direct connection, pstn (making outgoing phone calls/answering incoming phone calls), outbound callerId, inbound callerId and asterisk integration.
-[Apollo](https://github.com/respoke/apollo) | A open source, full featured remote team collaboration app using Respoke's authentication, group messaging, 1:1 messaging, audio calling, video calling, screen sharing, group discovery, presence and pstn (making outgoing phone calls).
 [Subspace Communicator](https://github.com/respoke/subspace-communicator) | A space themed messaging and group chat solution, with audio calling and video calling.
 [Subspace Communicator](https://github.com/respoke/subspace-communicator) | A space themed messaging and group chat solution, with audio calling and video calling.
 
