@@ -31,7 +31,7 @@ To use the Respoke iOS SDK, you have two options.
 
 First, clone the source from GitHub and manually add the sdk to your project.
     
-    git clone https://github.com/respoke/respoke-ios-sdk
+    git clone --recursive https://github.com/respoke/respoke-sdk-ios.git
     
 Alternatively, install the respoke-ios-sdk pod via CocoaPods.
  

@@ -37,7 +37,7 @@ To use the Respoke Android SDK, you have two options.
 
 First, clone the source from GitHub and manually add the sdk to your project.
     
-    git clone https://github.com/respoke/respoke-android-sdk
+    git clone --recursive https://github.com/respoke/respoke-sdk-android.git
     
 Alternatively, install the respoke-android-sdk via the maven central repository.
 
