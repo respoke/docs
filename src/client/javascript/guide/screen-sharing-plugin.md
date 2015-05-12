@@ -95,3 +95,13 @@ Just copy the ID from the end of the URL and paste it after https://chrome.googl
 
 More info. on inline installation can be found at: [https://developer.chrome.com/webstore/inline_installation](https://developer.chrome.com/webstore/inline_installation).
 
+## Listening for when the Chrome Extension is Loaded
+
+Get notified when the chrome extension has loaded by listening to the `extension-loaded` event.
+
+    respoke.listen("extension-loaded", function(evt){
+        if (evt.type === "screen-sharing") {
+            console.log("Screen sharing extension is ready!");
+        }
+    });
+
