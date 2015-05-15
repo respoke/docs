@@ -21,7 +21,7 @@ First validate you have PHP 5.3.* or greater installed.
 
 ## Install Respoke PHP
 
-Install Respoke as a local application dependency using [composer](https://getcomposer.org/):
+Install Respoke as a local application dependency using [Composer](https://getcomposer.org/):
 
     composer require respoke/respoke
     
