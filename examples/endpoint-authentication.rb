@@ -13,4 +13,5 @@ tokenId = client.app_token(
     endpointId: "spock@enterprise.com"
 )
 
+# return the token to the front-end
 {:token => tokenId}.to_json

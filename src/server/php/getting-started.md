@@ -13,4 +13,24 @@ meta:
 ###PHP Library
 # Getting Started
 
-## Coming Soon
+## Overview
+
+The Respoke PHP Library provides a convenient way for PHP developers to interface with Respoke for non-browser-to-browser communication tasks. Good examples of non-browser-to-browser communication tasks include authentication.
+
+First validate you have PHP 5.3.* or greater installed.
+
+## Install Respoke PHP
+
+Install Respoke as a local application dependency using [composer](https://getcomposer.org/):
+
+    composer require respoke/respoke
+    
+## Create Respoke
+
+Finally, create an instance of Respoke:
+
+    use Respoke\Client;
+
+    $client = new Respoke\Client();
+
+That's it! Now we're ready to start using all this Respoke server library has to offer.
