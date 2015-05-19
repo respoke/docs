@@ -15,7 +15,7 @@ meta:
 
 ## Overview
 
-Sending 1:1 messages to individual users is easy using Respoke. First connect to Respoke either in [development mode](/client/android/getting-started.html) or authenticated. Then we're ready to start writing some code.
+Sending 1:1 messages to individual users is easy and secure with Respoke. First connect to Respoke either in [development mode](/client/android/getting-started.html) or authenticated. Then we're ready to start writing some code.
 
 ## Send Indiviual Message
 
