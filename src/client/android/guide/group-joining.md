@@ -1,17 +1,17 @@
 ---
-title: "Group Discovery - Respoke Android SDK"
-shortTitle: "Group Discovery"
+title: "Group Joining - Respoke Android SDK"
+shortTitle: "Group Joining"
 date: 2015-04-20
 template: article.jade
 showInMenu: "true"
 menuOrder: 30
 meta:
-    keywords: "respoke, group, discovery"
-    description: "Learn how to do group discovery using Respoke"
+    keywords: "respoke, group, joining"
+    description: "Learn how to do group joining using Respoke"
 ---
 
 ###Android SDK
-# Group Discovery
+# Group Joining
 
 ## Overview
 
@@ -20,9 +20,9 @@ The group forms the foundation for conversations beyond 1:1 peers. To create a g
 Once connectivity is established, we're ready to start writing some code.
 
 
-## Discovering Groups
+## Joining Groups
 
-First [connect to Respoke]((/client/android/getting-started.html)) and listen for the `connect` event. Then you can join a group.
+First [connect to Respoke](/client/android/getting-started.html) and listen for the `connect` event. Then you can join a group.
 
     package com.digium.respoke;
 

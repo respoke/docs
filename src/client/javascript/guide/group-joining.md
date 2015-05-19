@@ -1,17 +1,17 @@
 ---
-title: "Group Discovery - Respoke JavaScript Library"
-shortTitle: "Group Discovery"
+title: "Group Joining - Respoke JavaScript Library"
+shortTitle: "Group Joining"
 date: 2015-04-20
 template: article.jade
 showInMenu: "true"
 menuOrder: 30
 meta:
-    keywords: "respoke, group, discovery"
-    description: "Learn how to do group discovery using Respoke"
+    keywords: "respoke, group, joining"
+    description: "Learn how to do group joining using Respoke"
 ---
 
 ###JavaScript Library
-# Group Discovery
+# Group Joining
 
 ## Overview
 
@@ -20,9 +20,9 @@ The group forms the foundation for conversations beyond 1:1 peers. To create a g
 Once connectivity is established, we're ready to start writing some code.
 
 
-## Discovering Groups
+## Joining Groups
 
-First connect to Respoke and listen for the `connect` event. Then you can join a group.
+First [connect to Respoke](/client/javascript/getting-started.html) and listen for the `connect` event. Then you can join a group.
 
     client.listen("connect", function() {
         client.join({

@@ -17,7 +17,7 @@ meta:
 
 In realtime applications it is often useful to detect when clients connect and disconnect. For example, we may want to mark a user as away when their client becomes inactive or mark the user as do not disturb when the user is busy.
 
-Respoke provides a simple interface for setting a user's presence. First, [join a group](/client/android/guide/group-discovery.html) and then we're ready to start writing some code.
+Respoke provides a simple interface for setting a user's presence. First, [join a group](/client/android/guide/group-joining.html) and then we're ready to start writing some code.
 
 ## Listen for Presence
 
