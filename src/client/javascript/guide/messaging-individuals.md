@@ -15,7 +15,9 @@ meta:
 
 ## Overview
 
-Sending 1:1 messages to individual users is easy and secure with Respoke. First connect to Respoke either in [development mode](/client/javascript/getting-started.html) or [authenticated](/client/javascript/guide/authentication.html). Then we're ready to start writing some code.
+Sending 1:1 messages to individual users is easy and secure with Respoke. We use WSS (WebSockets over TLS), so all messages are encrypted in flight.
+
+First connect to Respoke either in [development mode](/client/javascript/getting-started.html) or [authenticated](/client/javascript/guide/authentication.html). Then we're ready to start writing some code.
 
 ## Send Indiviual Message
 

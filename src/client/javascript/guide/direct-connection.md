@@ -15,7 +15,7 @@ meta:
 
 ## Overview
 
-Sending peer-to-peer messages to individual users is easy using Respoke. Send any amount of data without incurring any costs beyond the initial peer-to-peer negotiation.
+Sending peer-to-peer messages to individual users is easy and secure using Respoke. We use DTLS, so all messages are encrypted in flight. Send any amount of data without incurring any costs beyond the initial peer-to-peer negotiation.
 
 First connect to Respoke either in [development mode](/client/javascript/getting-started.html) or [authenticated](/client/javascript/guide/authentication.html). Then we're ready to start writing some code.
 

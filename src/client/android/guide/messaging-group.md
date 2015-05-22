@@ -15,7 +15,9 @@ meta:
 
 ## Overview
 
-Sending messages to a group of people is easy and secure with Respoke. First, [join a group](/client/android/guide/group-joining.html) and then we're ready to start writing some code.
+Sending messages to a group of people is easy and secure with Respoke. We use WSS (WebSockets over TLS), so all messages are encrypted in flight. 
+
+First, [join a group](/client/android/guide/group-joining.html) and then we're ready to start writing some code.
 
 ## Send Group Message
 
