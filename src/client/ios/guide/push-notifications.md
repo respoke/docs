@@ -13,9 +13,5 @@ meta:
 ###iOS SDK
 # Push Notifications
 
-## Overview
-
-Video calling is easy using Respoke. First connect to Respoke either in [development mode](/client/ios/getting-started.html) or authenticated. Then we're ready to start writing some code.
-
 ## Coming Soon
 
