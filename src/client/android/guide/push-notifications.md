@@ -10,7 +10,7 @@ meta:
     description: "Learn how to use push notification with Respoke"
 ---
 
-###iOS SDK
+###Android SDK
 # Push Notifications
 
 ## Coming Soon

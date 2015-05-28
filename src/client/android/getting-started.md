@@ -33,23 +33,11 @@ First, open Android Studio and create a new blank project based on API level 15 
 
 ### Add the Respoke Android SDK
 
-To use the Respoke Android SDK, you have two options.
+The Respoke Android SDK can be installed from the Maven Central Respository by adding a single line to your /app/build.gradle file.
 
-First, clone the source from GitHub and manually add the sdk to your project.
-    
-    git clone --recursive https://github.com/respoke/respoke-sdk-android.git
-    
-Alternatively, install the respoke-android-sdk via the maven central repository.
-
-Then, open a terminal and change into the root directory of your new Android project.
-
-    cd /projects/RespokeDemo/
-    
-Now unzip the 'respoke-sdk-android*.zip file into this directory or move the resulting directory after unzipping into this directory.
-
-In Android Studio, add the SDK to your project by Choosing **File -> Import Module** and then selecting the base directory of the SDK project in the directory that was cloned ( /respoke-sdk-android/respokeSDK). Android Studio will automatically pull in all of the dependencies and rebuild your project.
-
-![import new module](../../images/android-sdk/import-new-module.png)
+    dependencies {
+        compile 'com.digium.respoke:respoke-sdk:1.+'
+    }
 
 ### Edit Your Application’s Manifest
 
@@ -71,22 +59,6 @@ The Respoke SDK requires special permissions in order to access the device’s i
     </application>
 </manifest>
 ```
-
-### Edit Your Application’s build.gradle file
-
-Open your application’s /app/build.gradle file and add the Respoke SDK as a dependency.
-
-    apply plugin: 'com.android.application'
-    
-    android {
-        ...
-    }
-    
-    dependencies {
-        compile fileTree(dir: 'libs', include: ['*.jar'])
-        compile 'com.android.support:appcompat-v7:21.0.3'
-        compile project(':respokeSDK')
-    }
 
 ## Connect to Respoke
 
