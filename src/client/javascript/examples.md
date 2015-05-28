@@ -23,7 +23,7 @@ Name 			| Description
 ------------ 	| -------------
 [The Interview Room](https://github.com/respoke/the-interview-backbone) | An open source, cross-browser real-time application built on Respoke. It demo every feature available in Respoke, including authentication, messaging (group), messaging (1:1), audio calling, video calling, screen sharing, group discovery, presence, direct connection, pstn (making outgoing phone calls/answering incoming phone calls), outbound callerId, inbound callerId and asterisk integration.
 [Subspace Communicator](https://github.com/respoke/subspace-communicator) | A space themed messaging and group chat solution, with audio calling and video calling.
-[Subspace Communicator](https://github.com/respoke/subspace-communicator) | A space themed messaging and group chat solution, with audio calling and video calling.
+[Curated Web Examples](https://github.com/respoke/web-examples) | These are a suite of example applications to show how to work with the Respoke API just using jQuery.
 
 ## Code Snippets
 
