@@ -22,7 +22,8 @@ section of the Dev Portal guide.
 
 ## Generating a Certificate Request
 
-You'll need to generate a Certificate Request before you can configure your app for push notifications.
+You'll need to generate a Certificate Request before you can configure your app for push notifications. ***Note: This
+same process is required when generating a PRODUCTION certificate.***
 
 **Step 1.** Launch the "Keychain Access" app on your Mac.
 
@@ -40,8 +41,6 @@ Authority.
 **Step 4.** Use the suggested name, select the save destination you prefer, and click the "Save" button.
 
 ![Certificate Save As](../../images/ios-sdk/ios-push-creds-1-4.png)
-
-*Note: The same process above applies when generating a production certificate.*
 
 ## Creating an App ID
 
