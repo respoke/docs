@@ -21,21 +21,23 @@ First [signup for a free Respoke account](https://portal.respoke.io/#/signup). W
 
 ### Create an iOS Workspace
 
-Open Xcode and create a new workspace. Now create a new project, select a single view application, supply the project options, and add the project to the workspace.
+Open Xcode and create a new workspace. Now create a new project, supply the project options and add the project to the workspace.
 
 ![configure new project](../../images/ios-sdk/single-view-application.png)
 
 ### Add the Respoke iOS SDK
 
-To use the Respoke iOS SDK, you have two options.
+The Respoke iOS SDK is available to install via [CocoaPods](https://cocoapods.org/pods/RespokeSDK).
 
-First, clone the source from GitHub and manually add the sdk to your project.
+Add `RespokeSDK` to your Podfile.
+
+    pod 'RespokeSDK'
+
+Finally, install `RespokeSDK`.
+
+    pod install
     
-    git clone --recursive https://github.com/respoke/respoke-sdk-ios.git
-    
-Alternatively, install the respoke-ios-sdk pod via CocoaPods.
- 
-    pod install respoke-ios-sdk
+That's it.
 
 ## Connect to Respoke
 

@@ -33,11 +33,13 @@ First, open Android Studio and create a new blank project based on API level 15 
 
 ### Add the Respoke Android SDK
 
-The Respoke Android SDK can be installed from the Maven Central Respository by adding a single line to your /app/build.gradle file.
+The Respoke Android SDK can be installed from the [Maven Central Respository](http://search.maven.org/#search%7Cga%7C1%7Crespoke) by adding a single line to your /app/build.gradle file.
 
     dependencies {
         compile 'com.digium.respoke:respoke-sdk:1.+'
     }
+    
+That's it.
 
 ### Edit Your Application’s Manifest
 
