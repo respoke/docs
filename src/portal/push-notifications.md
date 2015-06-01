@@ -151,7 +151,7 @@ key. As shown at callout 2, the value will be hidden once you click outside the 
 how to generate your API key, including configuring your app to accept push notifications from Respoke servers, are
 available [here](/client/android/android-push-notification-credentials.html).
 
-![GCM Credentials](../images//2-gcm-creds.png)
+![GCM Credentials](../images/2-gcm-creds.png)
 
 ### Message Type Configuration
 
