@@ -21,5 +21,5 @@ These example apps demonstrate some core concepts and common uses of Respoke.
 
 Name 			| Description 
 ------------ 	| -------------
-[Respoke Android App](https://github.com/respoke/respoke-android) | A open source, full featured remote team collaboration app using Respoke's authentication, group messaging, 1:1 messaging, audio calling, video calling, group discovery and presence.
+[Respoke Android App](https://github.com/respoke/sample-respoke-android) | A open source, full featured remote team collaboration app using Respoke's authentication, group messaging, 1:1 messaging, audio calling, video calling, group discovery and presence.
 
