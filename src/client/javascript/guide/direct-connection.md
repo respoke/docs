@@ -68,7 +68,7 @@ Then, send a direct connection message.
     var directConnection = _this.directConnection;
     
     // The message can be simple text
-    directConnection.sendMessage("Live Long and Prosper");
+    directConnection.sendMessage({ message: "Live Long and Prosper" });
     
     // Or the message can be a complex object literal
     directConnection.sendMessage({ 

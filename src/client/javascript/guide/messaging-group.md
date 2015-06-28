@@ -40,7 +40,7 @@ Then, send a message to the group.
     var group = _this.group;
     
     // The message can be simple text
-    group.sendMessage("Live Long and Prosper");
+    group.sendMessage({ message: "Live Long and Prosper" });
     
     // Or the message can be a complex object literal
     group.sendMessage({ 

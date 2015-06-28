@@ -30,7 +30,7 @@ Next, get the endpoint you want to send a message to.
 Then, send a message to the individual.
 
     // The message can be simple text
-    endpoint.sendMessage("Live Long and Prosper");
+    endpoint.sendMessage({ message: "Live Long and Prosper" });
     
     // Or the message can be a complex object literal
     endpoint.sendMessage({ 
