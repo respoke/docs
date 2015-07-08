@@ -15,7 +15,11 @@ meta:
 
 ## Overview
 
+Use audio conferencing to join multiple participants in a single conference room. Combine audio conferencing with groups to get a list of conference participants and keep track of participants joining and leaving.
+
 Audio conferencing is easy using Respoke. First, [join a group](/client/javascript/guide/group-joining.html) and then we're ready to start writing some code.
+
+Request Invite: Please note audio conferencing is currently a beta invite only feature. If you are interested in using audio conferencing now, please email us at support@respoke.io to enable your account. We look forward to your feedback as we work to make audio conferencing the best feature.
 
 ## Starting Audio Conferencing
 
