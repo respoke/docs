@@ -12,10 +12,14 @@ meta:
 
 ###JavaScript Library
 # Getting Started
+Getting up and running with Respoke is free, and only takes a few minutes. First you'll need to create a Respoke account, then include the Respoke Javascript library in your source code, and finally run a small bit of Javascript code to connect to Respoke.
 
 ## Create an account
 
-First [signup for a free Respoke account](https://portal.respoke.io/#/signup). Within the Respoke Dashboard you can create, manage and delete Respoke Apps. Clicking on a specific App lets you view your App ID, App Secret, whether you have Dev Mode enabled and App Roles (if any).
+The first thing you'll need to do before you can start using Respoke is to [signup for a free Respoke account](https://portal.respoke.io/#/signup). Once your account is setup, head to the Dev Portal and create a new app.
+
+
+Within the Respoke Dashboard you can create, manage and delete Respoke Apps. Clicking on a specific App lets you view your App ID, App Secret, whether you have Dev Mode enabled and App Roles (if any).
 
 ## Install Respoke
 
