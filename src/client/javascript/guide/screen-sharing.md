@@ -22,7 +22,7 @@ Screen sharing is easy using Respoke. First connect to Respoke either in [develo
 Next, create DOM elements to hang the WebRTC call.
 
    ```
-   <video id="localvideo"></video>
+   <video id="localVideo"></video>
    <video id="remoteVideo"></video>
    ```
 
@@ -46,12 +46,12 @@ First, listen for incoming calls.
     client.listen("call", function(e) {
         var call = e.call;
     });
-    
+
 Finally, answer the incoming call.
 
     client.listen("call", function(e) {
         var call = e.call;
-       
+
         if(call.caller !== true) {
             call.answer({
                 videoLocalElement: document.getElementById("localVideo"),
@@ -59,8 +59,8 @@ Finally, answer the incoming call.
             });
         }
     });
-    
-The screen share is now setup for both the local client and the remote peer. Only one person can screen share at a time. 
+
+The screen share is now setup for both the local client and the remote peer. Only one person can screen share at a time.
 
 For example, say the local user is sharing his screen and the remote user is looking at his screen. Since only one person can screen share, the remote user will not have any video input, so from the local user's POV, he's starting at a blank wall.
 
@@ -72,15 +72,15 @@ Consider starting a [video call](/client/javascript/guide/video-calling.html) fo
 You can hide or show your screen during a screen sharing call.
 
     call.toggleVideo();
-    
+
 Additionally, you can mute or unmute a screen sharing call's audio.
 
     call.toggleAudio();
-    
+
 Finally, you can hangup a call.
 
-    call.hangup(); 
-    
+    call.hangup();
+
 Hanging up a call will trigger a hangup event.
 
     call.listen("hangup", function(e) {

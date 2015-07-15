@@ -22,7 +22,7 @@ Audio calling is easy using Respoke. First connect to Respoke either in [develop
 Next, create DOM elements to hang the WebRTC call.
 
    ```
-   <video id="localvideo"></video>
+   <video id="localVideo"></video>
    <video id="remoteVideo"></video>
    ```
 
@@ -46,12 +46,12 @@ First, listen for incoming calls.
     client.listen("call", function(e) {
         var call = e.call;
     });
-    
+
 Finally, answer the incoming call.
 
     client.listen("call", function(e) {
         var call = e.call;
-       
+
         // Show some UI to answer or hangup the call
         // For illustration, let us just answer the call
         if(call.caller !== true) {
@@ -61,7 +61,7 @@ Finally, answer the incoming call.
             });
         }
     });
-    
+
 The audio call is now setup for both the local client and the remote peer.
 
 
@@ -70,11 +70,11 @@ The audio call is now setup for both the local client and the remote peer.
 You can mute or unmute an audio call.
 
     call.toggleAudio();
-    
+
 Additionally, you can hangup a call.
 
-    call.hangup(); 
-    
+    call.hangup();
+
 Hanging up a call will trigger a hangup event.
 
     call.listen("hangup", function(e) {
