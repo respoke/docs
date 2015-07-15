@@ -6,7 +6,7 @@ template: article.jade
 showInMenu: "true"
 menuOrder: 80
 meta:
-    keywords: "respoke, audio calling, webrtc"
+    keywords: "respoke, audio calling, webrtc, communication"
     description: "Learn how to start an audio call directly peer-to-peer"
 ---
 
