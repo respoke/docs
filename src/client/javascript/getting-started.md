@@ -17,14 +17,16 @@ Getting up and running with Respoke is free, and can be accomplished in a few ea
 
 ## Create an Account
 
-The first thing you'll need to do before you can start using Respoke is to <a href="https://portal.respoke.io/#/signup" target="_blank" title="signup for a free Respoke account">signup for a free Respoke account</a>. Once your account is setup, head to the [Dev Portal and create a new Respoke app](/portal/apps.html).
+The first thing you'll need to do before you can start using Respoke is to <a href="https://portal.respoke.io/#/signup" target="_blank" title="signup for a free Respoke account">signup for a free Respoke account</a>.
 
-
-<!-- Within the Respoke Dashboard you can create, manage and delete Respoke Apps. Clicking on a specific App lets you view your App ID, App Secret, whether you have Dev Mode enabled and App Roles (if any). -->
 
 ## Create a Respoke App
 
-After 
+After your account is setup, head to the [Dev Portal and create a new Respoke app](/portal/apps.html). Once you've created your app, set it to use `development mode` by setting the Dev Mode toggle to enabled in the permissions tab of your app settings.
+
+![Dev Mode Enabled](../../../images/dev-mode-enabled.jpg)
+
+With `development mode` enabled, Respoke will take care of setting permissions and issuing tokens for the users connecting to your app. This makes it much easier to get started, and is great for development purposes; however, the trade-off is that your app will be inherently insecure as you will need to store your app ID and app secret on the client side. Once you're app is ready for production, you will want to [setup brokered authenication](/client/javascript/guide/authentication.html) to help secure your app.
 
 ## Install Respoke
 

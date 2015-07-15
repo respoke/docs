@@ -13,34 +13,11 @@ meta:
 ###JavaScript Library
 
 # Authentication
-Connecting to Respoke requires an access token which provides both authorization and permissions for your users. This token can be obtained by enabling `development mode` for your app, or by using `brokered authentication`.
-
-## Development Mode
-In development mode, Respoke takes care of authentication and token creation for you. This makes it much easier to get started, and is great for development purposes; however, the trade-off is that your app will be inherently insecure as you will need to store your app ID and app secret on the client side. To setup development mode simply set the Dev Mode toggle to enabled in the permissions tab of your app settings.
-
-![Dev Mode Enabled](../../../images/dev-mode-enabled.jpg)
-
-Then connect to Respoke using the respoke.createClient() method, passing in the app ID, and setting the developmentMode property to true.
-
-     var client = respoke.createClient({
-         appId: "XXXXXXX-my-app-id-XXXXXX",
-         developmentMode: true,
-         endpointId: "joeUser"
-     });
-
-     client.listen('connect', function () {
-         console.log('connected to respoke!');
-     });
-
-     client.listen('error', function (err) {
-         console.error('Connection to Respoke failed.', err);
-     });
-
-     client.connect();
+Connecting to Respoke requires an access token which provides both authorization and permissions for your users. This token can be obtained using a method known as `brokered authentication`. 
 
 
 ## Brokered Authentication
-Once development is complete and you're ready to put your app into production, you will need to lock things down for security purposes. To accomplish this you'll setup `brokered authentication` which uses a server-side script to verify users and request a token on their behalf. This not only secures your application by storing sensitive information on the server, it also gives you a more fine-grained control over your users permissions. The general process for `brokered authentication` is as follows:
+When development is complete and you're ready to put your app into production, you will need to lock things down for security purposes. To accomplish this you'll setup `brokered authentication` which uses a server-side script to verify users and request a token on their behalf. This not only secures your application by storing sensitive information on the server, it also gives you a greater level of control over your users permissions. The general process for `brokered authentication` is as follows:
 
 ![Dev Mode Enabled](../../../images/respoke-brokered-auth-flow.jpg)
 
@@ -70,36 +47,45 @@ Respoke and your app are now set up for authentication. It's time to write some 
 
 ## Authenticating With Respoke
 
-First, request a `token` from your server.
+First, request a `token` from your server. 
+
+When you request a token, you need to provide:
+
+- `endpointId`: Usually your user's username
+- `appId`: The App ID for your App
+- `appSecret`: The App Secret for your App
+- `roleId`: A set of permissions you create in the Respoke Dashboard for your App
+- `ttl`: The number of seconds the token is valid
+
+
 
     // Create an instance of the Respoke client
     var client = respoke.createClient();
 
     // Create HTTP POST request to authentication server
     (function connect() {
-      $.ajax({
-          method: "POST",
-          url: "your/server/api/tokens",
-          data: {
-              endpointId: "spock@enterprise.com"
-          },
-          success: function(response) {
-              var token = response.token;
-        
-              client.connect({
-                  token: token          
-              });
-          }
-      })
+        $.ajax({
+            method: "POST",
+            url: "your/server/api/tokens",
+            data: {
+                endpointId: "spock@enterprise.com"
+            },
+            success: function(response) {
+                var token = response.token;
+
+                client.connect({
+                    token: token
+                });
+            }
+        })
     })();
-    
+
     // "connect" event fired after successful connection to Respoke
     client.listen("connect", function(e) {
         console.log("Connected to Respoke!", e);
     });
-    
 
-Then your server will request this `token` from Respoke.
+Then your server will request a `token` from Respoke.
 
 {example: endpoint-authentication}
 
@@ -111,13 +97,4 @@ Additionally, you'll need to listen to the `disconnect` event. Then request a ne
         // Reconnect to Respoke
         connect();
     });
-
-
-When you request a token, you need to provide:
-
-- `endpointId`: Usually your user's username
-- `appId`: The App ID for your App
-- `appSecret`: The App Secret for your App
-- `roleId`: A set of permissions you create in the Respoke Dashboard for your App
-- `ttl`: The number of seconds the token is valid
 
