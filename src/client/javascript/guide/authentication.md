@@ -6,14 +6,13 @@ template: article.jade
 showInMenu: "true"
 menuOrder: 20
 meta:
-    keywords: "respoke, auth, authenticating, authentication, security, token"
+    keywords: "respoke, auth, authenticating, authentication, security, token, webrtc"
     description: "Learn how to secure your users' access to Respoke audio, video, text and data channels."
 ---
 
 ###JavaScript Library
-# Authentication
 
-## Overview
+# Authentication
 Connecting to Respoke requires an access token which provides both authorization and permissions for your users. This token can be obtained by enabling `development mode` for your app, or by using `brokered authentication`.
 
 ## Development Mode

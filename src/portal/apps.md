@@ -20,10 +20,10 @@ To create a new Respoke app head to the <a href="https://portal.respoke.io/#/app
 ![Create new app](../images/create-new-app.png)
 
 ## Managing an App
-You can change the settings for your app, as well as obtaining app specific information such as the App ID and App Secret, by clicking on any of the apps in your Apps tab in the Dev Portal. 
+You can change the settings for your app, as well as obtaining app specific information such as the App ID and App Secret, by clicking on any of the apps in the <a href="https://portal.respoke.io/#/apps" target="_blank">Apps tab of the Dev Portal</a>. 
 ![Dev Portal - Apps Listing](../images/portal-apps.jpg)
 
-This will take you to the settings page for the App you clicked, and from here you can view and configure all the of settings for the app.
+This will take you to the settings page for the App you selected. From here you can view and configure all the of settings for the app.
 ![Manage app settings](../images/app-settings.jpg)
 
 
