@@ -15,16 +15,20 @@ meta:
 # Getting Started
 Getting up and running with Respoke is free, and can be accomplished in a few easy steps.
 
-## Create an account
+## Create an Account
 
 The first thing you'll need to do before you can start using Respoke is to <a href="https://portal.respoke.io/#/signup" target="_blank" title="signup for a free Respoke account">signup for a free Respoke account</a>. Once your account is setup, head to the [Dev Portal and create a new Respoke app](/portal/apps.html).
 
 
 <!-- Within the Respoke Dashboard you can create, manage and delete Respoke Apps. Clicking on a specific App lets you view your App ID, App Secret, whether you have Dev Mode enabled and App Roles (if any). -->
 
+## Create a Respoke App
+
+After 
+
 ## Install Respoke
 
-Next, you'll need to include the Respoke JavaScript library in the source code of your website. To do this, simply add the following script tag to the <head> section of your HTML file: 
+Next, you'll need to include the Respoke JavaScript library in the source code of your project. To do this, add the following script tag to the <head> section of your HTML file: 
   
     <script src="https://cdn.respoke.io/respoke.min.js"></script>
 
