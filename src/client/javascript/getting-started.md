@@ -11,19 +11,30 @@ meta:
 ---
 
 ###JavaScript Library
+
 # Getting Started
+Getting up and running with Respoke is free, and can be accomplished in a few easy steps.
 
-## Create an account
+## Create an Account
 
-First [signup for a free Respoke account](https://portal.respoke.io/#/signup). Within the Respoke Dashboard you can create, manage and delete Respoke Apps. Clicking on a specific App lets you view your App ID, App Secret, whether you have Dev Mode enabled and App Roles (if any).
+The first thing you'll need to do before you can start using Respoke is to <a href="https://portal.respoke.io/#/signup" target="_blank" title="signup for a free Respoke account">signup for a free Respoke account</a>.
+
+
+## Create a Respoke App
+
+After your account is setup, head to the [Dev Portal and create a new Respoke app](/portal/apps.html). Once you've created your app, set it to use `development mode` by setting the Dev Mode toggle to enabled in the permissions tab of your app settings.
+
+![Dev Mode Enabled](../../../images/dev-mode-enabled.jpg)
+
+With `development mode` enabled, Respoke will take care of setting permissions and issuing tokens for the users connecting to your app. This makes it much easier to get started, and is great for development purposes; however, the trade-off is that your app will be inherently insecure as you will need to store your app ID and app secret on the client side. Once you're app is ready for production, you will want to [setup brokered authenication](/client/javascript/guide/authentication.html) to help secure your app.
 
 ## Install Respoke
 
-Next, you'll need to include the Respoke JavaScript client library in your website. Simply add a script tag to the <head> section of your HTML file. We recommend including the library directly from our CDN: 
+Next, you'll need to include the Respoke JavaScript library in the source code of your project. To do this, add the following script tag to the <head> section of your HTML file: 
   
     <script src="https://cdn.respoke.io/respoke.min.js"></script>
 
-Alternatively, if you prefer to install Respoke as a local application dependency, you can use Bower:
+Alternately, if you prefer to install Respoke as a local application dependency, you can use Bower:
 
     bower install respoke
     
@@ -53,5 +64,5 @@ Finally, to validate everything is working, you'll want to connect to Respoke:
         endpointId: endpointId
     });
 
-That's it! Now we're ready to start using all Respoke has to offer.
+That's it! You're now ready to start using the Respoke framework. Why not get started by adding [video](/client/javascript/guide/video-calling.html) or [messaging](/client/javascript/guide/messaging-individuals.html) to your app?
     
