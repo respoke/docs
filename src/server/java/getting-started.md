@@ -19,9 +19,19 @@ The Respoke Java library provides a convenient way for Node developers to interf
 
 ## Install Respoke Java
 
-We are in the process of publishing the library to the Maven Central Repository, until then install Respoke as a local application dependency by git cloning respoke-java:
+Install Respoke as a local application dependency using [Maven](http://search.maven.org/#search%7Cga%7C1%7Crespoke):
 
-    git clone https://github.com/respoke/respoke-java
+    <dependency>
+        <groupId>com.digium.respoke</groupId>
+        <artifactId>respoke-java</artifactId>
+        <version>1.0.0</version>
+    </dependency>
+    
+Install Respoke's Java Library to your project using [Gradle](https://gradle.org/).
+
+    dependencies {	
+    	compile "com.digium.respoke:respoke-java:1.0.0"
+    }
     
 ## Create Respoke
 
