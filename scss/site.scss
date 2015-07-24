@@ -1,33 +1,26 @@
 @import 'base';
 @import 'components/sidebar';
 @import 'highlight-js-theme-light';
-
 @import 'example-block';
-
 .container {
     @include outer-container;
     padding-bottom: $spacing-large;
-
     @include sidebar-background;
-	
-	nav {
-		font-size: 15px;
-	}
+    nav {
+        font-size: 15px;
+    }
 }
 
 .content {
-	$breakpoint-alpha: 480px;
-	
-	// Normalize content font
+    $breakpoint-alpha: 480px;
+    // Normalize content font
     font-family: 'Open Sans', 'Helvetica Nue', 'Helvetica', 'Arial', sans-serif;
     letter-spacing: 0.3px;
     font-size: 16px;
     font-weight: normal;
     line-height: 1.65;
-	
     @include span-columns(12);
     margin-top: $navbar-height + $spacing-medium;
-
     @include media($tablet) {
         @include span-columns(5);
     }
@@ -35,102 +28,98 @@
         @include span-columns(3);
         @include shift(0.5);
     }
-
     /*:first-child {
         margin-top: 0;
-		margin: 0;
+        margin: 0;
     }*/
-
+    
     pre {
-        margin: $spacing-medium 0;
+        margin: 20px 0;
     }
-
     img {
         max-width: 100%;
         margin: 30px 0px;
-        -webkit-box-shadow: 5px 5px 15px 0px rgba(192,192,192,.25);
-        -moz-box-shadow: 5px 5px 15px 0px rgba(192,192,192,.25);
-        box-shadow: 5px 5px 15px 0px rgba(192,192,192,.25);
+        -webkit-box-shadow: 5px 5px 15px 0px rgba(192, 192, 192, .25);
+        -moz-box-shadow: 5px 5px 15px 0px rgba(192, 192, 192, .25);
+        box-shadow: 5px 5px 15px 0px rgba(192, 192, 192, .25);
     }
-	
-	article {
-		p {
-			//font-size: 18px;
-			//line-height: 1.6;
-		}
-	
-		h1, h2{
-			font-size: 32px;
-			font-weight: 300;
-			line-height: 1.4;
-			letter-spacing: -0.15px;
-			display: block;
-            margin: 40px 0px 0px 0px;
-		}
-
+    article {
+        p {
+            //font-size: 18px;
+            //line-height: 1.6;
+            margin: 0px;
+        }
+        h1,
+        h2,
+        h3,
+        h4 {
+            line-height: 1.4;
+            letter-spacing: -0.15px;
+            display: block;
+            margin: 40px 0px 10px 0px;
+        }
         h1 {
+            font-size: 32px;
             font-weight: 400;
             color: #ff7766;
         }
-		
-		h2  {
-			font-size: 26px;
-		}
-	}
-
-	table {
-		margin: 1em 0;
-		min-width: 300px; // adjust to your needs
-
-		tr {
-			border-top: 1px solid #ddd;
-			border-bottom: 1px solid #ddd;
-		}
-
-		th {
-			display: none; // for accessibility, use a visually hidden method here instead! Thanks, reddit!   
-		}
-
-		td {
-			display: block; 
-
-			&:first-child {
-				padding-top: .5em;
-			}
-			&:last-child {
-				padding-bottom: .5em;
-			}
-
-			&:before {
-				content: ""; // who knew you could do this? The internet, that's who.
-				font-weight: bold;
-
-				// optional stuff to make it look nicer
-				//width: 6.5em; // magic number :( adjust according to your own content
-				display: inline-block;
-				// end options
-
-				@media (min-width: $breakpoint-alpha) {
-					display: none;
-				}
-			}
-		}
-
-		th, td {
-			text-align: left;
-
-			@media (min-width: $breakpoint-alpha) {
-				display: table-cell;
-				padding: .25em .5em;
-
-				&:first-child {
-					padding-left: 0;
-				}
-
-				&:last-child {
-					padding-right: 0;
-				}
-			}
-		}
-	}
+        h2 {
+            font-size: 26px;
+            font-weight: 300;
+        }
+        h3 {
+            margin: 0px;
+        }
+        h4 {
+            margin: 20px 0px 0px 0px;
+        }
+        ul {
+            margin: 0px;
+        }
+    }
+    table {
+        margin: 1em 0;
+        min-width: 300px; // adjust to your needs
+        tr {
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            display: none; // for accessibility, use a visually hidden method here instead! Thanks, reddit!   
+        }
+        td {
+            display: block;
+            &:first-child {
+                padding-top: .5em;
+            }
+            &:last-child {
+                padding-bottom: .5em;
+            }
+            &:before {
+                content: ""; // who knew you could do this? The internet, that's who.
+                font-weight: bold;
+                // optional stuff to make it look nicer
+                //width: 6.5em; // magic number :( adjust according to your own content
+                display: inline-block;
+                // end options
+                @media (min-width: $breakpoint-alpha) {
+                    display: none;
+                }
+            }
+        }
+        th,
+        td {
+            text-align: left;
+            @media (min-width: $breakpoint-alpha) {
+                display: table-cell;
+                padding: .25em .5em;
+                &:first-child {
+                    padding-left: 0;
+                }
+                &:last-child {
+                    padding-right: 0;
+                }
+            }
+        }
+    }
 }
