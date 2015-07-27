@@ -49,15 +49,15 @@ First, add a listener for the incoming `call` event, then, answer the call using
         }
     });
 
-The audio call is now setup for both the local client and the remote peer.
-
+That's it! You've just setup your first Respoke call!
 
 ## Controlling the Call
-You can mute or unmute an audio call using the <a href="https://docs.respoke.io/js-library/respoke.Call.html#toggleAudio" target="_blank">toggleAudio</a> method of the Respoke Call object.
+
+### Mute or unmute audio during a call:
 
     call.toggleAudio();
 
-Additionally, you can end a call using the <a href="https://docs.respoke.io/js-library/respoke.Call.html#hangup" target="_blank">hangup</a> method.
+### End a call:
 
     call.hangup();
 

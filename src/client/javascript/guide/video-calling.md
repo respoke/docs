@@ -11,49 +11,42 @@ meta:
 ---
 
 ###JavaScript Library
+
 # Video Calling
+The `video calling` features of Respoke allow you to create high-quality, peer to peer video calls with just a few lines of code.
 
-## Overview
+#### Assumptions
+You have read the [Getting Started Guide](/client/javascript/getting-started.html), created an instance of the Respoke <a href="https://docs.respoke.io/js-library/respoke.Client.html" target="_blank">Client</a>, and <a href="https://docs.respoke.io/js-library/respoke.Client.html#connect" target+"_blank">connected</a> your app to Respoke. 
 
-Video calling is easy using Respoke. First connect to Respoke either in [development mode](/client/javascript/getting-started.html) or [authenticated](/client/javascript/guide/authentication.html). Then we're ready to start writing some code.
 
-## Starting Video Calls
+## Starting a Video Call
+Before starting a video call you first need to add a few `<video>` elements to attach the call streams to.
 
-Next, create DOM elements to hang the WebRTC call.
+    <video id="localVideo"></video>
+    <video id="remoteVideo"></video>
 
-   ```
-   <video id="localVideo"></video>
-   <video id="remoteVideo"></video>
-   ```
 
-Then, get the endpoint you want to start a video call with.
+Next, you'll need a reference to the <<a href="https://docs.respoke.io/js-library/respoke.Endpoint.html" target="_blank">Endpoint</a> that you want to call.
 
     var endpoint = client.getEndpoint({
-        id: "kirk@enterprise.com"
+        id: "joe@user.com"
     });
 
-Finally, start the video call with the endpoint.
+Finally, you start the video call using the <a href="https://docs.respoke.io/js-library/respoke.Client.html#startVideoCall" target="_blank">startVideoCall</a> method of the Respoke <a href="https://docs.respoke.io/js-library/respoke.Client.html" target="_blank">Client</a> object.
 
     var call = endpoint.startVideoCall({
         videoLocalElement: document.getElementById("localVideo"),
         videoRemoteElement: document.getElementById("remoteVideo")
     });
 
+
 ## Answering Incoming Video Calls
+In order to respond to incoming video calls you'll need to add a listener for the `call` event, then, answer the call using the <a href="https://docs.respoke.io/js-library/respoke.Call.html#answer" target="_blank">answer</a> method of the Respoke Call object.
 
-First, listen for incoming calls.
-
-    client.listen("call", function(e) {
-        var call = e.call;
-    });
-
-Finally, answer the incoming call.
-
-    client.listen("call", function(e) {
-        var call = e.call;
-
-        // Show some UI to answer or hangup the call
-        // For illustration, let us just answer the call
+    client.listen("call", function(event) {
+        var call = event.call;
+        
+        // Only answer the call if we didn't initiate it
         if(call.caller !== true) {
             call.answer({
                 videoLocalElement: document.getElementById("localVideo"),
@@ -62,24 +55,23 @@ Finally, answer the incoming call.
         }
     });
 
-The video call is now setup for both the local client and the remote peer.
+That's it! You've just setup your first Respoke video call!
 
 
-## Video Controls
-
-You can hide or show video during a video call.
+## Controlling Video Calls
+### Show or hide video during a call:
 
     call.toggleVideo();
 
-Additionally, you can mute or unmute a video call's audio.
+### Mute or unmute video during a call:
 
     call.toggleAudio();
 
-Finally, you can hangup a call.
+### End a call:
 
     call.hangup();
 
-Hanging up a call will trigger a hangup event.
+Calling the hangup method will cause a `hangup` event to be fired. You can listen for this event and perform any UI updates or cleanup as necessary.
 
     call.listen("hangup", function(e) {
         call = null;
