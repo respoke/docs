@@ -59,6 +59,7 @@ That's it! You've just setup your first Respoke video call!
 
 
 ## Controlling Video Calls
+
 ### Show or hide video during a call:
 
     call.toggleVideo();
