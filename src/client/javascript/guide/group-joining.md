@@ -35,7 +35,8 @@ Once you are connected, you will use the <a href="https://docs.respoke.io/js-lib
 
 ## Group Methods and Events
 Below are a few methods and events commonly used with groups. A complete listing of the availabe methods and events for the Group object can be found in the <a href="https://docs.respoke.io/js-library/respoke.Group.html">Groups</a> section of the API reference.
-
+    
+<br/>
 ### Return all members of the group:
 
     group.getMembers({
