@@ -27,15 +27,27 @@ Once you are connected, you will use the <a href="https://docs.respoke.io/js-lib
     client.listen("connect", function() {
         client.join({
             id: "the-group-id",
-            
             onSuccess: function(group) {
                 // You have successfully joined the group!
             }
         });
     });  
 
-## Group methods and events
-A complete listing of the availabe methods and events for the Group object can be found in the <a href="https://docs.respoke.io/js-library/respoke.Group.html">Groups</a> section of the API reference.
+## Group Methods and Events
+Below are a few methods and events commonly used with groups. A complete listing of the availabe methods and events for the Group object can be found in the <a href="https://docs.respoke.io/js-library/respoke.Group.html">Groups</a> section of the API reference.
+    
+<br/>
+### Return all members of the group:
+
+    group.getMembers({
+        onSuccess: function(connections) {
+            connections.forEach(
+                function(connection) {
+                    var endpoint = connection.getEndpoint();
+                }
+            );
+        }
+    });
 
 ### When members join the group:
 
@@ -47,16 +59,6 @@ A complete listing of the availabe methods and events for the Group object can b
 
     group.listen("leave", function(e) {
         var endpoint = e.connection.getEndpoint();
-    });
-
-### Return all members of the group:
-
-    group.getMembers({
-        onSuccess: function(connections) {
-            connections.forEach(function(connection){
-                var endpoint = connection.getEndpoint();
-            });
-        }
     });
 
 ## Related Guides
