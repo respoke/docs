@@ -10,10 +10,10 @@ meta:
     description: "Respoke REST API"
 ---
 
-###REST API
+### REST API
 # POST tokens
 
-##Overview
+## Overview
 
 Use `POST tokens` to create a token for authenticating with Respoke.
 
