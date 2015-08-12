@@ -10,7 +10,7 @@ meta:
     description: "Guide to obtaining Google credentials for sending push notifications to Android devices using Respoke."
 ---
 
-###Android SDK
+### Android SDK
 
 # Obtaining Google Credentials for Sending Push Notifications to Android Devices Using Respoke
 

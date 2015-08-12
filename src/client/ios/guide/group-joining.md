@@ -10,7 +10,7 @@ meta:
     description: "Learn how to do group joining using Respoke"
 ---
 
-###iOS SDK
+### iOS SDK
 # Group Joining
 
 ## Overview

@@ -10,7 +10,7 @@ meta:
     description: "Learn how to start a video call directly peer-to-peer"
 ---
 
-###iOS SDK
+### iOS SDK
 # Push Notifications
 
 ## Coming Soon

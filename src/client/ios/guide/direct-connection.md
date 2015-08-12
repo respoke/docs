@@ -10,7 +10,7 @@ meta:
     description: "Learn how to send data directly peer-to-peer"
 ---
 
-###iOS SDK
+### iOS SDK
 # Direct Connection
 
 ## Overview

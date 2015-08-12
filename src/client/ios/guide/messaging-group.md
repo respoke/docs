@@ -10,7 +10,7 @@ meta:
     description: "Learn how to send group messages using Respoke"
 ---
 
-###iOS SDK
+### iOS SDK
 # Messaging (Group)
 
 ## Overview
