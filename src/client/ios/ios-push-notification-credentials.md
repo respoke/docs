@@ -10,7 +10,7 @@ meta:
     description: "Guide to obtaining Apple credentials for sending push notifications to iOS devices using Respoke."
 ---
 
-###iOS SDK
+### iOS SDK
 
 # Obtaining Apple Credentials for Sending Push Notifications to iOS Devices Using Respoke
 

@@ -10,7 +10,7 @@ meta:
     description: "Guide on how to get started developing with Android and Respoke."
 ---
 
-###Android SDK
+### Android SDK
 # Getting Started
 
 ## Create an account

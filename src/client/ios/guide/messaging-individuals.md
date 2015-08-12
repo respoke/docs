@@ -10,7 +10,7 @@ meta:
     description: "Learn how to send indiviudal endpoint messages using Respoke"
 ---
 
-###iOS SDK
+### iOS SDK
 # Messaging (1:1)
 
 ## Overview

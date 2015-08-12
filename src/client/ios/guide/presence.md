@@ -10,7 +10,7 @@ meta:
     description: "Learn how to listen for endpoint presence using Respoke"
 ---
 
-###iOS SDK
+### iOS SDK
 # Presence
 
 ## Overview

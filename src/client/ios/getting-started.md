@@ -10,7 +10,7 @@ meta:
     description: "Guide on how to get started developing with iOS and Respoke."
 ---
 
-###iOS SDK
+### iOS SDK
 # Getting Started
 
 ## Create an account

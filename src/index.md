@@ -1,6 +1,6 @@
 ---
 title: "Getting started with Respoke"
-shortTitle: "Getting Started"
+shortTitle: "Getting Started Foo"
 date: 2014-12-09 14:40
 template: article.jade
 meta:
@@ -9,7 +9,7 @@ meta:
 ---
 
 
-###Respoke
+### Respoke
 # Developer Guides
 
 ## Overview
