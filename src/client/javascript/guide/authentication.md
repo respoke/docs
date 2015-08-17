@@ -10,7 +10,7 @@ meta:
     description: "Learn how to secure your users' access to Respoke audio, video, text and data channels."
 ---
 
-###JavaScript Library
+### JavaScript Library
 
 # Authentication
 Connecting to Respoke requires an access token which provides both authorization and permissions for your users. This token can be obtained using a method known as `brokered authentication`. 
@@ -31,7 +31,7 @@ Once Dev Mode has been disabled for your app, you will notice a new section titl
 
 ![Dev Mode Enabled](../../../images/roles.jpg)
 
-###To create a new role or to update an existing one:
+### To create a new role or to update an existing one:
 
 1. Go to your app in the [Respoke Dashboard](https://portal.respoke.io/#/apps/).
 
@@ -74,6 +74,9 @@ When you request a token, you need to provide:
                 var token = response.token;
 
                 client.connect({
+                    // Always obtain a new token each time and use it immediately.
+                    // It may only be used once, and it has a very short lifetime
+                    // to be activated.
                     token: token
                 });
             }
