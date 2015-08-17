@@ -10,7 +10,7 @@ meta:
     description: "Learn how to screen share directly peer-to-peer"
 ---
 
-###JavaScript Library
+### JavaScript Library
 # Screen Sharing
 
 ## Overview

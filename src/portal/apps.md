@@ -10,7 +10,7 @@ meta:
     description: "Learn how to use the dashboard section of the Respoke Dashboard."
 ---
 
-###Respoke Dashboard
+### Respoke Dashboard
 
 # Apps
 Apps in Respoke act as containers which house the user permissions and other configuration settings for a specific application. This allows you to create multiple applications each with unique settings and permissions. You create and manage your apps in the <a href="https://portal.respoke.io/#/apps" target="_blank">Apps tab of the Dev Portal</a>.

@@ -10,7 +10,7 @@ meta:
     description: "Learn how to call endpoints on asterisk servers using Respke"
 ---
 
-###JavaScript Library
+### JavaScript Library
 # Asterisk Calling
 
 ## Overview

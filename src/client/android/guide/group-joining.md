@@ -10,7 +10,7 @@ meta:
     description: "Learn how to do group joining using Respoke"
 ---
 
-###Android SDK
+### Android SDK
 # Group Joining
 
 ## Overview

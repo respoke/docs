@@ -10,7 +10,7 @@ meta:
     description: "Learn how to start an audio call directly peer-to-peer"
 ---
 
-###JavaScript Library
+### JavaScript Library
 
 # Audio Calling
 The `audio calling` features of Respoke allow you to create high-quality, peer to peer audio calls with just a few lines of code. 

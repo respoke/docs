@@ -10,7 +10,7 @@ meta:
     description: "Learn how to start a video call directly peer-to-peer"
 ---
 
-###Android SDK
+### Android SDK
 # Video Calling
 
 ## Overview

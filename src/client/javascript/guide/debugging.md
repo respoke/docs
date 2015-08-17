@@ -10,7 +10,7 @@ meta:
     description: "Learn how to debug your app code using the Respoke client"
 ---
 
-###JavaScript Library
+### JavaScript Library
 # Debugging
 
 ## Overview

@@ -10,7 +10,7 @@ meta:
     description: "Learn how to start a video call directly peer-to-peer"
 ---
 
-###JavaScript Library
+### JavaScript Library
 
 # Video Calling
 The `video calling` features of Respoke allow you to create high-quality, peer to peer video calls with just a few lines of code.

@@ -10,7 +10,7 @@ meta:
     description: "Guide on how to get started developing with Ruby and Respoke."
 ---
 
-###Ruby Library
+### Ruby Library
 # Getting Started
 
 ## Overview

@@ -10,10 +10,10 @@ meta:
     description: "Learn how to screen share directly peer-to-peer"
 ---
 
-###JavaScript Library
+### JavaScript Library
 # Screen Sharing Plugin
 
-#Overview
+# Overview
 
 In this guide you’ll learn how to add screen sharing capabilities to your application. This feature allows you to share a video stream of your screen with another user. It is very easy to setup; however, due to the security restrictions that are currently imposed by Google, there are a few steps that you will need to take to get everything up and running. But not to worry, we’ll walk you through everything below.
 

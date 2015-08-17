@@ -10,7 +10,7 @@ meta:
     description: "Learn how to secure your users' access to Respoke audio, video, text and data channels."
 ---
 
-###Node.js Library
+### Node.js Library
 # Authentication
 
 ## Overview

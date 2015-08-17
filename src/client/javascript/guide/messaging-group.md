@@ -10,7 +10,7 @@ meta:
     description: "Learn how to send group messages using Respoke"
 ---
 
-###JavaScript Library
+### JavaScript Library
 # Messaging (Group)
 
 ## Overview

@@ -10,7 +10,7 @@ meta:
     description: "Learn how to start a audio call directly peer-to-peer"
 ---
 
-###Android SDK
+### Android SDK
 # Audio Calling
 
 ## Overview

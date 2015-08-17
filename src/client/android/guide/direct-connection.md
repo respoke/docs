@@ -10,7 +10,7 @@ meta:
     description: "Learn how to send data directly peer-to-peer"
 ---
 
-###Android SDK
+### Android SDK
 # Direct Connection
 
 ## Overview

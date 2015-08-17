@@ -10,7 +10,7 @@ meta:
     description: "Learn how to use Respoke AMI Events"
 ---
 
-###Asterisk Channel Driver
+### Asterisk Channel Driver
 # Asterisk Manager Interface (AMI) Events
 
 ## Overview

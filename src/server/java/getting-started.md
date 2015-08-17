@@ -10,7 +10,7 @@ meta:
     description: "Guide on how to get started developing with Java and Respoke."
 ---
 
-###Java Library
+### Java Library
 # Getting Started
 
 ## Overview

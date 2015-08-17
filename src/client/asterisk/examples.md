@@ -10,12 +10,12 @@ meta:
     description: "Example libraries for using Respoke with Asterisk."
 ---
 
-###Asterisk Channel Driver
-#Asterisk Channel Examples
+### Asterisk Channel Driver
+# Asterisk Channel Examples
 
 This page includes a comprehensive list of open source applications or code examples that we maintain. These resources are geared to help you learn Respoke or speed up development time by reusing code snippets.
 
-##Open Source Examples
+## Open Source Examples
 
 These example apps demonstrate some core concepts and common uses of Respoke.
 

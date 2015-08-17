@@ -10,7 +10,7 @@ meta:
     description: "Learn how to call mobile phones and landlines using Respoke PSTN"
 ---
 
-###JavaScript Library
+### JavaScript Library
 # Phone Calling
 
 ## Overview

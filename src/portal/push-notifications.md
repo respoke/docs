@@ -10,7 +10,7 @@ meta:
     description: "Learn about the configuration and use of push notifications using Respoke."
 ---
 
-###Respoke Dashboard
+### Respoke Dashboard
 # Push Notifications
 
 ## Introduction

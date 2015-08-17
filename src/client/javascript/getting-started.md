@@ -10,7 +10,7 @@ meta:
     description: "Guide on how to get started developing with JavaScript and Respoke."
 ---
 
-###JavaScript Library
+### JavaScript Library
 
 # Getting Started
 Getting up and running with Respoke is free, and can be accomplished in a few easy steps.

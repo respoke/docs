@@ -10,7 +10,7 @@ meta:
     description: "Learn how to do group joining using Respoke"
 ---
 
-###JavaScript Library
+### JavaScript Library
 
 # Groups
 The <a href="https://docs.respoke.io/js-library/respoke.Group.html" target="_blank">Group</a> object forms the foundation for conversations in Respoke. It gives you the ability to communicate with a large number of people while only requiring you to send a single message. Let's take a look at how to join a group.

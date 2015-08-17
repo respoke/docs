@@ -10,7 +10,7 @@ meta:
     description: "Learn how to send group messages using Respoke"
 ---
 
-###Android SDK
+### Android SDK
 # Messaging (Group)
 
 ## Overview

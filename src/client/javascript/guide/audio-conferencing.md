@@ -10,7 +10,7 @@ meta:
     description: "Learn how to start an audio conference with Respoke"
 ---
 
-###JavaScript Library
+### JavaScript Library
 # Audio Conferencing
 
 ## Overview

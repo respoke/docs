@@ -10,7 +10,7 @@ meta:
     description: "Guide on how to get started developing with Node.js and Respoke."
 ---
 
-###Node.js Library
+### Node.js Library
 # Getting Started
 
 ## Overview
