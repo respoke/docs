@@ -30,6 +30,8 @@ In the course of your app development, you may find it convenient to place calls
 
 Install [Asterisk 13](http://www.asterisk.org/downloads). How to install Asterisk is outside the scope of this document, but if Asterisk is not already installed and you are unsure how to proceed see the [Asterisk wiki](https://wiki.asterisk.org/wiki/display/AST/Installing+Asterisk) for more information. Also [install pjproject](https://wiki.asterisk.org/wiki/display/AST/Building+and+Installing+pjproject). You will need `pjproject` in order to build `res_rtp_asterisk`, which is necessary for chan_respoke.
 
+You can find other notes about compiling and installing pjproject and Asterisk [in the chan_respoke README](https://github.com/respoke/chan_respoke/blob/master/README.md).
+
 ### 2: Install the Respoke Asterisk module
 
 Once Asterisk has been installed on your server, download [the Respoke Asterisk module from GitHub](https://github.com/respoke/chan_respoke). Enter into the chan_respoke directory and issue the following command with superuser access. See the included README file for more information.
@@ -42,25 +44,11 @@ $ make && sudo make install
 
 ### 3. Set up TLS keys for connecting securely to Respoke
 
-On your Asterisk server, make a directory named "keys" to store your keys in. This code assumes Asterisk has been installed inside /etc/, but this may be different on your server.
+Next, make a self-signed certificate for use with Respoke. You may have to use `sudo` to write the keys out, but remember that you shouldn't run Asterisk as root. Note that if you use the `ast_tls_cert` script in Asterisk's `contrib/scripts` directory, it may generate a larger cert, that can encounter IP fragementation problems when used with WebRTC.
 
 ```bash
-$ cd /etc/asterisk
-$ mkdir keys
-$ cd keys
-```
-
-Next, use the "ast_tls_cert" script in the "contrib/scripts" directory inside the Asterisk source code directory to make a self-signed certificate authority and an Asterisk certificate. You'll be asked to enter a passphrase for your key. Remember it! You'll need to enter it three times. You may have to use `sudo` to write the keys out, but remember that you shouldn't run Asterisk as root.
-
-```bash
-$ # cd into the directory where the Asterisk source code is located
-$ ./contrib/scripts/ast_tls_cert -C respoke-asterisk.mycompany.com -O "My Respoke App" -d /etc/asterisk/keys
-```
-
-Now generate the certificate.  You'll be asked to enter in your passphrase again.
-
-```bash
-$ ./contrib/scripts/ast_tls_cert -m client -c /etc/asterisk/keys/ca.crt -k /etc/asterisk/keys/ca.key -C respoke-asterisk.myrespokeapp.com -O "My Respoke App" -d /etc/asterisk/keys -o respoke-asterisk.myrespokeapp.com
+# From the chan_respoke source directory
+$ sudo make install-keys
 ```
 
 ### 4. Configure the Respoke module for Asterisk
@@ -84,8 +72,7 @@ context=default
 disallow=all
 allow=ulaw
 dtls_verify=fingerprint
-dtls_cert_file=/etc/asterisk/keys/asterisk.pem
-dtls_ca_file=/etc/asterisk/keys/ca.crt
+dtls_cert_file=/etc/asterisk/keys/respoke.pem
 dtls_setup=actpass
 turn=yes
 
