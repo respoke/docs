@@ -22,6 +22,15 @@ You have read the [Getting Started Guide](/client/javascript/getting-started.htm
 <a href="https://docs.respoke.io/js-library/respoke.Client.html#connect" target+"_blank">connected</a> your app to
 Respoke.
 
+<div class="notice">
+    <h3>Heads up!</h3>
+    <p>Before the end of 2015, the Chrome browser (versions 47+) will require that all use of the `getUserMedia()`
+    browser API originate from a
+    "<a href="http://www.w3.org/TR/powerful-features/#is-origin-trustworthy">potentially trustworthy</a>" origin. This
+    means that deployed Respoke apps that use audio, video, or screen sharing features will need to be hosted on a
+    domain that is secure.
+</div>
+
 ## Starting a Video Call
 Before starting a video call you first need to add a few `<video>` elements to attach the call streams to.
 
