@@ -19,6 +19,21 @@ Screen sharing is easy using Respoke. First connect to Respoke either in
 [development mode](/client/javascript/getting-started.html) or
 [authenticated](/client/javascript/guide/authentication.html). Then we're ready to start writing some code.
 
+<div class="notice">
+    <h3>Heads up!</h3>
+    <p>Before the end of 2015, the Chrome browser (versions 47+) will require that all use of the `getUserMedia()`
+    browser API originate from a
+    "<a href="http://www.w3.org/TR/powerful-features/#is-origin-trustworthy">potentially trustworthy</a>" origin. This
+    means that deployed Respoke apps that use audio, video, or screen sharing features will need to be hosted on a
+    domain that is secure.
+</div>
+
+<div class="warning">
+    <h3>Requires Plugin</h3>
+    <p>Screen sharing requires a plugin in all supported browsers. Please refer to the
+    <a href="/client/javascript/guide/screen-sharing-plugin.html">Screen Sharing Plugin</a> section of the guide for
+    more information on setting up a screen sharing plugin for your app.</p>
+</div>
 
 ## Starting Screen Shares
 

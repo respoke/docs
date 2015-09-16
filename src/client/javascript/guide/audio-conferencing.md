@@ -18,6 +18,22 @@ meta:
 Use audio conferencing to join multiple participants in a single conference room. Combine audio conferencing with groups
 to get a list of conference participants and keep track of participants joining and leaving.
 
+<div class="notice">
+    <h3>Heads up!</h3>
+    <p>Before the end of 2015, the Chrome browser (versions 47+) will require that all use of the `getUserMedia()`
+    browser API originate from a
+    "<a href="http://www.w3.org/TR/powerful-features/#is-origin-trustworthy">potentially trustworthy</a>" origin. This
+    means that deployed Respoke apps that use audio, video, or screen sharing features will need to be hosted on a
+    domain that is secure.
+</div>
+
+<div class="warning">
+    <h3>Beta Feature</h3>
+    <p>Audio conferencing is currently in public beta and will need to be enabled in your account before you can use it.
+    If you would like to use this feature, please send an email to support@respoke.io and request that audio conferencing
+    be enabled for your account.
+    </p>
+</div>
 
 ## Starting Audio Conferencing
 

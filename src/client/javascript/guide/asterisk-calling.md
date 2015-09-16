@@ -18,6 +18,15 @@ meta:
 Asterisk Calling is easy using Respoke. First, you must [authenticate](/client/javascript/guide/authentication.html)
 before connecting to Respoke. Then we're ready to start writing some code.
 
+<div class="notice">
+    <h3>Heads up!</h3>
+    <p>Before the end of 2015, the Chrome browser (versions 47+) will require that all use of the `getUserMedia()`
+    browser API originate from a
+    "<a href="http://www.w3.org/TR/powerful-features/#is-origin-trustworthy">potentially trustworthy</a>" origin. This
+    means that deployed Respoke apps that use audio, video, or screen sharing features will need to be hosted on a
+    domain that is secure.
+</div>
+
 ## Starting Asterisk Calls
 
 Next, get the local endpoint configured on asterisk and start an audio call.
