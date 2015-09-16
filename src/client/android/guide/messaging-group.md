@@ -15,7 +15,8 @@ meta:
 
 ## Overview
 
-Sending messages to a group of people is easy and secure with Respoke. We use WSS (WebSockets over TLS), so all messages are encrypted in flight. 
+Sending messages to a group of people is easy and secure with Respoke. We use WSS (WebSockets over TLS), so all messages
+are encrypted in flight.
 
 First, [join a group](/client/android/guide/group-joining.html) and then we're ready to start writing some code.
 
@@ -46,10 +47,10 @@ Next, send a message to the group.
                 public void onError(String errorMessage) {
                     Log.d("Main", "Error sending message!");
                 }
-            }); 
+            });
         }
     }
-    
+
 Finally, listen for incoming messages by implementing the onMessage method of the RespokeGroup.Listener interface.
 
     public void onMessage(String message, Date timestamp, RespokeEndpoint endpoint) {

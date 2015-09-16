@@ -15,11 +15,13 @@ meta:
 
 ## Overview
 
-In order to [place calls](/client/javascript/guide/phone-calling.html) to a phone number, your endpointId must [authenticate](/client/javascript/guide/authentication.html) using a role which has PSTN (phone) calling enabled.
+In order to [place calls](/client/javascript/guide/phone-calling.html) to a phone number, your endpointId must
+[authenticate](/client/javascript/guide/authentication.html) using a role which has PSTN (phone) calling enabled.
 
 ## Enabling Phone Calling Features
 
-First, specify a phone number or group of phone numbers that the endpoint is allowed to call. Alternatively, you can specify "*" to allow calling to any phone number.
+First, specify a phone number or group of phone numbers that the endpoint is allowed to call. Alternatively, you can
+specify "*" to allow calling to any phone number.
 
 ![allowed pstn out phone numbers](../images/allow-pstn-out-numbers.png)
 

@@ -2,6 +2,7 @@
 @import 'components/sidebar';
 @import 'highlight-js-theme-light';
 @import 'example-block';
+
 .container {
     @include outer-container;
     padding-bottom: $spacing-large;
@@ -84,7 +85,7 @@
             border-bottom: 1px solid #ddd;
         }
         th {
-            display: none; // for accessibility, use a visually hidden method here instead! Thanks, reddit!   
+            display: none; // for accessibility, use a visually hidden method here instead! Thanks, reddit!
         }
         td {
             display: block;

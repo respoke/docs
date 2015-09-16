@@ -13,16 +13,25 @@ meta:
 ### JavaScript Library
 
 # Groups
-The <a href="https://docs.respoke.io/js-library/respoke.Group.html" target="_blank">Group</a> object forms the foundation for conversations in Respoke. It gives you the ability to communicate with a large number of people while only requiring you to send a single message. Let's take a look at how to join a group.
+The <a href="https://docs.respoke.io/js-library/respoke.Group.html" target="_blank">Group</a> object forms the
+foundation for conversations in Respoke. It gives you the ability to communicate with a large number of people while
+only requiring you to send a single message. Let's take a look at how to join a group.
 
 #### Assumptions
-You have read the [Getting Started Guide](/client/javascript/getting-started.html), created an instance of the Respoke <a href="https://docs.respoke.io/js-library/respoke.Client.html" target="_blank">Client</a>, and <a href="https://docs.respoke.io/js-library/respoke.Client.html#connect" target+"_blank">connected</a> your app to Respoke. 
+You have read the [Getting Started Guide](/client/javascript/getting-started.html), created an instance of the Respoke
+<a href="https://docs.respoke.io/js-library/respoke.Client.html" target="_blank">Client</a>, and
+<a href="https://docs.respoke.io/js-library/respoke.Client.html#connect" target+"_blank">connected</a> your app to
+Respoke.
 
 ## Joining Groups
-Before joining a group, you must first be connected to Respoke. The best way to ensure this is to add a listener for the `connect` event, and execute the code to join your group after the event is received.    
+Before joining a group, you must first be connected to Respoke. The best way to ensure this is to add a listener for the
+`connect` event, and execute the code to join your group after the event is received.
 
-Once you are connected, you will use the <a href="https://docs.respoke.io/js-library/respoke.Client.html#join" target+"_blank">join</a> method of the <a href="https://docs.respoke.io/js-library/respoke.Client.html" target+"_blank">Client</a> object to join the group as outlined below.
-    
+Once you are connected, you will use the
+<a href="https://docs.respoke.io/js-library/respoke.Client.html#join" target+"_blank">join</a> method of the
+<a href="https://docs.respoke.io/js-library/respoke.Client.html" target+"_blank">Client</a> object to join the group as
+outlined below.
+
     // Join the group after connecting to Respoke
     client.listen("connect", function() {
         client.join({
@@ -31,11 +40,13 @@ Once you are connected, you will use the <a href="https://docs.respoke.io/js-lib
                 // You have successfully joined the group!
             }
         });
-    });  
+    });
 
 ## Group Methods and Events
-Below are a few methods and events commonly used with groups. A complete listing of the availabe methods and events for the Group object can be found in the <a href="https://docs.respoke.io/js-library/respoke.Group.html">Groups</a> section of the API reference.
-    
+Below are a few methods and events commonly used with groups. A complete listing of the availabe methods and events for
+the Group object can be found in the <a href="https://docs.respoke.io/js-library/respoke.Group.html">Groups</a> section
+of the API reference.
+
 <br/>
 ### Return all members of the group:
 

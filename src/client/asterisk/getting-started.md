@@ -16,7 +16,10 @@ meta:
 
 ## Summary
 
-In the course of your app development, you may find it convenient to place calls from or into your [Asterisk](http://asterisk.org/) phone system. Asterisk's [Respoke module](https://github.com/respoke/chan_respoke) makes it possible to use the WebRTC features of Respoke together with Asterisk. This tutorial covers making calls from a web app into Asterisk.
+In the course of your app development, you may find it convenient to place calls from or into your
+[Asterisk](http://asterisk.org/) phone system. Asterisk's [Respoke module](https://github.com/respoke/chan_respoke)
+makes it possible to use the WebRTC features of Respoke together with Asterisk. This tutorial covers making calls from a
+web app into Asterisk.
 
 ### Assumptions
 
@@ -28,13 +31,20 @@ In the course of your app development, you may find it convenient to place calls
 
 ### 1: Install Asterisk 13
 
-Install [Asterisk 13](http://www.asterisk.org/downloads). How to install Asterisk is outside the scope of this document, but if Asterisk is not already installed and you are unsure how to proceed see the [Asterisk wiki](https://wiki.asterisk.org/wiki/display/AST/Installing+Asterisk) for more information. Also [install pjproject](https://wiki.asterisk.org/wiki/display/AST/Building+and+Installing+pjproject). You will need `pjproject` in order to build `res_rtp_asterisk`, which is necessary for chan_respoke.
+Install [Asterisk 13](http://www.asterisk.org/downloads). How to install Asterisk is outside the scope of this document,
+but if Asterisk is not already installed and you are unsure how to proceed see the
+[Asterisk wiki](https://wiki.asterisk.org/wiki/display/AST/Installing+Asterisk) for more information. Also
+[install pjproject](https://wiki.asterisk.org/wiki/display/AST/Building+and+Installing+pjproject). You will need
+`pjproject` in order to build `res_rtp_asterisk`, which is necessary for chan_respoke.
 
-You can find other notes about compiling and installing pjproject and Asterisk [in the chan_respoke README](https://github.com/respoke/chan_respoke/blob/master/README.md).
+You can find other notes about compiling and installing pjproject and Asterisk
+[in the chan_respoke README](https://github.com/respoke/chan_respoke/blob/master/README.md).
 
 ### 2: Install the Respoke Asterisk module
 
-Once Asterisk has been installed on your server, download [the Respoke Asterisk module from GitHub](https://github.com/respoke/chan_respoke). Enter into the chan_respoke directory and issue the following command with superuser access. See the included README file for more information.
+Once Asterisk has been installed on your server, download
+[the Respoke Asterisk module from GitHub](https://github.com/respoke/chan_respoke). Enter into the chan_respoke
+directory and issue the following command with superuser access. See the included README file for more information.
 
 ```bash
 $ git clone https://github.com/respoke/chan_respoke.git
@@ -44,7 +54,10 @@ $ make && sudo make install
 
 ### 3. Set up TLS keys for connecting securely to Respoke
 
-Next, make a self-signed certificate for use with Respoke. You may have to use `sudo` to write the keys out, but remember that you shouldn't run Asterisk as root. Note that if you use the `ast_tls_cert` script in Asterisk's `contrib/scripts` directory, it may generate a larger cert, that can encounter IP fragementation problems when used with WebRTC.
+Next, make a self-signed certificate for use with Respoke. You may have to use `sudo` to write the keys out, but
+remember that you shouldn't run Asterisk as root. Note that if you use the `ast_tls_cert` script in Asterisk's
+`contrib/scripts` directory, it may generate a larger cert, that can encounter IP fragementation problems when used with
+WebRTC.
 
 ```bash
 # From the chan_respoke source directory
@@ -53,7 +66,10 @@ $ sudo make install-keys
 
 ### 4. Configure the Respoke module for Asterisk
 
-Create a "respoke.conf" file under /etc/asterisk (or wherever your Asterisk configuration files are installed) and add the following settings. These settings allow anonymous access into Asterisk from the configured Respoke app. Incoming offers, for instance, are passed into the dialplan (default context) where they are accepted or rejected based upon configured extensions.
+Create a "respoke.conf" file under /etc/asterisk (or wherever your Asterisk configuration files are installed) and add
+the following settings. These settings allow anonymous access into Asterisk from the configured Respoke app. Incoming
+offers, for instance, are passed into the dialplan (default context) where they are accepted or rejected based upon
+configured extensions.
 
 ```ini
 [transport]
@@ -86,7 +102,9 @@ register=no
 
 ### 5. Configure Asterisk Call Support
 
-After adding the respoke.conf file, the rest of the setup follows a typical Asterisk call configuration setup. In this example we want to be able to dial two SIP phones, one for "sales" and one for "support". Add the following to pjsip.conf:
+After adding the respoke.conf file, the rest of the setup follows a typical Asterisk call configuration setup. In this
+example we want to be able to dial two SIP phones, one for "sales" and one for "support". Add the following to
+pjsip.conf:
 
 ```ini
 [transport]
@@ -119,7 +137,8 @@ contact= ; the support phone sip uri
 aors=support
 ```
 
-Be sure to add the appropriate sip uri for each contact (sales and support). Now add the extensions to the dialplan's default context in extensions.conf:
+Be sure to add the appropriate sip uri for each contact (sales and support). Now add the extensions to the dialplan's
+default context in extensions.conf:
 
 ```ini
 [general]

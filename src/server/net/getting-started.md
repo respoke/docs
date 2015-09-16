@@ -15,14 +15,16 @@ meta:
 
 ## Overview
 
-The Respoke .NET library provides a convenient way for Node developers to interface with Respoke for non-browser-to-browser communication tasks. Good examples of non-browser-to-browser communication tasks include authentication.
+The Respoke .NET library provides a convenient way for Node developers to interface with Respoke for
+non-browser-to-browser communication tasks. Good examples of non-browser-to-browser communication tasks include
+authentication.
 
 ## Install Respoke .NET
 
 Install Respoke as a local application dependency by git cloning dotnet-respoke-admin:
 
     git clone https://github.com/ruffrey/dotnet-respoke-admin.git
-    
+
 ## Create Respoke
 
 Finally, create an instance of Respoke:
@@ -32,4 +34,3 @@ Finally, create an instance of Respoke:
     RespokeClient respoke = new RespokeClient();
 
 That's it! Now we're ready to start using all this Respoke server library has to offer.
-    

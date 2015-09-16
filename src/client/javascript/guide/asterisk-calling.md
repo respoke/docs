@@ -15,11 +15,12 @@ meta:
 
 ## Overview
 
-Asterisk Calling is easy using Respoke. First, you must [authenticate](/client/javascript/guide/authentication.html) before connecting to Respoke. Then we're ready to start writing some code.
+Asterisk Calling is easy using Respoke. First, you must [authenticate](/client/javascript/guide/authentication.html)
+before connecting to Respoke. Then we're ready to start writing some code.
 
 ## Starting Asterisk Calls
 
-Next, get the local endpoint configured on asterisk and start an audio call. 
+Next, get the local endpoint configured on asterisk and start an audio call.
 
     var call = client.startAudioCall({
         endpointId: "sales"
@@ -32,8 +33,8 @@ That's it. The asterisk call is now setup.
 
 You, you can hangup a call.
 
-    call.hangup(); 
-    
+    call.hangup();
+
 Hanging up a call will trigger a hangup event.
 
     call.listen("hangup", function(e) {

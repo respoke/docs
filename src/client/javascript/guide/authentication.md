@@ -13,21 +13,28 @@ meta:
 ### JavaScript Library
 
 # Authentication
-Connecting to Respoke requires an access token which provides both authorization and permissions for your users. This token can be obtained using a method known as `brokered authentication`. 
+Connecting to Respoke requires an access token which provides both authorization and permissions for your users. This
+token can be obtained using a method known as `brokered authentication`.
 
 
 ## Brokered Authentication
-When development is complete and you're ready to put your app into production, you will need to lock things down for security purposes. To accomplish this you'll setup `brokered authentication` which uses a server-side script to verify users and request a token on their behalf. This not only secures your application by storing sensitive information on the server, it also gives you a greater level of control over your users permissions. The general process for `brokered authentication` is as follows:
+When development is complete and you're ready to put your app into production, you will need to lock things down for
+security purposes. To accomplish this you'll setup `brokered authentication` which uses a server-side script to verify
+users and request a token on their behalf. This not only secures your application by storing sensitive information on
+the server, it also gives you a greater level of control over your users permissions. The general process for `brokered
+authentication` is as follows:
 
 ![Dev Mode Enabled](../../../images/respoke-brokered-auth-flow.jpg)
 
-The first step in setting up `brokered authentication` is disabling Development Mode for your app. This can be accomplished by setting the Dev Mode toggle to disabled in the permissions tab of your app settings.
+The first step in setting up `brokered authentication` is disabling Development Mode for your app. This can be
+accomplished by setting the Dev Mode toggle to disabled in the permissions tab of your app settings.
 
 ![Dev Mode Enabled](../../../images/dev-mode-disabled.jpg)
 
 ## Creating Roles
 
-Once Dev Mode has been disabled for your app, you will notice a new section titled `Roles` under the permissions tab in your application settings. Roles are used to assign permissions to users or groups of users for your app.
+Once Dev Mode has been disabled for your app, you will notice a new section titled `Roles` under the permissions tab in
+your application settings. Roles are used to assign permissions to users or groups of users for your app.
 
 ![Dev Mode Enabled](../../../images/roles.jpg)
 
@@ -47,7 +54,7 @@ Respoke and your app are now set up for authentication. It's time to write some 
 
 ## Authenticating With Respoke
 
-First, request a `token` from your server. 
+First, request a `token` from your server.
 
 When you request a token, you need to provide:
 
@@ -94,7 +101,8 @@ Then your server will request a `token` from Respoke.
 
 Use this `token` to connect your client to Respoke.
 
-Additionally, you'll need to listen to the `disconnect` event. Then request a new `token` from your server and use this new `token` to re-connect your client to Respoke.
+Additionally, you'll need to listen to the `disconnect` event. Then request a new `token` from your server and use this
+new `token` to re-connect your client to Respoke.
 
     client.listen("disconnect", function (evt) {
         // Reconnect to Respoke

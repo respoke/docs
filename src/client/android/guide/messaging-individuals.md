@@ -15,9 +15,11 @@ meta:
 
 ## Overview
 
-Sending 1:1 messages to individual users is easy and secure with Respoke. We use WSS (WebSockets over TLS), so all messages are encrypted in flight.
+Sending 1:1 messages to individual users is easy and secure with Respoke. We use WSS (WebSockets over TLS), so all
+messages are encrypted in flight.
 
-First connect to Respoke either in [development mode](/client/android/getting-started.html) or authenticated. Then we're ready to start writing some code.
+First connect to Respoke either in [development mode](/client/android/getting-started.html) or authenticated. Then we're
+ready to start writing some code.
 
 ## Send Indiviual Message
 
@@ -46,7 +48,7 @@ Then, send a message to the individual.
 
         public void sendMessage() {
             RespokeEndpoint endpoint = client.getEndpoint("kirk@enterprise", false);
-            
+
             endpoint.sendMessage("Live Long and Prosper", new Respoke.TaskCompletionListener() {
                 @Override
                 public void onSuccess() {
@@ -57,7 +59,7 @@ Then, send a message to the individual.
                 public void onError(String errorMessage) {
                     Log.d("Main", "Error sending message!");
                 }
-            }); 
+            });
         }
     }
 

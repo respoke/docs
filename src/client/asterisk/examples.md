@@ -13,13 +13,14 @@ meta:
 ### Asterisk Channel Driver
 # Asterisk Channel Examples
 
-This page includes a comprehensive list of open source applications or code examples that we maintain. These resources are geared to help you learn Respoke or speed up development time by reusing code snippets.
+This page includes a comprehensive list of open source applications or code examples that we maintain. These resources
+are geared to help you learn Respoke or speed up development time by reusing code snippets.
 
 ## Open Source Examples
 
 These example apps demonstrate some core concepts and common uses of Respoke.
 
-Name 			| Description 
+Name 			| Description
 ------------ 	| -------------
 [Asterisk Chan Respoke App](https://github.com/respoke/asterisk-chan-respoke-app) | This is a tiny static app used to test calls into asterisk via chan_respoke.
 

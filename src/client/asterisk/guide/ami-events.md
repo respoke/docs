@@ -15,7 +15,8 @@ meta:
 
 ## Overview
 
-You can access Respoke session event in the Asterisk Manager Interface. First, validate you have asterisk and [chan_respoke compiled and running](/client/asterisk/getting-started.html).
+You can access Respoke session event in the Asterisk Manager Interface. First, validate you have asterisk and
+[chan_respoke compiled and running](/client/asterisk/getting-started.html).
 
 ## Asterisk Manager Interface (AMI)
 
@@ -33,4 +34,6 @@ The event is called `RespokeSession`.
     RemoteConnection: 01749CDF-4BB0-41DB-8D52-30D25954D41A
     RemoteAppId:
 
-Here, the AMI "RespokeSession" Event includes the respoke session information, in particular the `remote` field. This `remote` field is the endpointId of the remote caller. This value can be a username, orderId or anything that could uniquely identify the caller.
+Here, the AMI "RespokeSession" Event includes the respoke session information, in particular the `remote` field. This
+`remote` field is the endpointId of the remote caller. This value can be a username, orderId or anything that could
+uniquely identify the caller.

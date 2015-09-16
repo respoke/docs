@@ -15,21 +15,23 @@ meta:
 
 ## Overview
 
-The Respoke Node.js Library provides a convenient way for Node developers to interface with Respoke for non-browser-to-browser communication tasks. Good examples of non-browser-to-browser communication tasks include authentication.
+The Respoke Node.js Library provides a convenient way for Node developers to interface with Respoke for
+non-browser-to-browser communication tasks. Good examples of non-browser-to-browser communication tasks include
+authentication.
 
 ## Install Respoke Node.js
 
 Install Respoke as a local application dependency using [npm](https://www.npmjs.com/):
 
     npm install respoke-admin
-    
+
 ## Create Respoke
 
 Finally, create an instance of Respoke:
 
     // Require Respoke
     var Respoke = require('respoke-admin');
-    
+
     // Create an instance of the Respoke
     var respoke = new Respoke({
         appId: "c10a2075-3f3d-466f-82f9-d2285e64c5d4",
@@ -37,4 +39,4 @@ Finally, create an instance of Respoke:
     });
 
 That's it! Now we're ready to start using all this Respoke server library has to offer.
-    
+

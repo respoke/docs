@@ -15,13 +15,16 @@ meta:
 
 ## Create an account
 
-First [signup for a free Respoke account](https://portal.respoke.io/#/signup). Within the Respoke Dashboard you can create, manage and delete Respoke Apps. Clicking on a specific App lets you view your App ID, App Secret, whether you have Dev Mode enabled and App Roles (if any).
+First [signup for a free Respoke account](https://portal.respoke.io/#/signup). Within the Respoke Dashboard you can
+create, manage and delete Respoke Apps. Clicking on a specific App lets you view your App ID, App Secret, whether you
+have Dev Mode enabled and App Roles (if any).
 
 ## Setup Xcode IDE
 
 ### Create an iOS Workspace
 
-Open Xcode and create a new workspace. Now create a new project, supply the project options and add the project to the workspace.
+Open Xcode and create a new workspace. Now create a new project, supply the project options and add the project to the
+workspace.
 
 ![configure new project](../../images/ios-sdk/single-view-application.png)
 
@@ -36,7 +39,7 @@ Add `RespokeSDK` to your Podfile.
 Finally, install `RespokeSDK`.
 
     pod install
-    
+
 That's it.
 
 ## Connect to Respoke
@@ -45,14 +48,14 @@ Finally, to validate everything is working, you'll want to connect to Respoke:
 
     #import "Respoke.h"
     #import "RespokeClient.h"
-    
+
     @interface AppViewController : NSObject <RespokeClientDelegate>
         @property RespokeClient *client;
     @end
-    
+
     @implementation AppViewController
         @synthesize client;
-        
+
         - (instancetype)init
         {
             if (self = [super init])
@@ -63,23 +66,23 @@ Finally, to validate everything is working, you'll want to connect to Respoke:
 
             return self;
         }
-        
+
         - (void)connect
         {
             // App ID from the Respoke Dashboard for your App
             NSString *appId = @"c10a2075-3f3d-466f-82f9-d2285e64c5d4";
-    
+
             // The unique username identifying the user
             NSString *endpointId = @"spock@enterprise.com";
-    
+
             // Execute some signin event, then connect to Respoke with
-            [client connectWithEndpointID:sendpointId appID:appId 
-                                 reconnect:YES initialPresence:nil 
+            [client connectWithEndpointID:sendpointId appID:appId
+                                 reconnect:YES initialPresence:nil
                                  errorHandler:^(NSString *errorMessage) {
                 [self showError:errorMessage];
             }];
         }
-        
+
         // "connect" event fired after successful connection to Respoke
         - (void)onConnect:(RespokeClient*) client
         {

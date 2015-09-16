@@ -11,11 +11,12 @@ meta:
 ---
 
 ### Asterisk Channel Driver
-# Asterisk Channel Variables 
+# Asterisk Channel Variables
 
 ## Overview
 
-You can access Respoke session variables in your dialplan. First, validate you have asterisk and [chan_respoke compiled and running](/client/asterisk/getting-started.html).
+You can access Respoke session variables in your dialplan. First, validate you have asterisk and
+[chan_respoke compiled and running](/client/asterisk/getting-started.html).
 
 ## Asterisk Channel Variables
 
@@ -41,5 +42,7 @@ Here is a dialplan showing how to pass the "respoke_session_remote" inside an as
     same => n,SayAlpha(${CHANNEL(remote)})
     same => n,Dial(SIP/300)
     same => n,Hangup()
-    
-Here, the `CHANNEL(remote)` information is played back to the caller using the Asterisk application SayAlpha. The `CHANNEL(remote)` is the endpointId of the remote caller. This value can be a username, orderId or anything that could uniquely identify the caller.
+
+Here, the `CHANNEL(remote)` information is played back to the caller using the Asterisk application SayAlpha. The
+`CHANNEL(remote)` is the endpointId of the remote caller. This value can be a username, orderId or anything that could
+uniquely identify the caller.

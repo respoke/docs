@@ -15,7 +15,8 @@ meta:
 
 ## Overview
 
-Your users need an access token to connect to Respoke. The access token provides both authentication of who they are and authorization of what they are allowed to do. 
+Your users need an access token to connect to Respoke. The access token provides both authentication of who they are
+and authorization of what they are allowed to do.
 
 ## Authentication Token Request to Respoke
 

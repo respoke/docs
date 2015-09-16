@@ -15,9 +15,11 @@ meta:
 
 ## Overview
 
-Sending 1:1 messages to individual users is easy and secure with Respoke. We use WSS (WebSockets over TLS), so all messages are encrypted in flight.
+Sending 1:1 messages to individual users is easy and secure with Respoke. We use WSS (WebSockets over TLS), so all
+messages are encrypted in flight.
 
-First connect to Respoke either in [development mode](/client/javascript/getting-started.html) or [authenticated](/client/javascript/guide/authentication.html). Then we're ready to start writing some code.
+First connect to Respoke either in [development mode](/client/javascript/getting-started.html) or
+[authenticated](/client/javascript/guide/authentication.html). Then we're ready to start writing some code.
 
 ## Send Indiviual Message
 
@@ -31,9 +33,9 @@ Then, send a message to the individual.
 
     // The message can be simple text
     endpoint.sendMessage({ message: "Live Long and Prosper" });
-    
+
     // Or the message can be a complex object literal
-    endpoint.sendMessage({ 
+    endpoint.sendMessage({
         message: {
             name: "Spock",
             rank: "Captain, retired",
@@ -41,7 +43,7 @@ Then, send a message to the individual.
             birthYear: "2230",
             placeOfBirth: "Shi'Kahr, Vulcan",
             education: "Starfleet Academy, 2249-53"
-        } 
+        }
     });
 
 Finally, listen for incoming messages.

@@ -15,7 +15,10 @@ meta:
 
 ## Overview
 
-Screen sharing is easy using Respoke. First connect to Respoke either in [development mode](/client/javascript/getting-started.html) or [authenticated](/client/javascript/guide/authentication.html). Then we're ready to start writing some code.
+Screen sharing is easy using Respoke. First connect to Respoke either in
+[development mode](/client/javascript/getting-started.html) or
+[authenticated](/client/javascript/guide/authentication.html). Then we're ready to start writing some code.
+
 
 ## Starting Screen Shares
 
@@ -62,9 +65,12 @@ Finally, answer the incoming call.
 
 The screen share is now setup for both the local client and the remote peer. Only one person can screen share at a time.
 
-For example, say the local user is sharing his screen and the remote user is looking at his screen. Since only one person can screen share, the remote user will not have any video input, so from the local user's POV, he's starting at a blank wall.
+For example, say the local user is sharing his screen and the remote user is looking at his screen. Since only one
+person can screen share, the remote user will not have any video input, so from the local user's POV, he's starting at
+a blank wall.
 
-Consider starting a [video call](/client/javascript/guide/video-calling.html) for the remote user. That way, the local user will have someone to look at while sharing his screen.
+Consider starting a [video call](/client/javascript/guide/video-calling.html) for the remote user. That way, the local
+user will have someone to look at while sharing his screen.
 
 
 ## Video Controls

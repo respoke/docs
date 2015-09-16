@@ -15,7 +15,8 @@ meta:
 
 ## Overview
 
-Audio calling is easy using Respoke. First connect to Respoke either in [development mode](/client/android/getting-started.html) or authenticated. Then we're ready to start writing some code.
+Audio calling is easy using Respoke. First connect to Respoke either in
+[development mode](/client/android/getting-started.html) or authenticated. Then we're ready to start writing some code.
 
 ## Starting Audio Calls
 
@@ -32,8 +33,8 @@ Next, get the endpoint you want to start a audio call with.
     public class Main implements RespokeClient.Listener, RespokeCall.Listener, RespokeEndpoint.Listener {
         public RespokeClient client;
         public RespokeEndpoint endpoint;
-        
-        public startAudioCall() {            
+
+        public startAudioCall() {
             endpoint = client.getEndpoint("kirk@enterprise", false);
         }
     }
@@ -48,9 +49,9 @@ Finally, start the audio call with the endpoint.
         public startAudioCall() {
             String endpointId = "kirk@enterprise";
             RespokeEndpoint endpoint = client.getEndpoint(endpointId, false);
-            
+
             audioOnly = true;
-            
+
             call = endpoint.startCall(this, this, null, audioOnly);
         }
     }
@@ -65,13 +66,14 @@ First, listen for incoming calls by implementing the onCall method of the Respok
         call.answer(this, this);
     }
 
-Finally, listen for when both the local endpoint and remote endpoint are successfully connected by implementing the onConnected method of the RespokeCall.Listener interface.
+Finally, listen for when both the local endpoint and remote endpoint are successfully connected by implementing the
+onConnected method of the RespokeCall.Listener interface.
 
     public void onConnected(RespokeCall call) {
-        // Call is successful, maybe show call controls 
+        // Call is successful, maybe show call controls
         // (e.g. hangup, mute audio, etc.)
     }
-    
+
 The audio call is now setup for both the local client and the remote peer.
 
 ## Audio Controls
@@ -81,14 +83,14 @@ You can mute or unmute a audio call's audio.
     public void muteAudio() {
         call.muteAudio(true);
     }
-    
+
 Finally, you can hangup a call.
 
     public void hangup() {
         call.hangup(true);
         call = null;
     }
-    
+
 Hanging up a call will trigger a hangup event.
 
     public void onHangup(RespokeCall call) {

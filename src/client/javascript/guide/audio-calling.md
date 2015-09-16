@@ -13,14 +13,19 @@ meta:
 ### JavaScript Library
 
 # Audio Calling
-The `audio calling` features of Respoke allow you to create high-quality, peer to peer audio calls with just a few lines of code. 
+The audio calling features of Respoke allow you to create high-quality, peer to peer audio calls with just a few lines
+of code.
 
 #### Assumptions
-You have read the [Getting Started Guide](/client/javascript/getting-started.html), created an instance of the Respoke <a href="https://docs.respoke.io/js-library/respoke.Client.html" target="_blank">Client</a>, and <a href="https://docs.respoke.io/js-library/respoke.Client.html#connect" target+"_blank">connected</a> your app to Respoke. 
-
+You have read the [Getting Started Guide](/client/javascript/getting-started.html), created an instance of the Respoke
+<a href="https://docs.respoke.io/js-library/respoke.Client.html" target="_blank">Client</a>, and
+<a href="https://docs.respoke.io/js-library/respoke.Client.html#connect" target+"_blank">connected</a> your app to
+Respoke.
 
 ## Starting a Call
-You initiate an audio call using the <a href="https://docs.respoke.io/js-library/respoke.Client.html#startAudioCall" target="_blank">startAudioCall</a> method of the Respoke <a href="https://docs.respoke.io/js-library/respoke.Client.html" target="_blank">Client</a> object.
+You initiate an audio call using the
+<a href="https://docs.respoke.io/js-library/respoke.Client.html#startAudioCall" target="_blank">startAudioCall</a>
+method of the Respoke <a href="https://docs.respoke.io/js-library/respoke.Client.html" target="_blank">Client</a> object.
 
     client.startAudioCall({
         endpointId: recipientId,
@@ -36,7 +41,9 @@ You initiate an audio call using the <a href="https://docs.respoke.io/js-library
 
 
 ## Answering Incoming Calls
-First, add a listener for the incoming `call` event, then, answer the call using the <a href="https://docs.respoke.io/js-library/respoke.Call.html#answer" target="_blank">answer</a> method of the Respoke Call object.
+First, add a listener for the incoming `call` event, then, answer the call using the
+<a href="https://docs.respoke.io/js-library/respoke.Call.html#answer" target="_blank">answer</a> method of the Respoke
+Call object.
 
     client.listen('call', function(evt) {
         var activeCall = evt.call;
@@ -61,7 +68,8 @@ That's it! You've just setup your first Respoke call!
 
     call.hangup();
 
-Calling the hangup method will cause a `hangup` event to be fired. You can listen for this event and perform any UI updates or cleanup as necessary.
+Calling the hangup method will cause a `hangup` event to be fired. You can listen for this event and perform any UI
+updates or cleanup as necessary.
 
     call.listen("hangup", function(e) {
         call = null;

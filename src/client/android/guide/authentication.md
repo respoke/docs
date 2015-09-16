@@ -15,7 +15,7 @@ meta:
 
 ## Overview
 
-Your users need an access token to connect to Respoke. The access token provides both authentication of who they are and authorization of what they are allowed to do. 
+Your users need an access token to connect to Respoke. The access token provides both authentication of who they are and authorization of what they are allowed to do.
 
 Development mode makes getting started easy, but is inherently insecure. In production, you need a server to verify users and request a token on their behalf and connect to Respoke using this token. This gives you fine-grained control over users and permissions.
 
@@ -60,22 +60,22 @@ First, request a `token` from your server.
         public Main() {
             // Create an instance of the Respoke client
             client = Respoke.sharedInstance().createClient(this);
-            client.setListener(this);        
+            client.setListener(this);
 
             // Create HTTP POST request to authentication server
             connect();
         }
-        
+
         public void connect() {
             JSONObject json = new JSONObject();
             json.put("endpointId", "spock@enterprise.com");
-            
+
             HttpPost request = new HttpPost("http://yoururl");
             StringEntity params = new StringEntity(json.toString());
             request.addHeader("content-type", "application/json");
             request.setEntity(params);
             HttpResponse response = httpClient.execute(request);
-            
+
             String token = response.token;
 
             // Execute some signin event, then connect to Respoke with
@@ -93,15 +93,16 @@ First, request a `token` from your server.
             Log.d("Main", "Connected to Respoke!");
         }
     }
-    
 
-Then your server will request this `token` from Respoke. 
+
+Then your server will request this `token` from Respoke.
 
 {example: endpoint-authentication}
 
 Use this `token` to connect your client to Respoke.
 
-Additionally, you'll need to listen to the `disconnect` event. Then request a new `token` from your server and use this new `token` to re-connect your client to Respoke.
+Additionally, you'll need to listen to the `disconnect` event. Then request a new `token` from your server and use this
+new `token` to re-connect your client to Respoke.
 
     public void onDisconnect(RespokeClient client) {
         // Reconnect to Respoke

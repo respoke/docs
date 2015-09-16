@@ -15,14 +15,16 @@ meta:
 
 ## Overview
 
-The group forms the foundation for conversations beyond 1:1 peers. To create a group you must be connected to Respoke either in [development mode](/client/android/getting-started.html) or authenticated.
+The group forms the foundation for conversations beyond 1:1 peers. To create a group you must be connected to Respoke
+either in [development mode](/client/android/getting-started.html) or authenticated.
 
 Once connectivity is established, we're ready to start writing some code.
 
 
 ## Joining Groups
 
-First [connect to Respoke](/client/android/getting-started.html) and listen for the `connect` event. Then you can join a group.
+First [connect to Respoke](/client/android/getting-started.html) and listen for the `connect` event. Then you can join
+a group.
 
     package com.digium.respoke;
 
@@ -45,19 +47,19 @@ First [connect to Respoke](/client/android/getting-started.html) and listen for 
         // "connect" event fired after successful connection to Respoke
         public void onConnect(RespokeClient client) {
             Log.d("Main", "Connected to Respoke!");
-            
+
             String groupId = "united-federation-of-planets";
             ArrayList<String> groups = new ArrayList<String>();
             groups.add(groupId);
-            
+
             client.joinGroups(groups, new RespokeClient.JoinGroupCompletionListener() {
                 @Override
                 public void onSuccess(final ArrayList<RespokeGroup> groups) {
                     Log.d("Main", "Group joined, fetching member list");
-                    
+
                     group = groups.get(0);
                     group.setListener(Main.this);
-                    
+
                     group.getMembers(new RespokeGroup.GetGroupMembersCompletionListener() {
                         @Override
                         public void onSuccess(ArrayList<RespokeConnection> connections) {
@@ -70,8 +72,8 @@ First [connect to Respoke](/client/android/getting-started.html) and listen for 
             });
         }
     }
-    
-Once successful, Respoke will return the `group` you joined. 
+
+Once successful, Respoke will return the `group` you joined.
 
 Additionally, you can leave a group as well.
 
@@ -87,7 +89,7 @@ Additionally, you can leave a group as well.
         }
     });
 
-You can listen for when people `join` this group. 
+You can listen for when people `join` this group.
 
     public void onJoin(RespokeConnection connection, RespokeGroup group) {
         RespokeEndpoint endpoint = connection.getEndpoint();

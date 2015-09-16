@@ -15,7 +15,9 @@ meta:
 
 ## Overview
 
-The Respoke Java library provides a convenient way for Node developers to interface with Respoke for non-browser-to-browser communication tasks. Good examples of non-browser-to-browser communication tasks include authentication.
+The Respoke Java library provides a convenient way for Node developers to interface with Respoke for
+non-browser-to-browser communication tasks. Good examples of non-browser-to-browser communication tasks include
+authentication.
 
 ## Install Respoke Java
 
@@ -26,13 +28,13 @@ Install Respoke as a local application dependency using [Maven](http://search.ma
         <artifactId>respoke-java</artifactId>
         <version>1.0.0</version>
     </dependency>
-    
+
 Install Respoke's Java Library to your project using [Gradle](https://gradle.org/).
 
-    dependencies {	
+    dependencies {
     	compile "com.digium.respoke:respoke-java:1.0.0"
     }
-    
+
 ## Create Respoke
 
 Finally, create an instance of Respoke:
@@ -42,4 +44,3 @@ Finally, create an instance of Respoke:
     Respoke client = new Respoke();
 
 That's it! Now we're ready to start using all this Respoke server library has to offer.
-    

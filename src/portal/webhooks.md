@@ -15,7 +15,8 @@ meta:
 
 ## Overview
 
-WebHooks enable Respoke to send your server JSON messages when events occur in your app. Those events can be anything from a user connecting to your Respoke app, to a user joining a group.
+WebHooks enable Respoke to send your server JSON messages when events occur in your app. Those events can be anything
+from a user connecting to your Respoke app, to a user joining a group.
 
 ## Enabling WebHooks
 
@@ -57,13 +58,13 @@ Next, setup your server to recieve WebHook events from Respoke. Here is an expre
 Finally, parse the events on your server - Here's the callback from joining a group.
 
 ```
-body: { 
-  header: { 
+body: {
+  header: {
     channel: 'event_',
     type: 'groupJoined',
     from: 'system',
     fromConnection: 'system',
-    requestId: '7da649fe-bca7-4d2d-92a1-20caa679bfd4' 
+    requestId: '7da649fe-bca7-4d2d-92a1-20caa679bfd4'
   },
   endpointId: 'spock@enterprise.com',
   connectionId: 'C33794C7-1679-4782-8E7C-789FE44841A3',
