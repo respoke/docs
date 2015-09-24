@@ -1,4 +1,4 @@
-// git clone https://github.com/ruffrey/dotnet-respoke-admin.git
+// git clone https://github.com/respoke/dotnet-respoke-admin.git
 
 using Respoke;
 
