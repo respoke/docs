@@ -23,7 +23,7 @@ authentication.
 
 Install Respoke as a local application dependency by git cloning dotnet-respoke-admin:
 
-    git clone https://github.com/ruffrey/dotnet-respoke-admin.git
+    git clone https://github.com/respoke/dotnet-respoke-admin.git
 
 ## Create Respoke
 
