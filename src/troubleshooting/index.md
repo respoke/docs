@@ -12,14 +12,14 @@ menuOrder: 0
 
 ## Audio / Video Not Working in Chrome 45+ But Worked Prior
 
-This issue could be caused by the ['self' source expression change to exclude 'blob:'][1]
+This issue may be caused by the ['self' source expression change to exclude 'blob:'][1]
 in Chrome's implementation of [Content Security Policy][2] that became the default behavior
 in Chrome 45. If you are using a Content Security Policy to protect your site from XSS
 attacks and were not aware of this change, it could potentially prevent your audio and video
 calls from properly rendering the media, which would cause the audio to not play or the video
 element to not show up.
 
-Typically if your application is affected by this problem, you will see an error message printed
+If your application is affected by this problem, you will see an error message printed
 in the javascript console of your browser indicating that it refused to render a url starting with
 'blob://' due to the Content Security Policy settings in effect.
 
