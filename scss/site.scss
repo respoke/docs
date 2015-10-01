@@ -168,3 +168,27 @@
         margin-bottom: 5px !important;
     }
 }
+
+.supported-devices-matrix {
+
+    th:first-child, td:first-child {
+        text-align: right;
+    }
+
+    .supported {
+        background-color: #A3EEA1;
+        text-align: center;
+    }
+
+    .not-supported {
+        background-color: #EEBABC;
+        text-align: center;
+    }
+
+    .footnote {
+        vertical-align: super;
+        font-size: small;
+        text-decoration: none;
+    }
+
+}
