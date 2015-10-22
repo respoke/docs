@@ -78,6 +78,10 @@ menuOrder: 0
     <td>Opera for iOS</td>
     <td class="not-supported">No</td>
   </tr>
+  <tr>
+    <td>nw.js</td>
+    <td class="supported">Yes</td>
+  </tr>
 </tbody>
 </table>
 
