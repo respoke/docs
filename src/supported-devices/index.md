@@ -79,9 +79,17 @@ menuOrder: 0
     <td class="not-supported">No</td>
   </tr>
   <tr>
-    <td>nw.js</td>
-    <td class="supported">Yes</td>
+    <td>Linux Native</td>
+    <td class="supported">Yes<span class="footnote"><a href="#notes">4</a></span></td>
   </tr>
+  <tr>
+    <td>Windows Native</td>
+    <td class="supported">Yes<span class="footnote"><a href="#notes">4</a></span></td>
+  </tr>
+  <tr>
+    <td>Mac Native</td>
+    <td class="supported">Yes<span class="footnote"><a href="#notes">4</a></span></td>
+  </tr>  
 </tbody>
 </table>
 
@@ -90,7 +98,9 @@ menuOrder: 0
 1. Respoke is supported on Android natively by using the [Respoke Android SDK][].
 2. The Android Webview supports WebRTC as of [Android 5.0+ (Webview v36+)][android webrtc].
 3. Respoke is supported on iOS natively by using the [Respoke iOS SDK][].
+4. Respoke is supported on Windows, Mac and Linux natively by using [nw.js][].
 
 [Respoke Android SDK]: https://github.com/respoke/respoke-sdk-android
 [android webrtc]: https://developer.chrome.com/multidevice/webview/overview#does_the_new_webview_have_feature_parity_with_chrome_for_android_
 [Respoke iOS SDK]: https://github.com/respoke/respoke-sdk-ios
+[nw.js]: http://nwjs.io/
