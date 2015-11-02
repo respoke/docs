@@ -39,7 +39,7 @@ client side. Once you're app is ready for production, you will want to
 ## Install Respoke
 
 Next, you'll need to include the Respoke JavaScript library in the source code of your project. To do this, add the
-following script tag to the <head> section of your HTML file:
+following script tag to the `<head>` section of your HTML file:
 
     <script src="https://cdn.respoke.io/respoke.min.js"></script>
 
