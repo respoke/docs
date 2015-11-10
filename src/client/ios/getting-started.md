@@ -15,7 +15,7 @@ meta:
 
 ## Create an account
 
-First [signup for a free Respoke account](https://portal.respoke.io/#/signup). Within the Respoke Dashboard you can
+First [signup for a Respoke account](https://portal.respoke.io/#/signup). Within the Respoke Dashboard you can
 create, manage and delete Respoke Apps. Clicking on a specific App lets you view your App ID, App Secret, whether you
 have Dev Mode enabled and App Roles (if any).
 
@@ -91,5 +91,3 @@ Finally, to validate everything is working, you'll want to connect to Respoke:
     @end
 
 That's it! Now we're ready to start using all Respoke has to offer.
-
-

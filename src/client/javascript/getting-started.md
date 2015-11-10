@@ -14,12 +14,12 @@ meta:
 
 # Getting Started
 
-Getting up and running with Respoke is free, and can be accomplished in a few easy steps.
+Getting up and running with Respoke is fast, and can be accomplished in a few easy steps.
 
 ## Create an Account
 
 The first thing you'll need to do before you can start using Respoke is to
-<a href="https://portal.respoke.io/#/signup" target="_blank" title="signup for a free Respoke account">signup for a free
+<a href="https://portal.respoke.io/#/signup" target="_blank" title="signup for a Respoke account">signup for a
 Respoke account</a>.
 
 ## Create a Respoke App
@@ -76,4 +76,3 @@ Finally, to validate everything is working, you'll want to connect to Respoke:
 That's it! You're now ready to start using the Respoke framework. Why not get started by adding
 [video](/client/javascript/guide/video-calling.html) or [messaging](/client/javascript/guide/messaging-individuals.html)
 to your app?
-
