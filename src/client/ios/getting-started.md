@@ -15,16 +15,16 @@ meta:
 
 ## Create an account
 
-First [signup for a Respoke account](https://portal.respoke.io/#/signup). Within the Respoke Dashboard you can
-create, manage and delete Respoke Apps. Clicking on a specific App lets you view your App ID, App Secret, whether you
-have Dev Mode enabled and App Roles (if any).
+Within the Respoke Dashboard you can create, manage and delete Respoke Apps. Clicking on a
+specific App lets you view your App ID, App Secret, whether you have Dev Mode enabled and
+App Roles (if any).
 
 ## Setup Xcode IDE
 
 ### Create an iOS Workspace
 
-Open Xcode and create a new workspace. Now create a new project, supply the project options and add the project to the
-workspace.
+Open Xcode and create a new workspace. Now create a new project, supply the project options and
+add the project to the workspace.
 
 ![configure new project](../../images/ios-sdk/single-view-application.png)
 

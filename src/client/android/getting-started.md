@@ -15,16 +15,16 @@ meta:
 
 ## Create an account
 
-First [signup for a Respoke account](https://portal.respoke.io/#/signup). Within the Respoke Dashboard you can
-create, manage and delete Respoke Apps. Clicking on a specific App lets you view your App ID, App Secret, whether you
-have Dev Mode enabled and App Roles (if any).
+Within the Respoke Dashboard you can create, manage and delete Respoke Apps. Clicking on
+a specific App lets you view your App ID, App Secret, whether you have Dev Mode enabled
+and App Roles (if any).
 
 ## Setup Android Studio
 
 ### Create an Android Project
 
-First, open Android Studio and create a new blank project based on API level 15 (v4.0.3 Ice Cream Sandwich). Create a
-blank activity and name it “main” as shown in the screenshots below.
+First, open Android Studio and create a new blank project based on API level 15 (v4.0.3 Ice
+Cream Sandwich). Create a blank activity and name it “main” as shown in the screenshots below.
 
 ![configure new project](../../images/android-sdk/configure-new-project.png)
 
