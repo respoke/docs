@@ -16,15 +16,9 @@ meta:
 
 Getting up and running with Respoke is fast, and can be accomplished in a few easy steps.
 
-## Create an Account
-
-The first thing you'll need to do before you can start using Respoke is to
-<a href="https://portal.respoke.io/#/signup" target="_blank" title="signup for a Respoke account">signup for a
-Respoke account</a>.
-
 ## Create a Respoke App
 
-After your account is setup, head to the [Dev Portal and create a new Respoke app](/portal/apps.html). Once you've
+Head to the [Dev Portal and create a new Respoke app](/portal/apps.html). Once you've
 created your app, set it to use `development mode` by setting the Dev Mode toggle to enabled in the permissions tab of
 your app settings.
 
